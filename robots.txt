@@ -1,0 +1,19 @@
+# DentoMate Website - robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow specific paths if needed
+# Disallow: /admin/
+# Disallow: /private/
+
+# Slow down aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 1
+
+User-agent: SemrushBot
+Crawl-delay: 1
+
+# Point to sitemap
+Sitemap: https://dentomate.io/sitemap.xml
