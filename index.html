@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="DentoMate - Modern Dental Practice Management Software">
+    <meta name="description" content="DentoMate is an all-in-one dental practice management platform. Manage patient records, treatment planning, lab operations, and medical history in one integrated system. Free trial available.">
+    <meta name="keywords" content="dental practice management software, dental clinic software, patient management system, treatment planning software, dental lab management">
+    <meta name="author" content="DentoMate">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dentomate.io/">
+    <meta property="og:title" content="DentoMate - Modern Dental Practice Management Software">
+    <meta property="og:description" content="Streamline your dental practice with comprehensive patient management, treatment planning, and lab operations. All-in-one solution for modern dentistry.">
+    <meta property="og:image" content="https://dentomate.io/og-image.jpg">
+    <meta property="og:image:alt" content="DentoMate Dashboard Preview">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://dentomate.io/">
+    <meta name="twitter:title" content="DentoMate - Modern Dental Practice Management Software">
+    <meta name="twitter:description" content="All-in-one dental practice management platform for modern dentistry">
+    <meta name="twitter:image" content="https://dentomate.io/twitter-image.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://dentomate.io/">
+
+    <!-- Structured Data (Schema.org) - SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DentoMate",
+        "applicationCategory": "BusinessApplication",
+        "description": "Modern dental practice management software for patient records, treatment planning, lab operations, and medical history",
+        "url": "https://dentomate.io",
+        "softwareVersion": "2.0.0",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "99",
+            "priceCurrency": "USD",
+            "description": "Starting from $99/month"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "342"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "DentoMate Inc",
+            "url": "https://dentomate.io",
+            "logo": "https://dentomate.io/logo.png"
+        }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://dentomate.io/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DentoMate",
+        "url": "https://dentomate.io",
+        "logo": "https://dentomate.io/logo.png",
+        "description": "Dental practice management software",
+        "sameAs": [
+            "https://www.facebook.com/dentomate",
+            "https://www.twitter.com/dentomate",
+            "https://www.linkedin.com/company/dentomate"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "telephone": "+1-800-DENTO-MAT",
+            "email": "support@dentomate.io"
+        }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is DentoMate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DentoMate is a comprehensive dental practice management software designed to streamline your practice operations. It includes patient management, treatment planning, lab operations, and medical history tracking in one integrated platform."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does DentoMate cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DentoMate offers flexible pricing starting at $99/month for single-dentist practices and scales up based on practice size and features needed. We also offer a 14-day free trial."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is DentoMate HIPAA compliant?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, DentoMate is fully HIPAA compliant with enterprise-grade security, encrypted data storage, and regular security audits."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        .cta-btn {
+            background: #0066cc;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #0052a3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0066cc;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #0066cc;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0066cc;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #0066cc;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            line-height: 1.8;
+        }
+
+        .feature-card a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .feature-card a:hover {
+            color: #004d99;
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: white;
+        }
+
+        .faq-item {
+            margin: 2rem 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            cursor: pointer;
+            color: #0066cc;
+            user-select: none;
+            font-size: 1.2rem;
+        }
+
+        .faq-item p {
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav ul li {
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <title>DentoMate - Dental Practice Management Software</title>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header role="banner">
+        <nav role="navigation">
+            <span class="logo">DentoMate</span>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/features/">Features</a></li>
+                <li><a href="/features/patient-management/">Patient Management</a></li>
+                <li><a href="/features/treatment-planning/">Treatment Planning</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li><a href="/signup/" class="cta-btn">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Modern Dental Practice Management Made Simple</h1>
+            <p>Manage patient records, treatment planning, lab operations, and medical history in one integrated platform. Trusted by 500+ dental practices nationwide.</p>
+            <div class="hero-buttons">
+                <a href="/signup/" class="btn-primary">Start Your Free Trial</a>
+                <a href="#features" class="btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <h2>Comprehensive Features for Modern Dentistry</h2>
+                <p style="text-align: center; margin-bottom: 3rem; font-size: 1.1rem;">DentoMate provides all the tools you need to run your practice efficiently and focus on patient care.</p>
+
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <h3>👥 Patient Management</h3>
+                        <p>Complete patient registry with demographic information, medical history including blood pressure, diabetes, allergies, pregnancy status. Store comprehensive patient profiles in one place.</p>
+                        <a href="/features/patient-management/">Learn More →</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>🦷 Treatment Planning</h3>
+                        <p>Advanced treatment planning with support for implants, orthodontics, scaling, restorations, extractions, RCT, crown & bridge, and surgical procedures. Track treatment charges in detail.</p>
+                        <a href="/features/treatment-planning/">Learn More →</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>🏥 Lab Management</h3>
+                        <p>Integrated lab operations tracking for crowns, dentures, orthodontic appliances, and prosthetics. Manage work types, materials, and delivery schedules in one system.</p>
+                        <a href="/features/lab-management/">Learn More →</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>🔒 HIPAA Compliant</h3>
+                        <p>Enterprise-grade security with HIPAA compliance, encrypted data storage, regular security audits, and automated backups. Your patient data is safe with us.</p>
+                        <a href="/security/">Learn More →</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>🔗 Easy Integration</h3>
+                        <p>Seamlessly integrate with your existing dental software and tools. Our open API makes it simple to connect with other practice management systems.</p>
+                        <a href="/integrations/">Learn More →</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>📊 Analytics & Reporting</h3>
+                        <p>Powerful analytics dashboard with treatment reports, revenue insights, patient statistics, and performance metrics to help you make data-driven decisions.</p>
+                        <a href="/analytics/">Learn More →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why DentoMate Section -->
+        <section>
+            <div class="container">
+                <h2>Why Dentists Choose DentoMate</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <h3>🚀 Faster Setup</h3>
+                        <p>Get up and running in less than 24 hours. Our intuitive interface requires minimal training, and our support team handles data migration.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>💰 Cost Effective</h3>
+                        <p>Save thousands annually with our transparent pricing. No hidden fees, no surprise charges. Pay only for what you use.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>🔒 Data Security</h3>
+                        <p>Your patient data is encrypted, backed up automatically, and protected by enterprise-grade security measures.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>📱 Mobile Ready</h3>
+                        <p>Access DentoMate from anywhere, anytime. Full mobile support for patient records and treatment planning on the go.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3>What information can I store in DentoMate?</h3>
+                    <p>DentoMate stores comprehensive patient information including: basic demographics (name, age, sex, address, contact), medical history (BP, diabetes, allergies, pregnancy status), and complete treatment records with charges.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What treatment types does DentoMate support?</h3>
+                    <p>We support all major treatment types including dental implants, orthodontics, scaling, restorations (GIC, composite, amalgam), extractions, RCT, crown & bridge work, and various surgical procedures.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is there a free trial?</h3>
+                    <p>Yes! We offer a 14-day free trial with full access to all features. No credit card required. Start managing your practice with DentoMate risk-free.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How secure is my patient data?</h3>
+                    <p>DentoMate is fully HIPAA compliant with end-to-end encryption, secure servers, and regular security audits. Your patient data is protected by enterprise-grade security.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I migrate my existing patient records?</h3>
+                    <p>Yes! Our migration team will help you import your existing patient records and data from your current system. The process is simple and secure.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What kind of support do you offer?</h3>
+                    <p>We provide 24/7 email support, comprehensive documentation, video tutorials, and dedicated onboarding for all plans.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" id="cta">
+            <div class="container">
+                <h2>Ready to Transform Your Dental Practice?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Join 500+ dental practices using DentoMate to streamline operations and improve patient care.</p>
+                <a href="/signup/" class="btn-primary" style="display: inline-block;">Start Free Trial Today</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/features/patient-management/">Patient Management</a></li>
+                        <li><a href="/features/treatment-planning/">Treatment Planning</a></li>
+                        <li><a href="/features/lab-management/">Lab Management</a></li>
+                        <li><a href="/pricing/">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Compare</h4>
+                    <ul>
+                        <li><a href="/compare/dentomate-vs-dentrix/">DentoMate vs Dentrix</a></li>
+                        <li><a href="/compare/dentomate-vs-eaglesoft/">DentoMate vs EagleSoft</a></li>
+                        <li><a href="/compare/dentomate-vs-opendental/">DentoMate vs Open Dental</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy/">Privacy Policy</a></li>
+                        <li><a href="/terms/">Terms of Service</a></li>
+                        <li><a href="/hipaa/">HIPAA Compliance</a></li>
+                        <li><a href="/security/">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 DentoMate Inc. All rights reserved. | 
+                <a href="https://twitter.com/dentomate">Twitter</a> |
+                <a href="https://linkedin.com/company/dentomate">LinkedIn</a> |
+                <a href="https://facebook.com/dentomate">Facebook</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
