@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="DentoMate vs Dentrix - Comparison">
+    <meta name="description" content="Compare DentoMate and Dentrix side by side. See why dentists are switching to DentoMate for modern dental practice management.">
+
+    <title>DentoMate vs Dentrix - DentoMate</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #60a5fa;
+            --accent: #8b5cf6;
+            --neutral: #0f172a;
+            --neutral-light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            margin-top: 0;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 16px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--neutral);
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--neutral);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        h2 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            font-weight: 700;
+            color: var(--neutral);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--text);
+            width: 40%;
+        }
+
+        .checkmark {
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .cross {
+            color: #ef4444;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .comparison-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--neutral);
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            padding: 0.75rem 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .comparison-card li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        footer {
+            background: var(--neutral);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <nav role="navigation">
+            <a href="/" class="logo">DentoMate</a>
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <a href="/">Home</a>
+                <a href="/compare/">Compare</a>
+                <a href="/signup/" class="nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="/">Home</a> / <a href="/compare/">Compare</a> / DentoMate vs Dentrix
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>DentoMate <span>vs Dentrix</span></h1>
+                <p>See how DentoMate compares to Dentrix for modern dental practice management</p>
+                <a href="/signup/" class="cta-btn">Try DentoMate Free</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Feature <span>Comparison</span></h2>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>DentoMate</th>
+                            <th>Dentrix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Patient Management</td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Treatment Planning</td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Modern, Intuitive UI</td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cloud-Based</td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mobile App</td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>14-Day Free Trial</td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Starting Price</td>
+                            <td><span class="checkmark">$49/month</span></td>
+                            <td><span class="cross">$200+/month</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 style="margin-top: 4rem;">Why Choose <span>DentoMate</span>?</h2>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h3>💻 Modern Technology</h3>
+                        <ul>
+                            <li>Built with latest web technologies</li>
+                            <li>Fast, responsive interface</li>
+                            <li>Works on any device</li>
+                            <li>Regular feature updates</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h3>💰 Better Value</h3>
+                        <ul>
+                            <li>Starting from just $49/month</li>
+                            <li>No expensive implementation fees</li>
+                            <li>No long-term contracts</li>
+                            <li>Cancel anytime</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h3>☁️ Cloud-Based</h3>
+                        <ul>
+                            <li>Access from anywhere</li>
+                            <li>Automatic backups</li>
+                            <li>No server maintenance</li>
+                            <li>Always up-to-date</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h3>🎯 Easy Setup</h3>
+                        <ul>
+                            <li>Start in minutes, not months</li>
+                            <li>Minimal training required</li>
+                            <li>Dedicated support team</li>
+                            <li>Data migration assistance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 4rem;">Ready to Make the <span>Switch</span>?</h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Start your free 14-day trial today. No credit card required.</p>
+                <div style="text-align: center;">
+                    <a href="/signup/" class="cta-btn">Start Free Trial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/features/patient-management/">Patient Management</a></li>
+                    <li><a href="/features/treatment-planning/">Treatment Planning</a></li>
+                    <li><a href="/features/lab-management/">Lab Management</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signup/">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 DentoMate Inc. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

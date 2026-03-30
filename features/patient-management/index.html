@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Patient Management Software - DentoMate">
+    <meta name="description" content="Comprehensive dental patient management system. Store medical history, demographics, and treatment records securely. HIPAA compliant.">
+
+    <title>Patient Management - DentoMate</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #60a5fa;
+            --accent: #8b5cf6;
+            --neutral: #0f172a;
+            --neutral-light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            margin-top: 0;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 16px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--neutral);
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--neutral);
+            font-weight: 800;
+        }
+
+        h2 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--neutral);
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+        }
+
+        p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            background: var(--neutral-light);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .feature-item h4 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        footer {
+            background: var(--neutral);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <nav role="navigation">
+            <a href="/" class="logo">DentoMate</a>
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <a href="/">Home</a>
+                <a href="/features/">Features</a>
+                <a href="/signup/" class="nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="/">Home</a> / <a href="/features/">Features</a> / Patient Management
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Comprehensive <span>Patient Management</span></h1>
+                <p>Store complete patient profiles with medical history, demographics, and treatment records in one secure, HIPAA-compliant system.</p>
+                <a href="/signup/" class="cta-btn">Start Free Trial</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Key <span>Capabilities</span></h2>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <h4>👥 Complete Profiles</h4>
+                        <p>Store comprehensive patient information including demographics, contact details, insurance information, and emergency contacts all in one place.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>📋 Medical History</h4>
+                        <p>Track blood pressure, diabetes status, pregnancy, allergies, medications, cardiac conditions, hepatic conditions, and renal conditions securely.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>⚠️ Allergy Tracking</h4>
+                        <p>Monitor both medical and pharmaceutical allergies with detailed notes and alerts to prevent dangerous drug interactions.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>🔍 Smart Search</h4>
+                        <p>Find patient records instantly with powerful search functionality. Access patient information in seconds, not minutes.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>📊 Treatment History</h4>
+                        <p>Complete treatment tracking with dates, procedures, costs, and notes. Build a comprehensive history for each patient over time.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>🔒 Secure Access</h4>
+                        <p>Role-based access control ensures only authorized staff can view sensitive patient information. Full audit logs for compliance.</p>
+                    </div>
+                </div>
+
+                <h3>Why Patient Management Matters</h3>
+                <p>Organized patient records are the foundation of great dental care. DentoMate makes it easy to:</p>
+                <ul class="features-list">
+                    <li class="feature-item" style="padding: 1.5rem;">
+                        <strong>Prevent Drug Interactions:</strong> Know about allergies and medications before prescribing
+                    </li>
+                    <li class="feature-item" style="padding: 1.5rem;">
+                        <strong>Improve Communication:</strong> Access complete patient history for better conversations
+                    </li>
+                    <li class="feature-item" style="padding: 1.5rem;">
+                        <strong>Ensure Compliance:</strong> Meet HIPAA requirements with automated audit trails
+                    </li>
+                </ul>
+
+                <h3>Get Started Today</h3>
+                <p>Start your 14-day free trial and see how DentoMate's patient management system can transform your practice. No credit card required.</p>
+                <a href="/signup/" class="cta-btn">Try DentoMate Free</a>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/features/patient-management/">Patient Management</a></li>
+                    <li><a href="/features/treatment-planning/">Treatment Planning</a></li>
+                    <li><a href="/features/lab-management/">Lab Management</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signup/">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 DentoMate Inc. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

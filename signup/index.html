@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Sign Up for DentoMate - Free 14-Day Trial">
+    <meta name="description" content="Start your free 14-day trial of DentoMate today. No credit card required. Full access to all features.">
+
+    <title>Sign Up - DentoMate</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #60a5fa;
+            --accent: #8b5cf6;
+            --neutral: #0f172a;
+            --neutral-light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, var(--neutral-light) 0%, rgba(59, 130, 246, 0.05) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .signup-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 80px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .signup-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .signup-left h1 {
+            font-size: 2.5rem;
+            color: var(--neutral);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .signup-left h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .signup-left p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list li {
+            padding: 0.75rem 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .signup-right {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .signup-right h2 {
+            font-size: 1.8rem;
+            color: var(--neutral);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .signup-right p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.85rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .terms {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .terms a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .terms a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1.5px solid var(--success);
+            color: var(--success);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .signup-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 120px;
+            }
+
+            .signup-left h1 {
+                font-size: 2rem;
+            }
+
+            .signup-right {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header role="banner">
+        <nav role="navigation">
+            <a href="/" class="logo">DentoMate</a>
+            <a href="/" class="nav-link">← Back to Home</a>
+        </nav>
+    </header>
+
+    <div class="signup-container">
+        <!-- Left Side -->
+        <div class="signup-left">
+            <h1>Start Your <span>Free Trial Today</span></h1>
+            <p>Join 500+ dental practices using DentoMate to streamline operations and deliver better patient care. No credit card required.</p>
+
+            <ul class="benefits-list">
+                <li>14 days free, full feature access</li>
+                <li>No credit card required</li>
+                <li>Cancel anytime, no questions asked</li>
+                <li>24/7 customer support included</li>
+                <li>Data migration assistance</li>
+                <li>HIPAA compliant & secure</li>
+            </ul>
+        </div>
+
+        <!-- Right Side - Signup Form -->
+        <div class="signup-right">
+            <h2>Create Your Account</h2>
+            <p>Get started in less than 2 minutes</p>
+
+            <form id="signupForm">
+                <div class="success-message" id="successMessage">
+                    ✓ Thank you! We'll contact you shortly with your trial access details.
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Dr. John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="you@dentalclinic.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="clinic">Clinic Name *</label>
+                    <input type="text" id="clinic" name="clinic" required placeholder="Smile Dental Clinic">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City *</label>
+                        <input type="text" id="city" name="city" required placeholder="New York">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State/Province *</label>
+                        <input type="text" id="state" name="state" required placeholder="NY">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="practiceSize">Practice Size *</label>
+                    <select id="practiceSize" name="practiceSize" required>
+                        <option value="">Select practice size</option>
+                        <option value="solo">Solo Practice</option>
+                        <option value="2-5">2-5 Dentists</option>
+                        <option value="5-10">5-10 Dentists</option>
+                        <option value="10+">10+ Dentists</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Get Free Trial Access</button>
+
+                <p class="terms">
+                    By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                clinic: document.getElementById('clinic').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                practiceSize: document.getElementById('practiceSize').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Log the data (in a real application, this would be sent to a backend)
+            console.log('Signup Data:', formData);
+
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+
+            // Reset form
+            this.reset();
+
+            // Optional: Redirect after 3 seconds
+            setTimeout(() => {
+                // window.location.href = '/';
+            }, 3000);
+        });
+
+        // Add input validation styles
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--primary)';
+            });
+
+            input.addEventListener('blur', function() {
+                if (!this.value && this.required) {
+                    this.style.borderColor = '#ef4444';
+                } else {
+                    this.style.borderColor = 'var(--border)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

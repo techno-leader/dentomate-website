@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="DentoMate Comparisons - Better Than The Rest">
+    <meta name="description" content="Compare DentoMate with other dental practice management software. See why dentists choose DentoMate.">
+
+    <title>Compare - DentoMate</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #60a5fa;
+            --accent: #8b5cf6;
+            --neutral: #0f172a;
+            --neutral-light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            margin-top: 0;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 16px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--neutral);
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--neutral);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        h2 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .comparison-card {
+            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+            text-align: center;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .comparison-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.4rem;
+            color: var(--neutral);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .comparison-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        footer {
+            background: var(--neutral);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <nav role="navigation">
+            <a href="/" class="logo">DentoMate</a>
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <a href="/">Home</a>
+                <a href="/compare/">Compare</a>
+                <a href="/signup/" class="nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="/">Home</a> / Compare
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>See How DentoMate <span>Compares</span></h1>
+                <p>Compare DentoMate with other dental practice management solutions</p>
+                <a href="/signup/" class="cta-btn">Start Free Trial</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Compare with <span>Other Solutions</span></h2>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-icon">🦷</div>
+                        <h3>DentoMate vs Dentrix</h3>
+                        <p>See how DentoMate's modern approach compares to Dentrix's traditional platform. Discover why practices are making the switch.</p>
+                        <a href="/compare/dentomate-vs-dentrix/" class="cta-btn">View Comparison</a>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="comparison-icon">🦅</div>
+                        <h3>DentoMate vs EagleSoft</h3>
+                        <p>Compare DentoMate's cloud-based solution with EagleSoft. See the advantages of modern dental practice management.</p>
+                        <a href="/compare/dentomate-vs-eaglesoft/" class="cta-btn">View Comparison</a>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 4rem;">Why Dentists Choose <span>DentoMate</span></h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Modern technology, affordable pricing, and exceptional support. Everything you need to run a successful dental practice.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/features/patient-management/">Patient Management</a></li>
+                    <li><a href="/features/treatment-planning/">Treatment Planning</a></li>
+                    <li><a href="/features/lab-management/">Lab Management</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signup/">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 DentoMate Inc. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
