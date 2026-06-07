@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 220">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#eff6ff"/>
+    <stop offset="100%" stop-color="#f5f3ff"/>
+  </linearGradient>
+  <linearGradient id="brandG" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#3b82f6"/>
+    <stop offset="100%" stop-color="#8b5cf6"/>
+  </linearGradient>
+</defs>
+<rect width="580" height="220" fill="url(#bg)"/>
+
+<!-- Clinic illustration — left side -->
+<!-- Clinic signboard -->
+<rect x="40" y="30" width="180" height="110" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+<rect x="40" y="30" width="180" height="36" rx="10" fill="#1e3a5f"/>
+<rect x="40" y="56" width="180" height="10" fill="#1e3a5f"/>
+<text x="76" y="53" font-size="10" font-weight="700" fill="white" font-family="-apple-system,sans-serif">SmileCraft Dental</text>
+<text x="88" y="65" font-size="8" fill="rgba(255,255,255,0.6)" font-family="-apple-system,sans-serif">Dr. Arjun Mehta, BDS</text>
+
+<!-- Dentist silhouette -->
+<circle cx="100" cy="102" r="18" fill="#dbeafe"/>
+<rect x="84" y="118" width="32" height="18" rx="6" fill="#93c5fd"/>
+<!-- Stethoscope accent -->
+<circle cx="118" cy="110" r="5" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M123 110 Q128 106 128 100" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+<!-- Chair/patient area -->
+<rect x="150" y="98" width="50" height="30" rx="4" fill="#f1f5f9"/>
+<rect x="154" y="86" width="42" height="16" rx="4" fill="#e2e8f0"/>
+
+<!-- Phone showing prescription -->
+<rect x="246" y="26" width="90" height="144" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+<rect x="250" y="30" width="82" height="136" rx="5" fill="#f8fafc"/>
+<!-- Prescription preview -->
+<rect x="254" y="34" width="74" height="20" rx="4" fill="#1e3a5f"/>
+<text x="268" y="48" font-size="6" font-weight="700" fill="white" font-family="-apple-system,sans-serif">SmileCraft Dental</text>
+<text x="258" y="64" font-size="6" font-weight="700" fill="#374151" font-family="-apple-system,sans-serif">Prescription</text>
+<text x="258" y="74" font-size="5.5" fill="#64748b" font-family="-apple-system,sans-serif">Rahul Mehta</text>
+<text x="258" y="84" font-size="5.5" fill="#64748b" font-family="-apple-system,sans-serif">Root Canal · 5 Jun 26</text>
+<line x1="258" y1="88" x2="320" y2="88" stroke="#e2e8f0" stroke-width="0.5"/>
+<text x="258" y="98" font-size="5.5" fill="#374151" font-family="-apple-system,sans-serif">Amoxicillin 500mg 3×/day</text>
+<text x="258" y="108" font-size="5.5" fill="#374151" font-family="-apple-system,sans-serif">Ibuprofen 400mg 3×/day</text>
+<text x="258" y="122" font-size="5.5" fill="#94a3b8" font-family="-apple-system,sans-serif">Return in 7 days</text>
+<!-- Signature -->
+<rect x="258" y="132" width="60" height="16" rx="3" fill="#f1f5f9"/>
+<text x="262" y="143" font-size="5.5" fill="#94a3b8" font-family="-apple-system,sans-serif">Dr. Arjun Mehta</text>
+<!-- Green sent tick -->
+<circle cx="316" cy="164" r="8" fill="#d1fae5"/>
+<path d="M312 164l2.5 2.5 5-5" stroke="#059669" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- Arrow between phone and clinic -->
+<path d="M238 98 Q242 98 246 98" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2" stroke-linecap="round" fill="none"/>
+<path d="M244 95l3 3-3 3" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- Right side: savings stats -->
+<rect x="360" y="30" width="200" height="60" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+<text x="376" y="56" font-size="24" font-weight="700" fill="#1d4ed8" font-family="-apple-system,sans-serif">₹8k</text>
+<text x="420" y="50" font-size="9" fill="#374151" font-family="-apple-system,sans-serif">saved per month</text>
+<text x="420" y="64" font-size="8" fill="#94a3b8" font-family="-apple-system,sans-serif">vs. WhatsApp API cost</text>
+<rect x="360" y="100" width="200" height="60" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+<text x="376" y="126" font-size="24" font-weight="700" fill="#059669" font-family="-apple-system,sans-serif">5 min</text>
+<text x="442" y="120" font-size="9" fill="#374151" font-family="-apple-system,sans-serif">setup</text>
+<text x="442" y="134" font-size="8" fill="#94a3b8" font-family="-apple-system,sans-serif">no developer</text>
+
+<rect x="360" y="172" width="200" height="36" rx="10" fill="url(#brandG)"/>
+<text x="390" y="194" font-size="10" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Start free 14-day trial →</text>
+
+</svg>

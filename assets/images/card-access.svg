@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 240">
+<rect width="380" height="240" fill="#0f172a"/>
+
+<!-- Big headline -->
+<text x="28" y="62" font-size="28" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Role-Based</text>
+<text x="28" y="94" font-size="28" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Access</text>
+
+<text x="28" y="120" font-size="10" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">Zero data leaks. Every role sees only what they need.</text>
+
+<line x1="28" y1="134" x2="352" y2="134" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+<!-- 3 role cards -->
+
+<!-- Owner -->
+<rect x="28" y="150" width="96" height="76" rx="10" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+<circle cx="76" cy="175" r="14" fill="rgba(59,130,246,0.2)"/>
+<!-- Person icon -->
+<circle cx="76" cy="170" r="5" fill="#93c5fd"/>
+<path d="M66 186c0-5.5 4.5-7 10-7s10 1.5 10 7" fill="#93c5fd" opacity="0.6"/>
+<text x="50" y="207" font-size="9.5" font-weight="700" fill="#93c5fd" font-family="-apple-system,sans-serif">Owner</text>
+<text x="40" y="220" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Full access</text>
+
+<!-- Doctor -->
+<rect x="142" y="150" width="96" height="76" rx="10" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.22)" stroke-width="1"/>
+<circle cx="190" cy="175" r="14" fill="rgba(139,92,246,0.2)"/>
+<circle cx="190" cy="170" r="5" fill="#c4b5fd"/>
+<path d="M180 186c0-5.5 4.5-7 10-7s10 1.5 10 7" fill="#c4b5fd" opacity="0.6"/>
+<text x="162" y="207" font-size="9.5" font-weight="700" fill="#c4b5fd" font-family="-apple-system,sans-serif">Doctor</text>
+<text x="152" y="220" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Patient records</text>
+
+<!-- Receptionist -->
+<rect x="256" y="150" width="96" height="76" rx="10" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
+<circle cx="304" cy="175" r="14" fill="rgba(16,185,129,0.15)"/>
+<circle cx="304" cy="170" r="5" fill="#4ade80"/>
+<path d="M294 186c0-5.5 4.5-7 10-7s10 1.5 10 7" fill="#4ade80" opacity="0.6"/>
+<text x="266" y="207" font-size="9.5" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">Reception</text>
+<text x="262" y="220" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Appointments</text>
+
+<!-- Access bar underneath each card -->
+<rect x="28"  y="226" width="96" height="4" rx="2" fill="#3b82f6" opacity="0.7"/>
+<rect x="142" y="226" width="96" height="4" rx="2" fill="#8b5cf6" opacity="0.6"/>
+<rect x="256" y="226" width="96" height="4" rx="2" fill="#10b981" opacity="0.5"/>
+
+<!-- Shield icon top-right -->
+<g transform="translate(316,34) scale(0.9)">
+  <path d="M24 4L4 12v12c0 8 9 14 20 18C35 38 44 32 44 24V12L24 4z" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5"/>
+  <path d="M16 24l5 5 11-11" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+</svg>

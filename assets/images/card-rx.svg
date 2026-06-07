@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 240">
+<defs>
+  <style>
+    @keyframes sent { 0%,70%{opacity:0;transform:scale(0.7)} 80%{opacity:1;transform:scale(1.1)} 90%,100%{opacity:1;transform:scale(1)} }
+    @media(prefers-reduced-motion:reduce){.sent-badge{animation:none;opacity:1}}
+    .sent-badge { animation: sent 0.5s cubic-bezier(0.16,1,0.3,1) 1.4s both; }
+  </style>
+</defs>
+<rect width="380" height="240" fill="#0f172a"/>
+
+<!-- Phone frame -->
+<rect x="22" y="18" width="128" height="204" rx="14" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+<rect x="26" y="22" width="120" height="196" rx="10" fill="#f8fafc"/>
+<!-- Notch -->
+<rect x="68" y="24" width="40" height="7" rx="3.5" fill="#1e293b"/>
+
+<!-- WhatsApp header -->
+<rect x="26" y="33" width="120" height="32" fill="#128c7e"/>
+<circle cx="42" cy="49" r="8" fill="rgba(255,255,255,0.2)"/>
+<text x="38" y="53" font-size="7" font-weight="700" fill="white" font-family="-apple-system,sans-serif">SC</text>
+<text x="54" y="45" font-size="8" font-weight="700" fill="white" font-family="-apple-system,sans-serif">SmileCraft Dental</text>
+<text x="54" y="57" font-size="6.5" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">Official account</text>
+
+<!-- Message bubble -->
+<rect x="30" y="72" width="110" height="122" rx="10" fill="white" stroke="#e2e8f0" stroke-width="0.8"/>
+<!-- Clinic header inside bubble -->
+<rect x="30" y="72" width="110" height="22" rx="10" fill="#eff6ff"/>
+<rect x="30" y="84" width="110" height="10" fill="#eff6ff"/>
+<circle cx="44" cy="82" r="7" fill="#dbeafe"/>
+<text x="40" y="86" font-size="6" font-weight="700" fill="#1d4ed8" font-family="-apple-system,sans-serif">SC</text>
+<text x="54" y="86" font-size="7.5" font-weight="700" fill="#1d4ed8" font-family="-apple-system,sans-serif">SmileCraft Dental</text>
+<!-- Content -->
+<line x1="34" y1="96" x2="136" y2="96" stroke="#e2e8f0" stroke-width="0.6"/>
+<text x="34" y="108" font-size="7" font-weight="700" fill="#0f172a" font-family="-apple-system,sans-serif">Prescription</text>
+<text x="34" y="120" font-size="6.5" fill="#374151" font-family="-apple-system,sans-serif">Rahul Mehta · 5 Jun 26</text>
+<text x="34" y="132" font-size="6.5" fill="#374151" font-family="-apple-system,sans-serif">Root Canal Treatment</text>
+<line x1="34" y1="138" x2="136" y2="138" stroke="#f1f5f9" stroke-width="0.6"/>
+<text x="34" y="149" font-size="6" fill="#64748b" font-family="-apple-system,sans-serif">• Amoxicillin 500mg 3×/day</text>
+<text x="34" y="159" font-size="6" fill="#64748b" font-family="-apple-system,sans-serif">• Ibuprofen 400mg 3×/day</text>
+<line x1="34" y1="165" x2="136" y2="165" stroke="#f1f5f9" stroke-width="0.6"/>
+<text x="34" y="175" font-size="6" fill="#94a3b8" font-family="-apple-system,sans-serif">Return in 7 days</text>
+<!-- Sig line -->
+<rect x="34" y="182" width="66" height="8" rx="2" fill="#f1f5f9"/>
+<text x="36" y="189" font-size="5.5" fill="#94a3b8" font-family="-apple-system,sans-serif">Dr. Arjun Mehta, BDS</text>
+<!-- Ticks -->
+<text x="118" y="192" font-size="8" fill="#53bdeb" font-family="-apple-system,sans-serif">✓✓</text>
+
+<!-- Sent badge -->
+<g class="sent-badge">
+  <circle cx="112" cy="207" r="12" fill="#059669"/>
+  <path d="M106 207l3.5 3.5 7-7" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<!-- Right: labels -->
+<text x="170" y="52" font-size="22" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Branded</text>
+<text x="170" y="78" font-size="22" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Rx on</text>
+<text x="170" y="104" font-size="22" font-weight="700" fill="white" font-family="-apple-system,sans-serif">WhatsApp</text>
+
+<line x1="170" y1="118" x2="354" y2="118" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+<text x="170" y="138" font-size="9" fill="rgba(255,255,255,0.5)" font-family="-apple-system,sans-serif">Clinic logo · Doctor signature</text>
+<text x="170" y="154" font-size="9" fill="rgba(255,255,255,0.5)" font-family="-apple-system,sans-serif">Treatment notes · Auto-sent</text>
+
+<!-- Pill tags -->
+<rect x="170" y="174" width="68" height="20" rx="10" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+<text x="178" y="188" font-size="8.5" fill="#93c5fd" font-family="-apple-system,sans-serif">Auto-send</text>
+<rect x="246" y="174" width="76" height="20" rx="10" fill="rgba(37,211,102,0.1)" stroke="rgba(37,211,102,0.25)" stroke-width="1"/>
+<text x="256" y="188" font-size="8.5" fill="#4ade80" font-family="-apple-system,sans-serif">WhatsApp</text>
+<rect x="170" y="202" width="96" height="20" rx="10" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+<text x="178" y="216" font-size="8.5" fill="#c4b5fd" font-family="-apple-system,sans-serif">Clinic Branding</text>
+
+</svg>

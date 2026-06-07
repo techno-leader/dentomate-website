@@ -1,1010 +1,1232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="DentoMate - Modern Dental Practice Management Software">
-    <meta name="description" content="Transform your dental practice with DentoMate. Manage patient records, treatment planning, lab operations in one integrated platform. Try free for 14 days.">
-    <meta name="keywords" content="dental practice management, dental software, patient records, treatment planning">
-    <meta name="author" content="DentoMate">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dentomate.in/">
-    <meta property="og:title" content="DentoMate - Modern Dental Practice Management Software">
-    <meta property="og:description" content="Transform your dental practice with comprehensive patient management and treatment planning.">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DentoMate - Modern Dental Practice Management Software">
-    <meta name="twitter:description" content="Transform your dental practice with DentoMate">
-
-    <title>DentoMate - Modern Dental Practice Management Software</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #3b82f6;
-            --primary-dark: #1e40af;
-            --primary-light: #60a5fa;
-            --accent: #8b5cf6;
-            --success: #10b981;
-            --neutral: #0f172a;
-            --neutral-light: #f8fafc;
-            --border: #e2e8f0;
-            --text: #1e293b;
-            --text-muted: #64748b;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Loading Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shimmer {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.8;
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(59, 130, 246, 0);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
-            }
-        }
-
-        /* Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-            animation: slideInDown 0.6s ease-out;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        nav a::before {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        nav a:hover::before {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 60px;
-            padding: 8rem 2rem 8rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--neutral);
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            line-height: 1.7;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
-        }
-
-        .btn-primary:active {
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--primary);
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 1.5px solid var(--primary);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: translateY(-3px);
-        }
-
-        /* Stats Section */
-        .stats {
-            max-width: 1200px;
-            margin: -1.5rem auto 0;
-            padding: 0 2rem 3rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 2rem 2rem 6rem;
-            background: var(--neutral-light);
-        }
-
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--neutral);
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .section-header h2 span {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-            transform-origin: left;
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            color: var(--neutral);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-link:hover {
-            gap: 1rem;
-            color: var(--primary-dark);
-        }
-
-        /* CTA Banner */
-        .cta-banner {
-            margin: 4rem 0 0;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 16px;
-            color: white;
-            text-align: center;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .cta-banner h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .cta-banner p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        /* Why Choose Section */
-        .why-choose {
-            padding: 6rem 2rem;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .benefit-card {
-            padding: 2.5rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border-color: var(--primary);
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.2rem;
-            color: var(--neutral);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-
-        .benefit-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 6rem 2rem;
-            background: var(--neutral-light);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease-out;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            border-color: var(--primary);
-            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.08);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--neutral);
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: rgba(59, 130, 246, 0.05);
-            color: var(--primary);
-        }
-
-        .faq-arrow {
-            transition: transform 0.3s ease;
-            font-size: 1.5rem;
-        }
-
-        .faq-item.active .faq-arrow {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            border-top: 1px solid var(--border);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .faq-answer p {
-            padding: 1.5rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--neutral);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .footer-section a:hover {
-            color: white;
-            padding-left: 4px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                text-align: center;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth page transitions */
-        @media (prefers-reduced-motion: no-preference) {
-            html {
-                scroll-behavior: smooth;
-            }
-        }
-    </style>
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "w4zhgyo396");
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dentomate — Dental Practice Management Software for Indian Clinics</title>
+<meta name="description" content="Dentomate helps Indian dental clinics send branded WhatsApp prescriptions, automate patient recalls, and track revenue — all in one place. 14-day free trial, no credit card.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Open Runde — Dentomate's actual typeface -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Regular.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Bold.woff2">
+<style>
+/* ==========================================================
+   DENTOMATE DESIGN SYSTEM — from assets/css/style.css
+   Font  : Open Runde (rounded, approachable)
+   Blue  : #3b82f6  |  Violet: #8b5cf6
+   Dark  : #0f172a  |  Light : #f8fafc
+   ========================================================== */
+@font-face{font-family:'Open Runde';src:url('https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Open Runde';src:url('https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Open Runde';src:url('https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Semibold.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Open Runde';src:url('https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root {
+  /* Brand — actual Dentomate tokens */
+  --blue:       #3b82f6;
+  --blue-dk:    #1e40af;
+  --blue-lt:    #60a5fa;
+  --blue-xl:    #bfdbfe;
+  --violet:     #8b5cf6;
+  --violet-dk:  #6d28d9;
+  --violet-lt:  #a78bfa;
+  --success:    #10b981;
+
+  /* Neutrals */
+  --neutral:    #0f172a;   /* dark backgrounds */
+  --neutral-2:  #1e293b;   /* slightly lighter dark */
+  --neutral-3:  #334155;
+  --bg-light:   #f8fafc;   /* off-white sections */
+  --bg-white:   #ffffff;
+  --border:     #e2e8f0;
+  --border-dk:  #cbd5e1;
+  --text:       #1e293b;
+  --text-muted: #64748b;
+  --text-pale:  #94a3b8;
+
+  /* Typography */
+  --font: 'Open Runde', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Radii */
+  --r4:   4px;
+  --r8:   8px;
+  --r12:  12px;   /* brand radius */
+  --r16:  16px;
+  --r20:  20px;
+  --rpill: 9999px;
+
+  /* Shadows */
+  --sh-xs: 0 1px 2px rgba(0,0,0,.05);
+  --sh-sm: 0 2px 8px rgba(0,0,0,.07);
+  --sh-md: 0 4px 20px rgba(0,0,0,.09);
+  --sh-lg: 0 8px 40px rgba(0,0,0,.11);
+  --sh-xl: 0 20px 60px rgba(0,0,0,.14);
+  --sh-blue: 0 8px 30px rgba(59,130,246,.28);
+  --sh-violet: 0 8px 30px rgba(139,92,246,.22);
+
+  /* Layout */
+  --sy: 96px;
+  --cmax: 1200px;
+  --cx: 24px;
+}
+
+/* ── Reset ────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);color:var(--text);background:var(--bg-white);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img,svg{display:block}
+button{font-family:inherit;cursor:pointer}
+ul{list-style:none}
+
+/* ── Typography ───────────────────────────── */
+.ey{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1}
+.d1{font-size:clamp(2.6rem,5.5vw,3.9rem);font-weight:700;line-height:1.07;letter-spacing:-.02em}
+.d2{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:700;line-height:1.13;letter-spacing:-.018em}
+.d3{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-.015em}
+.h4{font-size:1.2rem;font-weight:700;line-height:1.35;letter-spacing:-.01em}
+.bl{font-size:1.1rem;line-height:1.76}
+.bm{font-size:1rem;line-height:1.72}
+.bs{font-size:.875rem;line-height:1.65}
+.bxs{font-size:.8rem;line-height:1.55}
+
+/* accent word */
+.acc{color:var(--blue)}
+.acc-v{color:var(--violet-lt)}
+.acc-w{color:#fff}
+
+/* ── Layout helpers ───────────────────────── */
+.container{max-width:var(--cmax);margin:0 auto;padding:0 var(--cx)}
+.section{padding:var(--sy) 0}
+
+/* ── Buttons ──────────────────────────────── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:var(--r12);
+  font-size:.95rem;font-weight:700;border:none;
+  background:var(--blue);color:#fff;
+  transition:all .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
+.btn-primary:hover{background:var(--blue-dk);transform:translateY(-1px);box-shadow:var(--sh-blue)}
+.btn-primary.btn-lg{padding:16px 36px;font-size:1rem}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 27px;border-radius:var(--r12);
+  font-size:.95rem;font-weight:700;
+  background:var(--bg-white);color:var(--blue);
+  border:1.5px solid var(--border-dk);
+  transition:all .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
+.btn-secondary:hover{border-color:var(--blue);box-shadow:var(--sh-sm);transform:translateY(-1px)}
+.btn-secondary.btn-lg{padding:15px 34px;font-size:1rem}
+.btn-ghost-light{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:var(--r12);
+  font-size:.875rem;font-weight:600;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1.5px solid rgba(255,255,255,.2);
+  transition:all .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
+.btn-ghost-light:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4)}
+.btn-ghost-light.btn-lg{padding:16px 36px;font-size:1rem}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:var(--r12);
+  font-size:.875rem;font-weight:600;
+  background:transparent;color:var(--text);
+  border:1.5px solid var(--border-dk);
+  transition:all .2s;font-family:var(--font);cursor:pointer}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── Image placeholders ───────────────────── */
+.img-ph{
+  background:var(--bg-light);border:2px dashed var(--border-dk);
+  border-radius:var(--r12);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:12px;padding:40px 24px;text-align:center;position:relative;overflow:hidden}
+.img-ph-dark{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+
+/* ── Browser mockup ───────────────────────── */
+.browser{background:#0f172a;border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh-xl)}
+.browser-bar{height:38px;background:#1e293b;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.b-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.b-dot-r{background:#FF5F57}.b-dot-y{background:#FEBC2E}.b-dot-g{background:#28C840}
+.b-url{flex:1;background:rgba(255,255,255,.06);border-radius:6px;height:22px;display:flex;align-items:center;padding:0 10px;font-size:.68rem;color:rgba(255,255,255,.35);max-width:300px;margin:0 auto}
+
+/* ── NAV — frosted glass (actual Dentomate style) ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:72px;background:rgba(255,255,255,.9);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);transition:box-shadow .2s}
+.nav.scrolled{box-shadow:var(--sh-sm)}
+.nav-inner{max-width:var(--cmax);margin:0 auto;padding:0 var(--cx);height:100%;display:flex;align-items:center;gap:0}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15rem;color:var(--neutral);flex-shrink:0}
+.nav-logo-mark{width:32px;height:32px;background:linear-gradient(135deg,var(--blue),var(--violet));border-radius:var(--r8);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-links{flex:1;display:flex;align-items:center;justify-content:center;gap:32px}
+.nav-links a{color:var(--text-muted);font-size:.9rem;font-weight:500;transition:color .18s}
+.nav-links a:hover{color:var(--neutral)}
+.nav-ctas{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-signin{color:var(--text-muted);font-size:.9rem;font-weight:600;transition:color .18s;padding:8px 4px}
+.nav-signin:hover{color:var(--neutral)}
+.nav-hamburger{display:none;background:none;border:none;color:var(--neutral);padding:6px;cursor:pointer;align-items:center}
+
+/* ── HERO — strong blue→violet gradient (dark) ── */
+.hero{
+  background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 55%,#1e3a8a 100%);
+  padding-top:72px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:600px;pointer-events:none;background:radial-gradient(ellipse,rgba(139,92,246,.18) 0%,transparent 60%)}
+.hero-glow-2{position:absolute;bottom:-80px;left:0;width:500px;height:500px;pointer-events:none;background:radial-gradient(ellipse,rgba(59,130,246,.12) 0%,transparent 60%)}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:calc(100vh - 72px);padding-top:64px;padding-bottom:80px;position:relative;z-index:1}
+.hero-left{display:flex;flex-direction:column}
+.eyebrow-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);color:var(--blue-lt);padding:6px 14px;border-radius:var(--rpill);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;width:fit-content}
+.hero-sub{color:rgba(255,255,255,.65);margin:20px 0 36px;max-width:480px}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.hero-proof{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-proof-item{display:flex;align-items:center;gap:6px}
+.hero-notif{position:absolute;bottom:24px;left:20px;display:flex;align-items:center;gap:12px;background:rgba(15,23,42,.85);border:1px solid rgba(59,130,246,.25);border-radius:var(--r12);padding:12px 16px;box-shadow:var(--sh-xl);backdrop-filter:blur(12px);min-width:260px;z-index:10}
+.hero-notif-icon{width:32px;height:32px;background:rgba(59,130,246,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-notif-badge{width:20px;height:20px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* ── LOGO BAR ─────────────────────────────── */
+.logo-bar{background:var(--bg-white);padding:28px 0;border-bottom:1px solid var(--border)}
+.logo-grid{display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.logo-mark{font-size:.9rem;font-weight:700;color:var(--neutral);letter-spacing:-.01em;opacity:.45;transition:opacity .2s}
+.logo-mark:hover{opacity:.7}
+
+/* ── SCROLLYTELLING ───────────────────────── */
+.scrolly-body{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.scrolly-steps{display:flex;flex-direction:column}
+.step-item{padding:40px 0;min-height:320px;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--border);opacity:.4;transition:opacity .3s}
+.step-item:last-child{border-bottom:none}
+.step-item.is-active{opacity:1}
+.step-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;background:var(--bg-light);border:1.5px solid var(--border-dk);color:var(--text-muted);margin-bottom:16px;transition:all .3s;flex-shrink:0}
+.step-item.is-active .step-num{background:var(--blue);border-color:var(--blue);color:#fff}
+.step-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tag{display:inline-flex;align-items:center;font-size:.7rem;font-weight:600;letter-spacing:.03em;padding:4px 12px;border-radius:var(--rpill);background:var(--bg-light);border:1px solid var(--border-dk);color:var(--text-muted)}
+.tag-blue{background:rgba(59,130,246,.07);border-color:rgba(59,130,246,.2);color:var(--blue-dk)}
+.scrolly-screens{position:sticky;top:96px;height:calc(100vh - 130px);display:flex;align-items:center}
+.scroll-screen{display:none;width:100%}
+.scroll-screen.is-active{display:block;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── STATS (dark) ─────────────────────────── */
+.stats-section{background:var(--neutral);padding:80px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:0 32px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:clamp(2.4rem,4.5vw,3.2rem);font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:10px;background:linear-gradient(135deg,var(--blue-lt),var(--violet-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:.875rem;color:rgba(255,255,255,.5);font-weight:500;line-height:1.5}
+
+/* ── DARK PANEL ───────────────────────────── */
+.dark-panel{background:linear-gradient(180deg,var(--neutral) 0%,#0d1424 100%);padding:var(--sy) 0}
+.dark-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dark-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r16);padding:28px 24px;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+.dark-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),var(--violet),transparent);opacity:0;transition:opacity .3s}
+.dark-card:hover{border-color:rgba(59,130,246,.3);transform:translateY(-4px)}
+.dark-card:hover::before{opacity:1}
+.dark-card-icon{width:44px;height:44px;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(139,92,246,.15));border:1px solid rgba(59,130,246,.2);border-radius:var(--r12);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+
+/* ── TABS ─────────────────────────────────── */
+.tabs-bar{display:flex;gap:4px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r16);padding:5px;margin-bottom:48px;overflow-x:auto}
+.tab-btn{padding:10px 20px;border-radius:10px;font-size:.875rem;font-weight:600;color:var(--text-muted);cursor:pointer;border:none;background:none;transition:all .2s;white-space:nowrap;font-family:var(--font);display:flex;align-items:center;gap:8px}
+.tab-btn:hover:not(.is-on){background:var(--bg-light);color:var(--text)}
+.tab-btn.is-on{background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;box-shadow:0 2px 12px rgba(59,130,246,.3)}
+.tab-panel{display:none}
+.tab-panel.is-on{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;animation:fadeUp .25s ease}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.feature-list li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;font-weight:500;color:var(--text)}
+
+/* ── USE-CASE CARDS ───────────────────────── */
+.usecase-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.usecase-card{border-radius:var(--r16);overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh-sm)}
+.usecase-img-ph{min-height:220px;border-radius:0;border:none;border-bottom:1px solid var(--border)}
+.usecase-body{padding:32px 28px;background:var(--bg-white)}
+.usecase-metrics{display:flex;gap:32px;margin-top:24px;flex-wrap:wrap}
+.metric-item{display:flex;flex-direction:column}
+.metric-num{font-size:2rem;font-weight:700;letter-spacing:-.03em;color:var(--blue);line-height:1}
+.metric-label{font-size:.78rem;color:var(--text-muted);margin-top:4px}
+
+/* ── PROOF ────────────────────────────────── */
+.proof-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.proof-stats-row{display:flex;gap:40px;flex-wrap:wrap;margin-top:28px}
+.proof-stat{display:flex;flex-direction:column}
+.proof-stat-num{font-size:2.2rem;font-weight:700;letter-spacing:-.03em;color:var(--blue);line-height:1}
+.proof-stat-label{font-size:.78rem;color:var(--text-muted);margin-top:4px}
+
+/* ── TESTIMONIAL ──────────────────────────── */
+.testimonial-wrap{max-width:780px;margin:0 auto}
+.testimonial-card{background:linear-gradient(135deg,var(--neutral) 0%,#1e1b4b 100%);border-radius:var(--r20);padding:48px;box-shadow:var(--sh-xl);position:relative;overflow:hidden}
+.testimonial-card::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(ellipse,rgba(139,92,246,.15) 0%,transparent 65%);pointer-events:none}
+.testimonial-quote-mark{margin-bottom:20px}
+.testimonial-text{font-size:1.1rem;line-height:1.78;color:rgba(255,255,255,.88);margin-bottom:28px;font-style:italic;position:relative;z-index:1}
+.testimonial-author{display:flex;align-items:center;gap:16px;position:relative;z-index:1}
+.testimonial-avatar{width:52px;height:52px;min-height:unset;padding:0;border-radius:50%;flex-shrink:0}
+.testimonial-avatar.img-ph{min-height:unset}
+
+/* ── INTEGRATIONS ─────────────────────────── */
+.integrations-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.integration-logo{display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--bg-light);border:1px solid var(--border);border-radius:var(--r12);padding:18px 12px;transition:all .2s}
+.integration-logo:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--blue-xl)}
+
+/* ── SECTION HEADER ───────────────────────── */
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+
+/* ── RESOURCES ────────────────────────────── */
+.resources-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.resource-card{background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh-xs);transition:all .2s;display:flex;flex-direction:column}
+.resource-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
+.resource-img-ph{min-height:140px;border-radius:0;border:none;border-bottom:1px solid var(--border)}
+.resource-body{padding:20px;flex:1}
+.resource-tag{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block}
+
+/* ── PRICING ──────────────────────────────── */
+.pricing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:48px}
+.pricing-toggle-btn{padding:8px 20px;border-radius:var(--rpill);font-size:.875rem;font-weight:600;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .18s}
+.pricing-toggle-btn.is-on{background:var(--neutral);color:#fff;border-color:var(--neutral)}
+.pricing-save-pill{font-size:.72rem;font-weight:700;background:#dcfce7;color:#166534;border-radius:var(--rpill);padding:3px 10px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto}
+.pricing-card{background:var(--bg-white);border:1.5px solid var(--border);border-radius:var(--r16);padding:32px;position:relative;transition:box-shadow .2s}
+.pricing-card.featured{border-color:var(--blue);box-shadow:var(--sh-blue)}
+.pricing-card-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.72rem;font-weight:700;padding:4px 14px;border-radius:var(--rpill);white-space:nowrap}
+.pricing-tier{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.pricing-price{font-size:2.5rem;font-weight:700;line-height:1;color:var(--neutral);margin-bottom:4px}
+.pricing-price sup{font-size:1.2rem;vertical-align:super;font-weight:600}
+.pricing-price span{font-size:1rem;font-weight:500;color:var(--text-muted)}
+.pricing-billed{font-size:.8rem;color:var(--text-muted);margin-bottom:6px;min-height:1.2em}
+.pricing-save{font-size:.78rem;font-weight:600;color:#16a34a;margin-bottom:20px;min-height:1em}
+.pricing-divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text)}
+.pricing-features li.no{color:var(--text-pale)}
+.pricing-features li svg{flex-shrink:0;margin-top:1px}
+.pricing-cta-btn{display:block;width:100%;padding:13px;border-radius:var(--r8);font-size:.9rem;font-weight:600;text-align:center;cursor:pointer;border:none;transition:all .18s}
+.pricing-cta-btn.primary{background:var(--blue);color:#fff}
+.pricing-cta-btn.primary:hover{background:var(--blue-dk)}
+.pricing-cta-btn.ghost{background:transparent;color:var(--neutral);border:1.5px solid var(--border)}
+.pricing-cta-btn.ghost:hover{border-color:var(--neutral)}
+.pricing-cta-btn.dark{background:var(--neutral);color:#fff}
+.pricing-cta-btn.dark:hover{background:#0f1f36}
+.pricing-cta-btn.disabled{background:var(--bg-light);color:var(--text-muted);cursor:default}
+.pricing-roi{background:var(--bg-light);border-radius:var(--r12);padding:20px 28px;text-align:center;max-width:560px;margin:40px auto 0;border:1px solid var(--border)}
+@media(max-width:720px){.pricing-grid{grid-template-columns:1fr}}
+
+/* ── FOOTER CTA (blue→violet gradient) ───── */
+.footer-cta{background:linear-gradient(135deg,var(--blue-dk) 0%,#1e1b4b 50%,var(--violet-dk) 100%);padding:var(--sy) 0;position:relative;overflow:hidden}
+.footer-cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;pointer-events:none;background:radial-gradient(ellipse,rgba(139,92,246,.2) 0%,transparent 55%)}
+.footer-cta-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1}
+.cta-form-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.cta-input{flex:1;min-width:200px;padding:14px 20px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:var(--r12);color:#fff;font-size:.95rem;font-family:var(--font);outline:none;transition:border-color .2s}
+.cta-input::placeholder{color:rgba(255,255,255,.4)}
+.cta-input:focus{border-color:rgba(255,255,255,.6)}
+.cta-trust{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.cta-trust-item{display:flex;align-items:center;gap:6px}
+
+/* ── FOOTER (darkest) ─────────────────────── */
+.footer{background:var(--neutral);padding:64px 0 36px}
+.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-socials{display:flex;gap:8px;margin-top:20px}
+.footer-social{width:34px;height:34px;border-radius:var(--r8);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.footer-social:hover{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.3)}
+.footer-col{display:flex;flex-direction:column}
+.footer-col-head{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.28);margin-bottom:18px}
+.footer-link{font-size:.875rem;color:rgba(255,255,255,.5);transition:color .18s;margin-bottom:10px}
+.footer-link:hover{color:var(--blue-lt)}
+.footer-legal{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);gap:24px;flex-wrap:wrap}
+
+/* ── Responsive ───────────────────────────── */
+@media(max-width:960px){
+  :root{--sy:72px}
+  .hero-inner{grid-template-columns:1fr;min-height:auto;padding-top:48px;padding-bottom:60px}
+  /* Show hero screenshot stacked below text on mobile */
+  .hero-right{display:block;margin-top:40px}
+  /* Scrolly: switch to linear stacked layout on mobile */
+  .scrolly-body{grid-template-columns:1fr;gap:0}
+  .scrolly-screens{
+    position:static;height:auto;
+    display:flex;flex-direction:column;
+    margin-top:0}
+  /* On mobile each step shows its own screenshot inline */
+  .step-item{opacity:1;min-height:auto;padding:32px 0 0}
+  .step-item .mobile-screen{display:block !important}
+  /* Hide the sticky screen panel — mobile uses inline screens per step */
+  .scrolly-screens{display:none}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:24px}
+  .stat-item:last-child{border-bottom:none}
+  .dark-cards{grid-template-columns:1fr}
+  .tab-panel.is-on{grid-template-columns:1fr}
+  .usecase-grid{grid-template-columns:1fr}
+  .proof-inner{grid-template-columns:1fr}
+  .integrations-grid{grid-template-columns:repeat(3,1fr)}
+  .resources-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-cta-inner{grid-template-columns:1fr;gap:40px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .nav-ctas .btn-secondary{display:none}
+  .nav-hamburger{display:flex}
+}
+@media(max-width:600px){
+  .integrations-grid{grid-template-columns:repeat(2,1fr)}
+  .resources-grid{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .footer-top{grid-template-columns:1fr}
+  .cta-form-row{flex-direction:column}
+}
+</style>
 </head>
 <body>
-    <!-- Header Navigation -->
-    <header role="banner">
-        <nav role="navigation">
-            <span class="logo">DentoMate</span>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/features/">Features</a></li>
-                <li><a href="/compare/">Compare</a></li>
-                <li><a href="/signup/" class="nav-cta">Get Started</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Transform Your Dental <span>Practice Today</span></h1>
-                <p>Manage patient records, treatment planning, and lab operations in one beautiful, intuitive platform. Join 500+ dental practices using DentoMate.</p>
-                <div class="hero-buttons">
-                    <a href="/signup/" class="btn-primary">Start Free Trial</a>
-                    <a href="#features" class="btn-secondary">Explore Features</a>
-                </div>
-            </div>
+<!-- ══════════════════════════════════════════
+     NAV — frosted glass, light (actual Dentomate style)
+════════════════════════════════════════════ -->
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Dentomate home">
+      <div class="nav-logo-mark">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M5 13c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="9" cy="6" r="2.5" fill="#fff"/>
+        </svg>
+      </div>
+      Dentomate
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#proof" class="nav-link">Results</a>
+      <a href="#resources" class="nav-link">Resources</a>
+    </nav>
+    <div class="nav-ctas">
+      <a href="https://app.dentomate.in" class="nav-signin">Sign in</a>
+      <a href="https://app.dentomate.in" class="btn-primary" style="padding:10px 20px;font-size:.875rem">Start free trial</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu" onclick="this.closest('.nav').classList.toggle('nav-open')">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
 
-            <!-- Stats Section -->
-            <section class="stats">
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Dental Practices</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50K+</div>
-                    <div class="stat-label">Patient Records</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">99.9%</div>
-                    <div class="stat-label">Uptime Guarantee</div>
-                </div>
-            </section>
-        </section>
+<!-- ══════════════════════════════════════════
+     HERO — dark blue-violet gradient
+════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="container hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow-pill">
+        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#60a5fa"/></svg>
+        Trusted by 200+ Indian dental clinics
+      </div>
+      <h1 class="d1" style="color:#fff">Stop Paying<br><span style="background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">the WhatsApp Tax.</span></h1>
+      <p class="bl hero-sub">Dentomate sends branded prescriptions automatically, organises every patient record, and brings patients back — without the ₹8,000/month bill.</p>
+      <div class="hero-actions">
+        <a href="https://app.dentomate.in" class="btn-primary btn-lg">Start free — no credit card</a>
+        <a href="https://wa.me/919351639077?text=Hi%2C+I%27d+like+to+see+a+demo+of+Dentomate" target="_blank" rel="noopener" class="btn-ghost-light btn-lg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C4.1 1 1 4.1 1 8c0 1.4.4 2.7 1.1 3.8L1 15l3.3-1C5.4 14.6 6.7 15 8 15c3.9 0 7-3.1 7-7S11.9 1 8 1z" stroke="currentColor" stroke-width="1.4"/></svg>
+          Chat with us on WhatsApp
+        </a>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-proof-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="bs" style="color:rgba(255,255,255,.55)">14-day free trial</span>
+        </div>
+        <div class="hero-proof-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="bs" style="color:rgba(255,255,255,.55)">5-minute setup</span>
+        </div>
+        <div class="hero-proof-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="bs" style="color:rgba(255,255,255,.55)">No developer needed</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right" style="position:relative">
+      <div style="border-radius:16px;overflow:hidden;background:#1e293b">
+        <img src="assets/images/hero-dashboard.svg" width="760" height="500" style="width:100%;height:auto;display:block" alt="Dentomate dashboard — patient list, prescriptions, analytics in one place">
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Features Section -->
-        <section class="features" id="features">
-            <div class="features-container">
-                <div class="section-header">
-                    <h2>Powerful Features for <span>Modern Dentistry</span></h2>
-                    <p>Everything you need to run an efficient, patient-focused dental practice</p>
-                </div>
+<!-- ══════════════════════════════════════════
+     LOGO BAR — white, clinic names
+════════════════════════════════════════════ -->
+<section class="logo-bar">
+  <div class="container">
+    <p class="bxs" style="text-align:center;color:var(--text-pale);font-weight:600;letter-spacing:.08em;text-transform:uppercase">Trusted by clinics across India</p>
+    <div class="logo-grid">
+      <span class="logo-mark">SmileCraft Dental</span>
+      <span class="logo-mark">Pearl Dental Studio</span>
+      <span class="logo-mark">Apex Oral Care</span>
+      <span class="logo-mark">Bright Smiles Mumbai</span>
+      <span class="logo-mark">DentaWell Clinics</span>
+      <span class="logo-mark">OralPlus Network</span>
+    </div>
+  </div>
+</section>
 
-                <div class="features-grid">
-                    <article class="feature-card">
-                        <div class="feature-icon">👥</div>
-                        <h3>Patient Management</h3>
-                        <p>Complete patient profiles with medical history, demographics, allergies, and treatment records. All stored securely in one place.</p>
-                        <a href="/features/patient-management/" class="feature-link">Learn more →</a>
-                    </article>
+<!-- ══════════════════════════════════════════
+     SCROLLYTELLING — white bg
+════════════════════════════════════════════ -->
+<section class="section" id="features" style="background:var(--bg-white)">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto 72px">
+      <p class="ey" style="color:var(--blue);margin-bottom:14px">How it works</p>
+      <h2 class="d2">Your practice runs itself.<br><span class="acc">Three things change everything.</span></h2>
+    </div>
+    <div class="scrolly-body">
+      <div class="scrolly-steps">
 
-                    <article class="feature-card">
-                        <div class="feature-icon">🦷</div>
-                        <h3>Treatment Planning</h3>
-                        <p>Advanced treatment planning with support for implants, orthodontics, restorations, extractions, and more. Track all treatment charges in detail.</p>
-                        <a href="/features/treatment-planning/" class="feature-link">Learn more →</a>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">🏥</div>
-                        <h3>Lab Management</h3>
-                        <p>Integrated lab operations tracking for crowns, dentures, orthodontic appliances, and prosthetics. Manage schedules seamlessly.</p>
-                        <a href="/features/lab-management/" class="feature-link">Learn more →</a>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>HIPAA Compliant</h3>
-                        <p>Enterprise-grade security with encrypted data storage, regular security audits, and automatic backups. Your data is always protected.</p>
-                        <a href="#" class="feature-link">Learn more →</a>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3>Analytics & Reports</h3>
-                        <p>Powerful insights with treatment reports, revenue analytics, patient statistics, and performance metrics in beautiful dashboards.</p>
-                        <a href="#" class="feature-link">Learn more →</a>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <h3>Mobile Ready</h3>
-                        <p>Access DentoMate from anywhere. Full mobile support for patient records and treatment planning on the go.</p>
-                        <a href="#" class="feature-link">Learn more →</a>
-                    </article>
-                </div>
-
-                <div class="cta-banner">
-                    <h2>Ready to Modernize Your Practice?</h2>
-                    <p>Join hundreds of dental practices already using DentoMate</p>
-                    <a href="/signup/" class="btn-primary" style="background: white; color: var(--primary);">Start Your Free 14-Day Trial</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Choose Section -->
-        <section class="why-choose">
-            <div class="features-container">
-                <div class="section-header">
-                    <h2>Why Dentists Choose <span>DentoMate</span></h2>
-                    <p>Industry-leading features built specifically for dental professionals</p>
-                </div>
-
-                <div class="why-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">⚡</div>
-                        <h3>Fast Setup</h3>
-                        <p>Get up and running in less than 24 hours. Minimal training required with our intuitive interface.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">💰</div>
-                        <h3>Cost Effective</h3>
-                        <p>Transparent pricing with no hidden fees. Save thousands annually compared to competitors.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🛡️</div>
-                        <h3>Data Security</h3>
-                        <p>Military-grade encryption and HIPAA compliance. Your patient data is your highest priority.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🚀</div>
-                        <h3>Always Reliable</h3>
-                        <p>99.9% uptime guarantee with 24/7 monitoring. Your practice never stops, neither do we.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">👨‍💼</div>
-                        <h3>Expert Support</h3>
-                        <p>24/7 email and chat support from our dental software experts. We're here when you need us.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔄</div>
-                        <h3>Continuous Updates</h3>
-                        <p>Regular feature updates and improvements based on dentist feedback. Stay ahead of the curve.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq">
-            <div class="faq-container">
-                <div class="section-header">
-                    <h2>Frequently Asked <span>Questions</span></h2>
-                    <p>Everything you need to know about DentoMate</p>
-                </div>
-
-                <div class="faq-item active">
-                    <div class="faq-question">
-                        <span>What is DentoMate?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>DentoMate is a comprehensive dental practice management software designed to streamline your practice operations. It includes patient management, treatment planning, lab operations, and medical history tracking in one integrated, easy-to-use platform specifically built for dental professionals.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is there a free trial?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! We offer a 14-day free trial with full access to all DentoMate features. No credit card required. You'll have complete access to patient management, treatment planning, lab management, and all analytics features.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is DentoMate HIPAA compliant?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, DentoMate is fully HIPAA compliant with enterprise-grade security, encrypted data storage, regular security audits, and automated backups. Your patient data is protected with military-grade encryption and regularly audited for compliance.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can I import my existing patient records?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! Our migration team will help you import your existing patient records and data from your current system. The process is simple, secure, and we handle everything so you don't have to worry about data loss.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What devices can I use DentoMate on?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>DentoMate works on desktop computers, tablets, and smartphones. Our responsive design ensures you have a great experience whether you're using Windows, Mac, iOS, or Android devices.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How much does DentoMate cost?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>DentoMate offers flexible, transparent pricing starting at affordable rates for single-dentist practices and scaling based on your practice size and needs. We have no hidden fees and offer a 14-day free trial so you can test all features risk-free.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="/features/patient-management/">Patient Management</a></li>
-                    <li><a href="/features/treatment-planning/">Treatment Planning</a></li>
-                    <li><a href="/features/lab-management/">Lab Management</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Compare</h4>
-                <ul>
-                    <li><a href="/compare/dentomate-vs-dentrix/">DentoMate vs Dentrix</a></li>
-                    <li><a href="/compare/dentomate-vs-eaglesoft/">DentoMate vs EagleSoft</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#careers">Careers</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#terms">Terms of Service</a></li>
-                    <li><a href="#hipaa">HIPAA Compliance</a></li>
-                    <li><a href="#security">Security</a></li>
-                </ul>
-            </div>
+        <div class="step-item is-active" data-screen="screen-rx">
+          <div class="step-num">01</div>
+          <h3 class="h4" style="margin:0 0 12px">Branded prescription, sent in 5 seconds</h3>
+          <p class="bm" style="color:var(--text-muted);max-width:400px">The moment a patient leaves your chair, Dentomate sends a beautifully branded prescription to their phone — your clinic name, logo, and doctor's signature, every time.</p>
+          <div class="step-tags">
+            <span class="tag tag-blue">Auto-send on exit</span>
+            <span class="tag tag-blue">Clinic branding</span>
+            <span class="tag tag-blue">WhatsApp delivery</span>
+          </div>
+          <!-- Mobile-only inline screenshot -->
+          <div class="mobile-screen browser" style="display:none;margin-top:24px">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / prescription</div></div>
+            <img src="assets/images/screen-rx.svg" style="width:100%;display:block" alt="Prescription composer — branded WhatsApp prescription">
+          </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 DentoMate Inc. All rights reserved. |
-            <a href="https://twitter.com/dentomate">Twitter</a> |
-            <a href="https://linkedin.com/company/dentomate">LinkedIn</a> |
-            <a href="https://facebook.com/dentomate">Facebook</a></p>
+        <div class="step-item" data-screen="screen-followup">
+          <div class="step-num">02</div>
+          <h3 class="h4" style="margin:0 0 12px">Patients come back automatically</h3>
+          <p class="bm" style="color:var(--text-muted);max-width:400px">Smart follow-up messages go out at 7 days, 3 months, and 6 months — personalised with the patient's name, treatment, and next recommended visit. No manual work required.</p>
+          <div class="step-tags">
+            <span class="tag tag-blue">Recall reminders</span>
+            <span class="tag tag-blue">Treatment follow-ups</span>
+            <span class="tag tag-blue">30% more returns</span>
+          </div>
+          <!-- Mobile-only inline screenshot -->
+          <div class="mobile-screen browser" style="display:none;margin-top:24px">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / follow-ups</div></div>
+            <img src="assets/images/screen-followup.svg" style="width:100%;display:block" alt="Recall scheduler — automated follow-ups for patients">
+          </div>
         </div>
-    </footer>
 
-    <script>
-        // Smooth FAQ Interactions
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const faqItem = this.parentElement;
-                faqItem.classList.toggle('active');
-            });
-        });
+        <div class="step-item" data-screen="screen-analytics">
+          <div class="step-num">03</div>
+          <h3 class="h4" style="margin:0 0 12px">See exactly what's driving your revenue</h3>
+          <p class="bm" style="color:var(--text-muted);max-width:400px">Revenue by treatment type, patient lifetime value, branch-by-branch performance. Know which month made the most money — then do more of that.</p>
+          <div class="step-tags">
+            <span class="tag tag-blue">Revenue analytics</span>
+            <span class="tag tag-blue">Multi-clinic view</span>
+            <span class="tag tag-blue">Monthly trends</span>
+          </div>
+          <!-- Mobile-only inline screenshot -->
+          <div class="mobile-screen browser" style="display:none;margin-top:24px">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
+            <img src="assets/images/screen-analytics.svg" style="width:100%;display:block" alt="Revenue analytics — monthly ₹ chart">
+          </div>
+        </div>
 
-        // Page Load Animation
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-        });
+      </div>
+      <div class="scrolly-screens">
+        <div class="scroll-screen is-active" id="screen-rx">
+          <div class="browser">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / prescription</div></div>
+            <img src="assets/images/screen-rx.svg" style="width:100%;display:block" alt="Prescription composer — branded WhatsApp prescription sent to Rahul Mehta">
+          </div>
+        </div>
+        <div class="scroll-screen" id="screen-followup">
+          <div class="browser">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / follow-ups</div></div>
+            <img src="assets/images/screen-followup.svg" style="width:100%;display:block" alt="Recall scheduler — automated follow-up messages for Priya Sharma, Anjali Kapoor, Suresh Patel">
+          </div>
+        </div>
+        <div class="scroll-screen" id="screen-analytics">
+          <div class="browser">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
+            <img src="assets/images/screen-analytics.svg" style="width:100%;display:block" alt="Revenue analytics — monthly ₹ chart with treatment breakdown by type">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Intersection Observer for staggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<!-- ══════════════════════════════════════════
+     STATS — dark (slate-900)
+════════════════════════════════════════════ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">30%</div>
+        <p class="bs stat-label">more returning patients in pilot clinics</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">200+</div>
+        <p class="bs stat-label">Indian dental clinics on Dentomate</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">₹8k</div>
+        <p class="bs stat-label">average monthly WhatsApp cost eliminated</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5 min</div>
+        <p class="bs stat-label">average setup — no developer needed</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
+<!-- ══════════════════════════════════════════
+     DARK PANEL — dark, 3 feature cards
+════════════════════════════════════════════ -->
+<section class="section dark-panel">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto 72px">
+      <p class="ey" style="color:rgba(255,255,255,.4);margin-bottom:14px">Built for Indian dentists</p>
+      <h2 class="d2" style="color:#fff">Everything your practice<br><span class="acc-v">actually needs.</span></h2>
+    </div>
+    <div class="dark-cards">
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+      <div class="dark-card">
+        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px;min-height:240px">
+          <img src="assets/images/card-rx.svg" width="380" height="240" style="width:100%;display:block" alt="Branded prescription sent via WhatsApp" loading="lazy">
+        </div>
+        <div class="dark-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16V6a2 2 0 012-2h5l4 4v8a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="#60a5fa" stroke-width="1.5"/><path d="M11 4v4h4" stroke="#60a5fa" stroke-width="1.5"/><path d="M7 11h6M7 14h4" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="h4" style="color:#fff;margin:12px 0 10px">Branded Prescriptions</h3>
+        <p class="bm" style="color:rgba(255,255,255,.55)">Clinic logo, doctor name, and treatment notes — automatically formatted and sent the moment patients leave your chair.</p>
+      </div>
+
+      <div class="dark-card">
+        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px;min-height:240px">
+          <img src="assets/images/card-analytics.svg" width="380" height="240" style="width:100%;display:block" alt="Multi-clinic revenue analytics across 4 locations" loading="lazy">
+        </div>
+        <div class="dark-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17V9M8 17V5M13 17V8M18 17V12" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="h4" style="color:#fff;margin:12px 0 10px">Multi-Clinic Analytics</h3>
+        <p class="bm" style="color:rgba(255,255,255,.55)">One dashboard across every location. Revenue by branch, treatment, and month — so you always know what's growing.</p>
+      </div>
+
+      <div class="dark-card">
+        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px;min-height:240px">
+          <img src="assets/images/card-access.svg" width="380" height="240" style="width:100%;display:block" alt="Staff access control — role-based permissions for owner, doctor, receptionist" loading="lazy">
+        </div>
+        <div class="dark-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="10" width="14" height="8" rx="2" stroke="#60a5fa" stroke-width="1.5"/><path d="M7 10V7a3 3 0 116 0v3" stroke="#60a5fa" stroke-width="1.5"/><circle cx="10" cy="14" r="1.5" fill="#60a5fa"/></svg>
+        </div>
+        <h3 class="h4" style="color:#fff;margin:12px 0 10px">Staff Access Control</h3>
+        <p class="bm" style="color:rgba(255,255,255,.55)">Receptionists see appointments. Doctors see history. You see everything. Role-based permissions, zero data leaks.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FEATURE TABS — off-white
+════════════════════════════════════════════ -->
+<section class="section" id="features" style="background:var(--bg-light)">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto 56px">
+      <p class="ey" style="color:var(--blue);margin-bottom:14px">Every feature you need</p>
+      <h2 class="d2">Purpose-built for<br><span class="acc">Indian dental practice.</span></h2>
+    </div>
+    <div class="tabs-bar" role="tablist">
+      <button class="tab-btn is-on" data-tab="tab-rx" role="tab" aria-selected="true">Prescriptions</button>
+      <button class="tab-btn" data-tab="tab-recall" role="tab">Recall & Follow-ups</button>
+      <button class="tab-btn" data-tab="tab-records" role="tab">Patient Records</button>
+      <button class="tab-btn" data-tab="tab-multi" role="tab">Multi-Clinic</button>
+      <button class="tab-btn" data-tab="tab-analytics" role="tab">Analytics</button>
+    </div>
+
+    <div class="tab-panel is-on" id="tab-rx">
+      <div>
+        <p class="ey" style="color:var(--blue);margin-bottom:12px">Prescriptions</p>
+        <h3 class="d3" style="margin-bottom:14px">Your brand, on every patient's phone, every time.</h3>
+        <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Stop sending generic WhatsApp messages. Dentomate formats a clinic-branded prescription and sends it the moment the visit ends — no extra step, no manual work.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Auto-sent on patient exit</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Clinic logo, doctor signature, treatment notes</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp delivered — no extra API cost</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF saved to patient record automatically</li>
+        </ul>
+      </div>
+      <div class="browser">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / prescriptions</div></div>
+        <img src="assets/images/screen-rx.svg" width="720" height="340" style="width:100%;display:block" alt="Prescription composer with WhatsApp preview" loading="lazy">
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-recall">
+      <div>
+        <p class="ey" style="color:var(--blue);margin-bottom:12px">Recall & Follow-ups</p>
+        <h3 class="d3" style="margin-bottom:14px">Patients who left your chair come back 30% more often.</h3>
+        <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Automated recall messages at 7 days, 3 months, and 6 months — personalised with the patient's name, last treatment, and a clear booking link.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Smart recall at 7-day, 90-day, 180-day intervals</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalised with patient name and treatment</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>One-tap booking link in message</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>30% average increase in return rate (pilot data)</li>
+        </ul>
+      </div>
+      <div class="browser">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / follow-ups</div></div>
+        <img src="assets/images/screen-followup.svg" width="720" height="340" style="width:100%;display:block" alt="Recall scheduler — patients due for 7-day, 90-day, 180-day follow-up" loading="lazy">
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-records">
+      <div>
+        <p class="ey" style="color:var(--blue);margin-bottom:12px">Patient Records</p>
+        <h3 class="d3" style="margin-bottom:14px">Every record in one place. Zero chaos.</h3>
+        <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Patient history, prescriptions, treatment notes, X-rays, and payment records — searchable and organised. No more digging through WhatsApp or paper files.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Complete treatment timeline per patient</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>X-ray and document storage</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Instant search by name, phone, or treatment</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Overdue patient alerts built in</li>
+        </ul>
+      </div>
+      <div class="browser">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / patients</div></div>
+        <img src="assets/images/tab-records.svg" width="640" height="300" style="width:100%;display:block" alt="Patient record — Priya Sharma treatment timeline with X-rays" loading="lazy">
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-multi">
+      <div>
+        <p class="ey" style="color:var(--blue);margin-bottom:12px">Multi-Clinic</p>
+        <h3 class="d3" style="margin-bottom:14px">Mumbai, Delhi, Bengaluru — one dashboard.</h3>
+        <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Own multiple clinics? One login gives full visibility across all locations — patient flow, staff activity, revenue, and communications. Branch managers see only their clinic.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unified owner view across all branches</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Branch-isolated views for managers</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Consistent branding across all locations</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Branch-level revenue comparison</li>
+        </ul>
+      </div>
+      <div class="browser">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / locations</div></div>
+        <img src="assets/images/tab-multi.svg" width="640" height="300" style="width:100%;display:block" alt="Multi-clinic overview — Mumbai, Delhi, Bengaluru, Pune revenue by location" loading="lazy">
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-analytics">
+      <div>
+        <p class="ey" style="color:var(--blue);margin-bottom:12px">Analytics</p>
+        <h3 class="d3" style="margin-bottom:14px">See which month made the most money. Do more of that.</h3>
+        <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Revenue by treatment type, patient lifetime value, peak booking hours, staff productivity — all the numbers a growing practice needs to make smart decisions.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Monthly revenue trends by treatment</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Patient lifetime value tracking</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>New vs returning patient ratio</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Exportable reports for your accountant</li>
+        </ul>
+      </div>
+      <div class="browser">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
+        <img src="assets/images/screen-analytics.svg" width="720" height="340" style="width:100%;display:block" alt="Analytics — monthly revenue trend and treatment breakdown chart" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PRICING
+════════════════════════════════════════════ -->
+<section class="section" id="pricing" style="background:var(--bg-white)">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 16px">
+      <p class="ey" style="color:var(--blue);margin-bottom:14px">Simple, honest pricing</p>
+      <h2 class="d2">One no-show prevented<br><span class="acc">pays for Dentomate 7+ months.</span></h2>
+    </div>
+
+    <div class="pricing-roi">
+      <p class="bs" style="color:var(--blue);font-weight:700;margin-bottom:6px">The math is simple</p>
+      <p class="bm" style="color:var(--text)">One prevented no-show = <strong>₹3,000 recovered</strong> = 7+ months of Starter paid for.</p>
+      <p class="bxs" style="color:var(--text-muted);margin-top:4px">Most dentists see ROI in the first week.</p>
+    </div>
+
+    <div class="pricing-toggle" style="margin-top:40px">
+      <button class="pricing-toggle-btn is-on" id="toggle-annual" onclick="setPricingPeriod('annual')">Annual <span class="pricing-save-pill" style="margin-left:6px">Save 2 months</span></button>
+      <button class="pricing-toggle-btn" id="toggle-monthly" onclick="setPricingPeriod('monthly')">Monthly</button>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- FREE -->
+      <div class="pricing-card">
+        <p class="pricing-tier">Free</p>
+        <p class="pricing-price"><sup>₹</sup>0</p>
+        <p class="pricing-billed">Forever free &middot; no card required</p>
+        <p class="pricing-save">&nbsp;</p>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Patient records &amp; prescriptions</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Auto post-care WhatsApp messages</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Hindi + English templates</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Basic analytics</li>
+          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>Up to 20 new patients/month</li>
+          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>No recall campaigns</li>
+          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>Default prescription template only</li>
+        </ul>
+        <button class="pricing-cta-btn disabled" disabled>Current plan</button>
+      </div>
+
+      <!-- STARTER (Most Popular) -->
+      <div class="pricing-card featured">
+        <div class="pricing-card-badge">Most Popular</div>
+        <p class="pricing-tier">Starter</p>
+        <p class="pricing-price" id="starter-price"><sup>₹</sup>399<span>/month</span></p>
+        <p class="pricing-billed" id="starter-billed">₹3,990 billed yearly</p>
+        <p class="pricing-save" id="starter-save">Save ₹798 vs monthly</p>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Free</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Unlimited patients</strong></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Appointment reminders (auto)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>New patient welcome (auto)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>2 recall campaigns / month</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom clinic letterhead on PDFs</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>UPI payment collection link</li>
+          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>AI medicine suggestions</li>
+          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>GST-compliant invoicing</li>
+        </ul>
+        <a href="https://app.dentomate.in" class="pricing-cta-btn primary">Upgrade to Starter</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="pricing-card">
+        <p class="pricing-tier">Pro</p>
+        <p class="pricing-price" id="pro-price"><sup>₹</sup>799<span>/month</span></p>
+        <p class="pricing-billed" id="pro-billed">₹7,990 billed yearly</p>
+        <p class="pricing-save" id="pro-save">Save ₹1,598 vs monthly</p>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Starter</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Unlimited recall campaigns</strong></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom campaigns (any segment)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>AI medicine suggestions</strong></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>GST-compliant invoicing (PDF)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 3 clinic branches</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority WhatsApp support</li>
+        </ul>
+        <a href="https://app.dentomate.in" class="pricing-cta-btn dark">Upgrade to Pro</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     USE-CASE CARDS — white
+════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-white)">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 64px">
+      <p class="ey" style="color:var(--blue);margin-bottom:14px">Who it's for</p>
+      <h2 class="d2">Built for every kind of<br><span class="acc">dental practice.</span></h2>
+    </div>
+    <div class="usecase-grid">
+
+      <div class="usecase-card">
+        <div class="usecase-img-ph" style="padding:0;border:none">
+          <img src="assets/images/usecase-solo.svg" width="580" height="220" style="width:100%;display:block" alt="Solo dental clinic — prescription sent to phone, ₹8k saved per month" loading="lazy">
+        </div>
+        <div class="usecase-body">
+          <span class="tag tag-blue" style="margin-bottom:16px;display:inline-flex">Solo &amp; Small Clinic</span>
+          <h3 class="d3" style="margin:0 0 14px">Run your clinic.<br>Not your WhatsApp.</h3>
+          <p class="bm" style="color:var(--text-muted)">1–3 chairs. You're already spending ₹6,000–15,000 a month on WhatsApp API and a developer to keep it alive — patients still don't feel the difference. Dentomate replaces all of it for less, and builds real loyalty.</p>
+          <div class="usecase-metrics">
+            <div class="metric-item"><span class="metric-num">₹8k</span><span class="metric-label">saved per month on average</span></div>
+            <div class="metric-item"><span class="metric-num">5 min</span><span class="metric-label">to set up and go live</span></div>
+          </div>
+          <a href="https://app.dentomate.in" class="btn-primary" style="margin-top:28px">Start free trial</a>
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <div class="usecase-img-ph" style="padding:0;border:none">
+          <img src="assets/images/usecase-multi.svg" width="580" height="220" style="width:100%;display:block" alt="Multi-clinic owner — 4 locations, one dashboard, 100% brand consistency" loading="lazy">
+        </div>
+        <div class="usecase-body">
+          <span class="tag" style="background:rgba(139,92,246,.07);border-color:rgba(139,92,246,.2);color:var(--violet-dk);margin-bottom:16px;display:inline-flex">Multi-Clinic Owner</span>
+          <h3 class="d3" style="margin:0 0 14px">Control every clinic.<br>From one screen.</h3>
+          <p class="bm" style="color:var(--text-muted)">3–15 locations. Staff using personal phones for patient comms, no consistent branding, no central visibility. Dentomate gives every branch the same experience — while giving you the data to grow the whole network.</p>
+          <div class="usecase-metrics">
+            <div class="metric-item"><span class="metric-num" style="color:var(--violet)">15+</span><span class="metric-label">clinics managed from one dashboard</span></div>
+            <div class="metric-item"><span class="metric-num" style="color:var(--violet)">100%</span><span class="metric-label">branding consistency</span></div>
+          </div>
+          <a href="https://wa.me/919351639077?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20for%20Dentomate." target="_blank" rel="noopener noreferrer" class="btn-secondary" style="margin-top:28px">Book a demo</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PROOF SECTION — light grey
+════════════════════════════════════════════ -->
+<section class="section" id="proof" style="background:var(--bg-light)">
+  <div class="container">
+    <div class="proof-inner">
+      <div>
+        <p class="ey" style="color:var(--blue);margin-bottom:14px">Pilot results</p>
+        <h2 class="d2">30% more returning patients.<br><span class="acc">In 90 days.</span></h2>
+        <p class="bm" style="color:var(--text-muted);margin:20px 0 0">Across pilot clinics in Mumbai, Delhi, and Bengaluru — clinics that switched to Dentomate saw a 30% increase in patient return rates within 90 days. No extra marketing spend. Just better communication.</p>
+        <div class="proof-stats-row">
+          <div class="proof-stat"><span class="proof-stat-num">30%</span><span class="proof-stat-label">more returning patients</span></div>
+          <div class="proof-stat"><span class="proof-stat-num">90</span><span class="proof-stat-label">days to see results</span></div>
+          <div class="proof-stat"><span class="proof-stat-num" style="color:var(--violet)">3</span><span class="proof-stat-label">cities in pilot programme</span></div>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;background:var(--bg-white)">
+        <img src="assets/images/chart-proof.svg" width="560" height="320" style="width:100%;display:block" alt="Before vs After Dentomate: +30% patient return rate across Mumbai, Delhi, Bengaluru pilot clinics" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TESTIMONIAL — dark card (blue-violet gradient)
+════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-white)">
+  <div class="container">
+    <div class="testimonial-wrap">
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">
+          <svg width="40" height="28" viewBox="0 0 40 28" fill="none"><path d="M0 28V17.6C0 10.4 4.267 4.8 12.8 0l2.4 3.2C10.667 5.6 8.267 8.667 7.6 12H16V28H0zm24 0V17.6C24 10.4 28.267 4.8 36.8 0l2.4 3.2C34.667 5.6 32.267 8.667 31.6 12H40V28H24z" fill="rgba(96,165,250,.2)"/></svg>
+        </div>
+        <blockquote class="testimonial-text">
+          "We were paying ₹12,000 a month for WhatsApp API and still doing manual follow-ups. Dentomate cut that cost to zero and our patients actually comment on the professional prescriptions they receive. We saw 28% more recall appointments in the first two months."
+        </blockquote>
+        <div class="testimonial-author">
+          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-size:16px;font-weight:700;color:white;font-family:-apple-system,sans-serif">VS</span>
+          </div>
+          <div>
+            <p class="h4" style="color:#fff;margin:0">Dr. Vikram Singh</p>
+            <p class="bs" style="color:rgba(255,255,255,.5);margin:3px 0 0">Founder, SmileCraft Dental · 3 clinics, Bengaluru</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     INTEGRATIONS — white
+════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-white);border-top:1px solid var(--border)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:52px">
+      <p class="ey" style="color:var(--text-pale);margin-bottom:14px">Works with the tools you already use</p>
+      <h2 class="d2" style="max-width:480px;margin:0 auto">Fits right into your<br>existing workflow.</h2>
+    </div>
+    <div class="integrations-grid">
+      <div class="integration-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#25D366" fill-opacity=".1"/><path d="M14 5C9 5 5 9 5 14c0 1.7.5 3.3 1.3 4.7L5 23l4.5-1.2C10.8 22.5 12.3 23 14 23c5 0 9-4 9-9s-4-9-9-9z" stroke="#25D366" stroke-width="1.4"/></svg>
+        <span class="bs" style="font-weight:600;color:var(--text)">WhatsApp</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#4285F4" fill-opacity=".1"/><path d="M22 8H6a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2v-8a2 2 0 00-2-2z" stroke="#4285F4" stroke-width="1.4"/><path d="M4 10l10 7 10-7" stroke="#4285F4" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <span class="bs" style="font-weight:600;color:var(--text)">Gmail</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0052CC" fill-opacity=".1"/><rect x="6" y="6" width="16" height="16" rx="2" stroke="#0052CC" stroke-width="1.4"/><path d="M9 12h10M9 16h6" stroke="#0052CC" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <span class="bs" style="font-weight:600;color:var(--text)">Practo</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0E6CC4" fill-opacity=".1"/><path d="M14 8v5l4 2" stroke="#0E6CC4" stroke-width="1.4" stroke-linecap="round"/><circle cx="14" cy="14" r="8" stroke="#0E6CC4" stroke-width="1.4"/></svg>
+        <span class="bs" style="font-weight:600;color:var(--text)">Razorpay</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#1B73E8" fill-opacity=".1"/><rect x="6" y="6" width="7" height="7" rx="1" fill="#1B73E8" fill-opacity=".3"/><rect x="15" y="6" width="7" height="7" rx="1" fill="#1B73E8" fill-opacity=".3"/><rect x="6" y="15" width="7" height="7" rx="1" fill="#1B73E8" fill-opacity=".3"/><rect x="15" y="15" width="7" height="7" rx="1" fill="#1B73E8" fill-opacity=".15"/></svg>
+        <span class="bs" style="font-weight:600;color:var(--text)">Google Cal</span>
+      </div>
+      <div class="integration-logo" style="border-style:dashed">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="var(--border)"/><path d="M9 14h10M14 9v10" stroke="var(--text-pale)" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <span class="bs" style="font-weight:600;color:var(--text-muted)">More soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     RESOURCES — light grey
+════════════════════════════════════════════ -->
+<section class="section" id="resources" style="background:var(--bg-light)">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="ey" style="color:var(--text-pale);margin-bottom:12px">Resources</p>
+        <h2 class="d2" style="margin:0">Guides for growing<br>your practice.</h2>
+      </div>
+      <a href="#" class="btn-outline">View all resources</a>
+    </div>
+    <div class="resources-grid">
+
+      <a href="#" class="resource-card">
+        <div class="resource-img-ph" style="padding:0;border:none">
+          <img src="assets/images/resource-guide.svg" width="360" height="140" style="width:100%;display:block" alt="Guide — stop losing patients after first visit" loading="lazy">
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Guide</span>
+          <h4 class="h4" style="margin:6px 0 8px;line-height:1.4">How to Stop Losing Patients After Their First Visit</h4>
+          <p class="bs" style="color:var(--text-muted)">A practical guide to patient recall for Indian dental clinics.</p>
+        </div>
+      </a>
+
+      <a href="#" class="resource-card">
+        <div class="resource-img-ph" style="padding:0;border:none">
+          <img src="assets/images/resource-report.svg" width="360" height="140" style="width:100%;display:block" alt="Report — Indian Dental Market Patient Communication Benchmarks 2025" loading="lazy">
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Report</span>
+          <h4 class="h4" style="margin:6px 0 8px;line-height:1.4">Indian Dental Market: Patient Communication Benchmarks 2025</h4>
+          <p class="bs" style="color:var(--text-muted)">What 200+ clinics told us about WhatsApp costs and retention.</p>
+        </div>
+      </a>
+
+      <a href="#" class="resource-card">
+        <div class="resource-img-ph" style="padding:0;border:none">
+          <img src="assets/images/resource-webinar.svg" width="360" height="140" style="width:100%;display:block" alt="Webinar — setting up automated follow-ups in 15 minutes" loading="lazy">
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Webinar</span>
+          <h4 class="h4" style="margin:6px 0 8px;line-height:1.4">Setting Up Automated Follow-ups in 15 Minutes</h4>
+          <p class="bs" style="color:var(--text-muted)">Live walkthrough from zero to running recall campaigns. No developer needed.</p>
+        </div>
+      </a>
+
+      <a href="#" class="resource-card">
+        <div class="resource-img-ph" style="padding:0;border:none">
+          <img src="assets/images/resource-checklist.svg" width="360" height="140" style="width:100%;display:block" alt="Case study — SmileCraft 28% more recall appointments in 60 days" loading="lazy">
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Case Study</span>
+          <h4 class="h4" style="margin:6px 0 8px;line-height:1.4">SmileCraft Dental: 28% More Recall Appointments in 60 Days</h4>
+          <p class="bs" style="color:var(--text-muted)">How a 3-clinic network in Bengaluru cut their WhatsApp bill and grew loyalty.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER CTA — blue-violet gradient
+════════════════════════════════════════════ -->
+<section class="section footer-cta" id="trial">
+  <div class="footer-cta-glow"></div>
+  <div class="container">
+    <div class="footer-cta-inner">
+      <div>
+        <p class="ey" style="color:rgba(255,255,255,.5);margin-bottom:14px">14-day free trial</p>
+        <h2 class="d2" style="color:#fff">Your first 14 days are free.<br><span class="acc-v">No WhatsApp bill. No developer.</span></h2>
+        <p class="bm" style="color:rgba(255,255,255,.6);margin-top:16px">Join 200+ Indian dental clinics already using Dentomate. 5-minute setup. Cancel any time.</p>
+      </div>
+      <div>
+        <form id="cta-form" onsubmit="ctaSubmit(event)">
+          <label class="bxs" style="color:rgba(255,255,255,.65);display:block;margin-bottom:6px">Work email</label>
+          <div class="cta-form-row">
+            <input type="email" id="cta-email" placeholder="dr.yourname@clinic.in" class="cta-input" aria-label="Email" required/>
+            <button type="submit" class="btn-primary btn-lg" style="background:#fff;color:var(--blue-dk)">Start free trial</button>
+          </div>
+          <p class="bxs" style="color:rgba(255,255,255,.35);margin-top:10px">By signing up you agree to our Terms &amp; Privacy Policy.</p>
+        </form>
+        <div class="cta-trust">
+          <div class="cta-trust-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="rgba(255,255,255,.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="bxs" style="color:rgba(255,255,255,.45)">No credit card required</span></div>
+          <div class="cta-trust-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="rgba(255,255,255,.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="bxs" style="color:rgba(255,255,255,.45)">Cancel any time</span></div>
+          <div class="cta-trust-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="rgba(255,255,255,.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="bxs" style="color:rgba(255,255,255,.45)">Data stored in India</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER — slate-900
+════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="/" style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:#fff">
+          <div class="nav-logo-mark"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 13c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="6" r="2.5" fill="#fff"/></svg></div>
+          Dentomate
+        </a>
+        <p class="bs" style="color:rgba(255,255,255,.4);margin-top:14px;max-width:220px;line-height:1.65">The practice growth platform built exclusively for Indian dental clinics.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2.5" stroke="rgba(255,255,255,.35)" stroke-width="1.2"/><path d="M4 6.5v5M4 4.5v.5" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/><path d="M7 11.5V8.5c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/></svg></a>
+          <a href="#" class="footer-social" aria-label="X/Twitter"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 12.5l4-4L2 3.5h3.5l2.5 3 3-3H15l-4 4 4 5h-3.5l-2.5-3-3 3H2z" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linejoin="round"/></svg></a>
+          <a href="#" class="footer-social" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="8" rx="2" stroke="rgba(255,255,255,.35)" stroke-width="1.2"/><path d="M6.5 6l4 2-4 2V6z" fill="rgba(255,255,255,.5)"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Product</p>
+        <a href="#features" class="footer-link">Features</a>
+        <a href="#pricing" class="footer-link">Pricing</a>
+        <a href="#" class="footer-link">Multi-Clinic</a>
+        <a href="#" class="footer-link">Analytics</a>
+        <a href="#" class="footer-link">Integrations</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Resources</p>
+        <a href="#" class="footer-link">Blog</a>
+        <a href="#" class="footer-link">Case Studies</a>
+        <a href="#" class="footer-link">Guides</a>
+        <a href="#" class="footer-link">Webinars</a>
+        <a href="#" class="footer-link">Help Centre</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Company</p>
+        <a href="#" class="footer-link">About</a>
+        <a href="#" class="footer-link">Careers</a>
+        <a href="#" class="footer-link">Contact</a>
+        <a href="#" class="footer-link">Press</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Legal</p>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Service</a>
+        <a href="#" class="footer-link">DPDP Compliance</a>
+        <a href="#" class="footer-link">Cookie Policy</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="bxs" style="color:rgba(255,255,255,.28)">&copy; 2026 Dentomate Technologies Pvt. Ltd. All rights reserved.</p>
+      <p class="bxs" style="color:rgba(255,255,255,.28)">Made in India &middot; DPDP-aligned</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('site-nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>12);
+  },{passive:true});
+})();
+(function(){
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('is-on');b.setAttribute('aria-selected','false')});
+      document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('is-on')});
+      btn.classList.add('is-on');btn.setAttribute('aria-selected','true');
+      var t=document.getElementById(btn.getAttribute('data-tab'));
+      if(t)t.classList.add('is-on');
+    });
+  });
+})();
+(function(){
+  var steps=document.querySelectorAll('.step-item');
+  if(!steps.length)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        steps.forEach(function(s){s.classList.remove('is-active')});
+        document.querySelectorAll('.scroll-screen').forEach(function(s){s.classList.remove('is-active')});
+        e.target.classList.add('is-active');
+        var sc=document.getElementById(e.target.getAttribute('data-screen'));
+        if(sc)sc.classList.add('is-active');
+      }
+    });
+  },{threshold:.55,rootMargin:'-10% 0px -35% 0px'});
+  steps.forEach(function(s){obs.observe(s)});
+})();
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target)}
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.dark-card,.usecase-card,.resource-card,.stat-item,.integration-logo,.pricing-card').forEach(function(el){
+    el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .45s ease,transform .45s ease';
+    obs.observe(el);
+  });
+})();
+</script>
+<script>
+function setPricingPeriod(period){
+  var isAnnual=period==='annual';
+  document.getElementById('toggle-annual').classList.toggle('is-on',isAnnual);
+  document.getElementById('toggle-monthly').classList.toggle('is-on',!isAnnual);
+  var sp=document.getElementById('starter-price');
+  var sb=document.getElementById('starter-billed');
+  var ss=document.getElementById('starter-save');
+  var pp=document.getElementById('pro-price');
+  var pb=document.getElementById('pro-billed');
+  var ps=document.getElementById('pro-save');
+  if(isAnnual){
+    sp.innerHTML='<sup>₹</sup>399<span>/month</span>';sb.textContent='₹3,990 billed yearly';ss.textContent='Save ₹798 vs monthly';
+    pp.innerHTML='<sup>₹</sup>799<span>/month</span>';pb.textContent='₹7,990 billed yearly';ps.textContent='Save ₹1,598 vs monthly';
+  } else {
+    sp.innerHTML='<sup>₹</sup>499<span>/month</span>';sb.textContent='Billed monthly';ss.innerHTML='&nbsp;';
+    pp.innerHTML='<sup>₹</sup>999<span>/month</span>';pb.textContent='Billed monthly';ps.innerHTML='&nbsp;';
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Dentomate",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Dental practice management software for Indian clinics — WhatsApp prescriptions, automated patient recalls, multi-branch analytics, and GST-compliant invoicing.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "INR",
+      "description": "Forever free plan with patient records and basic WhatsApp messaging"
+    },
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "price": "399",
+      "priceCurrency": "INR",
+      "description": "Unlimited patients, appointment reminders, recall campaigns, and custom letterhead"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "799",
+      "priceCurrency": "INR",
+      "description": "Everything in Starter plus unlimited recall campaigns, AI medicine suggestions, GST invoicing, and multi-branch support"
+    }
+  ],
+  "url": "https://dentomate.in",
+  "applicationSubCategory": "Dental Practice Management",
+  "inLanguage": ["en-IN", "hi"]
+}
+</script>
+<script>
+// Redirect already-signed-in users to the app
+(function(){
+  if(document.cookie.split(';').some(function(c){return c.trim().startsWith('dm_auth=');})){
+    window.location.replace('https://app.dentomate.in');
+  }
+})();
+
+// CTA email form — redirect to app with email pre-filled
+function ctaSubmit(e){
+  e.preventDefault();
+  var email=document.getElementById('cta-email').value.trim();
+  var dest='https://app.dentomate.in';
+  if(email) dest+='?email='+encodeURIComponent(email);
+  window.location.href=dest;
+}
+</script>
 </body>
 </html>

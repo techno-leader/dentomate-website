@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340">
+<defs>
+  <linearGradient id="barG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#3b82f6"/>
+    <stop offset="100%" stop-color="#1d4ed8"/>
+  </linearGradient>
+  <linearGradient id="barG2" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#8b5cf6"/>
+    <stop offset="100%" stop-color="#6d28d9"/>
+  </linearGradient>
+  <linearGradient id="lineG" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.05"/>
+  </linearGradient>
+</defs>
+
+<!-- Background -->
+<rect width="720" height="340" fill="#0f172a"/>
+
+<!-- Page header -->
+<text x="24" y="34" font-size="14" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Revenue Analytics</text>
+<text x="24" y="50" font-size="9" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">SmileCraft Dental · Jan–Jun 2026 · All branches</text>
+
+<!-- Period selector -->
+<rect x="548" y="22" width="148" height="26" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<text x="560" y="39" font-size="9" fill="rgba(255,255,255,0.55)" font-family="-apple-system,sans-serif">Jan – Jun 2026  ▾</text>
+
+<!-- ── KPI cards ─────────────────────────────────── -->
+<rect x="24" y="64" width="152" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+<text x="40" y="83" font-size="8" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">TOTAL REVENUE</text>
+<text x="40" y="107" font-size="18" font-weight="700" fill="white" font-family="-apple-system,sans-serif">₹14.4L</text>
+<rect x="128" y="97" width="38" height="14" rx="7" fill="rgba(16,185,129,0.15)"/>
+<text x="132" y="108" font-size="8" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">↑ 24%</text>
+
+<rect x="188" y="64" width="152" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+<text x="204" y="83" font-size="8" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">PATIENTS SEEN</text>
+<text x="204" y="107" font-size="18" font-weight="700" fill="white" font-family="-apple-system,sans-serif">842</text>
+<rect x="290" y="97" width="38" height="14" rx="7" fill="rgba(16,185,129,0.15)"/>
+<text x="294" y="108" font-size="8" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">↑ 18%</text>
+
+<rect x="352" y="64" width="160" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+<text x="368" y="83" font-size="8" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">RETURNING PATIENTS</text>
+<text x="368" y="107" font-size="18" font-weight="700" fill="white" font-family="-apple-system,sans-serif">68%</text>
+<rect x="456" y="97" width="44" height="14" rx="7" fill="rgba(59,130,246,0.15)"/>
+<text x="460" y="108" font-size="8" font-weight="700" fill="#93c5fd" font-family="-apple-system,sans-serif">↑ 30%</text>
+
+<rect x="524" y="64" width="172" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+<text x="540" y="83" font-size="8" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">AVG VISIT VALUE</text>
+<text x="540" y="107" font-size="18" font-weight="700" fill="white" font-family="-apple-system,sans-serif">₹1,710</text>
+<rect x="658" y="97" width="26" height="14" rx="7" fill="rgba(245,158,11,0.15)"/>
+<text x="662" y="108" font-size="8" font-weight="700" fill="#fcd34d" font-family="-apple-system,sans-serif">+₹</text>
+
+<!-- ── Chart area ─────────────────────────────────── -->
+<rect x="24" y="140" width="448" height="180" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<text x="40" y="162" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.7)" font-family="-apple-system,sans-serif">Monthly Revenue (₹)</text>
+
+<!-- Y-axis labels -->
+<text x="32" y="300" font-size="7.5" fill="rgba(255,255,255,0.25)" font-family="-apple-system,sans-serif">0</text>
+<text x="26" y="267" font-size="7.5" fill="rgba(255,255,255,0.25)" font-family="-apple-system,sans-serif">1L</text>
+<text x="26" y="235" font-size="7.5" fill="rgba(255,255,255,0.25)" font-family="-apple-system,sans-serif">2L</text>
+<text x="26" y="203" font-size="7.5" fill="rgba(255,255,255,0.25)" font-family="-apple-system,sans-serif">3L</text>
+<line x1="54" y1="299" x2="458" y2="299" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+<line x1="54" y1="267" x2="458" y2="267" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+<line x1="54" y1="235" x2="458" y2="235" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+<line x1="54" y1="203" x2="458" y2="203" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+<!-- Bars with animation (Jan-Jun) -->
+<!-- Jan: ₹1.8L = 60px tall from base 299 -->
+<rect x="66" y="299" width="44" height="0" rx="4" fill="url(#barG)">
+  <animate attributeName="height" from="0" to="60" dur="0.5s" begin="0.1s" fill="freeze"/>
+  <animate attributeName="y" from="299" to="239" dur="0.5s" begin="0.1s" fill="freeze"/>
+</rect>
+<text x="74" y="312" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Jan</text>
+<text x="68" y="233" font-size="8" fill="rgba(255,255,255,0.5)" font-family="-apple-system,sans-serif" opacity="0">1.8L<animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.5s" fill="freeze"/></text>
+
+<!-- Feb: ₹2.0L = 66px -->
+<rect x="122" y="299" width="44" height="0" rx="4" fill="url(#barG)">
+  <animate attributeName="height" from="0" to="67" dur="0.5s" begin="0.2s" fill="freeze"/>
+  <animate attributeName="y" from="299" to="232" dur="0.5s" begin="0.2s" fill="freeze"/>
+</rect>
+<text x="130" y="312" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Feb</text>
+
+<!-- Mar: ₹1.6L = 53px -->
+<rect x="178" y="299" width="44" height="0" rx="4" fill="url(#barG)">
+  <animate attributeName="height" from="0" to="53" dur="0.5s" begin="0.3s" fill="freeze"/>
+  <animate attributeName="y" from="299" to="246" dur="0.5s" begin="0.3s" fill="freeze"/>
+</rect>
+<text x="186" y="312" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Mar</text>
+
+<!-- Apr: ₹2.4L = 80px -->
+<rect x="234" y="299" width="44" height="0" rx="4" fill="url(#barG2)">
+  <animate attributeName="height" from="0" to="80" dur="0.5s" begin="0.4s" fill="freeze"/>
+  <animate attributeName="y" from="299" to="219" dur="0.5s" begin="0.4s" fill="freeze"/>
+</rect>
+<text x="242" y="312" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Apr</text>
+
+<!-- May: ₹2.8L = 93px -->
+<rect x="290" y="299" width="44" height="0" rx="4" fill="url(#barG2)">
+  <animate attributeName="height" from="0" to="93" dur="0.5s" begin="0.5s" fill="freeze"/>
+  <animate attributeName="y" from="299" to="206" dur="0.5s" begin="0.5s" fill="freeze"/>
+</rect>
+<text x="298" y="312" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">May</text>
+
+<!-- Jun: ₹2.4L current highlighted -->
+<rect x="346" y="219" width="44" height="80" rx="4" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="346" y="299" width="44" height="0" rx="4" fill="url(#barG2)">
+  <animate attributeName="height" from="0" to="60" dur="0.5s" begin="0.6s" fill="freeze"/>
+  <animate attributeName="y" from="299" to="239" dur="0.5s" begin="0.6s" fill="freeze"/>
+</rect>
+<text x="354" y="312" font-size="8" fill="#93c5fd" font-weight="600" font-family="-apple-system,sans-serif">Jun</text>
+
+<!-- Tooltip on Jun bar -->
+<rect x="330" y="172" width="80" height="40" rx="6" fill="#1e3a5f" stroke="rgba(59,130,246,0.4)" stroke-width="1" opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.7;0.85;1" dur="2s" begin="0.6s" fill="freeze"/>
+</rect>
+<text x="338" y="190" font-size="8.5" font-weight="700" fill="white" font-family="-apple-system,sans-serif" opacity="0">
+  ₹2.4L
+  <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.7;0.85;1" dur="2s" begin="0.6s" fill="freeze"/>
+</text>
+<text x="338" y="203" font-size="7.5" fill="rgba(255,255,255,0.55)" font-family="-apple-system,sans-serif" opacity="0">
+  Jun 2026
+  <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.7;0.85;1" dur="2s" begin="0.6s" fill="freeze"/>
+</text>
+
+<!-- ── Treatment Breakdown ──────────────────────────── -->
+<rect x="484" y="140" width="212" height="180" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<text x="500" y="162" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.7)" font-family="-apple-system,sans-serif">By Treatment</text>
+
+<!-- Donut chart (simplified arc segments) -->
+<!-- Root Canal 32% -->
+<circle cx="578" cy="230" r="38" fill="none" stroke="#3b82f6" stroke-width="14" stroke-dasharray="76 164" stroke-dashoffset="0" transform="rotate(-90 578 230)"/>
+<!-- Cleaning 25% -->
+<circle cx="578" cy="230" r="38" fill="none" stroke="#8b5cf6" stroke-width="14" stroke-dasharray="59 181" stroke-dashoffset="-76" transform="rotate(-90 578 230)"/>
+<!-- Ortho 20% -->
+<circle cx="578" cy="230" r="38" fill="none" stroke="#10b981" stroke-width="14" stroke-dasharray="47 193" stroke-dashoffset="-135" transform="rotate(-90 578 230)"/>
+<!-- Other 23% -->
+<circle cx="578" cy="230" r="38" fill="none" stroke="#f59e0b" stroke-width="14" stroke-dasharray="55 185" stroke-dashoffset="-182" transform="rotate(-90 578 230)"/>
+<!-- Center -->
+<circle cx="578" cy="230" r="24" fill="#0f172a"/>
+<text x="566" y="227" font-size="10" font-weight="700" fill="white" font-family="-apple-system,sans-serif">₹14L</text>
+<text x="567" y="239" font-size="7.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">total</text>
+
+<!-- Legend -->
+<rect x="496" y="278" width="8" height="8" rx="2" fill="#3b82f6"/>
+<text x="508" y="286" font-size="8" fill="rgba(255,255,255,0.6)" font-family="-apple-system,sans-serif">Root Canal 32%</text>
+<rect x="496" y="293" width="8" height="8" rx="2" fill="#8b5cf6"/>
+<text x="508" y="301" font-size="8" fill="rgba(255,255,255,0.6)" font-family="-apple-system,sans-serif">Cleaning 25%</text>
+<rect x="576" y="278" width="8" height="8" rx="2" fill="#10b981"/>
+<text x="588" y="286" font-size="8" fill="rgba(255,255,255,0.6)" font-family="-apple-system,sans-serif">Ortho 20%</text>
+<rect x="576" y="293" width="8" height="8" rx="2" fill="#f59e0b"/>
+<text x="588" y="301" font-size="8" fill="rgba(255,255,255,0.6)" font-family="-apple-system,sans-serif">Other 23%</text>
+
+</svg>
