@@ -162,8 +162,8 @@ ul{list-style:none}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15rem;color:var(--neutral);flex-shrink:0}
 .nav-logo-mark{width:32px;height:32px;flex-shrink:0}
 .nav-logo-mark img{width:32px;height:32px;display:block;object-fit:contain}
-.logo-dark{display:none}
-@media(prefers-color-scheme:dark){.logo-light{display:none}.logo-dark{display:block}}
+
+
 .nav-links{flex:1;display:flex;align-items:center;justify-content:center;gap:32px}
 .nav-links a{color:var(--text-muted);font-size:.9rem;font-weight:500;transition:color .18s}
 .nav-links a:hover{color:var(--neutral)}
@@ -363,11 +363,13 @@ ul{list-style:none}
   .resources-grid{grid-template-columns:repeat(2,1fr)}
   .footer-cta-inner{grid-template-columns:1fr;gap:40px}
   .footer-top{grid-template-columns:1fr 1fr;gap:32px}
-  .nav-links{display:none;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-  .nav-links a{padding:14px 24px;font-size:1rem;border-bottom:1px solid var(--border-light)}
+  .nav-links{display:none;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:12px 0 16px;box-shadow:0 8px 24px rgba(0,0,0,.1);z-index:999}
+  .nav-links a{padding:14px 24px;font-size:1rem;font-weight:500;color:var(--neutral);border-bottom:1px solid var(--border-light);display:block}
   .nav-links a:last-child{border-bottom:none}
+  .nav-cta-mobile{color:var(--blue);font-weight:700;display:none}
+  .nav.nav-open .nav-cta-mobile{display:block}
   .nav-ctas{gap:8px}
-  .nav-ctas .btn-secondary{display:none}
+  
   .nav-hamburger{display:flex}
   .nav.nav-open .nav-links{display:flex}
   .nav.nav-open .nav-hamburger path{d:path("M4 4l14 14M4 18L18 4")}
@@ -390,7 +392,7 @@ ul{list-style:none}
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Dentomate home">
       <div class="nav-logo-mark">
-        <img src="assets/images/logo-light.png" alt="Dentomate">
+        <img src="assets/images/logo.png" alt="Dentomate" width="32" height="32">
       </div>
       Dentomate
     </a>
@@ -399,6 +401,7 @@ ul{list-style:none}
       <a href="#pricing" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Pricing</a>
       <a href="#proof" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Results</a>
       <a href="#resources" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Resources</a>
+      <a href="https://app.dentomate.in" class="nav-link nav-cta-mobile" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Start free →</a>
     </nav>
     <div class="nav-ctas">
       <a href="https://app.dentomate.in" class="btn-primary" style="padding:10px 20px;font-size:.875rem">Start free</a>

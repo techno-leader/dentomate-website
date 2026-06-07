@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dentomate — Forest Green Theme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DENTOMATE DESIGN TOKENS
+   Matched to Zendesk's neutral system — only brand colours changed
+   Zendesk: lime #BAE53B, dark-green #103728, off-white #F8F7F2
+   Dentomate: cyan #4DD9F0, dark-teal #0d3b4f, off-white #F5F9FC
+   Neutral text colours: IDENTICAL to Zendesk (#1C1C1C, #6B7280)
+   ============================================================ */
+:root {
+  /* Brand */
+  --cyan:      #4ADE80;
+  --cyan-lt:   #86EFAC;
+  --cyan-dk:   #16A34A;
+  --dark:      #0f2d1a;
+  --dark-deep: #071610;
+  --dark-mid:  #163d23;
+
+  /* Neutral — identical to Zendesk */
+  --white:      #FFFFFF;
+  --off-white:  #F0FAF4;
+  --card-bg:    #DCFCE7;
+  --near-black: #1C1C1C;
+  --body-text:  #374151;
+  --muted:      #6B7280;
+  --muted-lt:   #9CA3AF;
+  --border:     #BBF7D0;
+  --border-dk:  #86EFAC;
+
+  /* Type */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Radii — matched to Zendesk */
+  --r4:   4px;
+  --r8:   8px;
+  --r12:  12px;
+  --r20:  20px;
+  --r28:  28px;
+  --rpill: 9999px;
+
+  /* Shadows */
+  --sh-xs: 0 1px 2px rgba(0,0,0,.05);
+  --sh-sm: 0 2px 8px rgba(0,0,0,.07), 0 1px 3px rgba(0,0,0,.04);
+  --sh-md: 0 4px 16px rgba(0,0,0,.09), 0 1px 4px rgba(0,0,0,.04);
+  --sh-lg: 0 8px 32px rgba(0,0,0,.11), 0 2px 8px rgba(0,0,0,.05);
+  --sh-xl: 0 24px 64px rgba(0,0,0,.13);
+  --sh-cyan: 0 8px 32px rgba(74,222,128,.28);
+
+  /* Spacing */
+  --sy: 96px;    /* section vertical padding */
+  --cmax: 1200px;
+  --cx: 24px;    /* container horizontal padding */
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--font); color: var(--near-black); background: var(--white); -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+img, svg { display: block; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ===== TYPOGRAPHY — Zendesk-matched scale ===== */
+.ey {
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .11em; text-transform: uppercase;
+  line-height: 1;
+}
+.d1 { font-size: clamp(2.6rem,5.5vw,3.9rem); font-weight: 800; line-height: 1.07; letter-spacing: -.03em; }
+.d2 { font-size: clamp(2rem,3.8vw,2.8rem);   font-weight: 800; line-height: 1.11; letter-spacing: -.025em; }
+.d3 { font-size: clamp(1.5rem,2.5vw,2rem);   font-weight: 700; line-height: 1.18; letter-spacing: -.02em; }
+.h4 { font-size: 1.25rem; font-weight: 700; line-height: 1.3; letter-spacing: -.015em; }
+.bl { font-size: 1.125rem; line-height: 1.76; }
+.bm { font-size: 1rem;     line-height: 1.72; }
+.bs { font-size: .875rem;  line-height: 1.65; }
+.bxs{ font-size: .8rem;    line-height: 1.55; }
+
+/* accent word — same role as Zendesk's lime highlight on words */
+.acc   { color: var(--cyan-dk); }
+.acc-w { color: var(--cyan);    } /* on dark backgrounds */
+
+/* ===== LAYOUT ===== */
+.wrap { max-width: var(--cmax); margin: 0 auto; padding: 0 var(--cx); }
+.sy   { padding-top: var(--sy); padding-bottom: var(--sy); }
+.sy-lg{ padding-top: 120px; padding-bottom: 120px; }
+
+/* ===== BUTTONS — same as Zendesk pill shape ===== */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: var(--rpill);
+  font-size: .94rem; font-weight: 700; border: none;
+  transition: all .2s ease; white-space: nowrap;
+  font-family: var(--font);
+}
+.btn-lg { padding: 17px 36px; font-size: 1rem; }
+.btn-sm { padding: 10px 20px; font-size: .85rem; }
+.btn-cyan { background: var(--cyan); color: var(--dark-deep); }
+.btn-cyan:hover { background: var(--cyan-lt); transform: translateY(-1px); box-shadow: var(--sh-cyan); }
+.btn-outline-w { background: transparent; border: 1.5px solid rgba(255,255,255,.22); color: #fff; }
+.btn-outline-w:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-outline-dk { background: transparent; border: 1.5px solid var(--border-dk); color: var(--near-black); }
+.btn-outline-dk:hover { border-color: var(--cyan-dk); color: var(--cyan-dk); }
+
+/* ===== FORM — hero inline form ===== */
+.form-inline { display: flex; gap: 12px; flex-wrap: wrap; }
+.form-input {
+  flex: 1; min-width: 220px;
+  padding: 14px 20px;
+  background: rgba(255,255,255,.08);
+  border: 1.5px solid rgba(255,255,255,.18);
+  border-radius: var(--rpill);
+  color: #fff; font-size: .95rem; font-family: var(--font);
+  outline: none; transition: border-color .2s;
+}
+.form-input::placeholder { color: rgba(255,255,255,.38); }
+.form-input:focus { border-color: var(--cyan); }
+
+/* ===== IMAGE PLACEHOLDER ===== */
+.img-ph {
+  background: var(--card-bg);
+  border: 2px dashed var(--border-dk);
+  border-radius: var(--r12);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; padding: 40px 24px;
+  text-align: center; position: relative;
+  overflow: hidden;
+}
+.img-ph-icon { color: var(--muted-lt); }
+.img-ph-tag {
+  font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted-lt);
+  background: var(--border); padding: 3px 10px;
+  border-radius: var(--rpill);
+}
+.img-ph-desc { font-size: .8rem; color: var(--muted-lt); max-width: 200px; line-height: 1.45; }
+
+/* dark-bg image placeholder */
+.img-ph-dark {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.12);
+}
+.img-ph-dark .img-ph-icon { color: rgba(255,255,255,.25); }
+.img-ph-dark .img-ph-tag { background: rgba(255,255,255,.08); color: rgba(255,255,255,.35); }
+.img-ph-dark .img-ph-desc { color: rgba(255,255,255,.3); }
+
+/* ===== BROWSER WINDOW MOCKUP ===== */
+.browser {
+  background: var(--dark-deep);
+  border-radius: var(--r12);
+  overflow: hidden;
+  box-shadow: var(--sh-xl);
+}
+.browser-bar {
+  height: 38px; background: #1a2e3d;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.b-dots { display: flex; gap: 6px; }
+.b-dot { width: 10px; height: 10px; border-radius: 50%; }
+.b-dot-r { background: #FF5F57; }
+.b-dot-y { background: #FEBC2E; }
+.b-dot-g { background: #28C840; }
+.b-url {
+  flex: 1; background: rgba(255,255,255,.06); border-radius: 6px;
+  height: 22px; display: flex; align-items: center;
+  padding: 0 10px; font-size: .68rem; color: rgba(255,255,255,.35);
+  max-width: 320px; margin: 0 auto;
+}
+.browser-body { padding: 20px; }
+
+/* ===== APP UI COMPONENTS (inside browser windows) ===== */
+.app-sidebar {
+  display: flex; flex-direction: column; gap: 4px;
+  width: 52px; padding: 8px 6px;
+  background: rgba(255,255,255,.03);
+  border-right: 1px solid rgba(255,255,255,.06);
+  flex-shrink: 0;
+}
+.app-sidebar-icon {
+  width: 36px; height: 36px; border-radius: var(--r8);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.35);
+}
+.app-sidebar-icon.active {
+  background: rgba(74,222,128,.15); color: var(--cyan);
+}
+.app-layout {
+  display: flex; background: var(--dark-deep);
+  border-radius: 0 0 var(--r12) var(--r12);
+  min-height: 220px; overflow: hidden;
+}
+.app-main { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+
+/* Table rows */
+.trow {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; background: rgba(255,255,255,.04);
+  border-radius: var(--r8); border: 1px solid rgba(255,255,255,.05);
+}
+.trow-av {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .62rem; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.trow-nm  { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.88); flex: 1; }
+.trow-sub { font-size: .6rem; color: rgba(255,255,255,.38); }
+.trow-badge {
+  font-size: .58rem; font-weight: 700; padding: 2px 8px;
+  border-radius: var(--rpill);
+}
+.badge-sent { background: rgba(74,222,128,.12); color: var(--cyan); border: 1px solid rgba(74,222,128,.2); }
+.badge-pend { background: rgba(245,158,11,.1); color: #FBBF24; border: 1px solid rgba(245,158,11,.2); }
+.badge-due  { background: rgba(239,68,68,.1); color: #F87171; border: 1px solid rgba(239,68,68,.2); }
+.badge-vip  { background: rgba(139,92,246,.1); color: #A78BFA; border: 1px solid rgba(139,92,246,.2); }
+
+/* App top bar */
+.app-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 4px;
+}
+.app-title { font-size: .72rem; font-weight: 700; color: rgba(255,255,255,.75); }
+.app-pill {
+  font-size: .6rem; font-weight: 700; padding: 2px 8px;
+  background: rgba(74,222,128,.1); color: var(--cyan);
+  border: 1px solid rgba(74,222,128,.18); border-radius: var(--rpill);
+}
+
+/* Chart bars */
+.chart-wrap { display: flex; align-items: flex-end; gap: 5px; height: 56px; margin-top: 8px; }
+.cb { flex: 1; border-radius: 3px 3px 0 0; }
+.cb-lo { background: rgba(74,222,128,.2); }
+.cb-hi { background: rgba(74,222,128,.55); }
+.cb-top{ background: var(--cyan); }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: 68px; background: var(--dark);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav-inner {
+  max-width: var(--cmax); margin: 0 auto; padding: 0 var(--cx);
+  height: 100%; display: flex; align-items: center; gap: 0;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; font-size: 1.18rem; flex-shrink: 0; }
+.nav-logo-mark {
+  width: 32px; height: 32px; background: var(--cyan); border-radius: var(--r8);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav-links { flex: 1; display: flex; align-items: center; justify-content: center; gap: 32px; }
+.nav-links a { color: rgba(255,255,255,.72); font-size: .9rem; font-weight: 500; transition: color .18s; }
+.nav-links a:hover { color: #fff; }
+.nav-actions { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+.nav-login { color: rgba(255,255,255,.72); font-size: .9rem; font-weight: 500; transition: color .18s; }
+.nav-login:hover { color: #fff; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--dark-deep) 0%, var(--dark) 55%, var(--dark-mid) 100%);
+  min-height: 100vh; padding-top: 68px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.hero-glow {
+  position: absolute; top: 50%; right: -100px; transform: translateY(-50%);
+  width: 700px; height: 700px; pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(74,222,128,.11) 0%, transparent 60%);
+}
+.hero-glow-2 {
+  position: absolute; bottom: -100px; left: 200px;
+  width: 400px; height: 400px; pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(74,222,128,.05) 0%, transparent 60%);
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 56px 80px 0;
+  padding-left: max(var(--cx), calc((100vw - var(--cmax)) / 2 + var(--cx)));
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.2);
+  color: var(--cyan); padding: 6px 14px; border-radius: var(--rpill);
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 20px; width: fit-content;
+}
+.hero-eyebrow-dot {
+  width: 6px; height: 6px; background: var(--cyan); border-radius: 50%;
+  animation: eyebrow-pulse 2s ease-in-out infinite;
+}
+@keyframes eyebrow-pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+.hero-h1 { color: #fff; margin-bottom: 6px; }
+.hero-h1-2 { color: var(--cyan); margin-bottom: 24px; }
+.hero-body { color: rgba(255,255,255,.68); margin-bottom: 36px; max-width: 480px; }
+.hero-trust { margin-top: 14px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.42); font-size: .8rem; }
+.hero-trust-check { color: var(--cyan); }
+.hero-right { position: relative; overflow: hidden; }
+.hero-img-wrap { width: 100%; height: 100%; min-height: 560px; position: relative; }
+
+/* Hero floating overlay card — same composition as Zendesk's floating product card */
+.hero-float {
+  position: absolute; bottom: 32px; left: 24px;
+  width: 260px;
+  background: var(--dark-deep);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r12);
+  padding: 16px;
+  box-shadow: var(--sh-xl);
+  z-index: 10;
+}
+.hf-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.hf-av { width: 28px; height: 28px; border-radius: 50%; background: var(--cyan); display: flex; align-items: center; justify-content: center; font-size: .58rem; font-weight: 800; color: var(--dark-deep); flex-shrink: 0; }
+.hf-clinic { font-size: .68rem; font-weight: 700; color: rgba(255,255,255,.9); }
+.hf-sub { font-size: .58rem; color: rgba(255,255,255,.4); margin-top: 1px; }
+.hf-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+.hf-label { font-size: .63rem; color: rgba(255,255,255,.45); flex: 1; }
+.hf-val { font-size: .63rem; font-weight: 700; color: var(--cyan); }
+.hf-status { font-size: .58rem; font-weight: 700; padding: 2px 8px; border-radius: var(--rpill); background: rgba(74,222,128,.1); color: var(--cyan); border: 1px solid rgba(74,222,128,.18); }
+
+/* ===== LOGO BAR (same structure as Zendesk) ===== */
+.logo-bar { background: var(--off-white); padding: 28px 0; border-bottom: 1px solid var(--border); }
+.logo-bar-inner { display: flex; align-items: center; gap: 48px; justify-content: center; flex-wrap: wrap; }
+.logo-bar-label { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-lt); white-space: nowrap; }
+.logo-bar-logos { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center; }
+.logo-mark-item { font-size: .92rem; font-weight: 800; color: var(--near-black); letter-spacing: -.01em; opacity: .65; transition: opacity .2s; }
+.logo-mark-item:hover { opacity: 1; }
+
+/* ===== SCROLLYTELLING (identical structure to Zendesk) ===== */
+.scrolly { background: var(--white); padding-top: var(--sy); padding-bottom: 0; }
+.scrolly-header { text-align: center; max-width: 700px; margin: 0 auto; padding-bottom: 72px; }
+.scrolly-header .ey { color: var(--cyan-dk); margin-bottom: 16px; }
+.scrolly-header .d2 { margin-bottom: 20px; }
+.scrolly-header .bl { color: var(--muted); max-width: 560px; margin: 0 auto 28px; }
+.scrolly-body {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
+  padding-bottom: var(--sy);
+}
+.scrolly-steps { display: flex; flex-direction: column; }
+.step-item {
+  padding: 40px 0; min-height: 340px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-bottom: 1px solid var(--border);
+  opacity: .45; transition: opacity .3s;
+}
+.step-item:last-child { border-bottom: none; }
+.step-item.is-active { opacity: 1; }
+.step-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .78rem; font-weight: 700;
+  background: var(--card-bg); border: 1.5px solid var(--border);
+  color: var(--muted); margin-bottom: 16px;
+  transition: all .3s;
+}
+.step-item.is-active .step-num {
+  background: var(--cyan); border-color: var(--cyan);
+  color: var(--dark-deep);
+}
+.step-tag { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+.step-tag-p { color: #DC2626; }
+.step-tag-s { color: var(--cyan-dk); }
+.step-tag-r { color: #B45309; }
+.step-title { font-size: 1.35rem; font-weight: 700; line-height: 1.3; margin-bottom: 12px; letter-spacing: -.015em; }
+.step-body { color: var(--muted); line-height: 1.75; font-size: .975rem; }
+
+/* Sticky screen panel */
+.scrolly-screens {
+  position: sticky; top: 96px;
+  height: calc(100vh - 130px);
+  display: flex; align-items: center;
+}
+.scroll-screen { display: none; width: 100%; }
+.scroll-screen.is-active { display: block; animation: fadeUp .3s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+/* ===== STATS (dark — same pattern as Zendesk) ===== */
+.stats { background: var(--dark); padding: 80px 0; }
+.stats-heading { text-align: center; max-width: 680px; margin: 0 auto; padding-bottom: 56px; }
+.stats-heading .ey { color: rgba(255,255,255,.4); margin-bottom: 16px; }
+.stats-heading .d2 { color: #fff; }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat-col { padding: 0 32px; text-align: center; border-right: 1px solid rgba(255,255,255,.08); }
+.stat-col:last-child { border-right: none; }
+.stat-num { font-size: clamp(2.4rem,4.5vw,3.5rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; margin-bottom: 10px; }
+.stat-lbl { font-size: .875rem; color: rgba(255,255,255,.58); font-weight: 500; }
+.stat-ctx { font-size: .72rem; color: rgba(255,255,255,.3); margin-top: 6px; }
+
+/* ===== DARK PANEL (dark — same as Zendesk's dark feature section) ===== */
+.dark-panel { background: linear-gradient(180deg, var(--dark) 0%, var(--dark-deep) 100%); padding: var(--sy) 0; }
+.dark-panel-hdr { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+.dark-panel-hdr .ey { color: var(--cyan); margin-bottom: 14px; }
+.dark-panel-hdr .d2 { color: #fff; margin-bottom: 18px; }
+.dark-panel-hdr .bl { color: rgba(255,255,255,.55); }
+.dp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.dp-card {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r20); padding: 28px 22px;
+  transition: border-color .25s, transform .25s; position: relative; overflow: hidden;
+}
+.dp-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.dp-card:hover { border-color: rgba(74,222,128,.25); transform: translateY(-4px); }
+.dp-card:hover::before { opacity: 1; }
+.dp-visual {
+  height: 140px; margin-bottom: 22px; border-radius: var(--r12);
+  overflow: hidden; background: rgba(74,222,128,.04);
+  border: 1px solid rgba(74,222,128,.1);
+}
+.dp-card-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.dp-card-body { font-size: .85rem; color: rgba(255,255,255,.52); line-height: 1.65; }
+
+/* ===== FEATURE TABS (off-white — same as Zendesk) ===== */
+.ftabs { background: var(--off-white); padding: var(--sy) 0; }
+.ftabs-hdr { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+.ftabs-hdr .ey { color: var(--cyan-dk); margin-bottom: 14px; }
+.ftabs-hdr .d2 { margin-bottom: 18px; }
+.ftabs-hdr .bm { color: var(--muted); }
+.tabs-row {
+  display: flex; gap: 4px; background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--r20);
+  padding: 5px; margin-bottom: 48px; overflow-x: auto;
+}
+.tab-btn {
+  padding: 10px 20px; border-radius: 16px; font-size: .85rem;
+  font-weight: 600; color: var(--muted); cursor: pointer;
+  border: none; background: none; transition: all .2s;
+  white-space: nowrap; font-family: var(--font);
+  display: flex; align-items: center; gap: 8px;
+}
+.tab-btn:hover:not(.is-on) { background: var(--off-white); color: var(--near-black); }
+.tab-btn.is-on { background: var(--dark); color: var(--cyan); }
+.tab-panel { display: none; }
+.tab-panel.is-on {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+  align-items: center; animation: fadeUp .25s ease;
+}
+.tp-ey { color: var(--cyan-dk); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+.tp-h3 { font-size: 1.6rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -.025em; }
+.tp-body { color: var(--muted); line-height: 1.76; margin-bottom: 28px; }
+.tp-link { display: inline-flex; align-items: center; gap: 6px; color: var(--cyan-dk); font-weight: 700; font-size: .9rem; transition: gap .2s; }
+.tp-link:hover { gap: 10px; }
+.tp-screen { background: var(--dark-deep); border-radius: var(--r20); padding: 0; box-shadow: var(--sh-xl); overflow: hidden; }
+
+/* ===== USE-CASE CARDS (white — same as Zendesk) ===== */
+.usecases { background: var(--white); padding: var(--sy) 0; }
+.uc-hdr { text-align: center; max-width: 660px; margin: 0 auto 52px; }
+.uc-hdr .ey { color: var(--cyan-dk); margin-bottom: 14px; }
+.uc-hdr .d2 { margin-bottom: 18px; }
+.uc-hdr .bm { color: var(--muted); }
+.uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.uc-card { border-radius: var(--r20); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--sh-sm); }
+.uc-visual { height: 224px; position: relative; overflow: hidden; }
+.uc-v-solo { background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%); }
+.uc-v-multi{ background: linear-gradient(135deg, var(--dark-deep) 0%, var(--dark) 100%); }
+.uc-visual-glow {
+  position: absolute; width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(74,222,128,.16) 0%, transparent 65%);
+  top: -60px; right: -40px; pointer-events: none;
+}
+.uc-visual-inner { padding: 20px; height: 100%; }
+.uc-body { padding: 28px; background: var(--white); }
+.uc-tag { font-size: .72rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--cyan-dk); display: block; margin-bottom: 10px; }
+.uc-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -.02em; }
+.uc-desc { color: var(--muted); line-height: 1.72; margin-bottom: 24px; }
+.uc-ctas { display: flex; flex-direction: column; gap: 12px; }
+.btn-full { width: 100%; justify-content: center; }
+
+/* ===== PROOF SECTION (off-white — like Zendesk's Gartner section) ===== */
+.proof { background: var(--off-white); padding: var(--sy) 0; }
+.proof-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.proof-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--card-bg); border: 1px solid var(--border-dk); color: var(--muted); padding: 6px 14px; border-radius: var(--rpill); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 20px; }
+.proof-title { font-size: clamp(1.5rem,2.5vw,2rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -.02em; }
+.proof-body { color: var(--muted); line-height: 1.75; margin-bottom: 28px; }
+
+/* ===== TESTIMONIAL (white — same as Zendesk carousel) ===== */
+.testimonial { background: var(--white); padding: var(--sy) 0; }
+.test-hdr { text-align: center; max-width: 580px; margin: 0 auto 48px; }
+.test-hdr .ey { color: var(--cyan-dk); margin-bottom: 14px; }
+.test-hdr .d3 { margin-bottom: 0; }
+.test-card {
+  background: var(--dark); border-radius: var(--r20); overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.test-left { padding: 56px 48px; position: relative; }
+.test-left::before {
+  content: '"'; position: absolute; top: 16px; left: 36px;
+  font-size: 8rem; line-height: 1; font-family: Georgia, serif;
+  color: rgba(74,222,128,.1); pointer-events: none;
+}
+.test-logo-area { margin-bottom: 28px; }
+.test-logo-text { font-size: 1.05rem; font-weight: 800; color: rgba(255,255,255,.45); letter-spacing: -.01em; }
+.test-stats { display: flex; gap: 40px; margin-bottom: 32px; }
+.ts-val { font-size: 2.2rem; font-weight: 800; color: var(--cyan); letter-spacing: -.04em; line-height: 1; }
+.ts-lbl { font-size: .75rem; color: rgba(255,255,255,.45); margin-top: 4px; }
+.test-quote { font-size: 1.05rem; line-height: 1.78; color: rgba(255,255,255,.84); margin-bottom: 28px; position: relative; z-index: 1; }
+.test-author { display: flex; align-items: center; gap: 12px; }
+.test-av { width: 44px; height: 44px; border-radius: 50%; background: var(--cyan); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .9rem; color: var(--dark-deep); flex-shrink: 0; }
+.test-nm { font-weight: 700; color: #fff; font-size: .9rem; }
+.test-role { font-size: .78rem; color: rgba(255,255,255,.45); margin-top: 2px; }
+.test-right { position: relative; min-height: 360px; }
+
+/* Test navigation */
+.test-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; }
+.test-nav-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid var(--border); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all .2s; color: var(--muted);
+}
+.test-nav-btn:hover { border-color: var(--cyan-dk); color: var(--cyan-dk); }
+.test-dots { display: flex; gap: 8px; }
+.test-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: background .2s; }
+.test-dot.active { background: var(--cyan-dk); }
+
+/* ===== INTEGRATIONS (white — same as Zendesk) ===== */
+.integrations { background: var(--white); padding: var(--sy) 0; }
+.int-hdr { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 56px; }
+.int-hdr .ey { color: var(--cyan-dk); margin-bottom: 14px; }
+.int-hdr .d3 { margin-bottom: 16px; }
+.int-hdr .bm { color: var(--muted); margin-bottom: 24px; }
+.int-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
+.int-card {
+  background: var(--off-white); border: 1px solid var(--border);
+  border-radius: var(--r12); padding: 18px 14px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  transition: transform .2s, box-shadow .2s;
+}
+.int-card:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+.int-icon { width: 40px; height: 40px; border-radius: var(--r8); display: flex; align-items: center; justify-content: center; }
+.int-name { font-size: .72rem; font-weight: 600; color: var(--near-black); text-align: center; }
+
+/* ===== RESOURCES (off-white — same as Zendesk) ===== */
+.resources { background: var(--off-white); padding: var(--sy) 0; }
+.resources-hdr { margin-bottom: 40px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.resources-hdr .d3 { }
+.res-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.res-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r12); overflow: hidden; box-shadow: var(--sh-xs); transition: transform .2s, box-shadow .2s; }
+.res-card:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+.res-img { height: 140px; }
+.res-body { padding: 20px; }
+.res-tag { font-size: .68rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
+.res-title { font-size: .95rem; font-weight: 700; line-height: 1.4; margin-bottom: 12px; }
+.res-link { display: inline-flex; align-items: center; gap: 5px; font-size: .82rem; font-weight: 600; color: var(--cyan-dk); }
+
+/* ===== FOOTER CTA (dark — same as Zendesk) ===== */
+.footer-cta {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
+  padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+}
+.footer-cta-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 700px; height: 700px; pointer-events: none;
+  background: radial-gradient(ellipse, rgba(74,222,128,.08) 0%, transparent 55%);
+}
+.footer-cta .ey { color: rgba(255,255,255,.4); margin-bottom: 16px; position: relative; z-index: 1; }
+.footer-cta .d2 { color: #fff; margin-bottom: 20px; position: relative; z-index: 1; }
+.footer-cta .bl { color: rgba(255,255,255,.6); max-width: 480px; margin: 0 auto 40px; position: relative; z-index: 1; }
+.footer-cta-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: 520px; margin: 0 auto 16px; position: relative; z-index: 1; }
+.footer-cta-trust { font-size: .78rem; color: rgba(255,255,255,.32); position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 16px; }
+.footer-cta-trust-item { display: flex; align-items: center; gap: 5px; }
+
+/* ===== FOOTER (darkest — same as Zendesk) ===== */
+.footer { background: var(--dark-deep); padding: 64px 0 36px; }
+.footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand-logo { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; font-size: 1.1rem; margin-bottom: 16px; }
+.footer-brand-logo-mark { width: 28px; height: 28px; background: var(--cyan); border-radius: var(--r8); display: flex; align-items: center; justify-content: center; }
+.footer-desc { font-size: .875rem; color: rgba(255,255,255,.38); line-height: 1.7; max-width: 260px; }
+.footer-col-h { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: .875rem; color: rgba(255,255,255,.52); transition: color .18s; }
+.footer-links a:hover { color: var(--cyan); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.06); }
+.footer-copy { font-size: .78rem; color: rgba(255,255,255,.28); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: .78rem; color: rgba(255,255,255,.28); transition: color .18s; }
+.footer-legal a:hover { color: rgba(255,255,255,.55); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  :root { --sy: 72px; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 64px var(--cx); max-width: 100%; margin: 0; }
+  .hero-right { display: none; }
+  .scrolly-body { grid-template-columns: 1fr; }
+  .scrolly-screens { display: none; }
+  .step-item { opacity: 1; min-height: auto; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); padding: 24px; }
+  .dp-grid { grid-template-columns: 1fr; }
+  .tab-panel.is-on { grid-template-columns: 1fr; }
+  .uc-grid { grid-template-columns: 1fr; }
+  .proof-inner { grid-template-columns: 1fr; }
+  .test-card { grid-template-columns: 1fr; }
+  .test-right { display: none; }
+  .int-hdr { grid-template-columns: 1fr; gap: 24px; }
+  .int-grid { grid-template-columns: repeat(3,1fr); }
+  .res-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  .form-inline { flex-direction: column; }
+  .int-grid { grid-template-columns: repeat(2,1fr); }
+  .res-grid { grid-template-columns: 1fr; }
+  .test-stats { flex-wrap: wrap; gap: 20px; }
+  .footer-cta-form { flex-direction: column; align-items: stretch; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+<style>
+/* ============================================================
+   SUPPLEMENTARY CSS — additional classes used in HTML body
+   ============================================================ */
+
+/* ---- Layout utilities ---- */
+.container { max-width: var(--cmax); margin: 0 auto; padding: 0 var(--cx); }
+.section { padding: var(--sy) 0; }
+
+/* ---- Button aliases used in this build ---- */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: var(--rpill);
+  font-size: .94rem; font-weight: 700; border: none;
+  background: var(--cyan); color: var(--dark-deep);
+  transition: all .2s ease; white-space: nowrap;
+  font-family: var(--font); cursor: pointer;
+}
+.btn-primary:hover { background: var(--cyan-lt); transform: translateY(-1px); box-shadow: var(--sh-cyan); }
+.btn-primary.btn-lg { padding: 17px 36px; font-size: 1rem; }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: var(--rpill);
+  font-size: .94rem; font-weight: 700;
+  background: transparent; border: 1.5px solid rgba(255,255,255,.22);
+  color: #fff; transition: all .2s ease; white-space: nowrap;
+  font-family: var(--font); cursor: pointer;
+}
+.btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-ghost.btn-lg { padding: 17px 36px; font-size: 1rem; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: var(--rpill);
+  font-size: .94rem; font-weight: 700;
+  background: transparent; border: 1.5px solid var(--border-dk);
+  color: var(--near-black); transition: all .2s ease; white-space: nowrap;
+  font-family: var(--font); cursor: pointer;
+}
+.btn-outline:hover { border-color: var(--cyan-dk); color: var(--cyan-dk); }
+.btn-ghost-dark {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px; border-radius: var(--rpill);
+  font-size: .875rem; font-weight: 600;
+  background: transparent; border: 1.5px solid var(--border-dk);
+  color: var(--near-black); transition: all .2s ease; white-space: nowrap;
+  font-family: var(--font); cursor: pointer;
+}
+.btn-ghost-dark:hover { border-color: var(--cyan-dk); color: var(--cyan-dk); }
+
+/* ---- Nav additions ---- */
+.nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.2); }
+.nav-ctas { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+.nav-link { color: rgba(255,255,255,.72); font-size: .9rem; font-weight: 500; transition: color .18s; }
+.nav-link:hover { color: #fff; }
+.nav-hamburger {
+  display: none; background: none; border: none; color: rgba(255,255,255,.8);
+  padding: 6px; cursor: pointer; align-items: center;
+}
+
+/* ---- Eyebrow pill (hero) ---- */
+.eyebrow-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.2);
+  color: var(--cyan); padding: 6px 14px; border-radius: var(--rpill);
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 20px; width: fit-content;
+}
+
+/* ---- Hero additions ---- */
+.hero-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: center; min-height: calc(100vh - 68px);
+  padding-top: 60px; padding-bottom: 80px;
+}
+.hero-sub { color: rgba(255,255,255,.68); margin-bottom: 36px; max-width: 480px; }
+.hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.hero-proof { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.hero-proof-item { display: flex; align-items: center; gap: 6px; }
+.hero-notif {
+  position: absolute; bottom: 24px; left: 24px;
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(5,30,40,.9); border: 1px solid rgba(74,222,128,.2);
+  border-radius: var(--r12); padding: 12px 16px;
+  box-shadow: var(--sh-xl); backdrop-filter: blur(12px);
+  min-width: 260px; z-index: 10;
+}
+.hero-notif-icon {
+  width: 32px; height: 32px; background: rgba(74,222,128,.1);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.hero-notif-body { flex: 1; }
+.hero-notif-badge {
+  width: 20px; height: 20px; background: var(--cyan);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+/* ---- Logo bar additions ---- */
+.logo-grid { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+.logo-mark { font-size: .92rem; font-weight: 800; color: var(--near-black); letter-spacing: -.01em; opacity: .5; transition: opacity .2s; }
+.logo-mark:hover { opacity: .8; }
+
+/* ---- Tag chips ---- */
+.tag {
+  display: inline-flex; align-items: center;
+  font-size: .7rem; font-weight: 600; letter-spacing: .04em;
+  padding: 4px 12px; border-radius: var(--rpill);
+  background: var(--card-bg); border: 1px solid var(--border);
+  color: var(--muted);
+}
+.tag-cyan { background: rgba(27,184,213,.08); border-color: rgba(27,184,213,.2); color: var(--cyan-dk); }
+.step-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+
+/* ---- Stats section ---- */
+.stats-section { background: var(--dark); padding: 80px 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat-item { padding: 0 32px; text-align: center; border-right: 1px solid rgba(255,255,255,.08); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-size: clamp(2.4rem,4.5vw,3.5rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; margin-bottom: 10px; color: var(--cyan); }
+.stat-label { font-size: .875rem; color: rgba(255,255,255,.55); font-weight: 500; }
+
+/* ---- Dark panel cards ---- */
+.dark-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.dark-card {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r20); padding: 28px 24px;
+  transition: border-color .25s, transform .25s; position: relative; overflow: hidden;
+}
+.dark-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.dark-card:hover { border-color: rgba(74,222,128,.25); transform: translateY(-4px); }
+.dark-card:hover::before { opacity: 1; }
+.dark-card-icon {
+  width: 40px; height: 40px; background: rgba(74,222,128,.1);
+  border: 1px solid rgba(74,222,128,.2); border-radius: var(--r8);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---- Tabs bar ---- */
+.tabs-bar {
+  display: flex; gap: 4px; background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--r20);
+  padding: 5px; margin-bottom: 48px; overflow-x: auto;
+}
+
+/* ---- Feature list inside tabs ---- */
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.feature-list li { display: flex; align-items: flex-start; gap: 10px; font-size: .95rem; font-weight: 500; color: var(--near-black); }
+.tab-copy { display: flex; flex-direction: column; }
+.tab-visual {}
+
+/* ---- Use-case section ---- */
+.usecase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.usecase-card { border-radius: var(--r20); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--sh-sm); }
+.usecase-img-ph { min-height: 224px; border-radius: 0; border: none; border-bottom: 1px solid var(--border); }
+.usecase-body { padding: 32px 28px; }
+.usecase-metrics { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+.metric-item { display: flex; flex-direction: column; }
+.metric-num { font-size: 2rem; font-weight: 800; letter-spacing: -.04em; color: var(--cyan-dk); line-height: 1; }
+.metric-label { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+
+/* ---- Proof additions ---- */
+.proof-stats-row { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 28px; }
+.proof-stat { display: flex; flex-direction: column; }
+.proof-stat-num { font-size: 2.2rem; font-weight: 800; letter-spacing: -.04em; color: var(--cyan-dk); line-height: 1; }
+.proof-stat-label { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+.proof-copy {}
+.proof-visual {}
+
+/* ---- Testimonial additions ---- */
+.testimonial-wrap { max-width: 820px; margin: 0 auto; }
+.testimonial-card {
+  background: var(--off-white); border: 1px solid var(--border);
+  border-radius: var(--r20); padding: 48px; box-shadow: var(--sh-md);
+}
+.testimonial-quote-mark { margin-bottom: 20px; }
+.testimonial-text { font-size: 1.1rem; line-height: 1.78; color: var(--near-black); margin-bottom: 28px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 16px; }
+.testimonial-avatar {
+  width: 56px; height: 56px; min-height: unset; padding: 0;
+  border-radius: 50%; flex-shrink: 0;
+}
+.testimonial-meta {}
+
+/* ---- Integrations additions ---- */
+.integrations-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 12px; }
+.integration-logo {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  background: var(--off-white); border: 1px solid var(--border);
+  border-radius: var(--r12); padding: 18px 12px;
+  transition: transform .2s, box-shadow .2s;
+}
+.integration-logo:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+
+/* ---- Section header (resources) ---- */
+.section-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-bottom: 40px; flex-wrap: wrap;
+}
+
+/* ---- Resources additions ---- */
+.resources-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.resource-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--r12); overflow: hidden; box-shadow: var(--sh-xs);
+  transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column;
+}
+.resource-card:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+.resource-img-ph { min-height: 140px; border-radius: 0; border: none; border-bottom: 1px solid var(--border); }
+.resource-body { padding: 20px; flex: 1; }
+.resource-tag {
+  font-size: .68rem; font-weight: 700; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block;
+}
+
+/* ---- Footer CTA additions ---- */
+.footer-cta-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+.footer-cta-copy {}
+.footer-cta-form {}
+.cta-form {}
+.cta-form-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.cta-input {
+  flex: 1; min-width: 200px; padding: 14px 20px;
+  background: rgba(255,255,255,.08); border: 1.5px solid rgba(255,255,255,.18);
+  border-radius: var(--rpill); color: #fff; font-size: .95rem;
+  font-family: var(--font); outline: none; transition: border-color .2s;
+}
+.cta-input::placeholder { color: rgba(255,255,255,.38); }
+.cta-input:focus { border-color: var(--cyan); }
+.cta-trust { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.cta-trust-item { display: flex; align-items: center; gap: 6px; }
+
+/* ---- Footer additions ---- */
+.footer-top {
+  display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px;
+}
+.footer-brand {}
+.footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+.footer-social {
+  width: 34px; height: 34px; border-radius: var(--r8);
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07);
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.footer-social:hover { background: rgba(74,222,128,.1); border-color: rgba(74,222,128,.2); }
+.footer-col { display: flex; flex-direction: column; }
+.footer-col-head {
+  font-size: .72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .1em; color: rgba(255,255,255,.3); margin-bottom: 18px;
+}
+.footer-link {
+  font-size: .875rem; color: rgba(255,255,255,.5);
+  transition: color .18s; margin-bottom: 10px;
+}
+.footer-link:hover { color: var(--cyan); }
+.footer-legal {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 28px; border-top: 1px solid rgba(255,255,255,.06); gap: 24px; flex-wrap: wrap;
+}
+
+/* ---- Responsive extras ---- */
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-right { display: none; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); padding: 24px; }
+  .stat-item:last-child { border-bottom: none; }
+  .dark-cards { grid-template-columns: 1fr; }
+  .usecase-grid { grid-template-columns: 1fr; }
+  .integrations-grid { grid-template-columns: repeat(3,1fr); }
+  .resources-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .nav-ctas .btn-ghost { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-open .nav-links {
+    display: flex; flex-direction: column; position: absolute;
+    top: 68px; left: 0; right: 0; background: var(--dark);
+    padding: 16px 24px 24px; border-bottom: 1px solid rgba(255,255,255,.08);
+    gap: 4px;
+  }
+}
+@media (max-width: 600px) {
+  .integrations-grid { grid-template-columns: repeat(2,1fr); }
+  .resources-grid { grid-template-columns: 1fr; }
+  .proof-inner { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .footer-top { grid-template-columns: 1fr; }
+  .cta-form-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<!-- ============================================================
+  NAV
+============================================================ -->
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Dentomate home">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" rx="8" fill="#4DD9F0"/>
+        <path d="M10 22c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#051E28" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="4" fill="#051E28"/>
+        <path d="M13 11.5c0 0 1-2 3-2s3 2 3 2" stroke="#051E28" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span>Dentomate</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#proof" class="nav-link">Results</a>
+      <a href="#resources" class="nav-link">Resources</a>
+    </nav>
+    <div class="nav-ctas">
+      <a href="#" class="btn-ghost">Sign in</a>
+      <a href="#trial" class="btn-primary">Start free trial</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="this.closest('.nav').classList.toggle('nav-open')">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+  HERO  (dark gradient)
+============================================================ -->
+<section class="hero" id="hero">
+  <div class="container hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow-pill">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#4DD9F0" fill-opacity=".2"/><circle cx="7" cy="7" r="3" fill="#4DD9F0"/></svg>
+        Trusted by 200+ Indian dental clinics
+      </div>
+      <h1 class="d1">Stop Paying<br><span class="acc-w">the WhatsApp Tax.</span></h1>
+      <p class="bl hero-sub">Dentomate sends branded prescriptions automatically, organises every patient record, and brings patients back — without the ₹8,000/month bill.</p>
+      <div class="hero-actions">
+        <a href="#trial" class="btn-primary btn-lg">Start free trial</a>
+        <a href="#demo" class="btn-ghost btn-lg">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 6.5l5 2.5-5 2.5V6.5z" fill="currentColor"/></svg>
+          Watch demo
+        </a>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-proof-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#4DD9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="bs">14-day free trial</span>
+        </div>
+        <div class="hero-proof-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#4DD9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="bs">5-minute setup</span>
+        </div>
+        <div class="hero-proof-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#4DD9F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="bs">No developer needed</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="img-ph img-ph-dark hero-img-ph" style="min-height:420px; position:relative;">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="rgba(255,255,255,.3)" stroke-width="2"/><path d="M4 16h40" stroke="rgba(255,255,255,.3)" stroke-width="2"/><circle cx="10" cy="12" r="2" fill="rgba(255,255,255,.3)"/><circle cx="16" cy="12" r="2" fill="rgba(255,255,255,.3)"/><circle cx="22" cy="12" r="2" fill="rgba(255,255,255,.3)"/></svg>
+        <span class="bs" style="color:rgba(255,255,255,.4); max-width:220px; text-align:center;">Hero image — Indian dentist in a modern clinic or patient receiving a branded prescription on their phone. Teal accent object visible.</span>
+        <!-- Floating notification card -->
+        <div class="hero-notif">
+          <div class="hero-notif-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.13 2 2 5.13 2 9s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 9.2c-1.67 0-3.14-.85-4-2.15.02-1.33 2.67-2.05 4-2.05s3.98.72 4 2.05c-.86 1.3-2.33 2.15-4 2.15z" fill="#4DD9F0"/></svg>
+          </div>
+          <div class="hero-notif-body">
+            <p class="bxs" style="color:#fff; font-weight:600; margin:0;">Prescription sent</p>
+            <p class="bxs" style="color:rgba(255,255,255,.55); margin:0;">Rahul Mehta · Root Canal · just now</p>
+          </div>
+          <div class="hero-notif-badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="#051E28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  LOGO BAR  (off-white — social proof, clinic names)
+============================================================ -->
+<section class="logo-bar">
+  <div class="container">
+    <p class="bxs logo-bar-label">Trusted by clinics across India</p>
+    <div class="logo-grid">
+      <span class="logo-mark">SmileCraft Dental</span>
+      <span class="logo-mark">Pearl Dental Studio</span>
+      <span class="logo-mark">Apex Oral Care</span>
+      <span class="logo-mark">Bright Smiles Mumbai</span>
+      <span class="logo-mark">DentaWell Clinics</span>
+      <span class="logo-mark">OralPlus Network</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SCROLLYTELLING  (white bg — "How Dentomate Works")
+============================================================ -->
+<section class="section" id="features" style="background:var(--white);">
+  <div class="container">
+    <div style="text-align:center; max-width:640px; margin:0 auto 72px;">
+      <p class="ey" style="color:var(--cyan-dk);">How it works</p>
+      <h2 class="d2">Your practice runs itself.<br><span class="acc">Three things change everything.</span></h2>
+    </div>
+    <div class="scrolly-body">
+      <!-- Left: steps -->
+      <div class="scrolly-steps">
+
+        <div class="step-item is-active" data-screen="screen-rx">
+          <div class="step-num">01</div>
+          <h3 class="h4" style="margin:16px 0 12px;">Branded prescription, sent in 5 seconds</h3>
+          <p class="bm" style="color:var(--body-text); max-width:400px;">The moment a patient leaves your chair, Dentomate sends a beautifully branded prescription to their phone — your clinic name, logo, and doctor's signature, every single time.</p>
+          <div class="step-tags">
+            <span class="tag">Auto-send on exit</span>
+            <span class="tag">Clinic branding</span>
+            <span class="tag">WhatsApp delivery</span>
+          </div>
+        </div>
+
+        <div class="step-item" data-screen="screen-followup">
+          <div class="step-num">02</div>
+          <h3 class="h4" style="margin:16px 0 12px;">Patients come back automatically</h3>
+          <p class="bm" style="color:var(--body-text); max-width:400px;">Smart follow-up messages go out at 7 days, 3 months, and 6 months — personalised with the patient's name, treatment, and next recommended visit. No manual work required.</p>
+          <div class="step-tags">
+            <span class="tag">Recall reminders</span>
+            <span class="tag">Treatment follow-ups</span>
+            <span class="tag">30% more returns</span>
+          </div>
+        </div>
+
+        <div class="step-item" data-screen="screen-analytics">
+          <div class="step-num">03</div>
+          <h3 class="h4" style="margin:16px 0 12px;">See exactly what's driving your revenue</h3>
+          <p class="bm" style="color:var(--body-text); max-width:400px;">Revenue by treatment type, patient lifetime value, branch-by-branch performance. Know which month made the most money — then do more of that.</p>
+          <div class="step-tags">
+            <span class="tag">Revenue analytics</span>
+            <span class="tag">Multi-clinic view</span>
+            <span class="tag">Monthly trends</span>
+          </div>
+        </div>
+
+      </div><!-- /scrolly-steps -->
+
+      <!-- Right: sticky screens -->
+      <div class="scrolly-screens">
+
+        <div class="scroll-screen is-active" id="screen-rx">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="b-dot b-dot-r"></span>
+              <span class="b-dot b-dot-y"></span>
+              <span class="b-dot b-dot-g"></span>
+              <div class="b-url">app.dentomate.in / prescription</div>
+            </div>
+            <div class="img-ph img-ph-dark" style="min-height:340px; border-radius:0; border:none;">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="8" y="4" width="24" height="32" rx="3" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M13 12h14M13 17h14M13 22h8" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="bxs" style="color:rgba(255,255,255,.35); max-width:200px; text-align:center;">Product screenshot — prescription send screen with clinic branding, patient name "Rahul Mehta", treatment "Root Canal"</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-screen" id="screen-followup">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="b-dot b-dot-r"></span>
+              <span class="b-dot b-dot-y"></span>
+              <span class="b-dot b-dot-g"></span>
+              <div class="b-url">app.dentomate.in / follow-ups</div>
+            </div>
+            <div class="img-ph img-ph-dark" style="min-height:340px; border-radius:0; border:none;">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="3" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M4 16h32" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/><circle cx="14" cy="26" r="3" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M20 24h8M20 28h5" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="bxs" style="color:rgba(255,255,255,.35); max-width:200px; text-align:center;">Product screenshot — automated follow-up scheduler showing patients Priya Sharma, Anjali Kapoor due for recall</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-screen" id="screen-analytics">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="b-dot b-dot-r"></span>
+              <span class="b-dot b-dot-y"></span>
+              <span class="b-dot b-dot-g"></span>
+              <div class="b-url">app.dentomate.in / analytics</div>
+            </div>
+            <div class="img-ph img-ph-dark" style="min-height:340px; border-radius:0; border:none;">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="32" height="32" rx="3" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M10 28l5-8 5 4 5-10 5 6" stroke="#4DD9F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 30h24" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/></svg>
+              <span class="bxs" style="color:rgba(255,255,255,.35); max-width:200px; text-align:center;">Product screenshot — revenue analytics dashboard showing ₹ monthly trend chart, top treatments, clinic branches</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /scrolly-screens -->
+    </div><!-- /scrolly-body -->
+  </div>
+</section>
+
+<!-- ============================================================
+  STATS  (dark bg)
+============================================================ -->
+<section class="section stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">30%</div>
+        <p class="bs stat-label">more returning patients in pilot clinics</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">200+</div>
+        <p class="bs stat-label">Indian dental clinics already on Dentomate</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">₹8k</div>
+        <p class="bs stat-label">average monthly WhatsApp cost eliminated</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5 min</div>
+        <p class="bs stat-label">average setup time — no developer needed</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  DARK PANEL  (dark bg — 3 core features with illustrations)
+============================================================ -->
+<section class="section dark-panel">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto 72px;">
+      <p class="ey" style="color:var(--cyan);">Built for Indian dentists</p>
+      <h2 class="d2" style="color:var(--white);">Everything your practice<br><span class="acc-w">actually needs.</span></h2>
+    </div>
+    <div class="dark-cards">
+
+      <div class="dark-card">
+        <div class="img-ph img-ph-dark" style="min-height:200px; margin-bottom:28px;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M6 28V10a2 2 0 012-2h12l8 8v12a2 2 0 01-2 2H8a2 2 0 01-2-2z" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M20 8v8h8" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M11 19h14M11 23h9" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="bxs" style="color:rgba(255,255,255,.3); text-align:center; max-width:160px;">Illustration — branded prescription with clinic logo, doctor signature, teal colour accents</span>
+        </div>
+        <div class="dark-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16V6a2 2 0 012-2h5l4 4v8a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="var(--cyan)" stroke-width="1.5"/><path d="M11 4v4h4" stroke="var(--cyan)" stroke-width="1.5"/><path d="M7 11h6M7 14h4" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="h4" style="color:var(--white); margin:12px 0 10px;">Branded Prescriptions</h3>
+        <p class="bm" style="color:rgba(255,255,255,.6);">Clinic logo, doctor name, and treatment notes — automatically formatted and sent to the patient the moment they leave your chair. No manual effort ever.</p>
+      </div>
+
+      <div class="dark-card">
+        <div class="img-ph img-ph-dark" style="min-height:200px; margin-bottom:28px;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M4 14h28" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/><circle cx="12" cy="9" r="1.5" fill="rgba(255,255,255,.3)"/><circle cx="18" cy="9" r="1.5" fill="rgba(255,255,255,.3)"/><path d="M8 22h4v4H8z" fill="rgba(74,222,128,.15)" stroke="rgba(74,222,128,.4)" stroke-width="1"/><path d="M16 20h4v6h-4z" fill="rgba(74,222,128,.2)" stroke="rgba(74,222,128,.5)" stroke-width="1"/><path d="M24 18h4v8h-4z" fill="rgba(74,222,128,.3)" stroke="rgba(74,222,128,.6)" stroke-width="1"/></svg>
+          <span class="bxs" style="color:rgba(255,255,255,.3); text-align:center; max-width:160px;">Illustration — multi-clinic analytics dashboard, bar chart showing Mumbai, Delhi, Pune revenue comparison</span>
+        </div>
+        <div class="dark-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17V9M8 17V5M13 17V8M18 17V12" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="h4" style="color:var(--white); margin:12px 0 10px;">Multi-Clinic Analytics</h3>
+        <p class="bm" style="color:rgba(255,255,255,.6);">One dashboard. Every location. Revenue by branch, treatment, and month — so you always know which clinic is growing and which one needs attention.</p>
+      </div>
+
+      <div class="dark-card">
+        <div class="img-ph img-ph-dark" style="min-height:200px; margin-bottom:28px;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="12" r="6" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M6 30c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"/><path d="M24 18l4 4-4 4" stroke="rgba(74,222,128,.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 22h14" stroke="rgba(74,222,128,.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="bxs" style="color:rgba(255,255,255,.3); text-align:center; max-width:160px;">Illustration — staff access control panel, showing receptionist with limited view vs owner with full access</span>
+        </div>
+        <div class="dark-card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="10" width="14" height="8" rx="2" stroke="var(--cyan)" stroke-width="1.5"/><path d="M7 10V7a3 3 0 116 0v3" stroke="var(--cyan)" stroke-width="1.5"/><circle cx="10" cy="14" r="1.5" fill="var(--cyan)"/></svg>
+        </div>
+        <h3 class="h4" style="color:var(--white); margin:12px 0 10px;">Staff Access Control</h3>
+        <p class="bm" style="color:rgba(255,255,255,.6);">Receptionists see appointments. Doctors see patient history. You see everything. Role-based access keeps your data secure and your staff focused.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  FEATURE TABS  (off-white bg)
+============================================================ -->
+<section class="section" id="pricing" style="background:var(--off-white);">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto 56px;">
+      <p class="ey" style="color:var(--cyan-dk);">Every feature you need</p>
+      <h2 class="d2">Purpose-built for<br><span class="acc">Indian dental practice.</span></h2>
+    </div>
+    <div class="tabs-bar" role="tablist">
+      <button class="tab-btn is-on" data-tab="tab-rx" role="tab" aria-selected="true">Prescriptions</button>
+      <button class="tab-btn" data-tab="tab-recall" role="tab" aria-selected="false">Recall & Follow-ups</button>
+      <button class="tab-btn" data-tab="tab-records" role="tab" aria-selected="false">Patient Records</button>
+      <button class="tab-btn" data-tab="tab-multi" role="tab" aria-selected="false">Multi-Clinic</button>
+      <button class="tab-btn" data-tab="tab-analytics" role="tab" aria-selected="false">Analytics</button>
+    </div>
+
+    <div class="tab-panel is-on" id="tab-rx" role="tabpanel">
+      <div class="tab-copy">
+        <p class="ey" style="color:var(--cyan-dk);">Prescriptions</p>
+        <h3 class="d3">Your brand, on every patient's phone, every time.</h3>
+        <p class="bm" style="color:var(--body-text); margin:16px 0 24px;">Stop sending generic WhatsApp messages. Dentomate formats a clinic-branded prescription with treatment notes, medication, and next steps — and sends it the moment the visit ends.</p>
+        <ul class="feature-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Auto-sent on patient exit
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Clinic logo, doctor signature, treatment notes
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            WhatsApp delivered — no extra API cost
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            PDF copy saved to patient record automatically
+          </li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span>
+            <div class="b-url">app.dentomate.in / prescriptions</div>
+          </div>
+          <div class="img-ph img-ph-dark" style="min-height:280px; border-radius:0; border:none;">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M6 28V10a2 2 0 012-2h12l8 8v12a2 2 0 01-2 2H8a2 2 0 01-2-2z" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M20 8v8h8" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/></svg>
+            <span class="bxs" style="color:rgba(255,255,255,.3); text-align:center; max-width:180px;">Product screenshot — prescription composer with clinic branding preview panel on right</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-recall" role="tabpanel">
+      <div class="tab-copy">
+        <p class="ey" style="color:var(--cyan-dk);">Recall & Follow-ups</p>
+        <h3 class="d3">Patients who left your chair come back 30% more often.</h3>
+        <p class="bm" style="color:var(--body-text); margin:16px 0 24px;">Automated recall messages at 7 days, 3 months, and 6 months — personalised with the patient's name, their last treatment, and a clear call to book their next visit.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Smart recall at 7-day, 90-day, 180-day intervals</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalised with patient name and treatment</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>One-tap booking link in message</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>30% average increase in patient return rate (pilot data)</li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span>
+            <div class="b-url">app.dentomate.in / follow-ups</div>
+          </div>
+          <div class="img-ph img-ph-dark" style="min-height:280px; border-radius:0; border:none;">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M4 14h28" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/></svg>
+            <span class="bxs" style="color:rgba(255,255,255,.3); text-align:center; max-width:180px;">Product screenshot — automated recall scheduler with upcoming messages list</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-records" role="tabpanel">
+      <div class="tab-copy">
+        <p class="ey" style="color:var(--cyan-dk);">Patient Records</p>
+        <h3 class="d3">Every record in one place. Zero chaos.</h3>
+        <p class="bm" style="color:var(--body-text); margin:16px 0 24px;">Patient history, prescriptions, treatment notes, X-rays, and payment records — all searchable, all in one place. No more digging through WhatsApp or paper files.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Complete treatment timeline per patient</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>X-ray and document storage</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Instant search by name, phone, or treatment</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Overdue patient alerts built in</li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span>
+            <div class="b-url">app.dentomate.in / patients</div>
+          </div>
+          <div class="img-ph img-ph-dark" style="min-height:280px; border-radius:0; border:none;">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="12" r="6" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M6 30c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="bxs" style="color:rgba(255,255,255,.3); text-align:center; max-width:180px;">Product screenshot — patient record view for Priya Sharma showing treatment timeline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-multi" role="tabpanel">
+      <div class="tab-copy">
+        <p class="ey" style="color:var(--cyan-dk);">Multi-Clinic</p>
+        <h3 class="d3">Manage Mumbai, Delhi, and Bengaluru from one dashboard.</h3>
+        <p class="bm" style="color:var(--body-text); margin:16px 0 24px;">Own multiple clinics? One login gives you full visibility across all locations — patient flow, staff activity, revenue, and communications. Branch managers see only their clinic.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unified owner view across all branches</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Branch-isolated views for managers</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Consistent branding across all locations</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Branch-level revenue comparison</li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span>
+            <div class="b-url">app.dentomate.in / locations</div>
+          </div>
+          <div class="img-ph img-ph-dark" style="min-height:280px; border-radius:0; border:none;">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 4l14 8v12l-14 8L4 24V12L18 4z" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/></svg>
+            <span class="bxs" style="color:rgba(255,255,255,.3); text-align:center; max-width:180px;">Product screenshot — multi-location switcher showing Mumbai, Delhi, Pune, Bengaluru branches</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-analytics" role="tabpanel">
+      <div class="tab-copy">
+        <p class="ey" style="color:var(--cyan-dk);">Analytics</p>
+        <h3 class="d3">See which month made the most money. Then do more of that.</h3>
+        <p class="bm" style="color:var(--body-text); margin:16px 0 24px;">Revenue by treatment type, patient lifetime value, peak booking hours, staff productivity — all the numbers a growing dental practice needs to make smart decisions.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Monthly revenue trends by treatment</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Patient lifetime value tracking</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>New vs returning patient ratio</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--cyan-dk)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--cyan-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Exportable reports for your accountant</li>
+        </ul>
+      </div>
+      <div class="tab-visual">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span>
+            <div class="b-url">app.dentomate.in / analytics</div>
+          </div>
+          <div class="img-ph img-ph-dark" style="min-height:280px; border-radius:0; border:none;">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M4 28l8-10 7 5 8-13 9 7" stroke="rgba(74,222,128,.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 30h28" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/></svg>
+            <span class="bxs" style="color:rgba(255,255,255,.3); text-align:center; max-width:180px;">Product screenshot — analytics overview with ₹ revenue chart, treatment breakdown pie chart</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+  USE-CASE CARDS  (white bg — 2 personas)
+============================================================ -->
+<section class="section" style="background:var(--white);">
+  <div class="container">
+    <div style="text-align:center; max-width:580px; margin:0 auto 64px;">
+      <p class="ey" style="color:var(--cyan-dk);">Who it's for</p>
+      <h2 class="d2">Built for every kind of<br><span class="acc">dental practice.</span></h2>
+    </div>
+    <div class="usecase-grid">
+
+      <div class="usecase-card">
+        <div class="img-ph usecase-img-ph">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="7" stroke="var(--border-dk)" stroke-width="1.5"/><path d="M7 36c0-7.2 5.8-13 13-13s13 5.8 13 13" stroke="var(--border-dk)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="bxs" style="color:var(--muted-lt); text-align:center; max-width:200px;">Photo — solo dentist in their clinic. Professional, approachable expression. Clinic signboard visible in background.</span>
+        </div>
+        <div class="usecase-body">
+          <span class="tag tag-cyan">Solo &amp; Small Clinic</span>
+          <h3 class="d3" style="margin:20px 0 14px;">Run your clinic.<br>Not your WhatsApp.</h3>
+          <p class="bm" style="color:var(--body-text);">1–3 chairs. 20–60 patients a week. You're already spending ₹6,000–15,000 a month on WhatsApp API and a developer to keep it running — and patients still don't feel the difference. Dentomate replaces all of it for less, and actually builds loyalty.</p>
+          <div class="usecase-metrics">
+            <div class="metric-item">
+              <span class="metric-num">₹8k</span>
+              <span class="metric-label">saved per month on average</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-num">5 min</span>
+              <span class="metric-label">to set up and go live</span>
+            </div>
+          </div>
+          <a href="#trial" class="btn-outline" style="margin-top:28px;">Start free trial</a>
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <div class="img-ph usecase-img-ph">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="14" height="24" rx="2" stroke="var(--border-dk)" stroke-width="1.5"/><rect x="22" y="14" width="14" height="18" rx="2" stroke="var(--border-dk)" stroke-width="1.5"/><path d="M11 8V4M29 14v-4" stroke="var(--border-dk)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="bxs" style="color:var(--muted-lt); text-align:center; max-width:200px;">Photo — multi-clinic owner at their desk reviewing analytics on a laptop. Modern, professional environment.</span>
+        </div>
+        <div class="usecase-body">
+          <span class="tag tag-cyan">Multi-Clinic Owner</span>
+          <h3 class="d3" style="margin:20px 0 14px;">Control every clinic.<br>From one screen.</h3>
+          <p class="bm" style="color:var(--body-text);">3–15 locations. A team of 5–50 staff using personal phones for patient comms, no consistent branding, no central visibility. Dentomate gives every branch the same branded experience — while giving you the data to grow the whole network.</p>
+          <div class="usecase-metrics">
+            <div class="metric-item">
+              <span class="metric-num">15+</span>
+              <span class="metric-label">clinics managed from one dashboard</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-num">100%</span>
+              <span class="metric-label">branding consistency across locations</span>
+            </div>
+          </div>
+          <a href="#trial" class="btn-outline" style="margin-top:28px;">Book a demo</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  PROOF SECTION  (off-white bg — pilot results)
+============================================================ -->
+<section class="section" id="proof" style="background:var(--off-white);">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="proof-copy">
+        <p class="ey" style="color:var(--cyan-dk);">Pilot results</p>
+        <h2 class="d2">30% more returning patients.<br><span class="acc">In 90 days.</span></h2>
+        <p class="bm" style="color:var(--body-text); margin:20px 0 32px;">Across our pilot clinics in Mumbai, Delhi, and Bengaluru — clinics that switched to Dentomate saw a 30% increase in patient return rates within the first 90 days. No extra marketing spend. Just better communication.</p>
+        <div class="proof-stats-row">
+          <div class="proof-stat">
+            <span class="proof-stat-num">30%</span>
+            <span class="proof-stat-label">more returning patients</span>
+          </div>
+          <div class="proof-stat">
+            <span class="proof-stat-num">90</span>
+            <span class="proof-stat-label">days to see results</span>
+          </div>
+          <div class="proof-stat">
+            <span class="proof-stat-num">3</span>
+            <span class="proof-stat-label">cities in pilot programme</span>
+          </div>
+        </div>
+      </div>
+      <div class="proof-visual">
+        <div class="img-ph" style="min-height:340px;">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none"><path d="M4 36l9-14 8 6 10-16 9 8" stroke="var(--cyan-dk)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 38h36" stroke="var(--border-dk)" stroke-width="1.5"/><rect x="4" y="6" width="36" height="30" rx="2" stroke="var(--border-dk)" stroke-width="1.5"/></svg>
+          <span class="bxs" style="color:var(--muted); text-align:center; max-width:220px;">Chart — before/after patient return rate comparison for 3 pilot clinics. Bar or line chart with Dentomate teal colour for "after" bars.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  TESTIMONIAL  (white bg)
+============================================================ -->
+<section class="section" style="background:var(--white);">
+  <div class="container">
+    <div class="testimonial-wrap">
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">
+          <svg width="40" height="28" viewBox="0 0 40 28" fill="none"><path d="M0 28V17.6C0 10.4 4.267 4.8 12.8 0l2.4 3.2C10.667 5.6 8.267 8.667 7.6 12H16V28H0zm24 0V17.6C24 10.4 28.267 4.8 36.8 0l2.4 3.2C34.667 5.6 32.267 8.667 31.6 12H40V28H24z" fill="var(--cyan-dk)" fill-opacity=".12"/></svg>
+        </div>
+        <blockquote class="testimonial-text">
+          "We were paying ₹12,000 a month for WhatsApp API and still doing manual follow-ups. Dentomate cut that cost to zero and our patients actually comment on the professional prescriptions they receive. We saw 28% more recall appointments in the first two months."
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="img-ph testimonial-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="var(--border-dk)" stroke-width="1.5"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="var(--border-dk)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="testimonial-meta">
+            <p class="h4" style="margin:0;">Dr. Vikram Singh</p>
+            <p class="bs" style="color:var(--muted); margin:2px 0 0;">Founder, SmileCraft Dental — 3 clinics, Bengaluru</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  INTEGRATIONS  (white bg — clinic tools)
+============================================================ -->
+<section class="section" style="background:var(--white); border-top:1px solid var(--border);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:56px;">
+      <p class="ey" style="color:var(--muted);">Works with the tools you already use</p>
+      <h2 class="d2" style="max-width:520px; margin:16px auto 0;">Fits right into your<br>existing workflow.</h2>
+    </div>
+    <div class="integrations-grid">
+      <div class="integration-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#25D366" fill-opacity=".12"/><path d="M12 4C7.6 4 4 7.6 4 12c0 1.5.4 2.9 1.1 4.1L4 20l4.1-1.1C9.3 19.6 10.6 20 12 20c4.4 0 8-3.6 8-8s-3.6-8-8-8z" stroke="#25D366" stroke-width="1.5"/><path d="M9 10.5c.5.9 1.1 1.7 2 2.5.9.8 1.7 1.4 2.5 1.8" stroke="#25D366" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span class="bs" style="color:var(--body-text); font-weight:500;">WhatsApp</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#4285F4" fill-opacity=".12"/><path d="M19 7H5a2 2 0 00-2 2v6a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2z" stroke="#4285F4" stroke-width="1.5"/><path d="M3 9l9 6 9-6" stroke="#4285F4" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span class="bs" style="color:var(--body-text); font-weight:500;">Gmail</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#0052CC" fill-opacity=".12"/><rect x="5" y="5" width="14" height="14" rx="2" stroke="#0052CC" stroke-width="1.5"/><path d="M8 10h8M8 14h5" stroke="#0052CC" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span class="bs" style="color:var(--body-text); font-weight:500;">Practo</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#E44D26" fill-opacity=".12"/><path d="M7 12a5 5 0 0110 0v2a5 5 0 01-10 0v-2z" stroke="#E44D26" stroke-width="1.5"/><circle cx="12" cy="8" r="2" fill="#E44D26" fill-opacity=".3"/></svg>
+        <span class="bs" style="color:var(--body-text); font-weight:500;">Razorpay</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#1B73E8" fill-opacity=".12"/><rect x="5" y="5" width="6" height="6" rx="1" fill="#1B73E8" fill-opacity=".3"/><rect x="13" y="5" width="6" height="6" rx="1" fill="#1B73E8" fill-opacity=".3"/><rect x="5" y="13" width="6" height="6" rx="1" fill="#1B73E8" fill-opacity=".3"/><rect x="13" y="13" width="6" height="6" rx="1" fill="#1B73E8" fill-opacity=".2"/></svg>
+        <span class="bs" style="color:var(--body-text); font-weight:500;">Google Calendar</span>
+      </div>
+      <div class="integration-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#0D3B4F" fill-opacity=".1"/><path d="M6 12h12M12 6v12" stroke="#0D3B4F" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="bs" style="color:var(--body-text); font-weight:500;">More coming</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  RESOURCES  (off-white bg — 4 cards)
+============================================================ -->
+<section class="section" id="resources" style="background:var(--off-white);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="ey" style="color:var(--muted);">Resources</p>
+        <h2 class="d2" style="margin:12px 0 0;">Guides for growing<br>your practice.</h2>
+      </div>
+      <a href="#" class="btn-ghost-dark" style="align-self:flex-end;">View all resources</a>
+    </div>
+    <div class="resources-grid">
+
+      <a href="#" class="resource-card">
+        <div class="img-ph resource-img-ph">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 26V8a2 2 0 012-2h10l8 8v12a2 2 0 01-2 2H8a2 2 0 01-2-2z" stroke="var(--border-dk)" stroke-width="1.5"/><path d="M18 6v8h8" stroke="var(--border-dk)" stroke-width="1.5"/></svg>
+          <span class="bxs" style="color:var(--muted-lt); text-align:center; max-width:140px;">Abstract art illustration for guide content. Teal + navy palette.</span>
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Guide</span>
+          <h4 class="h4" style="margin:10px 0 8px; line-height:1.4;">How to Stop Losing Patients After Their First Visit</h4>
+          <p class="bs" style="color:var(--muted);">A practical guide to patient recall for Indian dental clinics — what works, what doesn't, and how to automate it.</p>
+        </div>
+      </a>
+
+      <a href="#" class="resource-card">
+        <div class="img-ph resource-img-ph">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M4 28l7-10 6 5 7-12 8 7" stroke="var(--border-dk)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 30h24" stroke="var(--border-dk)" stroke-width="1.5"/></svg>
+          <span class="bxs" style="color:var(--muted-lt); text-align:center; max-width:140px;">Data visualisation preview — revenue chart thumbnail for report card</span>
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Report</span>
+          <h4 class="h4" style="margin:10px 0 8px; line-height:1.4;">Indian Dental Market: Patient Communication Benchmarks 2025</h4>
+          <p class="bs" style="color:var(--muted);">What 200+ clinics told us about WhatsApp costs, patient retention, and technology adoption.</p>
+        </div>
+      </a>
+
+      <a href="#" class="resource-card">
+        <div class="img-ph resource-img-ph">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="var(--border-dk)" stroke-width="1.5"/><path d="M13 11l6 5-6 5V11z" fill="var(--border-dk)" fill-opacity=".4"/></svg>
+          <span class="bxs" style="color:var(--muted-lt); text-align:center; max-width:140px;">Indian dentist professional photo for webinar/video card thumbnail</span>
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Webinar</span>
+          <h4 class="h4" style="margin:10px 0 8px; line-height:1.4;">Setting Up Your First Automated Follow-up in 15 Minutes</h4>
+          <p class="bs" style="color:var(--muted);">Live walkthrough — from zero to running recall campaigns in a single session. No developer required.</p>
+        </div>
+      </a>
+
+      <a href="#" class="resource-card">
+        <div class="img-ph resource-img-ph">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="20" rx="2" stroke="var(--border-dk)" stroke-width="1.5"/><path d="M4 12h24" stroke="var(--border-dk)" stroke-width="1.5"/><circle cx="10" cy="9" r="1.5" fill="var(--border-dk)"/><circle cx="16" cy="9" r="1.5" fill="var(--border-dk)"/></svg>
+          <span class="bxs" style="color:var(--muted-lt); text-align:center; max-width:140px;">Abstract art illustration for case study. Clean, minimal, data-forward.</span>
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Case Study</span>
+          <h4 class="h4" style="margin:10px 0 8px; line-height:1.4;">SmileCraft Dental: 28% More Recall Appointments in 60 Days</h4>
+          <p class="bs" style="color:var(--muted);">How a 3-clinic network in Bengaluru cut their WhatsApp bill and grew patient loyalty simultaneously.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  FOOTER CTA  (dark bg)
+============================================================ -->
+<section class="section footer-cta" id="trial">
+  <div class="container">
+    <div class="footer-cta-inner">
+      <div class="footer-cta-copy">
+        <p class="ey" style="color:var(--cyan);">14-day free trial</p>
+        <h2 class="d2" style="color:var(--white);">Your first 14 days are free.<br><span class="acc-w">No WhatsApp bill. No developer. No chaos.</span></h2>
+        <p class="bm" style="color:rgba(255,255,255,.65); margin-top:16px;">200+ Indian dental clinics made the switch. 5-minute setup. Cancel any time.</p>
+      </div>
+      <div class="footer-cta-form">
+        <form class="cta-form" onsubmit="return false;">
+          <label class="bxs" style="color:rgba(255,255,255,.7); display:block; margin-bottom:6px;">Work email</label>
+          <div class="cta-form-row">
+            <input type="email" placeholder="dr.yourname@clinic.in" class="cta-input" aria-label="Work email address"/>
+            <button type="submit" class="btn-primary btn-lg">Start free trial</button>
+          </div>
+          <p class="bxs" style="color:rgba(255,255,255,.4); margin-top:10px;">By signing up you agree to our Terms of Service &amp; Privacy Policy.</p>
+        </form>
+        <div class="cta-trust">
+          <div class="cta-trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M1.5 7.5l4 4L13.5 3" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="bxs" style="color:rgba(255,255,255,.5);">No credit card required</span>
+          </div>
+          <div class="cta-trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M1.5 7.5l4 4L13.5 3" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="bxs" style="color:rgba(255,255,255,.5);">Cancel any time</span>
+          </div>
+          <div class="cta-trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M1.5 7.5l4 4L13.5 3" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="bxs" style="color:rgba(255,255,255,.5);">DPDP-compliant data storage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  FOOTER  (darkest bg)
+============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" aria-label="Dentomate home">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4DD9F0"/><path d="M10 22c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#051E28" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="11" r="4" fill="#051E28"/></svg>
+          <span style="color:rgba(255,255,255,.9);">Dentomate</span>
+        </a>
+        <p class="bs" style="color:rgba(255,255,255,.45); margin-top:16px; max-width:220px; line-height:1.6;">The practice growth platform built exclusively for Indian dental clinics.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="16" height="16" rx="3" stroke="rgba(255,255,255,.3)" stroke-width="1.2"/><path d="M5 7v6M5 5v.5" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/><path d="M8 13V9.5c0-1.4 1-2.5 2.5-2.5S13 8.1 13 9.5V13" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 14l5-5L2 4h4l3 3.5L12 4h4l-5 5 5 5h-4l-3-3.5L6 14H2z" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="4" width="16" height="10" rx="2" stroke="rgba(255,255,255,.3)" stroke-width="1.2"/><path d="M7 6.5l5 2.5-5 2.5V6.5z" fill="rgba(255,255,255,.5)"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Product</p>
+        <a href="#" class="footer-link">Features</a>
+        <a href="#" class="footer-link">Pricing</a>
+        <a href="#" class="footer-link">Multi-Clinic</a>
+        <a href="#" class="footer-link">Analytics</a>
+        <a href="#" class="footer-link">Integrations</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Resources</p>
+        <a href="#" class="footer-link">Blog</a>
+        <a href="#" class="footer-link">Case Studies</a>
+        <a href="#" class="footer-link">Guides</a>
+        <a href="#" class="footer-link">Webinars</a>
+        <a href="#" class="footer-link">Help Centre</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Company</p>
+        <a href="#" class="footer-link">About</a>
+        <a href="#" class="footer-link">Careers</a>
+        <a href="#" class="footer-link">Contact</a>
+        <a href="#" class="footer-link">Press</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Legal</p>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Service</a>
+        <a href="#" class="footer-link">DPDP Compliance</a>
+        <a href="#" class="footer-link">Cookie Policy</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="bxs" style="color:rgba(255,255,255,.3);">&copy; 2025 Dentomate Technologies Pvt. Ltd. All rights reserved.</p>
+      <p class="bxs" style="color:rgba(255,255,255,.3);">Made with care in India &middot; DPDP compliant &middot; SOC 2 Type II</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+  JAVASCRIPT
+============================================================ -->
+<script>
+// ---- Nav scroll behaviour ----
+(function() {
+  var nav = document.getElementById('site-nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 12) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }, { passive: true });
+})();
+
+// ---- Feature tabs ----
+(function() {
+  var btns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      btns.forEach(function(b) { b.classList.remove('is-on'); b.setAttribute('aria-selected','false'); });
+      panels.forEach(function(p) { p.classList.remove('is-on'); });
+      btn.classList.add('is-on');
+      btn.setAttribute('aria-selected','true');
+      var target = document.getElementById(btn.getAttribute('data-tab'));
+      if (target) target.classList.add('is-on');
+    });
+  });
+})();
+
+// ---- Scrollytelling — IntersectionObserver ----
+(function() {
+  var steps = document.querySelectorAll('.step-item');
+  var screens = document.querySelectorAll('.scroll-screen');
+
+  if (!steps.length) return;
+
+  function activateStep(step) {
+    steps.forEach(function(s) { s.classList.remove('is-active'); });
+    screens.forEach(function(s) { s.classList.remove('is-active'); });
+    step.classList.add('is-active');
+    var screenId = step.getAttribute('data-screen');
+    var screen = document.getElementById(screenId);
+    if (screen) screen.classList.add('is-active');
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        activateStep(entry.target);
+      }
+    });
+  }, { threshold: 0.55, rootMargin: '-10% 0px -35% 0px' });
+
+  steps.forEach(function(step) { observer.observe(step); });
+})();
+
+// ---- Scroll reveal animations ----
+(function() {
+  var els = document.querySelectorAll('.dark-card, .usecase-card, .resource-card, .stat-item, .integration-logo');
+  if (!('IntersectionObserver' in window)) return;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  els.forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
