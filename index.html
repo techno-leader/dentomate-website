@@ -363,8 +363,14 @@ ul{list-style:none}
   .resources-grid{grid-template-columns:repeat(2,1fr)}
   .footer-cta-inner{grid-template-columns:1fr;gap:40px}
   .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .nav-links{display:none;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .nav-links a{padding:14px 24px;font-size:1rem;border-bottom:1px solid var(--border-light)}
+  .nav-links a:last-child{border-bottom:none}
+  .nav-ctas{gap:8px}
   .nav-ctas .btn-secondary{display:none}
   .nav-hamburger{display:flex}
+  .nav.nav-open .nav-links{display:flex}
+  .nav.nav-open .nav-hamburger path{d:path("M4 4l14 14M4 18L18 4")}
 }
 @media(max-width:600px){
   .integrations-grid{grid-template-columns:repeat(2,1fr)}
@@ -388,17 +394,17 @@ ul{list-style:none}
       </div>
       Dentomate
     </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#features" class="nav-link">Features</a>
-      <a href="#pricing" class="nav-link">Pricing</a>
-      <a href="#proof" class="nav-link">Results</a>
-      <a href="#resources" class="nav-link">Resources</a>
+    <nav class="nav-links" aria-label="Primary" id="nav-links">
+      <a href="#features" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Features</a>
+      <a href="#pricing" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Pricing</a>
+      <a href="#proof" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Results</a>
+      <a href="#resources" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Resources</a>
     </nav>
     <div class="nav-ctas">
       <a href="https://app.dentomate.in" class="nav-signin">Sign in</a>
-      <a href="https://app.dentomate.in" class="btn-primary" style="padding:10px 20px;font-size:.875rem">Start free trial</a>
+      <a href="https://app.dentomate.in" class="btn-primary" style="padding:10px 20px;font-size:.875rem">Start free</a>
     </div>
-    <button class="nav-hamburger" aria-label="Menu" onclick="this.closest('.nav').classList.toggle('nav-open')">
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="var n=document.getElementById('site-nav');n.classList.toggle('nav-open');this.setAttribute('aria-expanded',n.classList.contains('nav-open'))">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
       </svg>
