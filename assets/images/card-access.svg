@@ -1,50 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 240">
-<rect width="380" height="240" fill="#0f172a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 240" width="380" height="240">
+<style>text{font-family:Inter,-apple-system,sans-serif}</style>
+<rect width="380" height="240" rx="12" fill="#ffffff" stroke="#e8e8e8" stroke-width="1"/>
 
-<!-- Big headline -->
-<text x="28" y="62" font-size="28" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Role-Based</text>
-<text x="28" y="94" font-size="28" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Access</text>
+<text x="24" y="44" font-size="22" font-weight="700" fill="#1a1a1a">Role-Based Access</text>
+<text x="24" y="62" font-size="9" fill="#737373">Every team member sees only what they need.</text>
 
-<text x="28" y="120" font-size="10" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">Zero data leaks. Every role sees only what they need.</text>
+<!-- Owner card -->
+<rect x="24" y="76" width="100" height="72" rx="8" fill="#EBF3FF" stroke="#2170D9" stroke-width="1"/>
+<circle cx="74" cy="98" r="12" fill="#2170D9"/>
+<text x="74" y="102" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">👑</text>
+<text x="74" y="116" font-size="8.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">Owner</text>
+<text x="74" y="126" font-size="7.5" fill="#525252" text-anchor="middle">Full access</text>
+<rect x="30" y="138" width="88" height="4" rx="2" fill="#2170D9"/>
 
-<line x1="28" y1="134" x2="352" y2="134" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+<!-- Doctor card -->
+<rect x="140" y="76" width="100" height="72" rx="8" fill="#E6FAF0" stroke="#00C853" stroke-width="1"/>
+<circle cx="190" cy="98" r="12" fill="#00C853"/>
+<text x="190" y="102" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">🩺</text>
+<text x="190" y="116" font-size="8.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">Doctor</text>
+<text x="190" y="126" font-size="7.5" fill="#525252" text-anchor="middle">Patients + Rx</text>
+<rect x="146" y="138" width="88" height="4" rx="2" fill="#00C853"/>
 
-<!-- 3 role cards -->
+<!-- Reception card -->
+<rect x="256" y="76" width="100" height="72" rx="8" fill="#fafafa" stroke="#e8e8e8" stroke-width="1"/>
+<circle cx="306" cy="98" r="12" fill="#e8e8e8"/>
+<text x="306" y="102" font-size="10" font-weight="700" fill="#525252" text-anchor="middle">💁</text>
+<text x="306" y="116" font-size="8.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">Reception</text>
+<text x="306" y="126" font-size="7.5" fill="#525252" text-anchor="middle">Bookings only</text>
+<rect x="262" y="138" width="40" height="4" rx="2" fill="#e8e8e8"/>
 
-<!-- Owner -->
-<rect x="28" y="150" width="96" height="76" rx="10" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
-<circle cx="76" cy="175" r="14" fill="rgba(59,130,246,0.2)"/>
-<!-- Person icon -->
-<circle cx="76" cy="170" r="5" fill="#93c5fd"/>
-<path d="M66 186c0-5.5 4.5-7 10-7s10 1.5 10 7" fill="#93c5fd" opacity="0.6"/>
-<text x="50" y="207" font-size="9.5" font-weight="700" fill="#93c5fd" font-family="-apple-system,sans-serif">Owner</text>
-<text x="40" y="220" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Full access</text>
-
-<!-- Doctor -->
-<rect x="142" y="150" width="96" height="76" rx="10" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.22)" stroke-width="1"/>
-<circle cx="190" cy="175" r="14" fill="rgba(139,92,246,0.2)"/>
-<circle cx="190" cy="170" r="5" fill="#c4b5fd"/>
-<path d="M180 186c0-5.5 4.5-7 10-7s10 1.5 10 7" fill="#c4b5fd" opacity="0.6"/>
-<text x="162" y="207" font-size="9.5" font-weight="700" fill="#c4b5fd" font-family="-apple-system,sans-serif">Doctor</text>
-<text x="152" y="220" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Patient records</text>
-
-<!-- Receptionist -->
-<rect x="256" y="150" width="96" height="76" rx="10" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
-<circle cx="304" cy="175" r="14" fill="rgba(16,185,129,0.15)"/>
-<circle cx="304" cy="170" r="5" fill="#4ade80"/>
-<path d="M294 186c0-5.5 4.5-7 10-7s10 1.5 10 7" fill="#4ade80" opacity="0.6"/>
-<text x="266" y="207" font-size="9.5" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">Reception</text>
-<text x="262" y="220" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Appointments</text>
-
-<!-- Access bar underneath each card -->
-<rect x="28"  y="226" width="96" height="4" rx="2" fill="#3b82f6" opacity="0.7"/>
-<rect x="142" y="226" width="96" height="4" rx="2" fill="#8b5cf6" opacity="0.6"/>
-<rect x="256" y="226" width="96" height="4" rx="2" fill="#10b981" opacity="0.5"/>
-
-<!-- Shield icon top-right -->
-<g transform="translate(316,34) scale(0.9)">
-  <path d="M24 4L4 12v12c0 8 9 14 20 18C35 38 44 32 44 24V12L24 4z" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5"/>
-  <path d="M16 24l5 5 11-11" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-
+<text x="24" y="184" font-size="8.5" fill="#737373">Invite staff with one link · No extra seats cost · Audit log included</text>
+<rect x="24" y="196" width="154" height="28" rx="6" fill="#EBF3FF"/>
+<text x="101" y="214" font-size="9" font-weight="600" fill="#2170D9" text-anchor="middle">Manage your team →</text>
 </svg>

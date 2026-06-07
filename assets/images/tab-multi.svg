@@ -1,85 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300">
-<defs>
-  <linearGradient id="brandG" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#3b82f6"/>
-    <stop offset="100%" stop-color="#8b5cf6"/>
-  </linearGradient>
-</defs>
-<rect width="640" height="300" fill="#0f172a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300">
+<style>text{font-family:Inter,-apple-system,sans-serif}</style>
+<rect width="640" height="300" rx="8" fill="#ffffff" stroke="#e8e8e8" stroke-width="1"/>
 
-<!-- Header -->
-<text x="24" y="32" font-size="12" font-weight="700" fill="white" font-family="-apple-system,sans-serif">All Locations — Owner View</text>
-<text x="24" y="48" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">4 clinics · Jun 2026 · Total ₹14.4L revenue</text>
+<text x="16" y="28" font-size="13" font-weight="700" fill="#1a1a1a">Multi-Branch Overview</text>
+<text x="16" y="42" font-size="8.5" fill="#999">4 locations · All data in one dashboard</text>
 
-<!-- Location selector pills -->
-<rect x="24" y="60" width="82" height="26" rx="13" fill="url(#brandG)"/>
-<text x="38" y="77" font-size="9" font-weight="700" fill="white" font-family="-apple-system,sans-serif">All Clinics</text>
-<rect x="114" y="60" width="82" height="26" rx="13" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-<text x="126" y="77" font-size="9" fill="rgba(255,255,255,0.5)" font-family="-apple-system,sans-serif">Mumbai 1</text>
-<rect x="204" y="60" width="82" height="26" rx="13" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-<text x="214" y="77" font-size="9" fill="rgba(255,255,255,0.5)" font-family="-apple-system,sans-serif">Delhi NCR</text>
-<rect x="294" y="60" width="90" height="26" rx="13" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-<text x="302" y="77" font-size="9" fill="rgba(255,255,255,0.5)" font-family="-apple-system,sans-serif">Bengaluru</text>
-<rect x="392" y="60" width="72" height="26" rx="13" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-<text x="402" y="77" font-size="9" fill="rgba(255,255,255,0.5)" font-family="-apple-system,sans-serif">Pune</text>
+<!-- Summary bar -->
+<rect x="0" y="52" width="640" height="40" fill="#fafafa"/>
+<line x1="0" y1="52" x2="640" y2="52" stroke="#e8e8e8" stroke-width="1"/>
+<line x1="0" y1="92" x2="640" y2="92" stroke="#e8e8e8" stroke-width="1"/>
+<text x="16" y="70" font-size="9" fill="#737373">Total Revenue</text>
+<text x="16" y="83" font-size="11" font-weight="700" fill="#1a1a1a">₹14.4L / month</text>
+<text x="180" y="70" font-size="9" fill="#737373">Total Patients</text>
+<text x="180" y="83" font-size="11" font-weight="700" fill="#1a1a1a">842 active</text>
+<text x="330" y="70" font-size="9" fill="#737373">Rx This Month</text>
+<text x="330" y="83" font-size="11" font-weight="700" fill="#1a1a1a">1,204 sent</text>
+<text x="490" y="70" font-size="9" fill="#737373">Top Branch</text>
+<text x="490" y="83" font-size="11" font-weight="700" fill="#2170D9">Mumbai Central</text>
 
-<!-- ── Clinic Cards Grid ─────────────────────────── -->
+<!-- Branch cards -->
+<!-- Mumbai — active/highlighted -->
+<rect x="12" y="102" width="140" height="140" rx="8" fill="#ffffff" stroke="#2170D9" stroke-width="2"/>
+<rect x="12" y="102" width="140" height="6" rx="4" fill="#2170D9"/>
+<text x="82" y="125" font-size="9.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">Mumbai Central</text>
+<rect x="28" y="130" width="60" height="16" rx="8" fill="#EBF3FF"/>
+<text x="58" y="141" font-size="7.5" font-weight="600" fill="#2170D9" text-anchor="middle">Top Branch</text>
+<text x="20" y="162" font-size="8" fill="#737373">Revenue</text>
+<text x="20" y="174" font-size="13" font-weight="700" fill="#1a1a1a">₹4.8L</text>
+<text x="20" y="190" font-size="8" fill="#737373">Patients: 284</text>
+<text x="20" y="204" font-size="8" fill="#737373">Rx sent: 412</text>
+<text x="20" y="218" font-size="8" fill="#00C853">↑ 14% this month</text>
+<text x="20" y="232" font-size="7.5" fill="#999">Dr. Arjun Mehta</text>
 
-<!-- Clinic 1: Mumbai (highlighted/active) -->
-<rect x="24" y="100" width="290" height="88" rx="10" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.25)" stroke-width="1.5"/>
-<rect x="24" y="100" width="290" height="3" rx="1.5" fill="url(#brandG)"/>
-<rect x="40" y="116" width="28" height="28" rx="6" fill="rgba(59,130,246,0.2)"/>
-<text x="46" y="135" font-size="9" font-weight="700" fill="#93c5fd" font-family="-apple-system,sans-serif">M1</text>
-<text x="76" y="129" font-size="11" font-weight="700" fill="white" font-family="-apple-system,sans-serif">SmileCraft Mumbai</text>
-<text x="76" y="143" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">Bandra West · 3 chairs · 4 staff</text>
-<line x1="40" y1="156" x2="298" y2="156" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-<text x="40" y="174" font-size="9" font-weight="700" fill="#93c5fd" font-family="-apple-system,sans-serif">₹5.2L</text>
-<text x="84" y="174" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">this month</text>
-<text x="160" y="174" font-size="9" font-weight="700" fill="white" font-family="-apple-system,sans-serif">312</text>
-<text x="178" y="174" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">patients</text>
-<rect x="232" y="164" width="72" height="18" rx="9" fill="rgba(16,185,129,0.15)"/>
-<text x="244" y="177" font-size="8" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">↑ 28% vs last</text>
+<!-- Delhi -->
+<rect x="164" y="102" width="140" height="140" rx="8" fill="#fafafa" stroke="#e8e8e8" stroke-width="1"/>
+<rect x="164" y="102" width="140" height="6" rx="4" fill="#e8e8e8"/>
+<text x="234" y="125" font-size="9.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">Delhi South</text>
+<text x="172" y="162" font-size="8" fill="#737373">Revenue</text>
+<text x="172" y="174" font-size="13" font-weight="700" fill="#1a1a1a">₹3.9L</text>
+<text x="172" y="190" font-size="8" fill="#737373">Patients: 218</text>
+<text x="172" y="204" font-size="8" fill="#737373">Rx sent: 310</text>
+<text x="172" y="218" font-size="8" fill="#00C853">↑ 8% this month</text>
+<text x="172" y="232" font-size="7.5" fill="#999">Dr. Sunita Rao</text>
 
-<!-- Clinic 2: Delhi -->
-<rect x="330" y="100" width="286" height="88" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-<rect x="346" y="116" width="28" height="28" rx="6" fill="rgba(139,92,246,0.2)"/>
-<text x="352" y="135" font-size="9" font-weight="700" fill="#c4b5fd" font-family="-apple-system,sans-serif">DL</text>
-<text x="382" y="129" font-size="11" font-weight="700" fill="white" font-family="-apple-system,sans-serif">SmileCraft Delhi</text>
-<text x="382" y="143" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">Connaught Place · 2 chairs · 3 staff</text>
-<line x1="346" y1="156" x2="600" y2="156" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-<text x="346" y="174" font-size="9" font-weight="700" fill="#c4b5fd" font-family="-apple-system,sans-serif">₹3.8L</text>
-<text x="390" y="174" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">this month</text>
-<text x="462" y="174" font-size="9" font-weight="700" fill="white" font-family="-apple-system,sans-serif">228</text>
-<text x="480" y="174" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">patients</text>
-<rect x="530" y="164" width="70" height="18" rx="9" fill="rgba(16,185,129,0.15)"/>
-<text x="540" y="177" font-size="8" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">↑ 18% vs last</text>
+<!-- Bangalore -->
+<rect x="316" y="102" width="140" height="140" rx="8" fill="#fafafa" stroke="#e8e8e8" stroke-width="1"/>
+<rect x="316" y="102" width="140" height="6" rx="4" fill="#e8e8e8"/>
+<text x="386" y="125" font-size="9.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">Bangalore HSR</text>
+<text x="324" y="162" font-size="8" fill="#737373">Revenue</text>
+<text x="324" y="174" font-size="13" font-weight="700" fill="#1a1a1a">₹3.2L</text>
+<text x="324" y="190" font-size="8" fill="#737373">Patients: 196</text>
+<text x="324" y="204" font-size="8" fill="#737373">Rx sent: 288</text>
+<text x="324" y="218" font-size="8" fill="#00C853">↑ 11% this month</text>
+<text x="324" y="232" font-size="7.5" fill="#999">Dr. Vikram Nair</text>
 
-<!-- Clinic 3: Bengaluru -->
-<rect x="24" y="200" width="290" height="88" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-<rect x="40" y="216" width="28" height="28" rx="6" fill="rgba(16,185,129,0.2)"/>
-<text x="46" y="235" font-size="9" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">BLR</text>
-<text x="76" y="229" font-size="11" font-weight="700" fill="white" font-family="-apple-system,sans-serif">SmileCraft Bengaluru</text>
-<text x="76" y="243" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">Indiranagar · 4 chairs · 5 staff</text>
-<line x1="40" y1="256" x2="298" y2="256" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-<text x="40" y="274" font-size="9" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">₹3.6L</text>
-<text x="84" y="274" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">this month</text>
-<text x="160" y="274" font-size="9" font-weight="700" fill="white" font-family="-apple-system,sans-serif">198</text>
-<text x="178" y="274" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">patients</text>
-<rect x="232" y="264" width="52" height="18" rx="9" fill="rgba(245,158,11,0.15)"/>
-<text x="240" y="277" font-size="8" font-weight="700" fill="#fcd34d" font-family="-apple-system,sans-serif">↑ 8% vs</text>
-
-<!-- Clinic 4: Pune -->
-<rect x="330" y="200" width="286" height="88" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-<rect x="346" y="216" width="28" height="28" rx="6" fill="rgba(245,158,11,0.2)"/>
-<text x="350" y="235" font-size="9" font-weight="700" fill="#fcd34d" font-family="-apple-system,sans-serif">PNE</text>
-<text x="382" y="229" font-size="11" font-weight="700" fill="white" font-family="-apple-system,sans-serif">SmileCraft Pune</text>
-<text x="382" y="243" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">Koregaon Park · 2 chairs · 2 staff</text>
-<line x1="346" y1="256" x2="600" y2="256" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-<text x="346" y="274" font-size="9" font-weight="700" fill="#fcd34d" font-family="-apple-system,sans-serif">₹1.8L</text>
-<text x="390" y="274" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">this month</text>
-<text x="462" y="274" font-size="9" font-weight="700" fill="white" font-family="-apple-system,sans-serif">104</text>
-<text x="480" y="274" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">patients</text>
-<rect x="530" y="264" width="70" height="18" rx="9" fill="rgba(16,185,129,0.15)"/>
-<text x="540" y="277" font-size="8" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">New · Growing</text>
-
+<!-- Pune -->
+<rect x="468" y="102" width="156" height="140" rx="8" fill="#fafafa" stroke="#e8e8e8" stroke-width="1"/>
+<rect x="468" y="102" width="156" height="6" rx="4" fill="#e8e8e8"/>
+<text x="546" y="125" font-size="9.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">Pune Kothrud</text>
+<text x="476" y="162" font-size="8" fill="#737373">Revenue</text>
+<text x="476" y="174" font-size="13" font-weight="700" fill="#1a1a1a">₹2.5L</text>
+<text x="476" y="190" font-size="8" fill="#737373">Patients: 144</text>
+<text x="476" y="204" font-size="8" fill="#737373">Rx sent: 194</text>
+<text x="476" y="218" font-size="8" fill="#DC2626">↓ 2% this month</text>
+<text x="476" y="232" font-size="7.5" fill="#999">Dr. Prerna Singh</text>
 </svg>

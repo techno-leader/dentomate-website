@@ -1,59 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 240">
-<defs>
-  <linearGradient id="bA" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#3b82f6"/>
-    <stop offset="100%" stop-color="#1d4ed8"/>
-  </linearGradient>
-  <linearGradient id="bB" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#8b5cf6"/>
-    <stop offset="100%" stop-color="#6d28d9"/>
-  </linearGradient>
-  <style>
-    @keyframes growBar { from{transform:scaleY(0)} to{transform:scaleY(1)} }
-    @media(prefers-reduced-motion:reduce){.bar{animation:none}}
-    .bar { transform-origin: bottom; animation: growBar 0.6s cubic-bezier(0.16,1,0.3,1) both; }
-    .b1{animation-delay:.1s}.b2{animation-delay:.2s}.b3{animation-delay:.3s}.b4{animation-delay:.4s}
-  </style>
-</defs>
-<rect width="380" height="240" fill="#0f172a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 240" width="380" height="240">
+<style>
+  text{font-family:Inter,-apple-system,sans-serif}
+  @keyframes growBar{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+  .bar{animation:growBar .5s ease-out both}
+  .b1{animation-delay:.1s}.b2{animation-delay:.2s}.b3{animation-delay:.3s}.b4{animation-delay:.4s}
+  @media(prefers-reduced-motion:reduce){.bar{animation:none}}
+</style>
+<rect width="380" height="240" rx="12" fill="#ffffff" stroke="#e8e8e8" stroke-width="1"/>
 
-<!-- Big revenue number -->
-<text x="28" y="72" font-size="48" font-weight="700" fill="white" font-family="-apple-system,sans-serif">₹14.4L</text>
-<text x="28" y="95" font-size="11" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">Total across 4 clinics · Jun 2026</text>
-<rect x="28" y="108" width="64" height="20" rx="10" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
-<text x="38" y="122" font-size="9" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">↑ 24% YoY</text>
+<text x="24" y="44" font-size="36" font-weight="700" fill="#1a1a1a">₹14.4L</text>
+<text x="24" y="62" font-size="9" fill="#00C853" font-weight="600">↑ 28% vs last year</text>
+<text x="24" y="76" font-size="9" fill="#737373">Revenue tracked automatically</text>
 
-<line x1="28" y1="140" x2="352" y2="140" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+<!-- Mini bar chart -->
+<rect x="24" y="100" width="332" height="112" rx="8" fill="#fafafa" stroke="#e8e8e8" stroke-width="1"/>
+<text x="36" y="118" font-size="8" font-weight="600" fill="#737373">Monthly Revenue</text>
 
-<!-- Chart area -->
-<text x="28" y="161" font-size="9" fill="rgba(255,255,255,0.3)" font-family="-apple-system,sans-serif">Revenue by branch</text>
+<line x1="36" y1="196" x2="340" y2="196" stroke="#e8e8e8" stroke-width="1"/>
 
-<!-- Bar chart with CSS animation -->
-<!-- Mumbai 5.2L — tallest -->
-<rect class="bar b1" x="42"  y="172" width="44" height="52" rx="4" fill="url(#bA)"/>
-<!-- Delhi 3.8L -->
-<rect class="bar b2" x="106" y="186" width="44" height="38" rx="4" fill="url(#bB)"/>
-<!-- BLR 3.6L -->
-<rect class="bar b3" x="170" y="188" width="44" height="36" rx="4" fill="url(#bA)"/>
-<!-- Pune 1.8L -->
-<rect class="bar b4" x="234" y="206" width="44" height="18" rx="4" fill="url(#bB)"/>
+<!-- Bars -->
+<rect x="54" y="156" width="36" height="40" rx="3" fill="#EBF3FF" class="bar b1"/>
+<text x="72" y="206" font-size="7" fill="#999" text-anchor="middle">Jan</text>
+<rect x="110" y="148" width="36" height="48" rx="3" fill="#EBF3FF" class="bar b2"/>
+<text x="128" y="206" font-size="7" fill="#999" text-anchor="middle">Mar</text>
+<rect x="166" y="140" width="36" height="56" rx="3" fill="#2170D9" class="bar b3"/>
+<text x="184" y="206" font-size="7" fill="#999" text-anchor="middle">May</text>
+<rect x="222" y="128" width="36" height="68" rx="3" fill="#2170D9" class="bar b4"/>
+<text x="240" y="206" font-size="7" fill="#999" text-anchor="middle">Jun</text>
 
-<!-- Value labels above bars -->
-<text x="44" y="169" font-size="8" font-weight="700" fill="#93c5fd" font-family="-apple-system,sans-serif">5.2L</text>
-<text x="108" y="183" font-size="8" font-weight="700" fill="#c4b5fd" font-family="-apple-system,sans-serif">3.8L</text>
-<text x="172" y="185" font-size="8" font-weight="700" fill="#93c5fd" font-family="-apple-system,sans-serif">3.6L</text>
-<text x="236" y="203" font-size="8" font-weight="700" fill="#c4b5fd" font-family="-apple-system,sans-serif">1.8L</text>
+<text x="36" y="188" font-size="7" fill="#999">1L</text>
+<text x="36" y="164" font-size="7" fill="#999">2L</text>
+<text x="36" y="144" font-size="7" fill="#999">3L</text>
 
-<!-- City labels -->
-<text x="42" y="232" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Mumbai</text>
-<text x="112" y="232" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Delhi</text>
-<text x="172" y="232" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">BLR</text>
-<text x="240" y="232" font-size="8" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">Pune</text>
-
-<!-- Right: callout -->
-<rect x="298" y="168" width="66" height="58" rx="10" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
-<text x="318" y="192" font-size="20" font-weight="700" fill="#a78bfa" font-family="-apple-system,sans-serif">4</text>
-<text x="308" y="208" font-size="8" fill="rgba(255,255,255,0.45)" font-family="-apple-system,sans-serif">clinics</text>
-<text x="306" y="220" font-size="8" fill="rgba(255,255,255,0.45)" font-family="-apple-system,sans-serif">1 login</text>
-
+<text x="24" y="226" font-size="8" fill="#999">842 patients · 68% return rate · Real-time dashboard</text>
 </svg>

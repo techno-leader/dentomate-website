@@ -1,109 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340">
-<defs>
-  <linearGradient id="bG" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#3b82f6"/>
-    <stop offset="100%" stop-color="#8b5cf6"/>
-  </linearGradient>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340">
+<style>
+  text{font-family:Inter,-apple-system,sans-serif}
+  @keyframes sendBtn{0%,70%{fill:#2170D9}80%,100%{fill:#00C853}}
+  @keyframes checkmark{0%,70%{opacity:0}80%,100%{opacity:1}}
+  .send-btn{animation:sendBtn 3s ease 1.5s infinite}
+  .sent-check{animation:checkmark 3s ease 1.5s infinite}
+  @media(prefers-reduced-motion:reduce){.send-btn{animation:none}.sent-check{animation:none;opacity:0}}
+</style>
+<rect width="720" height="340" fill="#fafafa" rx="8"/>
+<rect x="0" y="0" width="720" height="340" fill="#ffffff" rx="8"/>
 
-<!-- Background -->
-<rect width="720" height="340" fill="#0f172a"/>
-
-<!-- Page header -->
-<text x="24" y="34" font-size="14" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Recall &amp; Follow-ups</text>
-<text x="24" y="50" font-size="9" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">32 patients due for recall · 8 overdue</text>
-
-<!-- Filter tabs -->
-<rect x="24" y="62" width="80" height="26" rx="6" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-<text x="35" y="80" font-size="9.5" font-weight="700" fill="#93c5fd" font-family="-apple-system,sans-serif">This Week</text>
-<rect x="112" y="62" width="82" height="26" rx="6" fill="rgba(255,255,255,0.04)"/>
-<text x="124" y="80" font-size="9.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">This Month</text>
-<rect x="202" y="62" width="60" height="26" rx="6" fill="rgba(255,255,255,0.04)"/>
-<text x="214" y="80" font-size="9.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">Overdue</text>
-
-<!-- Send All button -->
-<rect x="588" y="62" width="108" height="26" rx="6" fill="url(#bG)"/>
-<text x="600" y="80" font-size="9.5" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Send All Recalls</text>
+<!-- Header -->
+<line x1="0" y1="48" x2="720" y2="48" stroke="#e8e8e8" stroke-width="1"/>
+<text x="16" y="24" font-size="13" font-weight="700" fill="#1a1a1a">Recall Queue</text>
+<text x="16" y="38" font-size="8.5" fill="#999">4 patients due for follow-up today</text>
+<rect x="604" y="12" width="100" height="24" rx="6" fill="#2170D9"/>
+<text x="654" y="28" font-size="9.5" font-weight="600" fill="#fff" text-anchor="middle">Send All</text>
 
 <!-- Column headers -->
-<rect x="24" y="100" width="672" height="28" rx="6" fill="rgba(255,255,255,0.03)"/>
-<text x="40" y="118" font-size="8.5" font-weight="700" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">PATIENT</text>
-<text x="240" y="118" font-size="8.5" font-weight="700" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">LAST TREATMENT</text>
-<text x="400" y="118" font-size="8.5" font-weight="700" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">RECALL TYPE</text>
-<text x="520" y="118" font-size="8.5" font-weight="700" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">DUE DATE</text>
-<text x="628" y="118" font-size="8.5" font-weight="700" fill="rgba(255,255,255,0.35)" font-family="-apple-system,sans-serif">ACTION</text>
+<rect x="0" y="48" width="720" height="28" fill="#fafafa"/>
+<line x1="0" y1="76" x2="720" y2="76" stroke="#e8e8e8" stroke-width="1"/>
+<text x="16" y="66" font-size="8" font-weight="700" fill="#737373" letter-spacing="0.06em">PATIENT</text>
+<text x="320" y="66" font-size="8" font-weight="700" fill="#737373" letter-spacing="0.06em">DUE</text>
+<text x="450" y="66" font-size="8" font-weight="700" fill="#737373" letter-spacing="0.06em">TYPE</text>
+<text x="600" y="66" font-size="8" font-weight="700" fill="#737373" letter-spacing="0.06em">ACTION</text>
 
-<!-- ── Recall rows ─────────────────────────────────── -->
+<!-- Row 1 — animated send -->
+<rect x="0" y="76" width="720" height="56" fill="#ffffff"/>
+<line x1="0" y1="132" x2="720" y2="132" stroke="#f0f0f0" stroke-width="1"/>
+<circle cx="32" cy="104" r="14" fill="#EBF3FF"/>
+<text x="32" y="108" font-size="9" font-weight="700" fill="#2170D9" text-anchor="middle">PS</text>
+<text x="54" y="99" font-size="10" font-weight="600" fill="#1a1a1a">Priya Sharma</text>
+<text x="54" y="112" font-size="8.5" fill="#737373">+91 98765 11111</text>
+<rect x="304" y="94" width="72" height="18" rx="9" fill="#FEF3C7"/>
+<text x="340" y="106" font-size="8" font-weight="600" fill="#92400E" text-anchor="middle">7-day recall</text>
+<text x="450" y="104" font-size="9" fill="#525252">Post Root Canal</text>
+<rect x="590" y="92" width="80" height="24" rx="6" class="send-btn"/>
+<text x="630" y="108" font-size="9" font-weight="600" fill="#fff" text-anchor="middle">Send Msg</text>
+<text x="630" y="108" font-size="9" font-weight="600" fill="#fff" text-anchor="middle" class="sent-check">✓ Sent</text>
 
-<!-- Row 1: Priya Sharma - 7 day -->
-<rect x="24" y="132" width="672" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-<circle cx="48" cy="152" r="11" fill="rgba(139,92,246,0.2)"/>
-<text x="44" y="156" font-size="8.5" font-weight="700" fill="#a78bfa" font-family="-apple-system,sans-serif">PS</text>
-<text x="68" y="149" font-size="10" font-weight="600" fill="white" font-family="-apple-system,sans-serif">Priya Sharma</text>
-<text x="68" y="163" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">+91 87654 32109</text>
-<text x="244" y="153" font-size="9" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">Root Canal — 29 May 2026</text>
-<rect x="396" y="140" width="72" height="24" rx="12" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
-<text x="407" y="156" font-size="8.5" font-weight="600" fill="#93c5fd" font-family="-apple-system,sans-serif">7-Day Check</text>
-<text x="524" y="153" font-size="9" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">5 Jun 2026</text>
-<!-- Send button with animation -->
-<rect x="624" y="140" width="60" height="24" rx="6" fill="rgba(37,211,102,0.12)" stroke="rgba(37,211,102,0.25)" stroke-width="1"/>
-<text x="637" y="156" font-size="8.5" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">Send</text>
-<!-- Animated checkmark on row 1 -->
-<rect x="624" y="140" width="60" height="24" rx="6" fill="#059669" opacity="0">
-  <animate attributeName="opacity" values="0;0;1;1;1" keyTimes="0;0.4;0.5;0.9;1" dur="4s" begin="1s" fill="freeze"/>
-</rect>
-<text x="632" y="156" font-size="8.5" font-weight="700" fill="white" font-family="-apple-system,sans-serif" opacity="0">
-  ✓ Sent
-  <animate attributeName="opacity" values="0;0;1;1;1" keyTimes="0;0.4;0.5;0.9;1" dur="4s" begin="1s" fill="freeze"/>
-</text>
+<!-- Row 2 -->
+<rect x="0" y="132" width="720" height="56" fill="#ffffff"/>
+<line x1="0" y1="188" x2="720" y2="188" stroke="#f0f0f0" stroke-width="1"/>
+<circle cx="32" cy="160" r="14" fill="#E6FAF0"/>
+<text x="32" y="164" font-size="9" font-weight="700" fill="#00C853" text-anchor="middle">AK</text>
+<text x="54" y="155" font-size="10" font-weight="600" fill="#1a1a1a">Anjali Kapoor</text>
+<text x="54" y="168" font-size="8.5" fill="#737373">+91 98765 22222</text>
+<rect x="304" y="150" width="76" height="18" rx="9" fill="#EBF3FF"/>
+<text x="342" y="162" font-size="8" font-weight="600" fill="#2170D9" text-anchor="middle">90-day recall</text>
+<text x="450" y="160" font-size="9" fill="#525252">Post Cleaning</text>
+<rect x="590" y="148" width="80" height="24" rx="6" fill="#EBF3FF" stroke="#2170D9" stroke-width="1"/>
+<text x="630" y="164" font-size="9" font-weight="600" fill="#2170D9" text-anchor="middle">Send Msg</text>
 
-<!-- Row 2: Anjali Kapoor - 90 day -->
-<rect x="24" y="178" width="672" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-<circle cx="48" cy="198" r="11" fill="rgba(252,231,243,0.15)"/>
-<text x="43" y="202" font-size="8.5" font-weight="700" fill="#f9a8d4" font-family="-apple-system,sans-serif">AK</text>
-<text x="68" y="195" font-size="10" font-weight="600" fill="white" font-family="-apple-system,sans-serif">Anjali Kapoor</text>
-<text x="68" y="209" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">+91 76543 21098</text>
-<text x="244" y="199" font-size="9" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">Teeth Cleaning — 7 Mar 2026</text>
-<rect x="396" y="186" width="80" height="24" rx="12" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
-<text x="405" y="202" font-size="8.5" font-weight="600" fill="#fcd34d" font-family="-apple-system,sans-serif">90-Day Recall</text>
-<text x="524" y="199" font-size="9" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">5 Jun 2026</text>
-<rect x="624" y="186" width="60" height="24" rx="6" fill="rgba(37,211,102,0.12)" stroke="rgba(37,211,102,0.25)" stroke-width="1"/>
-<text x="637" y="202" font-size="8.5" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">Send</text>
+<!-- Row 3 -->
+<rect x="0" y="188" width="720" height="56" fill="#ffffff"/>
+<line x1="0" y1="244" x2="720" y2="244" stroke="#f0f0f0" stroke-width="1"/>
+<circle cx="32" cy="216" r="14" fill="#FEF3C7"/>
+<text x="32" y="220" font-size="9" font-weight="700" fill="#92400E" text-anchor="middle">SP</text>
+<text x="54" y="211" font-size="10" font-weight="600" fill="#1a1a1a">Suresh Patel</text>
+<text x="54" y="224" font-size="8.5" fill="#737373">+91 98765 33333</text>
+<rect x="304" y="206" width="80" height="18" rx="9" fill="#E6FAF0"/>
+<text x="344" y="218" font-size="8" font-weight="600" fill="#00C853" text-anchor="middle">6-month recall</text>
+<text x="450" y="216" font-size="9" fill="#525252">Post Extraction</text>
+<rect x="590" y="204" width="80" height="24" rx="6" fill="#EBF3FF" stroke="#2170D9" stroke-width="1"/>
+<text x="630" y="220" font-size="9" font-weight="600" fill="#2170D9" text-anchor="middle">Send Msg</text>
 
-<!-- Row 3: Suresh Patel - 180 day -->
-<rect x="24" y="224" width="672" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-<circle cx="48" cy="244" r="11" fill="rgba(254,243,199,0.12)"/>
-<text x="43" y="248" font-size="8.5" font-weight="700" fill="#fde68a" font-family="-apple-system,sans-serif">SP</text>
-<text x="68" y="241" font-size="10" font-weight="600" fill="white" font-family="-apple-system,sans-serif">Suresh Patel</text>
-<text x="68" y="255" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">+91 65432 10987</text>
-<text x="244" y="245" font-size="9" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">Orthodontics — 5 Dec 2025</text>
-<rect x="396" y="232" width="88" height="24" rx="12" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
-<text x="404" y="248" font-size="8.5" font-weight="600" fill="#c4b5fd" font-family="-apple-system,sans-serif">6-Month Review</text>
-<text x="524" y="245" font-size="9" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">5 Jun 2026</text>
-<rect x="624" y="232" width="60" height="24" rx="6" fill="rgba(37,211,102,0.12)" stroke="rgba(37,211,102,0.25)" stroke-width="1"/>
-<text x="637" y="248" font-size="8.5" font-weight="700" fill="#4ade80" font-family="-apple-system,sans-serif">Send</text>
+<!-- Row 4 — overdue -->
+<rect x="0" y="244" width="720" height="56" fill="#fff8f8"/>
+<line x1="0" y1="300" x2="720" y2="300" stroke="#f0f0f0" stroke-width="1"/>
+<circle cx="32" cy="272" r="14" fill="#FEE2E2"/>
+<text x="32" y="276" font-size="9" font-weight="700" fill="#DC2626" text-anchor="middle">MJ</text>
+<text x="54" y="267" font-size="10" font-weight="600" fill="#1a1a1a">Meera Joshi</text>
+<text x="54" y="280" font-size="8.5" fill="#737373">+91 98765 44444</text>
+<rect x="304" y="262" width="64" height="18" rx="9" fill="#FEE2E2"/>
+<text x="336" y="274" font-size="8" font-weight="600" fill="#DC2626" text-anchor="middle">Overdue</text>
+<text x="450" y="272" font-size="9" fill="#525252">Annual Checkup</text>
+<rect x="590" y="260" width="80" height="24" rx="6" fill="#DC2626"/>
+<text x="630" y="276" font-size="9" font-weight="600" fill="#fff" text-anchor="middle">Send Now!</text>
 
-<!-- Row 4: Meera Joshi - overdue -->
-<rect x="24" y="270" width="672" height="40" rx="8" fill="rgba(220,38,38,0.06)" stroke="rgba(220,38,38,0.2)" stroke-width="1"/>
-<circle cx="48" cy="290" r="11" fill="rgba(254,226,226,0.12)"/>
-<text x="44" y="294" font-size="8.5" font-weight="700" fill="#fca5a5" font-family="-apple-system,sans-serif">MJ</text>
-<text x="68" y="287" font-size="10" font-weight="600" fill="white" font-family="-apple-system,sans-serif">Meera Joshi</text>
-<text x="68" y="301" font-size="8.5" fill="rgba(255,255,255,0.4)" font-family="-apple-system,sans-serif">+91 54321 09876</text>
-<text x="244" y="291" font-size="9" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">Extraction — 30 Mar 2026</text>
-<rect x="396" y="278" width="62" height="24" rx="12" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.35)" stroke-width="1"/>
-<text x="406" y="294" font-size="8.5" font-weight="600" fill="#fca5a5" font-family="-apple-system,sans-serif">Overdue!</text>
-<text x="524" y="291" font-size="9" fill="#fca5a5" font-weight="600" font-family="-apple-system,sans-serif">30 May 2026</text>
-<rect x="624" y="278" width="60" height="24" rx="6" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.35)" stroke-width="1"/>
-<text x="635" y="294" font-size="8.5" font-weight="700" fill="#fca5a5" font-family="-apple-system,sans-serif">Urgent</text>
-
-<!-- WhatsApp message preview tooltip appearing -->
-<g opacity="0">
-  <rect x="380" y="138" width="240" height="70" rx="8" fill="#1e3a5f" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-  <text x="396" y="156" font-size="8.5" font-weight="700" fill="white" font-family="-apple-system,sans-serif">Preview Message</text>
-  <text x="396" y="170" font-size="8" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">Hi Priya! It's been 7 days since your Root</text>
-  <text x="396" y="182" font-size="8" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">Canal at SmileCraft Dental. How are you</text>
-  <text x="396" y="194" font-size="8" fill="rgba(255,255,255,0.65)" font-family="-apple-system,sans-serif">feeling? Book your follow-up: dm.in/book</text>
-  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.2;0.3;0.75;0.9" dur="4s" begin="1s" repeatCount="indefinite"/>
-</g>
-
+<!-- Footer stats -->
+<rect x="0" y="300" width="720" height="40" fill="#fafafa"/>
+<line x1="0" y1="300" x2="720" y2="300" stroke="#e8e8e8" stroke-width="1"/>
+<text x="16" y="322" font-size="9" fill="#737373">3 messages sent this week · 94% open rate · Avg reply time: 4 min</text>
 </svg>
