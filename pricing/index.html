@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pricing — Dentomate Dental Practice Software</title>
+<meta name="description" content="Simple rupee pricing for Indian dental clinics. Free forever plan, Starter from ₹399/mo and Pro from ₹799/mo billed annually. No card required to start.">
+<link rel="canonical" href="https://dentomate.in/pricing/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pricing — Dentomate">
+<meta property="og:description" content="Free forever, Starter from ₹399/mo, Pro from ₹799/mo. Rupee pricing for Indian clinics.">
+<meta property="og:url" content="https://dentomate.in/pricing/">
+<meta property="og:image" content="https://dentomate.in/assets/images/logo-dark.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Dentomate",
+  "description": "Dental practice management software for Indian clinics.",
+  "brand": {"@type": "Brand", "name": "Dentomate"},
+  "offers": [
+    {"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "INR"},
+    {"@type": "Offer", "name": "Starter", "price": "399", "priceCurrency": "INR"},
+    {"@type": "Offer", "name": "Pro", "price": "799", "priceCurrency": "INR"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Dentomate home">
+      <div class="nav-logo-mark"><img src="/assets/images/logo.png" alt="Dentomate" width="32" height="32"></div>
+      Dentomate
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/features/">Features</a>
+      <a href="/pricing/" class="active">Pricing</a>
+      <a href="/compare/">Compare</a>
+      <a href="/security/">Security</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="https://app.dentomate.in/signup" class="nav-cta-mobile">Start free &rarr;</a>
+    </nav>
+    <div class="nav-ctas">
+      <a href="https://app.dentomate.in/?signin=1" class="nav-signin" data-auth-signin>Sign in</a>
+      <a href="https://app.dentomate.in/signup" class="btn-primary" style="padding:10px 20px;font-size:.875rem">Start free</a>
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span class="sep">/</span><span class="current">Pricing</span>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow-pill">Pricing</span>
+    <h1 class="d1">Fair pricing, in rupees</h1>
+    <p class="bl">Start free and stay free for as long as you like. Upgrade only when you need more. No hidden fees, no per-patient charges.</p>
+    <div style="display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--rpill);padding:5px">
+      <button id="btn-monthly" class="pricing-cta ghost" style="width:auto;padding:8px 20px;border:none" onclick="setPeriod('monthly')">Monthly</button>
+      <button id="btn-annual" class="pricing-cta primary" style="width:auto;padding:8px 20px" onclick="setPeriod('annual')">Annual &middot; save 20%</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-tier">Free</p>
+        <div class="pricing-price"><sup>&#8377;</sup>0</div>
+        <p class="pricing-billed">Free forever</p>
+        <a href="https://app.dentomate.in/signup" class="pricing-cta ghost">Start free</a>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>Up to 50 patients</li>
+          <li>Appointment scheduling</li>
+          <li>Basic patient records</li>
+          <li>1 clinic, 1 user</li>
+          <li class="no">WhatsApp reminders</li>
+          <li class="no">Analytics dashboard</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card featured">
+        <span class="pricing-card-badge">Most popular</span>
+        <p class="pricing-tier">Starter</p>
+        <div class="pricing-price"><sup>&#8377;</sup><span id="price-starter">399</span><span>/mo</span></div>
+        <p class="pricing-billed" id="billed-starter">Billed annually (&#8377;4,788/yr)</p>
+        <a href="https://app.dentomate.in/signup" class="pricing-cta primary">Start free trial</a>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>Unlimited patients</li>
+          <li>WhatsApp reminders &amp; follow-ups</li>
+          <li>Billing &amp; payments (UPI/card)</li>
+          <li>Treatment plans</li>
+          <li>Analytics dashboard</li>
+          <li class="no">Multi-clinic &amp; multi-user</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-tier">Pro</p>
+        <div class="pricing-price"><sup>&#8377;</sup><span id="price-pro">799</span><span>/mo</span></div>
+        <p class="pricing-billed" id="billed-pro">Billed annually (&#8377;9,588/yr)</p>
+        <a href="https://app.dentomate.in/signup" class="pricing-cta ghost">Start free trial</a>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Multi-clinic management</li>
+          <li>Multiple staff users &amp; roles</li>
+          <li>Lab work tracking</li>
+          <li>CRM &amp; patient 360</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+    <p class="center bs muted" style="margin-top:24px">All plans include encrypted, India-hosted data. Prices exclude applicable GST.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header"><h2 class="d2">Pricing questions</h2></div>
+    <div class="faq">
+      <details>
+        <summary>Is the Free plan really free forever?</summary>
+        <p>Yes. The Free plan runs a small clinic at no cost, with no time limit and no card required. Upgrade only if you outgrow it.</p>
+      </details>
+      <details>
+        <summary>What's the difference between monthly and annual?</summary>
+        <p>Annual billing saves you roughly 20% versus paying month to month. Starter is &#8377;499/mo monthly or &#8377;399/mo billed annually; Pro is &#8377;999/mo monthly or &#8377;799/mo billed annually.</p>
+      </details>
+      <details>
+        <summary>Which payment methods do you accept?</summary>
+        <p>UPI, credit/debit cards and net banking through our PCI-compliant gateway. You can also collect patient payments the same way inside Dentomate.</p>
+      </details>
+      <details>
+        <summary>Can I change or cancel my plan?</summary>
+        <p>Anytime. Upgrade, downgrade or cancel from your account &mdash; your data stays intact and exportable.</p>
+      </details>
+      <details>
+        <summary>Do you charge per patient?</summary>
+        <p>No. Paid plans include unlimited patients. You never pay more as your practice grows.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-band">
+      <h2 class="d2">Try Dentomate free today</h2>
+      <p>Create your clinic in under a minute. No card required.</p>
+      <div class="page-hero-actions">
+        <a href="https://app.dentomate.in/signup" class="btn-primary btn-lg">Start free</a>
+        <a href="/contact/" class="btn-ghost-light btn-lg">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="nav-logo" style="color:#fff">
+          <div class="nav-logo-mark"><img src="/assets/images/logo-dark.png" alt="Dentomate" width="32" height="32"></div>
+          Dentomate
+        </a>
+        <p class="footer-brand-blurb">The practice growth platform built exclusively for Indian dental clinics.</p>
+        <a href="https://wa.me/919351639077" class="footer-wa">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a6.5 6.5 0 00-5.6 9.8L1.5 14.5l3.3-.9A6.5 6.5 0 108 1.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Product</p>
+        <a href="/features/" class="footer-link">Features</a>
+        <a href="/pricing/" class="footer-link">Pricing</a>
+        <a href="/features/patient-management/" class="footer-link">Patient Management</a>
+        <a href="/features/treatment-planning/" class="footer-link">Treatment Planning</a>
+        <a href="/features/lab-management/" class="footer-link">Lab Management</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Compare</p>
+        <a href="/compare/" class="footer-link">All Comparisons</a>
+        <a href="/compare/dentomate-vs-dentrix/" class="footer-link">vs Dentrix</a>
+        <a href="/compare/dentomate-vs-eaglesoft/" class="footer-link">vs Eaglesoft</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Company</p>
+        <a href="/about/" class="footer-link">About</a>
+        <a href="/contact/" class="footer-link">Contact</a>
+        <a href="/security/" class="footer-link">Security</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Legal</p>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
+        <a href="/dpdp/" class="footer-link">DPDP Compliance</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; 2026 Dentomate Technologies Pvt. Ltd. All rights reserved.</p>
+      <p>Made in India &middot; DPDP-aligned</p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/main.js"></script>
+<script>
+function setPeriod(p){
+  var mo=document.getElementById('btn-monthly'), an=document.getElementById('btn-annual');
+  var ps=document.getElementById('price-starter'), pp=document.getElementById('price-pro');
+  var bs=document.getElementById('billed-starter'), bp=document.getElementById('billed-pro');
+  if(p==='monthly'){
+    mo.className='pricing-cta primary'; an.className='pricing-cta ghost';
+    ps.textContent='499'; pp.textContent='999';
+    bs.textContent='Billed monthly'; bp.textContent='Billed monthly';
+  }else{
+    an.className='pricing-cta primary'; mo.className='pricing-cta ghost';
+    ps.textContent='399'; pp.textContent='799';
+    bs.textContent='Billed annually (\u20B94,788/yr)'; bp.textContent='Billed annually (\u20B99,588/yr)';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,158 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Sign Up for DentoMate - Free 14-Day Trial">
-    <meta name="description"
-        content="Start your free 14-day trial of DentoMate today. No credit card required. Full access to all features.">
-    <link rel="canonical" href="https://dentomate.in/signup/">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dentomate.in/signup/">
-    <meta property="og:title" content="Sign Up - DentoMate">
-    <meta property="og:description" content="Start your free 14-day trial of DentoMate today.">
-    <meta property="og:image" content="https://dentomate.in/assets/images/logo.png">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sign Up - DentoMate">
-    <meta name="twitter:description" content="Start your free 14-day trial of DentoMate today.">
-    <meta name="twitter:image" content="https://dentomate.in/assets/images/logo.png">
-
-    <title>Sign Up - DentoMate</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <style>
-        body {
-            background: linear-gradient(135deg, var(--neutral-light) 0%, rgba(59, 130, 246, 0.05) 100%);
-            min-height: 100vh;
-            display: block;
-            padding: 0;
-        }
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Start Free — Dentomate</title>
+<meta name="description" content="Create your free Dentomate clinic account. No card required.">
+<link rel="canonical" href="https://app.dentomate.in/signup">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url=https://app.dentomate.in/signup">
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
-
 <body>
-    <!-- Header Navigation -->
-    <header role="banner">
-        <nav role="navigation">
-            <a href="/" class="logo">
-                <img src="/assets/images/logo.png" alt="DentoMate Logo" loading="lazy">
-                DentoMate
-            </a>
-            <a href="/" class="nav-link">← Back to Home</a>
-        </nav>
-    </header>
-
-    <div class="signup-container">
-        <!-- Left Side -->
-        <div class="signup-left">
-            <h1>Start Your <span>Free Trial Today</span></h1>
-            <p>Join 500+ dental practices using DentoMate to streamline operations and deliver better patient care. No
-                credit card required.</p>
-
-            <ul class="benefits-list">
-                <li>14 days free, full feature access</li>
-                <li>No credit card required</li>
-                <li>Cancel anytime, no questions asked</li>
-                <li>24/7 customer support included</li>
-                <li>Data migration assistance</li>
-                <li>HIPAA compliant & secure</li>
-            </ul>
-        </div>
-
-        <!-- Right Side - Signup Form -->
-        <div class="signup-right">
-            <h2>Create Your Account</h2>
-            <p>Get started in less than 2 minutes</p>
-
-            <form id="signupForm">
-                <div class="success-message" id="successMessage">
-                    ✓ Thank you! We'll contact you shortly with your trial access details.
-                </div>
-
-                <div class="form-group">
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required placeholder="Dr. John Doe">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required placeholder="you@dentalclinic.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
-                </div>
-
-                <div class="form-group">
-                    <label for="clinic">Clinic Name *</label>
-                    <input type="text" id="clinic" name="clinic" required placeholder="Smile Dental Clinic">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="city">City *</label>
-                        <input type="text" id="city" name="city" required placeholder="New York">
-                    </div>
-                    <div class="form-group">
-                        <label for="state">State/Province *</label>
-                        <input type="text" id="state" name="state" required placeholder="NY">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="practiceSize">Practice Size *</label>
-                    <select id="practiceSize" name="practiceSize" required>
-                        <option value="">Select practice size</option>
-                        <option value="solo">Solo Practice</option>
-                        <option value="2-5">2-5 Dentists</option>
-                        <option value="5-10">5-10 Dentists</option>
-                        <option value="10+">10+ Dentists</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="submit-btn">Get Free Trial Access</button>
-
-                <p class="terms">
-                    By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <script src="/assets/js/main.js"></script>
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = {
-                fullName: document.getElementById('fullName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                clinic: document.getElementById('clinic').value,
-                city: document.getElementById('city').value,
-                state: document.getElementById('state').value,
-                practiceSize: document.getElementById('practiceSize').value,
-                timestamp: new Date().toISOString()
-            };
-
-            // Log the data (in a real application, this would be sent to a backend)
-            console.log('Signup Data:', formData);
-
-            // Show success message
-            const successMessage = document.getElementById('successMessage');
-            successMessage.classList.add('show');
-
-            // Reset form
-            this.reset();
-        });
-    </script>
+<main class="section" style="min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center">
+  <div class="container container-narrow">
+    <img src="/assets/images/logo.png" alt="Dentomate" width="48" height="48" style="margin:0 auto 20px">
+    <h1 class="d3">Taking you to sign up&hellip;</h1>
+    <p class="bm muted" style="margin:12px auto 24px;max-width:420px">If you're not redirected automatically, use the button below to create your free clinic account.</p>
+    <a href="https://app.dentomate.in/signup" class="btn-primary btn-lg">Continue to sign up</a>
+  </div>
+</main>
+<script>window.location.replace('https://app.dentomate.in/signup');</script>
 </body>
-
 </html>
