@@ -23,16 +23,17 @@
 <meta name="twitter:image" content="https://dentomate.in/assets/images/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- Open Runde — Dentomate's actual typeface -->
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Regular.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Bold.woff2">
 <style>
 /* ==========================================================
-   DENTOMATE DESIGN SYSTEM — from assets/css/style.css
-   Font  : Open Runde (rounded, approachable)
-   Blue  : #3b82f6  |  Violet: #8b5cf6
-   Dark  : #0f172a  |  Light : #f8fafc
+   DENTOMATE DESIGN SYSTEM — unified with the app
+   Font  : Open Runde (UI) + Geist Mono (all numerics)
+   Blue  : #2170D9  |  Success: #00C853
+   Dark  : #1a1a1a  |  Light : #fafafa
    ========================================================== */
 @font-face{font-family:'Open Runde';src:url('https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
 @font-face{font-family:'Open Runde';src:url('https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
@@ -40,30 +41,32 @@
 @font-face{font-family:'Open Runde';src:url('https://cdn.jsdelivr.net/gh/lauridskern/open-runde/src/web/OpenRunde-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
 
 :root {
-  /* Brand — actual Dentomate tokens */
-  --blue:       #3b82f6;
-  --blue-dk:    #1e40af;
-  --blue-lt:    #60a5fa;
-  --blue-xl:    #bfdbfe;
-  --violet:     #8b5cf6;
-  --violet-dk:  #6d28d9;
-  --violet-lt:  #a78bfa;
-  --success:    #10b981;
+  /* Brand — unified with the app */
+  --blue:       #2170D9;
+  --blue-dk:    #1A4D9E;
+  --blue-lt:    #5B9BE8;
+  --blue-xl:    #C7DDF7;
+  /* violet remapped to blue (brand has no violet) */
+  --violet:     #2170D9;
+  --violet-dk:  #1A4D9E;
+  --violet-lt:  #5B9BE8;
+  --success:    #00C853;
 
-  /* Neutrals */
-  --neutral:    #0f172a;   /* dark backgrounds */
-  --neutral-2:  #1e293b;   /* slightly lighter dark */
-  --neutral-3:  #334155;
-  --bg-light:   #f8fafc;   /* off-white sections */
+  /* Neutrals — pure gray, matches the app */
+  --neutral:    #1a1a1a;   /* dark backgrounds */
+  --neutral-2:  #262626;   /* slightly lighter dark */
+  --neutral-3:  #404040;
+  --bg-light:   #fafafa;   /* off-white sections */
   --bg-white:   #ffffff;
-  --border:     #e2e8f0;
-  --border-dk:  #cbd5e1;
-  --text:       #1e293b;
-  --text-muted: #64748b;
-  --text-pale:  #94a3b8;
+  --border:     #e5e5e5;
+  --border-dk:  #d4d4d4;
+  --text:       #1a1a1a;
+  --text-muted: #737373;
+  --text-pale:  #a3a3a3;
 
   /* Typography */
   --font: 'Open Runde', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* Radii */
   --r4:   4px;
@@ -79,8 +82,8 @@
   --sh-md: 0 4px 20px rgba(0,0,0,.09);
   --sh-lg: 0 8px 40px rgba(0,0,0,.11);
   --sh-xl: 0 20px 60px rgba(0,0,0,.14);
-  --sh-blue: 0 8px 30px rgba(59,130,246,.28);
-  --sh-violet: 0 8px 30px rgba(139,92,246,.22);
+  --sh-blue: 0 6px 24px rgba(0,0,0,.10);
+  --sh-violet: 0 6px 24px rgba(0,0,0,.08);
 
   /* Layout */
   --sy: 96px;
@@ -107,6 +110,8 @@ ul{list-style:none}
 .bm{font-size:1rem;line-height:1.72}
 .bs{font-size:.875rem;line-height:1.65}
 .bxs{font-size:.8rem;line-height:1.55}
+/* numerics — Geist Mono (matches app .td-mono/.stat-value) */
+.mono{font-family:var(--font-mono);font-feature-settings:'tnum' 1;letter-spacing:-.02em}
 
 /* accent word */
 .acc{color:var(--blue)}
@@ -120,38 +125,54 @@ ul{list-style:none}
 /* ── Buttons ──────────────────────────────── */
 .btn-primary{
   display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;border-radius:var(--r12);
-  font-size:.95rem;font-weight:700;border:none;
+  padding:14px 28px;border-radius:var(--r8);
+  font-size:.95rem;font-weight:600;border:none;
   background:var(--blue);color:#fff;
-  transition:all .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
-.btn-primary:hover{background:var(--blue-dk);transform:translateY(-1px);box-shadow:var(--sh-blue)}
+  transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
+.btn-primary:hover{background:var(--blue-dk)}
 .btn-primary.btn-lg{padding:16px 36px;font-size:1rem}
 .btn-secondary{
   display:inline-flex;align-items:center;gap:8px;
-  padding:13px 27px;border-radius:var(--r12);
-  font-size:.95rem;font-weight:700;
+  padding:13px 27px;border-radius:var(--r8);
+  font-size:.95rem;font-weight:600;
   background:var(--bg-white);color:var(--blue);
   border:1.5px solid var(--border-dk);
-  transition:all .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
-.btn-secondary:hover{border-color:var(--blue);box-shadow:var(--sh-sm);transform:translateY(-1px)}
+  transition:border-color .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
+.btn-secondary:hover{border-color:var(--blue)}
 .btn-secondary.btn-lg{padding:15px 34px;font-size:1rem}
-.btn-ghost-light{
+/* ── On-dark buttons (hero, footer-cta, compare band) ── */
+.btn-light{
   display:inline-flex;align-items:center;gap:8px;
-  padding:13px 24px;border-radius:var(--r12);
-  font-size:.875rem;font-weight:600;
-  background:rgba(255,255,255,.1);color:#fff;
-  border:1.5px solid rgba(255,255,255,.2);
-  transition:all .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
-.btn-ghost-light:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4)}
-.btn-ghost-light.btn-lg{padding:16px 36px;font-size:1rem}
+  padding:14px 28px;border-radius:var(--r8);
+  font-size:.95rem;font-weight:600;border:none;
+  background:#fff;color:var(--text);
+  transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
+.btn-light:hover{background:#f0f0f0}
+.btn-light.btn-lg{padding:16px 36px;font-size:1rem}
+.btn-outline-light{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 27px;border-radius:var(--r8);
+  font-size:.95rem;font-weight:600;
+  background:transparent;color:#fff;
+  border:1.5px solid #fff;
+  transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
+.btn-outline-light:hover{background:rgba(255,255,255,.12)}
+.btn-outline-light.btn-lg{padding:16px 36px;font-size:1rem}
 .btn-outline{
   display:inline-flex;align-items:center;gap:8px;
-  padding:12px 24px;border-radius:var(--r12);
+  padding:12px 24px;border-radius:var(--r8);
   font-size:.875rem;font-weight:600;
   background:transparent;color:var(--text);
   border:1.5px solid var(--border-dk);
   transition:all .2s;font-family:var(--font);cursor:pointer}
 .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-primary [data-lucide],.btn-light [data-lucide],.btn-outline-light [data-lucide],.btn-secondary [data-lucide]{width:18px;height:18px}
+
+/* ── Lucide icons ─────────────────────────── */
+[data-lucide]{width:24px;height:24px;stroke-width:2;display:inline-block;vertical-align:middle;flex-shrink:0}
+.li-ic{width:18px;height:18px;margin-top:2px;flex-shrink:0}
+.li-ok{color:var(--success)}
+.li-no{color:var(--text-pale)}
 
 /* ── Image placeholders ───────────────────── */
 .img-ph{
@@ -162,17 +183,16 @@ ul{list-style:none}
 .img-ph-dark{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
 
 /* ── Browser mockup ───────────────────────── */
-.browser{background:#0f172a;border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh-xl)}
-.browser-bar{height:38px;background:#1e293b;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.browser{background:var(--neutral);border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh-xl)}
+.browser-bar{height:38px;background:var(--neutral-2);display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid rgba(255,255,255,.06)}
 .b-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .b-dot-r{background:#FF5F57}.b-dot-y{background:#FEBC2E}.b-dot-g{background:#28C840}
 .b-url{flex:1;background:rgba(255,255,255,.06);border-radius:6px;height:22px;display:flex;align-items:center;padding:0 10px;font-size:.68rem;color:rgba(255,255,255,.35);max-width:300px;margin:0 auto}
 
-/* ── NAV — frosted glass (actual Dentomate style) ── */
+/* ── NAV — solid white (unified with app) ── */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
-  height:72px;background:rgba(255,255,255,.9);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  height:72px;background:#fff;
   border-bottom:1px solid var(--border);transition:box-shadow .2s}
 .nav.scrolled{box-shadow:var(--sh-sm)}
 .nav-inner{max-width:var(--cmax);margin:0 auto;padding:0 var(--cx);height:100%;display:flex;align-items:center;gap:0}
@@ -189,21 +209,21 @@ ul{list-style:none}
 .nav-signin:hover{color:var(--neutral)}
 .nav-hamburger{display:none;background:none;border:none;color:var(--neutral);padding:6px;cursor:pointer;align-items:center}
 
-/* ── HERO — strong blue→violet gradient (dark) ── */
+/* ── HERO — deep blue (unified, no violet) ── */
 .hero{
-  background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 55%,#1e3a8a 100%);
+  background:linear-gradient(135deg,#1a1a1a 0%,#123163 55%,#1A4D9E 100%);
   padding-top:72px;position:relative;overflow:hidden}
-.hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:600px;pointer-events:none;background:radial-gradient(ellipse,rgba(139,92,246,.18) 0%,transparent 60%)}
-.hero-glow-2{position:absolute;bottom:-80px;left:0;width:500px;height:500px;pointer-events:none;background:radial-gradient(ellipse,rgba(59,130,246,.12) 0%,transparent 60%)}
+.hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:600px;pointer-events:none;background:radial-gradient(ellipse,rgba(33,112,217,.20) 0%,transparent 60%)}
+.hero-glow-2{position:absolute;bottom:-80px;left:0;width:500px;height:500px;pointer-events:none;background:radial-gradient(ellipse,rgba(33,112,217,.12) 0%,transparent 60%)}
 .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:calc(100vh - 72px);padding-top:64px;padding-bottom:80px;position:relative;z-index:1}
 .hero-left{display:flex;flex-direction:column}
-.eyebrow-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);color:var(--blue-lt);padding:6px 14px;border-radius:var(--rpill);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;width:fit-content}
+.eyebrow-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(33,112,217,.15);border:1px solid rgba(33,112,217,.3);color:var(--blue-lt);padding:6px 14px;border-radius:var(--rpill);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;width:fit-content}
 .hero-sub{color:rgba(255,255,255,.65);margin:20px 0 36px;max-width:480px}
 .hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:28px}
 .hero-proof{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .hero-proof-item{display:flex;align-items:center;gap:6px}
-.hero-notif{position:absolute;bottom:24px;left:20px;display:flex;align-items:center;gap:12px;background:rgba(15,23,42,.85);border:1px solid rgba(59,130,246,.25);border-radius:var(--r12);padding:12px 16px;box-shadow:var(--sh-xl);backdrop-filter:blur(12px);min-width:260px;z-index:10}
-.hero-notif-icon{width:32px;height:32px;background:rgba(59,130,246,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-notif{position:absolute;bottom:24px;left:20px;display:flex;align-items:center;gap:12px;background:rgba(26,26,26,.85);border:1px solid rgba(33,112,217,.25);border-radius:var(--r12);padding:12px 16px;box-shadow:var(--sh-xl);backdrop-filter:blur(12px);min-width:260px;z-index:10}
+.hero-notif-icon{width:32px;height:32px;background:rgba(33,112,217,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .hero-notif-badge{width:20px;height:20px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
 /* ── LOGO BAR ─────────────────────────────── */
@@ -218,11 +238,11 @@ ul{list-style:none}
 .step-item{padding:40px 0;min-height:320px;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--border);opacity:.4;transition:opacity .3s}
 .step-item:last-child{border-bottom:none}
 .step-item.is-active{opacity:1}
-.step-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;background:var(--bg-light);border:1.5px solid var(--border-dk);color:var(--text-muted);margin-bottom:16px;transition:all .3s;flex-shrink:0}
+.step-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.78rem;font-weight:600;background:var(--bg-light);border:1.5px solid var(--border-dk);color:var(--text-muted);margin-bottom:16px;transition:all .3s;flex-shrink:0}
 .step-item.is-active .step-num{background:var(--blue);border-color:var(--blue);color:#fff}
 .step-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 .tag{display:inline-flex;align-items:center;font-size:.7rem;font-weight:600;letter-spacing:.03em;padding:4px 12px;border-radius:var(--rpill);background:var(--bg-light);border:1px solid var(--border-dk);color:var(--text-muted)}
-.tag-blue{background:rgba(59,130,246,.07);border-color:rgba(59,130,246,.2);color:var(--blue-dk)}
+.tag-blue{background:rgba(33,112,217,.07);border-color:rgba(33,112,217,.2);color:var(--blue-dk)}
 .scrolly-screens{position:sticky;top:96px;height:calc(100vh - 130px);display:flex;align-items:center}
 .scroll-screen{display:none;width:100%}
 .scroll-screen.is-active{display:block;animation:fadeUp .3s ease}
@@ -233,23 +253,24 @@ ul{list-style:none}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
 .stat-item{padding:0 32px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
 .stat-item:last-child{border-right:none}
-.stat-num{font-size:clamp(2.4rem,4.5vw,3.2rem);font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:10px;background:linear-gradient(135deg,var(--blue-lt),var(--violet-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-num{font-family:var(--font-mono);font-size:clamp(2.4rem,4.5vw,3.2rem);font-weight:600;letter-spacing:-.03em;line-height:1;margin-bottom:10px;color:var(--blue-lt)}
 .stat-label{font-size:.875rem;color:rgba(255,255,255,.5);font-weight:500;line-height:1.5}
 
 /* ── DARK PANEL ───────────────────────────── */
-.dark-panel{background:linear-gradient(180deg,var(--neutral) 0%,#0d1424 100%);padding:var(--sy) 0}
+.dark-panel{background:linear-gradient(180deg,var(--neutral) 0%,#0f0f0f 100%);padding:var(--sy) 0}
 .dark-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .dark-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r16);padding:28px 24px;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
-.dark-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),var(--violet),transparent);opacity:0;transition:opacity .3s}
-.dark-card:hover{border-color:rgba(59,130,246,.3);transform:translateY(-4px)}
+.dark-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .3s}
+.dark-card:hover{border-color:rgba(33,112,217,.3);transform:translateY(-4px)}
 .dark-card:hover::before{opacity:1}
-.dark-card-icon{width:44px;height:44px;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(139,92,246,.15));border:1px solid rgba(59,130,246,.2);border-radius:var(--r12);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.dark-card-icon{width:44px;height:44px;background:rgba(33,112,217,.15);border:1px solid rgba(33,112,217,.2);border-radius:var(--r12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--blue-lt)}
+.dark-card-icon [data-lucide]{width:22px;height:22px}
 
 /* ── TABS ─────────────────────────────────── */
 .tabs-bar{display:flex;gap:4px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r16);padding:5px;margin-bottom:48px;overflow-x:auto}
 .tab-btn{padding:10px 20px;border-radius:10px;font-size:.875rem;font-weight:600;color:var(--text-muted);cursor:pointer;border:none;background:none;transition:all .2s;white-space:nowrap;font-family:var(--font);display:flex;align-items:center;gap:8px}
 .tab-btn:hover:not(.is-on){background:var(--bg-light);color:var(--text)}
-.tab-btn.is-on{background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;box-shadow:0 2px 12px rgba(59,130,246,.3)}
+.tab-btn.is-on{background:var(--blue);color:#fff}
 .tab-panel{display:none}
 .tab-panel.is-on{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;animation:fadeUp .25s ease}
 .feature-list{list-style:none;display:flex;flex-direction:column;gap:12px}
@@ -262,20 +283,20 @@ ul{list-style:none}
 .usecase-body{padding:32px 28px;background:var(--bg-white)}
 .usecase-metrics{display:flex;gap:32px;margin-top:24px;flex-wrap:wrap}
 .metric-item{display:flex;flex-direction:column}
-.metric-num{font-size:2rem;font-weight:700;letter-spacing:-.03em;color:var(--blue);line-height:1}
+.metric-num{font-family:var(--font-mono);font-size:2rem;font-weight:600;letter-spacing:-.03em;color:var(--blue);line-height:1}
 .metric-label{font-size:.78rem;color:var(--text-muted);margin-top:4px}
 
 /* ── PROOF ────────────────────────────────── */
 .proof-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .proof-stats-row{display:flex;gap:40px;flex-wrap:wrap;margin-top:28px}
 .proof-stat{display:flex;flex-direction:column}
-.proof-stat-num{font-size:2.2rem;font-weight:700;letter-spacing:-.03em;color:var(--blue);line-height:1}
+.proof-stat-num{font-family:var(--font-mono);font-size:2.2rem;font-weight:600;letter-spacing:-.03em;color:var(--blue);line-height:1}
 .proof-stat-label{font-size:.78rem;color:var(--text-muted);margin-top:4px}
 
 /* ── TESTIMONIAL ──────────────────────────── */
 .testimonial-wrap{max-width:780px;margin:0 auto}
-.testimonial-card{background:linear-gradient(135deg,var(--neutral) 0%,#1e1b4b 100%);border-radius:var(--r20);padding:48px;box-shadow:var(--sh-xl);position:relative;overflow:hidden}
-.testimonial-card::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(ellipse,rgba(139,92,246,.15) 0%,transparent 65%);pointer-events:none}
+.testimonial-card{background:linear-gradient(135deg,var(--neutral) 0%,#123163 100%);border-radius:var(--r20);padding:48px;box-shadow:var(--sh-xl);position:relative;overflow:hidden}
+.testimonial-card::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(ellipse,rgba(33,112,217,.18) 0%,transparent 65%);pointer-events:none}
 .testimonial-quote-mark{margin-bottom:20px}
 .testimonial-text{font-size:1.1rem;line-height:1.78;color:rgba(255,255,255,.88);margin-bottom:28px;font-style:italic;position:relative;z-index:1}
 .testimonial-author{display:flex;align-items:center;gap:16px;position:relative;z-index:1}
@@ -308,11 +329,11 @@ ul{list-style:none}
 .pricing-card.featured{border-color:var(--blue);box-shadow:var(--sh-blue)}
 .pricing-card-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.72rem;font-weight:700;padding:4px 14px;border-radius:var(--rpill);white-space:nowrap}
 .pricing-tier{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
-.pricing-price{font-size:2.5rem;font-weight:700;line-height:1;color:var(--neutral);margin-bottom:4px}
+.pricing-price{font-family:var(--font-mono);font-size:2.5rem;font-weight:600;line-height:1;color:var(--neutral);margin-bottom:4px}
 .pricing-price sup{font-size:1.2rem;vertical-align:super;font-weight:600}
 .pricing-price span{font-size:1rem;font-weight:500;color:var(--text-muted)}
 .pricing-billed{font-size:.8rem;color:var(--text-muted);margin-bottom:6px;min-height:1.2em}
-.pricing-save{font-size:.78rem;font-weight:600;color:#16a34a;margin-bottom:20px;min-height:1em}
+.pricing-save{font-size:.78rem;font-weight:600;color:var(--success);margin-bottom:20px;min-height:1em}
 .pricing-divider{border:none;border-top:1px solid var(--border);margin:20px 0}
 .pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
 .pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text)}
@@ -330,8 +351,8 @@ ul{list-style:none}
 @media(max-width:720px){.pricing-grid{grid-template-columns:1fr}}
 
 /* ── FOOTER CTA (blue→violet gradient) ───── */
-.footer-cta{background:linear-gradient(135deg,var(--blue-dk) 0%,#1e1b4b 50%,var(--violet-dk) 100%);padding:var(--sy) 0;position:relative;overflow:hidden}
-.footer-cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;pointer-events:none;background:radial-gradient(ellipse,rgba(139,92,246,.2) 0%,transparent 55%)}
+.footer-cta{background:linear-gradient(135deg,#1a1a1a 0%,#1A4D9E 100%);padding:var(--sy) 0;position:relative;overflow:hidden}
+.footer-cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;pointer-events:none;background:radial-gradient(ellipse,rgba(33,112,217,.22) 0%,transparent 55%)}
 .footer-cta-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1}
 .cta-form-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
 .cta-input{flex:1;min-width:200px;padding:14px 20px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:var(--r12);color:#fff;font-size:.95rem;font-family:var(--font);outline:none;transition:border-color .2s}
@@ -345,7 +366,7 @@ ul{list-style:none}
 .footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
 .footer-socials{display:flex;gap:8px;margin-top:20px}
 .footer-social{width:34px;height:34px;border-radius:var(--r8);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;transition:all .2s}
-.footer-social:hover{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.3)}
+.footer-social:hover{background:rgba(33,112,217,.15);border-color:rgba(33,112,217,.3)}
 .footer-col{display:flex;flex-direction:column}
 .footer-col-head{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.28);margin-bottom:18px}
 .footer-link{font-size:.875rem;color:rgba(255,255,255,.5);transition:color .18s;margin-bottom:10px}
@@ -385,11 +406,10 @@ ul{list-style:none}
   .nav-links a:last-child{border-bottom:none}
   .nav-cta-mobile{color:var(--blue);font-weight:700;display:none}
   .nav.nav-open .nav-cta-mobile{display:block}
-  .nav-ctas{gap:8px}
-  
+  .nav-ctas{gap:8px;margin-left:auto}
+
   .nav-hamburger{display:flex}
   .nav.nav-open .nav-links{display:flex}
-  .nav.nav-open .nav-hamburger path{d:path("M4 4l14 14M4 18L18 4")}
 }
 @media(max-width:600px){
   .integrations-grid{grid-template-columns:repeat(2,1fr)}
@@ -418,22 +438,18 @@ ul{list-style:none}
       <a href="#pricing" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Pricing</a>
       <a href="#proof" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Results</a>
       <a href="#resources" class="nav-link" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Resources</a>
-      <a href="https://app.dentomate.in/signup" class="nav-link nav-cta-mobile" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Start free →</a>
     </nav>
     <div class="nav-ctas">
-      <a href="https://app.dentomate.in/?signin=1" class="nav-signin" style="margin-right:8px">Sign in</a>
       <a href="https://app.dentomate.in/signup" class="btn-primary" style="padding:10px 20px;font-size:.875rem">Start free</a>
     </div>
-    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="var n=document.getElementById('site-nav');n.classList.toggle('nav-open');this.setAttribute('aria-expanded',n.classList.contains('nav-open'))">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="var n=document.getElementById('site-nav');var open=n.classList.toggle('nav-open');this.setAttribute('aria-expanded',open);this.innerHTML='<i data-lucide=&quot;'+(open?'x':'menu')+'&quot;></i>';if(window.lucide)lucide.createIcons()">
+      <i data-lucide="menu"></i>
     </button>
   </div>
 </header>
 
 <!-- ══════════════════════════════════════════
-     HERO — dark blue-violet gradient
+     HERO — deep blue gradient (dark)
 ════════════════════════════════════════════ -->
 <section class="hero" id="hero">
   <div class="hero-glow"></div>
@@ -441,35 +457,35 @@ ul{list-style:none}
   <div class="container hero-inner">
     <div class="hero-left">
       <div class="eyebrow-pill">
-        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#60a5fa"/></svg>
-        Trusted by 200+ Indian dental clinics
+        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#5B9BE8"/></svg>
+        Trusted by <span class="mono">200+</span> Indian dental clinics
       </div>
-      <h1 class="d1" style="color:#fff">Stop Paying<br><span style="background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">the WhatsApp Tax.</span></h1>
-      <p class="bl hero-sub">Dentomate sends branded prescriptions automatically, organises every patient record, and brings patients back — without the ₹8,000/month bill.</p>
+      <h1 class="d1" style="color:#fff">Stop Paying<br><span style="color:var(--blue-lt)">the WhatsApp Tax.</span></h1>
+      <p class="bl hero-sub">Dentomate sends branded prescriptions automatically, organises every patient record, and brings patients back — without the <span class="mono">₹8,000</span>/month bill.</p>
       <div class="hero-actions">
-        <a href="https://app.dentomate.in/signup" class="btn-primary btn-lg">Start free — no credit card</a>
-        <a href="https://wa.me/919351639077?text=Hi%2C+I%27d+like+to+see+a+demo+of+Dentomate" target="_blank" rel="noopener" class="btn-ghost-light btn-lg">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C4.1 1 1 4.1 1 8c0 1.4.4 2.7 1.1 3.8L1 15l3.3-1C5.4 14.6 6.7 15 8 15c3.9 0 7-3.1 7-7S11.9 1 8 1z" stroke="currentColor" stroke-width="1.4"/></svg>
+        <a href="https://app.dentomate.in/signup" class="btn-light btn-lg">Start free — no credit card</a>
+        <a href="https://wa.me/919351639077?text=Hi%2C+I%27d+like+to+see+a+demo+of+Dentomate" target="_blank" rel="noopener" class="btn-outline-light btn-lg">
+          <i data-lucide="message-circle"></i>
           Chat with us on WhatsApp
         </a>
       </div>
       <div class="hero-proof">
         <div class="hero-proof-item">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="bs" style="color:rgba(255,255,255,.55)">14-day free trial</span>
+          <i data-lucide="check" class="li-ic" style="color:#5B9BE8"></i>
+          <span class="bs" style="color:rgba(255,255,255,.55)">Free forever plan</span>
         </div>
         <div class="hero-proof-item">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="bs" style="color:rgba(255,255,255,.55)">5-minute setup</span>
+          <i data-lucide="check" class="li-ic" style="color:#5B9BE8"></i>
+          <span class="bs" style="color:rgba(255,255,255,.55)"><span class="mono">5</span>-minute setup</span>
         </div>
         <div class="hero-proof-item">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <i data-lucide="check" class="li-ic" style="color:#5B9BE8"></i>
           <span class="bs" style="color:rgba(255,255,255,.55)">No developer needed</span>
         </div>
       </div>
     </div>
     <div class="hero-right" style="position:relative">
-      <div style="border-radius:16px;overflow:hidden;background:#1e293b">
+      <div style="border-radius:16px;overflow:hidden;background:var(--neutral-2)">
         <img src="assets/images/hero-dashboard.svg" width="760" height="500" style="width:100%;height:auto;display:block" alt="Dentomate dashboard — patient list, prescriptions, analytics in one place">
       </div>
     </div>
@@ -620,7 +636,7 @@ ul{list-style:none}
           <img src="assets/images/card-rx.svg" width="380" height="240" style="width:100%;display:block" alt="Branded prescription sent via WhatsApp" loading="lazy">
         </div>
         <div class="dark-card-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16V6a2 2 0 012-2h5l4 4v8a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="#60a5fa" stroke-width="1.5"/><path d="M11 4v4h4" stroke="#60a5fa" stroke-width="1.5"/><path d="M7 11h6M7 14h4" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <i data-lucide="file-text"></i>
         </div>
         <h3 class="h4" style="color:#fff;margin:12px 0 10px">Branded Prescriptions</h3>
         <p class="bm" style="color:rgba(255,255,255,.55)">Clinic logo, doctor name, and treatment notes — automatically formatted and sent the moment patients leave your chair.</p>
@@ -631,7 +647,7 @@ ul{list-style:none}
           <img src="assets/images/card-analytics.svg" width="380" height="240" style="width:100%;display:block" alt="Multi-clinic revenue analytics across 4 locations" loading="lazy">
         </div>
         <div class="dark-card-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17V9M8 17V5M13 17V8M18 17V12" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <i data-lucide="bar-chart-3"></i>
         </div>
         <h3 class="h4" style="color:#fff;margin:12px 0 10px">Multi-Clinic Analytics</h3>
         <p class="bm" style="color:rgba(255,255,255,.55)">One dashboard across every location. Revenue by branch, treatment, and month — so you always know what's growing.</p>
@@ -642,7 +658,7 @@ ul{list-style:none}
           <img src="assets/images/card-access.svg" width="380" height="240" style="width:100%;display:block" alt="Staff access control — role-based permissions for owner, doctor, receptionist" loading="lazy">
         </div>
         <div class="dark-card-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="10" width="14" height="8" rx="2" stroke="#60a5fa" stroke-width="1.5"/><path d="M7 10V7a3 3 0 116 0v3" stroke="#60a5fa" stroke-width="1.5"/><circle cx="10" cy="14" r="1.5" fill="#60a5fa"/></svg>
+          <i data-lucide="shield-check"></i>
         </div>
         <h3 class="h4" style="color:#fff;margin:12px 0 10px">Staff Access Control</h3>
         <p class="bm" style="color:rgba(255,255,255,.55)">Receptionists see appointments. Doctors see history. You see everything. Role-based permissions, zero data leaks.</p>
@@ -675,10 +691,10 @@ ul{list-style:none}
         <h3 class="d3" style="margin-bottom:14px">Your brand, on every patient's phone, every time.</h3>
         <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Stop sending generic WhatsApp messages. Dentomate formats a clinic-branded prescription and sends it the moment the visit ends — no extra step, no manual work.</p>
         <ul class="feature-list">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Auto-sent on patient exit</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Clinic logo, doctor signature, treatment notes</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp delivered — no extra API cost</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF saved to patient record automatically</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Auto-sent on patient exit</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Clinic logo, doctor signature, treatment notes</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>WhatsApp delivered — no extra API cost</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>PDF saved to patient record automatically</li>
         </ul>
       </div>
       <div class="browser">
@@ -693,10 +709,10 @@ ul{list-style:none}
         <h3 class="d3" style="margin-bottom:14px">Patients who left your chair come back 30% more often.</h3>
         <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Automated recall messages at 7 days, 3 months, and 6 months — personalised with the patient's name, last treatment, and a clear booking link.</p>
         <ul class="feature-list">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Smart recall at 7-day, 90-day, 180-day intervals</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalised with patient name and treatment</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>One-tap booking link in message</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>30% average increase in return rate (pilot data)</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Smart recall at 7-day, 90-day, 180-day intervals</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Personalised with patient name and treatment</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>One-tap booking link in message</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>30% average increase in return rate (pilot data)</li>
         </ul>
       </div>
       <div class="browser">
@@ -711,10 +727,10 @@ ul{list-style:none}
         <h3 class="d3" style="margin-bottom:14px">Every record in one place. Zero chaos.</h3>
         <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Patient history, prescriptions, treatment notes, X-rays, and payment records — searchable and organised. No more digging through WhatsApp or paper files.</p>
         <ul class="feature-list">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Complete treatment timeline per patient</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>X-ray and document storage</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Instant search by name, phone, or treatment</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Overdue patient alerts built in</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Complete treatment timeline per patient</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>X-ray and document storage</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Instant search by name, phone, or treatment</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Overdue patient alerts built in</li>
         </ul>
       </div>
       <div class="browser">
@@ -729,10 +745,10 @@ ul{list-style:none}
         <h3 class="d3" style="margin-bottom:14px">Mumbai, Delhi, Bengaluru — one dashboard.</h3>
         <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Own multiple clinics? One login gives full visibility across all locations — patient flow, staff activity, revenue, and communications. Branch managers see only their clinic.</p>
         <ul class="feature-list">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unified owner view across all branches</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Branch-isolated views for managers</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Consistent branding across all locations</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Branch-level revenue comparison</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Unified owner view across all branches</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Branch-isolated views for managers</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Consistent branding across all locations</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Branch-level revenue comparison</li>
         </ul>
       </div>
       <div class="browser">
@@ -747,10 +763,10 @@ ul{list-style:none}
         <h3 class="d3" style="margin-bottom:14px">See which month made the most money. Do more of that.</h3>
         <p class="bm" style="color:var(--text-muted);margin-bottom:24px">Revenue by treatment type, patient lifetime value, peak booking hours, staff productivity — all the numbers a growing practice needs to make smart decisions.</p>
         <ul class="feature-list">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Monthly revenue trends by treatment</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Patient lifetime value tracking</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>New vs returning patient ratio</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".1"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Exportable reports for your accountant</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Monthly revenue trends by treatment</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Patient lifetime value tracking</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>New vs returning patient ratio</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Exportable reports for your accountant</li>
         </ul>
       </div>
       <div class="browser">
@@ -793,13 +809,13 @@ ul{list-style:none}
         <p class="pricing-save">&nbsp;</p>
         <hr class="pricing-divider">
         <ul class="pricing-features">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Patient records &amp; prescriptions</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Auto post-care WhatsApp messages</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Hindi + English templates</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Basic analytics</li>
-          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>Up to 20 new patients/month</li>
-          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>No recall campaigns</li>
-          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>Default prescription template only</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Patient records &amp; prescriptions</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Auto post-care WhatsApp messages</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Hindi + English templates</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Basic analytics</li>
+          <li class="no"><i data-lucide="circle-x" class="li-ic li-no"></i>Up to 20 new patients/month</li>
+          <li class="no"><i data-lucide="circle-x" class="li-ic li-no"></i>No recall campaigns</li>
+          <li class="no"><i data-lucide="circle-x" class="li-ic li-no"></i>Default prescription template only</li>
         </ul>
         <button class="pricing-cta-btn disabled" disabled>Current plan</button>
       </div>
@@ -813,15 +829,15 @@ ul{list-style:none}
         <p class="pricing-save" id="starter-save">Save ₹798 vs monthly</p>
         <hr class="pricing-divider">
         <ul class="pricing-features">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Free</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Unlimited patients</strong></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Appointment reminders (auto)</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>New patient welcome (auto)</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>2 recall campaigns / month</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom clinic letterhead on PDFs</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>UPI payment collection link</li>
-          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>AI medicine suggestions</li>
-          <li class="no"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--border)"/><path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-pale)" stroke-width="1.3" stroke-linecap="round"/></svg>GST-compliant invoicing</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Everything in Free</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i><strong>Unlimited patients</strong></li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Appointment reminders (auto)</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>New patient welcome (auto)</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>2 recall campaigns / month</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Custom clinic letterhead on PDFs</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>UPI payment collection link</li>
+          <li class="no"><i data-lucide="circle-x" class="li-ic li-no"></i>AI medicine suggestions</li>
+          <li class="no"><i data-lucide="circle-x" class="li-ic li-no"></i>GST-compliant invoicing</li>
         </ul>
         <a href="https://app.dentomate.in/signup" class="pricing-cta-btn primary">Upgrade to Starter</a>
       </div>
@@ -834,13 +850,13 @@ ul{list-style:none}
         <p class="pricing-save" id="pro-save">Save ₹1,598 vs monthly</p>
         <hr class="pricing-divider">
         <ul class="pricing-features">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Starter</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Unlimited recall campaigns</strong></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom campaigns (any segment)</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>AI medicine suggestions</strong></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>GST-compliant invoicing (PDF)</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 3 clinic branches</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="var(--blue)" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority WhatsApp support</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Everything in Starter</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i><strong>Unlimited recall campaigns</strong></li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Custom campaigns (any segment)</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i><strong>AI medicine suggestions</strong></li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>GST-compliant invoicing (PDF)</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Up to 3 clinic branches</li>
+          <li><i data-lucide="circle-check" class="li-ic" style="color:var(--blue)"></i>Priority WhatsApp support</li>
         </ul>
         <a href="https://app.dentomate.in/signup" class="pricing-cta-btn dark">Upgrade to Pro</a>
       </div>
@@ -881,12 +897,12 @@ ul{list-style:none}
           <img src="assets/images/usecase-multi.svg" width="580" height="220" style="width:100%;display:block" alt="Multi-clinic owner — 4 locations, one dashboard, 100% brand consistency" loading="lazy">
         </div>
         <div class="usecase-body">
-          <span class="tag" style="background:rgba(139,92,246,.07);border-color:rgba(139,92,246,.2);color:var(--violet-dk);margin-bottom:16px;display:inline-flex">Multi-Clinic Owner</span>
+          <span class="tag" style="background:rgba(33,112,217,.07);border-color:rgba(33,112,217,.2);color:var(--blue-dk);margin-bottom:16px;display:inline-flex">Multi-Clinic Owner</span>
           <h3 class="d3" style="margin:0 0 14px">Control every clinic.<br>From one screen.</h3>
           <p class="bm" style="color:var(--text-muted)">3–15 locations. Staff using personal phones for patient comms, no consistent branding, no central visibility. Dentomate gives every branch the same experience — while giving you the data to grow the whole network.</p>
           <div class="usecase-metrics">
-            <div class="metric-item"><span class="metric-num" style="color:var(--violet)">15+</span><span class="metric-label">clinics managed from one dashboard</span></div>
-            <div class="metric-item"><span class="metric-num" style="color:var(--violet)">100%</span><span class="metric-label">branding consistency</span></div>
+            <div class="metric-item"><span class="metric-num">15+</span><span class="metric-label">clinics managed from one dashboard</span></div>
+            <div class="metric-item"><span class="metric-num">100%</span><span class="metric-label">branding consistency</span></div>
           </div>
           <a href="https://wa.me/919351639077?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20for%20Dentomate." target="_blank" rel="noopener noreferrer" class="btn-secondary" style="margin-top:28px">Book a demo</a>
         </div>
@@ -909,7 +925,7 @@ ul{list-style:none}
         <div class="proof-stats-row">
           <div class="proof-stat"><span class="proof-stat-num">30%</span><span class="proof-stat-label">more returning patients</span></div>
           <div class="proof-stat"><span class="proof-stat-num">90</span><span class="proof-stat-label">days to see results</span></div>
-          <div class="proof-stat"><span class="proof-stat-num" style="color:var(--violet)">3</span><span class="proof-stat-label">cities in pilot programme</span></div>
+          <div class="proof-stat"><span class="proof-stat-num">3</span><span class="proof-stat-label">cities in pilot programme</span></div>
         </div>
       </div>
       <div style="border-radius:12px;overflow:hidden;background:var(--bg-white)">
@@ -926,15 +942,15 @@ ul{list-style:none}
   <div class="container">
     <div class="testimonial-wrap">
       <div class="testimonial-card">
-        <div class="testimonial-quote-mark">
-          <svg width="40" height="28" viewBox="0 0 40 28" fill="none"><path d="M0 28V17.6C0 10.4 4.267 4.8 12.8 0l2.4 3.2C10.667 5.6 8.267 8.667 7.6 12H16V28H0zm24 0V17.6C24 10.4 28.267 4.8 36.8 0l2.4 3.2C34.667 5.6 32.267 8.667 31.6 12H40V28H24z" fill="rgba(96,165,250,.2)"/></svg>
+        <div class="testimonial-quote-mark" style="color:var(--blue-lt)">
+          <i data-lucide="quote" style="width:40px;height:40px;opacity:.35"></i>
         </div>
         <blockquote class="testimonial-text">
-          "We were paying ₹12,000 a month for WhatsApp API and still doing manual follow-ups. Dentomate cut that cost to zero and our patients actually comment on the professional prescriptions they receive. We saw 28% more recall appointments in the first two months."
+          "We were paying <span class="mono">₹12,000</span> a month for WhatsApp API and still doing manual follow-ups. Dentomate cut that cost to zero and our patients actually comment on the professional prescriptions they receive. We saw <span class="mono">28%</span> more recall appointments in the first two months."
         </blockquote>
         <div class="testimonial-author">
-          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <span style="font-size:16px;font-weight:700;color:white;font-family:-apple-system,sans-serif">VS</span>
+          <div style="width:52px;height:52px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-size:16px;font-weight:700;color:white;font-family:var(--font)">VS</span>
           </div>
           <div>
             <p class="h4" style="color:#fff;margin:0">Dr. Vikram Singh</p>
@@ -977,7 +993,7 @@ ul{list-style:none}
         <span class="bs" style="font-weight:600;color:var(--text)">Google Cal</span>
       </div>
       <div class="integration-logo" style="border-style:dashed">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="var(--border)"/><path d="M9 14h10M14 9v10" stroke="var(--text-pale)" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <i data-lucide="plus" style="color:var(--text-pale);width:24px;height:24px"></i>
         <span class="bs" style="font-weight:600;color:var(--text-muted)">More soon</span>
       </div>
     </div>
@@ -1054,23 +1070,23 @@ ul{list-style:none}
   <div class="container">
     <div class="footer-cta-inner">
       <div>
-        <p class="ey" style="color:rgba(255,255,255,.5);margin-bottom:14px">14-day free trial</p>
-        <h2 class="d2" style="color:#fff">Your first 14 days are free.<br><span class="acc-v">No WhatsApp bill. No developer.</span></h2>
-        <p class="bm" style="color:rgba(255,255,255,.6);margin-top:16px">Join 200+ Indian dental clinics already using Dentomate. 5-minute setup. Cancel any time.</p>
+        <p class="ey" style="color:rgba(255,255,255,.5);margin-bottom:14px">Free forever plan</p>
+        <h2 class="d2" style="color:#fff">Start free. Stay free.<br><span class="acc-v">No WhatsApp bill. No developer.</span></h2>
+        <p class="bm" style="color:rgba(255,255,255,.6);margin-top:16px">Join <span class="mono">200+</span> Indian dental clinics already using Dentomate. <span class="mono">5</span>-minute setup. No credit card.</p>
       </div>
       <div>
         <form id="cta-form" onsubmit="ctaSubmit(event)">
           <label class="bxs" style="color:rgba(255,255,255,.65);display:block;margin-bottom:6px">Work email</label>
           <div class="cta-form-row">
             <input type="email" id="cta-email" placeholder="dr.yourname@clinic.in" class="cta-input" aria-label="Email" required/>
-            <button type="submit" class="btn-primary btn-lg" style="background:#fff;color:var(--blue-dk)">Start free trial</button>
+            <button type="submit" class="btn-light btn-lg">Start free</button>
           </div>
           <p class="bxs" style="color:rgba(255,255,255,.35);margin-top:10px">By signing up you agree to our Terms &amp; Privacy Policy.</p>
         </form>
         <div class="cta-trust">
-          <div class="cta-trust-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="rgba(255,255,255,.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="bxs" style="color:rgba(255,255,255,.45)">No credit card required</span></div>
-          <div class="cta-trust-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="rgba(255,255,255,.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="bxs" style="color:rgba(255,255,255,.45)">Cancel any time</span></div>
-          <div class="cta-trust-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="rgba(255,255,255,.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="bxs" style="color:rgba(255,255,255,.45)">Data stored in India</span></div>
+          <div class="cta-trust-item"><i data-lucide="check" class="li-ic" style="color:rgba(255,255,255,.45);width:14px;height:14px"></i><span class="bxs" style="color:rgba(255,255,255,.45)">No credit card required</span></div>
+          <div class="cta-trust-item"><i data-lucide="check" class="li-ic" style="color:rgba(255,255,255,.45);width:14px;height:14px"></i><span class="bxs" style="color:rgba(255,255,255,.45)">Cancel any time</span></div>
+          <div class="cta-trust-item"><i data-lucide="check" class="li-ic" style="color:rgba(255,255,255,.45);width:14px;height:14px"></i><span class="bxs" style="color:rgba(255,255,255,.45)">Data stored in India</span></div>
         </div>
       </div>
     </div>
@@ -1247,6 +1263,19 @@ function ctaSubmit(e){
   if(email) dest+='?email='+encodeURIComponent(email);
   window.location.href=dest;
 }
+</script>
+<!-- Lucide icons — mirrors the app's loader (base.html) -->
+<script src="https://unpkg.com/lucide@0.511.0/dist/umd/lucide.min.js"></script>
+<script>
+(function(){
+  function render(){ if(window.lucide) lucide.createIcons(); }
+  if(document.readyState!=='loading') render();
+  else document.addEventListener('DOMContentLoaded', render);
+  // Re-render icons injected via JS (debounced), matching the app's MutationObserver
+  var t;
+  new MutationObserver(function(){ clearTimeout(t); t=setTimeout(render,150); })
+    .observe(document.body,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>
