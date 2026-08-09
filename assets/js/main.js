@@ -34,4 +34,14 @@
       });
     }
   } catch (e) {}
+
+  // Lucide icons — mirrors the app/homepage loader. Guarded so pages that
+  // haven't yet added the Lucide <script> (pre-Phase-2) degrade gracefully.
+  function renderIcons() { if (window.lucide) window.lucide.createIcons(); }
+  renderIcons();
+  var iconTimer;
+  new MutationObserver(function () {
+    clearTimeout(iconTimer);
+    iconTimer = setTimeout(renderIcons, 150);
+  }).observe(document.body, { childList: true, subtree: true });
 })();
