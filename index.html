@@ -182,6 +182,12 @@ ul{list-style:none}
   gap:12px;padding:40px 24px;text-align:center;position:relative;overflow:hidden}
 .img-ph-dark{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
 
+/* ── App screenshots (real captures, cover-framed) ── */
+.app-shot{display:block;width:100%;object-fit:cover;object-position:top center;background:var(--neutral-2)}
+.app-shot.ar-wide{aspect-ratio:16/10}
+.app-shot.ar-card{aspect-ratio:19/12}
+.app-shot.ar-pano{aspect-ratio:16/8}
+
 /* ── Browser mockup ───────────────────────── */
 .browser{background:var(--neutral);border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh-xl)}
 .browser-bar{height:38px;background:var(--neutral-2);display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -485,8 +491,8 @@ ul{list-style:none}
       </div>
     </div>
     <div class="hero-right" style="position:relative">
-      <div style="border-radius:16px;overflow:hidden;background:var(--neutral-2)">
-        <img src="assets/images/hero-dashboard.svg" width="760" height="500" style="width:100%;height:auto;display:block" alt="Dentomate dashboard — patient list, prescriptions, analytics in one place">
+      <div style="border-radius:16px;overflow:hidden;background:var(--neutral-2);box-shadow:var(--sh-xl)">
+        <img src="assets/images/dashboard.png" width="760" height="475" class="app-shot ar-wide" alt="Dentomate dashboard showing the clinic's patient list">
       </div>
     </div>
   </div>
@@ -532,8 +538,8 @@ ul{list-style:none}
           </div>
           <!-- Mobile-only inline screenshot -->
           <div class="mobile-screen browser" style="display:none;margin-top:24px">
-            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / prescription</div></div>
-            <img src="assets/images/screen-rx.svg" style="width:100%;display:block" alt="Prescription composer — branded WhatsApp prescription">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
+            <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="WhatsApp patient list with delivery status for each message">
           </div>
         </div>
 
@@ -548,8 +554,8 @@ ul{list-style:none}
           </div>
           <!-- Mobile-only inline screenshot -->
           <div class="mobile-screen browser" style="display:none;margin-top:24px">
-            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / follow-ups</div></div>
-            <img src="assets/images/screen-followup.svg" style="width:100%;display:block" alt="Recall scheduler — automated follow-ups for patients">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
+            <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="Patient messaging list showing delivered follow-ups">
           </div>
         </div>
 
@@ -565,7 +571,7 @@ ul{list-style:none}
           <!-- Mobile-only inline screenshot -->
           <div class="mobile-screen browser" style="display:none;margin-top:24px">
             <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
-            <img src="assets/images/screen-analytics.svg" style="width:100%;display:block" alt="Revenue analytics — monthly ₹ chart">
+            <img src="assets/images/analytics.png" class="app-shot ar-wide" alt="Analytics dashboard with revenue KPIs, cash-flow and treatment charts">
           </div>
         </div>
 
@@ -573,20 +579,20 @@ ul{list-style:none}
       <div class="scrolly-screens">
         <div class="scroll-screen is-active" id="screen-rx">
           <div class="browser">
-            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / prescription</div></div>
-            <img src="assets/images/screen-rx.svg" style="width:100%;display:block" alt="Prescription composer — branded WhatsApp prescription sent to Rahul Mehta">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
+            <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="WhatsApp patient list with per-message delivery status">
           </div>
         </div>
         <div class="scroll-screen" id="screen-followup">
           <div class="browser">
-            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / follow-ups</div></div>
-            <img src="assets/images/screen-followup.svg" style="width:100%;display:block" alt="Recall scheduler — automated follow-up messages for Priya Sharma, Anjali Kapoor, Suresh Patel">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
+            <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="Patient messaging list showing delivered follow-up messages">
           </div>
         </div>
         <div class="scroll-screen" id="screen-analytics">
           <div class="browser">
             <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
-            <img src="assets/images/screen-analytics.svg" style="width:100%;display:block" alt="Revenue analytics — monthly ₹ chart with treatment breakdown by type">
+            <img src="assets/images/analytics.png" class="app-shot ar-wide" alt="Analytics dashboard — revenue KPIs, cash-flow line chart and treatment donut">
           </div>
         </div>
       </div>
@@ -632,8 +638,8 @@ ul{list-style:none}
     <div class="dark-cards">
 
       <div class="dark-card">
-        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px;min-height:240px">
-          <img src="assets/images/card-rx.svg" width="380" height="240" style="width:100%;display:block" alt="Branded prescription sent via WhatsApp" loading="lazy">
+        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px">
+          <img src="assets/images/whatsapp.png" class="app-shot ar-card" alt="WhatsApp patient list with per-message delivery status" loading="lazy">
         </div>
         <div class="dark-card-icon">
           <i data-lucide="file-text"></i>
@@ -643,25 +649,25 @@ ul{list-style:none}
       </div>
 
       <div class="dark-card">
-        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px;min-height:240px">
-          <img src="assets/images/card-analytics.svg" width="380" height="240" style="width:100%;display:block" alt="Multi-clinic revenue analytics across 4 locations" loading="lazy">
+        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px">
+          <img src="assets/images/analytics.png" class="app-shot ar-card" alt="Analytics dashboard with revenue KPIs and treatment charts" loading="lazy">
         </div>
         <div class="dark-card-icon">
           <i data-lucide="bar-chart-3"></i>
         </div>
-        <h3 class="h4" style="color:#fff;margin:12px 0 10px">Multi-Clinic Analytics</h3>
-        <p class="bm" style="color:rgba(255,255,255,.55)">One dashboard across every location. Revenue by branch, treatment, and month — so you always know what's growing.</p>
+        <h3 class="h4" style="color:#fff;margin:12px 0 10px">Revenue Analytics</h3>
+        <p class="bm" style="color:rgba(255,255,255,.55)">See revenue by treatment and month on one dashboard — so you always know what's growing.</p>
       </div>
 
       <div class="dark-card">
-        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px;min-height:240px">
-          <img src="assets/images/card-access.svg" width="380" height="240" style="width:100%;display:block" alt="Staff access control — role-based permissions for owner, doctor, receptionist" loading="lazy">
+        <div style="border-radius:10px;overflow:hidden;margin-bottom:24px">
+          <img src="assets/images/patient-record.png" class="app-shot ar-card" alt="Patient record with clinical assessment, medical history and chief complaint" loading="lazy">
         </div>
         <div class="dark-card-icon">
-          <i data-lucide="shield-check"></i>
+          <i data-lucide="clipboard-list"></i>
         </div>
-        <h3 class="h4" style="color:#fff;margin:12px 0 10px">Staff Access Control</h3>
-        <p class="bm" style="color:rgba(255,255,255,.55)">Receptionists see appointments. Doctors see history. You see everything. Role-based permissions, zero data leaks.</p>
+        <h3 class="h4" style="color:#fff;margin:12px 0 10px">Complete Patient Records</h3>
+        <p class="bm" style="color:rgba(255,255,255,.55)">Clinical notes, medical history, and treatment details for every patient — searchable and organised in one place.</p>
       </div>
 
     </div>
@@ -698,8 +704,8 @@ ul{list-style:none}
         </ul>
       </div>
       <div class="browser">
-        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / prescriptions</div></div>
-        <img src="assets/images/screen-rx.svg" width="720" height="340" style="width:100%;display:block" alt="Prescription composer with WhatsApp preview" loading="lazy">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
+        <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="WhatsApp patient list with per-message delivery status" loading="lazy">
       </div>
     </div>
 
@@ -716,8 +722,8 @@ ul{list-style:none}
         </ul>
       </div>
       <div class="browser">
-        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / follow-ups</div></div>
-        <img src="assets/images/screen-followup.svg" width="720" height="340" style="width:100%;display:block" alt="Recall scheduler — patients due for 7-day, 90-day, 180-day follow-up" loading="lazy">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
+        <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="Patient messaging list showing delivered follow-up messages" loading="lazy">
       </div>
     </div>
 
@@ -735,7 +741,7 @@ ul{list-style:none}
       </div>
       <div class="browser">
         <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / patients</div></div>
-        <img src="assets/images/tab-records.svg" width="640" height="300" style="width:100%;display:block" alt="Patient record — Priya Sharma treatment timeline with X-rays" loading="lazy">
+        <img src="assets/images/patient-record.png" class="app-shot ar-wide" alt="Patient record — clinical assessment, medical history and chief complaint" loading="lazy">
       </div>
     </div>
 
@@ -771,7 +777,7 @@ ul{list-style:none}
       </div>
       <div class="browser">
         <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
-        <img src="assets/images/screen-analytics.svg" width="720" height="340" style="width:100%;display:block" alt="Analytics — monthly revenue trend and treatment breakdown chart" loading="lazy">
+        <img src="assets/images/analytics.png" class="app-shot ar-wide" alt="Analytics — revenue KPIs, cash-flow line chart and treatment donut" loading="lazy">
       </div>
     </div>
 
@@ -877,8 +883,8 @@ ul{list-style:none}
     <div class="usecase-grid">
 
       <div class="usecase-card">
-        <div class="usecase-img-ph" style="padding:0;border:none">
-          <img src="assets/images/usecase-solo.svg" width="580" height="220" style="width:100%;display:block" alt="Solo dental clinic — prescription sent to phone, ₹8k saved per month" loading="lazy">
+        <div class="usecase-img-ph" style="padding:0;border:none;overflow:hidden">
+          <img src="assets/images/billing.png" class="app-shot ar-pano" alt="Billing screen — current plan, features and monthly usage meter" loading="lazy">
         </div>
         <div class="usecase-body">
           <span class="tag tag-blue" style="margin-bottom:16px;display:inline-flex">Solo &amp; Small Clinic</span>
