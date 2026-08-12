@@ -236,7 +236,9 @@ ul{list-style:none}
   .nav-links a:last-child{border-bottom:none}
   .nav-cta-mobile{color:var(--blue)!important;font-weight:700;display:none}
   .nav.nav-open .nav-cta-mobile{display:block}
-  .nav-hamburger{display:flex}
+  /* Header CTA lives inside the menu on tablet/mobile, not in the bar */
+  .nav-ctas{display:none}
+  .nav-hamburger{display:flex;margin-left:auto}
   .nav.nav-open .nav-links{display:flex}
 }
 @media(max-width:600px){
