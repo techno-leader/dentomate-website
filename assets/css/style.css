@@ -69,6 +69,8 @@ ul{list-style:none}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:600;border:none;background:var(--blue);color:#fff;transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
 .btn-primary:hover{background:var(--blue-dk)}
 .btn-primary.btn-lg{padding:16px 36px;font-size:var(--fs-20)}
+/* Compact size modifier — nav bar and other tight spots */
+.btn-sm{padding:13px 20px;font-size:var(--fs-16)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 27px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:600;background:var(--bg-white);color:var(--blue);border:1.5px solid var(--border-dk);transition:border-color .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
 .btn-secondary:hover{border-color:var(--blue)}
 .btn-secondary.btn-lg{padding:15px 34px;font-size:var(--fs-20)}

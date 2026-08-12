@@ -139,6 +139,8 @@ ul{list-style:none}
   transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
 .btn-primary:hover{background:var(--blue-dk)}
 .btn-primary.btn-lg{padding:16px 36px;font-size:var(--fs-20)}
+/* Compact size modifier — nav bar and other tight spots */
+.btn-sm{padding:13px 20px;font-size:var(--fs-16)}
 .btn-secondary{
   display:inline-flex;align-items:center;gap:8px;
   padding:13px 27px;border-radius:var(--r8);
@@ -463,7 +465,7 @@ ul{list-style:none}
       <a href="https://app.dentomate.in/signup" class="nav-cta-mobile">Start free &rarr;</a>
     </nav>
     <div class="nav-ctas">
-      <a href="https://app.dentomate.in/signup" class="btn-primary" style="padding:10px 20px;font-size:var(--fs-20)">Start free</a>
+      <a href="https://app.dentomate.in/signup" class="btn-primary btn-sm">Start free</a>
     </div>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="var n=document.getElementById('site-nav');var open=n.classList.toggle('nav-open');this.setAttribute('aria-expanded',open);this.innerHTML='<i data-lucide=&quot;'+(open?'x':'menu')+'&quot;></i>';if(window.lucide)lucide.createIcons()">
       <i data-lucide="menu"></i>
