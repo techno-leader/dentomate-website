@@ -13,7 +13,10 @@
 <meta property="og:url" content="https://dentomate.in/dpdp/">
 <meta property="og:image" content="https://dentomate.in/assets/images/logo-dark.png">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="/assets/images/logo.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#2170D9">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -34,11 +37,10 @@
       <a href="https://app.dentomate.in/signup" class="nav-cta-mobile">Start free &rarr;</a>
     </nav>
     <div class="nav-ctas">
-      <a href="https://app.dentomate.in/?signin=1" class="nav-signin" data-auth-signin>Sign in</a>
       <a href="https://app.dentomate.in/signup" class="btn-primary btn-sm">Start free</a>
     </div>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <i data-lucide="menu"></i>
     </button>
   </div>
 </header>
@@ -97,7 +99,7 @@
         </a>
         <p class="footer-brand-blurb">The practice growth platform built exclusively for Indian dental clinics.</p>
         <a href="https://wa.me/919351639077" class="footer-wa">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a6.5 6.5 0 00-5.6 9.8L1.5 14.5l3.3-.9A6.5 6.5 0 108 1.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          <img src="/assets/images/whatsapp-glyph.png" alt="" width="16" height="16" class="wa-glyph">
           Chat on WhatsApp
         </a>
       </div>
@@ -134,6 +136,8 @@
     </div>
   </div>
 </footer>
+<!-- Lucide icons — mirrors the app's loader (base.html) -->
+<script src="https://unpkg.com/lucide@0.511.0/dist/umd/lucide.min.js"></script>
 <script src="/assets/js/main.js"></script>
 </body>
 </html>

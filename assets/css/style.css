@@ -56,6 +56,8 @@ ul{list-style:none}
 .center{text-align:center}
 .mono{font-family:var(--font-mono);font-feature-settings:'tnum' 1;letter-spacing:-.02em}
 [data-lucide]{width:24px;height:24px;stroke-width:2;display:inline-block;vertical-align:middle;flex-shrink:0}
+/* Official WhatsApp brand glyph — brand mark, not an icon (see Lucide exception) */
+.wa-glyph{display:inline-block;vertical-align:middle;flex-shrink:0}
 
 /* Layout */
 .container{max-width:var(--cmax);margin:0 auto;padding:0 var(--cx)}
@@ -81,9 +83,6 @@ ul{list-style:none}
 .btn-outline-light{display:inline-flex;align-items:center;gap:8px;padding:13px 27px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:600;background:transparent;color:#fff;border:1.5px solid #fff;transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
 .btn-outline-light:hover{background:rgba(255,255,255,.12)}
 .btn-outline-light.btn-lg{padding:16px 36px;font-size:var(--fs-20)}
-/* Legacy ghost-light kept until inner-page markup migrates (Phase 2) */
-.btn-ghost-light{display:inline-flex;align-items:center;gap:8px;padding:13px 27px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:600;background:transparent;color:#fff;border:1.5px solid #fff;transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
-.btn-ghost-light:hover{background:rgba(255,255,255,.12)}
 .btn-primary [data-lucide],.btn-secondary [data-lucide],.btn-light [data-lucide],.btn-outline-light [data-lucide]{width:18px;height:18px}
 
 /* NAV — solid white (unified with app) */
@@ -98,8 +97,6 @@ ul{list-style:none}
 .nav-links a:hover,.nav-links a.active{color:var(--neutral)}
 .nav-cta-mobile{display:none}
 .nav-ctas{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.nav-signin{color:var(--text-muted);font-size:var(--fs-16);font-weight:600;transition:color .18s;padding:8px 4px}
-.nav-signin:hover{color:var(--neutral)}
 .nav-hamburger{display:none;background:none;border:none;color:var(--neutral);padding:6px;cursor:pointer;align-items:center}
 
 /* BREADCRUMB */
@@ -135,6 +132,8 @@ ul{list-style:none}
 .card h3{font-size:var(--fs-20);font-weight:700;color:var(--neutral);margin-bottom:8px;letter-spacing:-.01em}
 .card p{color:var(--text-muted);font-size:var(--fs-16);line-height:1.7}
 .card-icon{width:44px;height:44px;background:linear-gradient(135deg,rgba(33,112,217,.12),rgba(33,112,217,.12));border:1px solid rgba(33,112,217,.18);border-radius:var(--r12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--blue)}
+/* Neutral container so a full-colour brand glyph isn't tinted by the blue wash */
+.card-icon.is-brand{background:#fff;border-color:var(--border)}
 .card-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:var(--fs-16);font-weight:700;color:var(--blue)}
 
 /* FEATURE DETAIL */

@@ -16,6 +16,10 @@
     burger.addEventListener('click', function () {
       var open = nav.classList.toggle('nav-open');
       burger.setAttribute('aria-expanded', open);
+      // Rebuild the <i> rather than re-attributing it: Lucide swaps the element
+      // for an <svg> and drops data-lucide, which would break the next toggle.
+      burger.innerHTML = '<i data-lucide="' + (open ? 'x' : 'menu') + '"></i>';
+      if (window.lucide) window.lucide.createIcons();
     });
     nav.querySelectorAll('.nav-links a').forEach(function (a) {
       a.addEventListener('click', function () {
