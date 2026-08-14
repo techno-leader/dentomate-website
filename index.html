@@ -276,6 +276,83 @@ ul{list-style:none}
 .scroll-screen.is-active{display:block;animation:fadeUp .3s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
+/* ── LIVE DEMO — secure staff login (10s loop) ──
+   Stage 1: staff taps PIN -> lock snaps open -> role badge stamps
+   Stage 2: dashboard cascades in, 2 tiles locked for this role      */
+.demo{position:relative;width:100%;aspect-ratio:16/10;background:var(--bg-light);overflow:hidden;font-size:var(--fs-16);line-height:1.3;color:var(--text)}
+
+/* Stage 1 — login card */
+.demo-login{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;animation:dlCard 10s infinite}
+.dl-card{width:296px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r16);box-shadow:var(--sh-md);padding:20px;text-align:center;position:relative}
+.dl-lock{width:40px;height:40px;margin:0 auto 12px;border-radius:50%;background:rgba(33,112,217,.09);border:1px solid rgba(33,112,217,.2);display:flex;align-items:center;justify-content:center;color:var(--blue);position:relative}
+/* Icons sit in wrapper spans: Lucide swaps the <i> for an <svg> after load,
+   which would restart an animation bound to the <i> and drift out of sync. */
+.dl-lock>span{position:absolute;display:flex}
+.dl-lock svg,.dl-lock [data-lucide]{width:18px;height:18px}
+.dl-i-lock{animation:dlLockOut 10s infinite}
+.dl-i-open{opacity:0;color:var(--success);animation:dlLockIn 10s infinite}
+.dl-ring{position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--success);opacity:0;animation:dlRing 10s infinite}
+.dl-name{font-size:var(--fs-16);font-weight:700}
+.dl-role{font-size:var(--fs-16);color:var(--text-muted);margin-bottom:14px}
+.dl-dots{display:flex;gap:10px;justify-content:center;margin-bottom:16px}
+.dl-dot{width:12px;height:12px;border-radius:50%;background:var(--bg-light);border:1.5px solid var(--border-dk);animation:dlDot 10s infinite}
+.dl-dot:nth-child(2){animation-delay:.35s}
+.dl-dot:nth-child(3){animation-delay:.7s}
+.dl-dot:nth-child(4){animation-delay:1.05s}
+.dl-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.dl-key{height:36px;border-radius:var(--r8);background:var(--bg-light);border:1px solid var(--border);font-family:var(--font-mono);font-size:var(--fs-16);font-weight:500;color:var(--text-muted);display:flex;align-items:center;justify-content:center}
+.dl-key.is-hit{animation:dlKey 10s infinite}
+.dl-key.d2{animation-delay:.35s}
+.dl-key.d3{animation-delay:.7s}
+.dl-key.d4{animation-delay:1.05s}
+.dl-badge{position:absolute;left:50%;top:50%;display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--rpill);background:var(--blue);color:#fff;font-size:var(--fs-16);font-weight:700;letter-spacing:.07em;white-space:nowrap;box-shadow:var(--sh-lg);opacity:0;transform:translate(-50%,-50%);animation:dlStamp 10s infinite}
+.dl-badge svg,.dl-badge [data-lucide]{width:16px;height:16px}
+
+/* Stage 2 — role-scoped dashboard */
+.demo-dash{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column;gap:12px;opacity:0;animation:dlDash 10s infinite}
+.dd-bar{display:flex;align-items:center;gap:10px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r12);padding:8px 12px;flex-shrink:0}
+.dd-logo{width:26px;height:26px;border-radius:var(--r8);background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dd-logo svg,.dd-logo [data-lucide]{width:15px;height:15px}
+.dd-clinic{font-weight:700}
+.dd-spacer{flex:1}
+.dd-pill{font-weight:700;letter-spacing:.06em;color:var(--blue-dk);background:rgba(33,112,217,.08);border:1px solid rgba(33,112,217,.2);border-radius:var(--rpill);padding:2px 10px;white-space:nowrap;animation:dlPill 10s infinite}
+.dd-avatar{width:26px;height:26px;border-radius:50%;background:var(--blue-xl);color:var(--blue-dk);font-family:var(--font-mono);font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dd-grid{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;min-height:0}
+.dd-tile{background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r12);padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;opacity:0;animation:dlTile 10s infinite}
+.dd-tile:nth-child(2){animation-delay:.12s}
+.dd-tile:nth-child(3){animation-delay:.24s}
+.dd-tile:nth-child(4){animation-delay:.36s}
+.dd-t-head{display:flex;align-items:center;gap:8px;font-weight:600}
+.dd-t-ico{width:26px;height:26px;border-radius:var(--r8);background:rgba(33,112,217,.09);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dd-t-ico svg,.dd-t-ico [data-lucide]{width:14px;height:14px}
+.dd-t-num{font-family:var(--font-mono);font-size:var(--fs-32);font-weight:600;letter-spacing:-.02em;line-height:1}
+.dd-t-num.is-mask{color:var(--text-pale);letter-spacing:.12em}
+.dd-t-meta{display:flex;align-items:center;gap:6px;color:var(--success);font-weight:600}
+.dd-t-meta svg,.dd-t-meta [data-lucide]{width:14px;height:14px}
+.dd-tile.is-locked{background:var(--bg-light);border-style:dashed}
+.dd-tile.is-locked .dd-t-head{color:var(--text-pale)}
+.dd-tile.is-locked .dd-t-ico{background:#f0f0f0;color:var(--text-pale)}
+.dd-tile.is-locked .dd-t-meta{color:var(--text-pale);animation:dlNudge 10s infinite}
+
+@keyframes dlCard{0%,42%{opacity:1;transform:scale(1)}45%,91%{opacity:0;transform:scale(.94)}92%{opacity:0;transform:scale(1.03)}95%,100%{opacity:1;transform:scale(1)}}
+@keyframes dlDot{0%,5.9%{background:var(--bg-light);border-color:var(--border-dk);transform:scale(1)}6.4%{background:var(--blue);border-color:var(--blue);transform:scale(1.5)}9%,50%{background:var(--blue);border-color:var(--blue);transform:scale(1)}50.1%,100%{background:var(--bg-light);border-color:var(--border-dk);transform:scale(1)}}
+@keyframes dlKey{0%,5.9%{background:var(--bg-light);border-color:var(--border);color:var(--text-muted);transform:scale(1)}6.4%{background:var(--blue);border-color:var(--blue);color:#fff;transform:scale(.92)}9.5%,100%{background:var(--bg-light);border-color:var(--border);color:var(--text-muted);transform:scale(1)}}
+@keyframes dlLockOut{0%,20%{opacity:1}22%,55%{opacity:0}56%,100%{opacity:1}}
+@keyframes dlLockIn{0%,20%{opacity:0;transform:scale(.5)}22%{opacity:1;transform:scale(1.4)}25%,55%{opacity:1;transform:scale(1)}56%,100%{opacity:0;transform:scale(.5)}}
+@keyframes dlRing{0%,19%{opacity:0;transform:scale(.7)}21%{opacity:.85;transform:scale(.95)}29%,100%{opacity:0;transform:scale(2.2)}}
+@keyframes dlStamp{0%,25%{opacity:0;transform:translate(-50%,-50%) scale(1.9) rotate(-9deg)}29%{opacity:1;transform:translate(-50%,-50%) scale(.93) rotate(3deg)}32%,41%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}43%,100%{opacity:0;transform:translate(-50%,-50%) scale(1.9) rotate(-9deg)}}
+@keyframes dlDash{0%,42%{opacity:0;transform:scale(1.03)}46%,88%{opacity:1;transform:scale(1)}90%,100%{opacity:0;transform:scale(1.03)}}
+@keyframes dlTile{0%,44%{opacity:0;transform:translateY(18px)}47.5%,87%{opacity:1;transform:translateY(0)}89%,100%{opacity:0;transform:translateY(18px)}}
+@keyframes dlPill{0%,45%{opacity:0;transform:scale(.7)}48%{opacity:1;transform:scale(1.14)}50%,88%{opacity:1;transform:scale(1)}90%,100%{opacity:0;transform:scale(.7)}}
+@keyframes dlNudge{0%,55%{transform:translateX(0)}56%{transform:translateX(-3px)}57.2%{transform:translateX(3px)}58.4%{transform:translateX(-2px)}59.5%,100%{transform:translateX(0)}}
+
+@media(prefers-reduced-motion:reduce){
+  .demo-login,.demo-dash,.dl-dot,.dl-key.is-hit,.dl-i-lock,.dl-i-open,.dl-ring,.dl-badge,.dd-pill,.dd-tile,.dd-tile.is-locked .dd-t-meta{animation:none}
+  .demo-login{opacity:0}
+  .demo-dash{opacity:1;transform:none}
+  .dd-pill,.dd-tile{opacity:1;transform:none}
+}
+
 /* ── STATS (dark) ─────────────────────────── */
 .stats-section{background:var(--neutral);padding:80px 0}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -422,6 +499,15 @@ ul{list-style:none}
   .step-item .mobile-screen{display:block !important}
   /* Hide the sticky screen panel — mobile uses inline screens per step */
   .scrolly-screens{display:none}
+  /* Live demo: taller frame, no keypad, tighter dashboard on small screens */
+  .demo{aspect-ratio:4/3}
+  .dl-card{width:236px;padding:18px}
+  .dl-pad{display:none}
+  .demo-dash{padding:10px;gap:8px}
+  .dd-clinic{display:none}
+  .dd-grid{gap:8px}
+  .dd-tile{padding:10px}
+  .dd-t-num{display:none}
   .stats-grid{grid-template-columns:1fr 1fr}
   .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:24px}
   .stat-item:last-child{border-bottom:none}
@@ -557,8 +643,58 @@ ul{list-style:none}
           </div>
           <!-- Mobile-only inline screenshot -->
           <div class="mobile-screen browser" style="display:none;margin-top:24px">
-            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / patients</div></div>
-            <img src="assets/images/dashboard.png" class="app-shot ar-wide" alt="Patient list in the Dentomate dashboard">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / login</div></div>
+            <div class="demo" role="img" aria-label="A receptionist signs in with her PIN and gets a dashboard where billing and settings are locked to her role.">
+              <div class="demo-login">
+                <div class="dl-card">
+                  <div class="dl-lock">
+                    <span class="dl-ring"></span>
+                    <span class="dl-i-lock"><i data-lucide="lock"></i></span>
+                    <span class="dl-i-open"><i data-lucide="lock-open"></i></span>
+                  </div>
+                  <p class="dl-name">Priya Sharma</p>
+                  <p class="dl-role">Front desk · HDD Dental Clinic</p>
+                  <div class="dl-dots"><span class="dl-dot"></span><span class="dl-dot"></span><span class="dl-dot"></span><span class="dl-dot"></span></div>
+                  <div class="dl-pad">
+                    <span class="dl-key is-hit d4">1</span><span class="dl-key is-hit d2">2</span><span class="dl-key">3</span>
+                    <span class="dl-key is-hit">4</span><span class="dl-key">5</span><span class="dl-key">6</span>
+                    <span class="dl-key">7</span><span class="dl-key is-hit d3">8</span><span class="dl-key">9</span>
+                  </div>
+                  <div class="dl-badge"><i data-lucide="shield-check"></i>RECEPTIONIST</div>
+                </div>
+              </div>
+              <div class="demo-dash">
+                <div class="dd-bar">
+                  <span class="dd-logo"><i data-lucide="stethoscope"></i></span>
+                  <span class="dd-clinic">HDD Dental Clinic</span>
+                  <span class="dd-spacer"></span>
+                  <span class="dd-pill">RECEPTIONIST</span>
+                  <span class="dd-avatar">PS</span>
+                </div>
+                <div class="dd-grid">
+                  <div class="dd-tile">
+                    <div class="dd-t-head"><span class="dd-t-ico"><i data-lucide="users"></i></span>Patients</div>
+                    <div class="dd-t-num">986</div>
+                    <div class="dd-t-meta"><i data-lucide="check"></i>Full access</div>
+                  </div>
+                  <div class="dd-tile">
+                    <div class="dd-t-head"><span class="dd-t-ico"><i data-lucide="calendar-check"></i></span>Appointments</div>
+                    <div class="dd-t-num">18</div>
+                    <div class="dd-t-meta"><i data-lucide="check"></i>Full access</div>
+                  </div>
+                  <div class="dd-tile is-locked">
+                    <div class="dd-t-head"><span class="dd-t-ico"><i data-lucide="credit-card"></i></span>Billing</div>
+                    <div class="dd-t-num is-mask">••••</div>
+                    <div class="dd-t-meta"><i data-lucide="lock"></i>No access</div>
+                  </div>
+                  <div class="dd-tile is-locked">
+                    <div class="dd-t-head"><span class="dd-t-ico"><i data-lucide="settings"></i></span>Settings</div>
+                    <div class="dd-t-num is-mask">••••</div>
+                    <div class="dd-t-meta"><i data-lucide="lock"></i>No access</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -598,8 +734,58 @@ ul{list-style:none}
       <div class="scrolly-screens">
         <div class="scroll-screen is-active" id="screen-patients">
           <div class="browser">
-            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / patients</div></div>
-            <img src="assets/images/dashboard.png" class="app-shot ar-wide" alt="Patient list in the Dentomate dashboard">
+            <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / login</div></div>
+            <div class="demo" role="img" aria-label="A receptionist signs in with her PIN and gets a dashboard where billing and settings are locked to her role.">
+              <div class="demo-login">
+                <div class="dl-card">
+                  <div class="dl-lock">
+                    <span class="dl-ring"></span>
+                    <span class="dl-i-lock"><i data-lucide="lock"></i></span>
+                    <span class="dl-i-open"><i data-lucide="lock-open"></i></span>
+                  </div>
+                  <p class="dl-name">Priya Sharma</p>
+                  <p class="dl-role">Front desk · HDD Dental Clinic</p>
+                  <div class="dl-dots"><span class="dl-dot"></span><span class="dl-dot"></span><span class="dl-dot"></span><span class="dl-dot"></span></div>
+                  <div class="dl-pad">
+                    <span class="dl-key is-hit d4">1</span><span class="dl-key is-hit d2">2</span><span class="dl-key">3</span>
+                    <span class="dl-key is-hit">4</span><span class="dl-key">5</span><span class="dl-key">6</span>
+                    <span class="dl-key">7</span><span class="dl-key is-hit d3">8</span><span class="dl-key">9</span>
+                  </div>
+                  <div class="dl-badge"><i data-lucide="shield-check"></i>RECEPTIONIST</div>
+                </div>
+              </div>
+              <div class="demo-dash">
+                <div class="dd-bar">
+                  <span class="dd-logo"><i data-lucide="stethoscope"></i></span>
+                  <span class="dd-clinic">HDD Dental Clinic</span>
+                  <span class="dd-spacer"></span>
+                  <span class="dd-pill">RECEPTIONIST</span>
+                  <span class="dd-avatar">PS</span>
+                </div>
+                <div class="dd-grid">
+                  <div class="dd-tile">
+                    <div class="dd-t-head"><span class="dd-t-ico"><i data-lucide="users"></i></span>Patients</div>
+                    <div class="dd-t-num">986</div>
+                    <div class="dd-t-meta"><i data-lucide="check"></i>Full access</div>
+                  </div>
+                  <div class="dd-tile">
+                    <div class="dd-t-head"><span class="dd-t-ico"><i data-lucide="calendar-check"></i></span>Appointments</div>
+                    <div class="dd-t-num">18</div>
+                    <div class="dd-t-meta"><i data-lucide="check"></i>Full access</div>
+                  </div>
+                  <div class="dd-tile is-locked">
+                    <div class="dd-t-head"><span class="dd-t-ico"><i data-lucide="credit-card"></i></span>Billing</div>
+                    <div class="dd-t-num is-mask">••••</div>
+                    <div class="dd-t-meta"><i data-lucide="lock"></i>No access</div>
+                  </div>
+                  <div class="dd-tile is-locked">
+                    <div class="dd-t-head"><span class="dd-t-ico"><i data-lucide="settings"></i></span>Settings</div>
+                    <div class="dd-t-num is-mask">••••</div>
+                    <div class="dd-t-meta"><i data-lucide="lock"></i>No access</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="scroll-screen" id="screen-rx">
