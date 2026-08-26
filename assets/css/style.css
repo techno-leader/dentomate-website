@@ -188,6 +188,7 @@ ul{list-style:none}
 .pricing-price{font-size:var(--fs-40);font-weight:700;line-height:1;color:var(--neutral);margin-bottom:4px}
 .pricing-price sup{font-size:var(--fs-20);vertical-align:super;font-weight:600}
 .pricing-price span{font-size:var(--fs-16);font-weight:500;color:var(--text-muted)}
+.pricing-price .amt{font-size:inherit;font-weight:inherit;color:inherit}
 .pricing-billed{font-size:var(--fs-16);color:var(--text-muted);margin-bottom:20px;min-height:1.2em}
 .pricing-divider{border:none;border-top:1px solid var(--border);margin:20px 0}
 .pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
