@@ -78,7 +78,7 @@
     <p class="bl">Start free and stay free for as long as you like. Upgrade only when you need more. No hidden fees, no per-patient charges.</p>
     <div style="display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--rpill);padding:5px">
       <button id="btn-monthly" class="pricing-cta ghost" style="width:auto;padding:8px 20px;border:none" onclick="setPeriod('monthly')">Monthly</button>
-      <button id="btn-annual" class="pricing-cta primary" style="width:auto;padding:8px 20px" onclick="setPeriod('annual')">Annual &middot; save 20%</button>
+      <button id="btn-annual" class="pricing-cta primary" style="width:auto;padding:8px 20px" onclick="setPeriod('annual')">Annual &middot; save 17%</button>
     </div>
   </div>
 </section>
@@ -93,44 +93,44 @@
         <a href="https://app.dentomate.in/signup" class="pricing-cta ghost">Start free</a>
         <hr class="pricing-divider">
         <ul class="pricing-features">
-          <li>Up to 50 patients</li>
-          <li>Appointment scheduling</li>
-          <li>Basic patient records</li>
-          <li>1 clinic, 1 user</li>
-          <li class="no">WhatsApp reminders</li>
-          <li class="no">Analytics dashboard</li>
+          <li>20 new patients per month</li>
+          <li>Full patient records &amp; treatment history</li>
+          <li>Prescriptions &amp; billing</li>
+          <li>1 clinic</li>
+          <li class="no">WhatsApp recall campaigns</li>
+          <li class="no">Custom clinic letterhead</li>
         </ul>
       </div>
 
       <div class="pricing-card featured">
         <span class="pricing-card-badge">Most popular</span>
         <p class="pricing-tier">Starter</p>
-        <div class="pricing-price"><sup>&#8377;</sup><span id="price-starter">399</span><span>/mo</span></div>
-        <p class="pricing-billed" id="billed-starter">Billed annually (&#8377;4,788/yr)</p>
-        <a href="https://app.dentomate.in/signup" class="pricing-cta primary">Start free trial</a>
+        <div class="pricing-price"><sup>&#8377;</sup><span id="price-starter">333</span><span>/mo</span></div>
+        <p class="pricing-billed" id="billed-starter">Billed annually (&#8377;3,990/yr &mdash; save &#8377;798)</p>
+        <a href="https://app.dentomate.in/signup" class="pricing-cta primary">Start free</a>
         <hr class="pricing-divider">
         <ul class="pricing-features">
-          <li>Unlimited patients</li>
-          <li>WhatsApp reminders &amp; follow-ups</li>
-          <li>Billing &amp; payments (UPI/card)</li>
-          <li>Treatment plans</li>
-          <li>Analytics dashboard</li>
-          <li class="no">Multi-clinic &amp; multi-user</li>
+          <li><strong>Unlimited</strong> patients</li>
+          <li>2 WhatsApp recall campaigns per month</li>
+          <li>New patient welcome message</li>
+          <li>Custom clinic letterhead on PDFs</li>
+          <li>UPI payment collection link</li>
+          <li class="no">AI medicine suggestions</li>
         </ul>
       </div>
 
       <div class="pricing-card">
         <p class="pricing-tier">Pro</p>
-        <div class="pricing-price"><sup>&#8377;</sup><span id="price-pro">799</span><span>/mo</span></div>
-        <p class="pricing-billed" id="billed-pro">Billed annually (&#8377;9,588/yr)</p>
-        <a href="https://app.dentomate.in/signup" class="pricing-cta ghost">Start free trial</a>
+        <div class="pricing-price"><sup>&#8377;</sup><span id="price-pro">666</span><span>/mo</span></div>
+        <p class="pricing-billed" id="billed-pro">Billed annually (&#8377;7,990/yr &mdash; save &#8377;1,598)</p>
+        <a href="https://app.dentomate.in/signup" class="pricing-cta ghost">Start free</a>
         <hr class="pricing-divider">
         <ul class="pricing-features">
           <li>Everything in Starter</li>
-          <li>Multi-clinic management</li>
-          <li>Multiple staff users &amp; roles</li>
-          <li>Lab work tracking</li>
-          <li>CRM &amp; patient 360</li>
+          <li><strong>Unlimited</strong> recall campaigns</li>
+          <li>Up to 3 clinics</li>
+          <li>AI medicine suggestions</li>
+          <li>GST-compliant invoicing</li>
           <li>Priority support</li>
         </ul>
       </div>
@@ -145,11 +145,11 @@
     <div class="faq">
       <details>
         <summary>Is the Free plan really free forever?</summary>
-        <p>Yes. The Free plan runs a small clinic at no cost, with no time limit and no card required. Upgrade only if you outgrow it.</p>
+        <p>Yes &mdash; no time limit, no card required, and it is not a trial. The one limit is that you can add 20 new patients per month; existing patients and their records are never capped or locked. Upgrade only if you outgrow it.</p>
       </details>
       <details>
         <summary>What's the difference between monthly and annual?</summary>
-        <p>Annual billing saves you roughly 20% versus paying month to month. Starter is &#8377;499/mo monthly or &#8377;399/mo billed annually; Pro is &#8377;999/mo monthly or &#8377;799/mo billed annually.</p>
+        <p>Annual billing saves you about 17% versus paying month to month. Starter is &#8377;399/mo billed monthly, or &#8377;3,990 for the year &mdash; a saving of &#8377;798. Pro is &#8377;799/mo billed monthly, or &#8377;7,990 for the year &mdash; a saving of &#8377;1,598.</p>
       </details>
       <details>
         <summary>Which payment methods do you accept?</summary>
@@ -237,12 +237,13 @@ function setPeriod(p){
   var bs=document.getElementById('billed-starter'), bp=document.getElementById('billed-pro');
   if(p==='monthly'){
     mo.className='pricing-cta primary'; an.className='pricing-cta ghost';
-    ps.textContent='499'; pp.textContent='999';
+    ps.textContent='399'; pp.textContent='799';
     bs.textContent='Billed monthly'; bp.textContent='Billed monthly';
   }else{
     an.className='pricing-cta primary'; mo.className='pricing-cta ghost';
-    ps.textContent='399'; pp.textContent='799';
-    bs.textContent='Billed annually (\u20B94,788/yr)'; bp.textContent='Billed annually (\u20B99,588/yr)';
+    ps.textContent='333'; pp.textContent='666';
+    bs.textContent='Billed annually (\u20B93,990/yr \u2014 save \u20B9798)';
+    bp.textContent='Billed annually (\u20B97,990/yr \u2014 save \u20B91,598)';
   }
 }
 </script>
