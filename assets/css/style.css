@@ -145,7 +145,7 @@ ul{list-style:none}
 .nav-links a:hover,.nav-links a.active{color:var(--neutral)}
 .nav-cta-mobile{display:none}
 .nav-ctas{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.nav-hamburger{display:none;background:none;border:none;color:var(--neutral);padding:6px;cursor:pointer;align-items:center}
+.nav-hamburger{display:none;background:none;border:none;color:var(--neutral);padding:6px;cursor:pointer;align-items:center;justify-content:center;min-width:44px;min-height:44px}
 
 /* BREADCRUMB */
 .breadcrumb{max-width:var(--cmax);margin:0 auto;padding:92px var(--cx) 0;font-size:var(--fs-16);color:var(--text-muted)}
@@ -208,11 +208,17 @@ ul{list-style:none}
 
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+/* grid items default to min-width:auto, i.e. min-content, which lets the long
+   email address widen the whole page on a 320px screen */
+.contact-grid>*{min-width:0}
 .contact-card{background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r16);padding:28px;box-shadow:var(--sh-xs)}
 .contact-method{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
 .contact-method .card-icon{margin-bottom:0}
+/* a flex item's min-width defaults to auto, so the unbreakable email address
+   sets the text column's minimum and widens the page below ~360px */
+.contact-method>div{min-width:0}
 .contact-method h3{font-size:var(--fs-20);font-weight:700;color:var(--neutral)}
-.contact-method p{font-size:var(--fs-16);color:var(--text-muted);margin-top:2px}
+.contact-method p{font-size:var(--fs-16);color:var(--text-muted);margin-top:2px;overflow-wrap:anywhere}
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .field label{font-size:var(--fs-16);font-weight:600;color:var(--text)}
 .field input,.field textarea{padding:12px 14px;border:1.5px solid var(--border-dk);border-radius:var(--r8);font-family:var(--font);font-size:var(--fs-16);outline:none;transition:border-color .18s;background:#fff}
@@ -221,7 +227,7 @@ ul{list-style:none}
 /* FAQ */
 .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
 .faq details{background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r12);padding:18px 22px}
-.faq summary{font-weight:600;cursor:pointer;color:var(--neutral);list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary{font-weight:600;cursor:pointer;color:var(--neutral);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:'+';color:var(--blue);font-weight:700;font-size:var(--fs-20);line-height:1}
 .faq details[open] summary::after{content:'\2013'}
@@ -244,7 +250,7 @@ ul{list-style:none}
 .pricing-features li.no{color:var(--text-pale)}
 .pricing-features li::before{content:'';flex-shrink:0;width:18px;height:18px;margin-top:1px;border-radius:50%;background:rgba(0,200,83,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%2300C853' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/11px no-repeat}
 .pricing-features li.no::before{background:var(--bg-light);content:'\2014';color:var(--text-pale);font-size:var(--fs-16);display:flex;align-items:center;justify-content:center}
-.pricing-cta{display:block;width:100%;padding:13px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:700;text-align:center;cursor:pointer;border:none;transition:all .18s}
+.pricing-cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;padding:13px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:700;text-align:center;cursor:pointer;border:none;transition:all .18s}
 .pricing-cta.primary{background:var(--blue);color:#fff}
 .pricing-cta.primary:hover{background:var(--blue-dk)}
 .pricing-cta.ghost{background:transparent;color:var(--neutral);border:1.5px solid var(--border-dk)}
