@@ -1,5 +1,5 @@
 /* ==========================================================
-   DENTOMATE DESIGN SYSTEM — shared stylesheet
+   DENTOMATE DESIGN SYSTEM: shared stylesheet
    Used by all pages EXCEPT the homepage (which is self-contained).
    Mirrors the homepage tokens & components so every page matches.
    Font  : Open Runde (UI) + Geist Mono (numerics)  |  Blue #2170D9
@@ -19,17 +19,21 @@
   --text:#1a1a1a;--text-muted:#737373;--text-pale:#a3a3a3;
   --font:'Open Runde',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --font-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;
-  /* Font-size scale — 5 sizes total. Every font-size on the site must use one of these. */
-  --fs-64: 4rem;      /* 64px — hero headline (desktop) */
-  --fs-40: 2.5rem;    /* 40px — section headings (desktop); hero headline (mobile) */
-  --fs-32: 2rem;      /* 32px — subheadings (desktop); section headings (mobile) */
-  --fs-20: 1.25rem;   /* 20px — body text, primary buttons; subheadings (mobile) */
-  --fs-16: 1rem;      /* 16px — labels, eyebrows, tags, nav, inputs (content floor) */
-  --fs-12: .75rem;    /* 12px — ONE exception: last line of footer (copyright) */
+  /* Font-size scale: 5 sizes total. Every font-size on the site must use one of these. */
+  --fs-64: 4rem;      /* 64px: hero headline (desktop) */
+  --fs-40: 2.5rem;    /* 40px: section headings (desktop); hero headline (mobile) */
+  --fs-32: 2rem;      /* 32px: subheadings (desktop); section headings (mobile) */
+  --fs-20: 1.25rem;   /* 20px: body text, primary buttons; subheadings (mobile) */
+  --fs-16: 1rem;      /* 16px: labels, eyebrows, tags, nav, inputs (content floor) */
+  --fs-12: .75rem;    /* 12px: ONE exception: last line of footer (copyright) */
   --r4:4px;--r8:8px;--r12:12px;--r16:16px;--r20:20px;--rpill:9999px;
   --sh-xs:0 1px 2px rgba(0,0,0,.05);--sh-sm:0 2px 8px rgba(0,0,0,.07);--sh-md:0 4px 20px rgba(0,0,0,.09);
   --sh-lg:0 8px 40px rgba(0,0,0,.11);--sh-xl:0 20px 60px rgba(0,0,0,.14);
   --sh-blue:0 6px 24px rgba(0,0,0,.10);--sh-violet:0 6px 24px rgba(0,0,0,.08);
+  /* Spacing scale: every margin and gap must land on one of these steps.
+     Kept in sync with the identical block in index.html, which is self-contained. */
+  --sp-4:4px;--sp-8:8px;--sp-12:12px;--sp-16:16px;
+  --sp-24:24px;--sp-32:32px;--sp-48:48px;--sp-64:64px;--sp-96:96px;
   --sy:96px;--cmax:1200px;--cx:24px;
 }
 
@@ -42,7 +46,37 @@ img,svg{display:block}
 button{font-family:inherit;cursor:pointer}
 ul{list-style:none}
 
-/* Typography */
+/* Typography
+   ---------------------------------------------------------------------------
+   Heading contract. Size is a CLASS, level is a TAG, and the two are chosen
+   independently: pick the tag from the document outline, then the class from
+   the role below. Never pick a tag because of how big it looks.
+
+     Tag        Class   Desktop / Mobile   Role
+     h1         .d1     64 / 40            page title, marketing pages
+     h1         .d2     40 / 32            page title, legal + utility pages
+     h2         .d2     40 / 32            top-level section
+     h3         .d3     32 / 20            sub-section within a section
+     h3 / h4    .h4     32 / 20            standalone block or list-item title
+
+   .d3 and .h4 are the same size on purpose; they differ only in line-height,
+   so a sub-section heading and a block title can sit side by side without one
+   looking heavier than the other.
+
+   Rule of thumb: an h3 must always have an h2 before it on the page, and two
+   headings playing the same role must never render at different sizes.
+
+   Components set their own heading size and take NO size class, because a
+   repeated dense unit needs a smaller title than a page section. Adding .h4
+   inside one of these is a no-op that misreports the rendered size:
+
+     .card h3            20      feature and pricing cards
+     .contact-method h3  20      contact list items
+     .prose h2 / h3      32 / 20 long-form copy (privacy, terms, dpdp, about)
+
+   So an h3 may legitimately render at 32px as a sub-section and at 20px as a
+   card title on the same page. That is the component scale, not drift.
+   --------------------------------------------------------------------------- */
 .ey{font-size:var(--fs-16);font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1}
 .d1{font-size:var(--fs-64);font-weight:700;line-height:1.08;letter-spacing:-.02em}
 .d2{font-size:var(--fs-40);font-weight:700;line-height:1.14;letter-spacing:-.018em}
@@ -54,9 +88,23 @@ ul{list-style:none}
 .bxs{font-size:var(--fs-16);line-height:1.55}
 .acc{color:var(--blue)}.acc-v{color:var(--blue-lt)}.muted{color:var(--text-muted)}
 .center{text-align:center}
+/* Names a section for screen readers and the document outline where a visible
+   heading would only repeat the h1 directly above it. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Spacing + one-off utilities. These exist so layout tweaks stop being written as
+   inline style attributes, which bypass the token scale entirely. */
+.mt-8{margin-top:var(--sp-8)}.mt-12{margin-top:var(--sp-12)}
+.mt-16{margin-top:var(--sp-16)}.mt-24{margin-top:var(--sp-24)}
+.mb-8{margin-bottom:var(--sp-8)}.mb-12{margin-bottom:var(--sp-12)}
+.mb-16{margin-bottom:var(--sp-16)}.mb-24{margin-bottom:var(--sp-24)}
+.w-full{width:100%}
+/* An inline link inside body copy. */
+.link-inline{color:var(--blue);font-weight:600}
+/* Text sitting on a dark band, where the inherited colour would be unreadable. */
+.on-dark{color:#fff}
 .mono{font-family:var(--font-mono);font-feature-settings:'tnum' 1;letter-spacing:-.02em}
 [data-lucide]{width:24px;height:24px;stroke-width:2;display:inline-block;vertical-align:middle;flex-shrink:0}
-/* Official WhatsApp brand glyph — brand mark, not an icon (see Lucide exception) */
+/* Official WhatsApp brand glyph: brand mark, not an icon (see Lucide exception) */
 .wa-glyph{display:inline-block;vertical-align:middle;flex-shrink:0}
 
 /* Layout */
@@ -71,12 +119,12 @@ ul{list-style:none}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:600;border:none;background:var(--blue);color:#fff;transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
 .btn-primary:hover{background:var(--blue-dk)}
 .btn-primary.btn-lg{padding:16px 36px;font-size:var(--fs-20)}
-/* Compact size modifier — nav bar and other tight spots */
+/* Compact size modifier: nav bar and other tight spots */
 .btn-sm{padding:13px 20px;font-size:var(--fs-16)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 27px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:600;background:var(--bg-white);color:var(--blue);border:1.5px solid var(--border-dk);transition:border-color .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
 .btn-secondary:hover{border-color:var(--blue)}
 .btn-secondary.btn-lg{padding:15px 34px;font-size:var(--fs-20)}
-/* On-dark buttons (hero/cta-band/footer) — replaces the low-contrast ghost pattern */
+/* On-dark buttons (hero/cta-band/footer): replaces the low-contrast ghost pattern */
 .btn-light{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--r8);font-size:var(--fs-20);font-weight:600;border:none;background:#fff;color:var(--text);transition:background .2s;white-space:nowrap;font-family:var(--font);cursor:pointer}
 .btn-light:hover{background:#f0f0f0}
 .btn-light.btn-lg{padding:16px 36px;font-size:var(--fs-20)}
@@ -85,7 +133,7 @@ ul{list-style:none}
 .btn-outline-light.btn-lg{padding:16px 36px;font-size:var(--fs-20)}
 .btn-primary [data-lucide],.btn-secondary [data-lucide],.btn-light [data-lucide],.btn-outline-light [data-lucide]{width:18px;height:18px}
 
-/* NAV — solid white (unified with app) */
+/* NAV: solid white (unified with app) */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;background:#fff;border-bottom:1px solid var(--border);transition:box-shadow .2s}
 .nav.scrolled{box-shadow:var(--sh-sm)}
 .nav-inner{max-width:var(--cmax);margin:0 auto;padding:0 var(--cx);height:100%;display:flex;align-items:center;gap:0}

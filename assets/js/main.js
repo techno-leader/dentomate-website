@@ -1,4 +1,4 @@
-/* Dentomate — shared scripts for sub/inner pages */
+/* Dentomate: shared scripts for sub/inner pages */
 (function () {
   // Nav scroll shadow
   var nav = document.getElementById('site-nav');
@@ -39,7 +39,7 @@
     }
   } catch (e) {}
 
-  // Lucide icons — mirrors the app/homepage loader. Guarded so pages that
+  // Lucide icons: mirrors the app/homepage loader. Guarded so pages that
   // haven't yet added the Lucide <script> (pre-Phase-2) degrade gracefully.
   function renderIcons() { if (window.lucide) window.lucide.createIcons(); }
   renderIcons();
