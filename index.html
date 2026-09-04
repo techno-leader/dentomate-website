@@ -226,11 +226,21 @@ ul{list-style:none}
   gap:12px;padding:40px 24px;text-align:center;position:relative;overflow:hidden}
 .img-ph-dark{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
 
-/* ── App screenshots (real captures, cover-framed) ── */
-.app-shot{display:block;width:100%;height:auto;object-fit:cover;object-position:top center;background:var(--neutral-2)}
-.app-shot.ar-wide{aspect-ratio:16/10}
-.app-shot.ar-card{aspect-ratio:19/12}
-.app-shot.ar-pano{aspect-ratio:16/8}
+/* ── App screenshots (real captures, shown whole) ──
+   No aspect-ratio and no object-fit: a fixed slot ratio would cut a different amount
+   off each capture. Each <img> carries its own width/height attributes, which is what
+   reserves the right box before the file loads. Those attributes are the CSS size;
+   the files are 2x that because they are captured at device_scale_factor=2. */
+.app-shot{display:block;width:100%;height:auto;background:var(--neutral-2)}
+/* Below roughly 0.5 render scale an app screenshot stops being readable and becomes
+   grey texture. The app is responsive, so rather than shrink one desktop capture into
+   every slot, each screen is captured natively at the viewport that fits the slot.
+   No slot on this page is wider than 562px, and a 1440px capture lands at 0.38 there,
+   so the tablet capture (820px wide, 0.67) is the default everywhere and the phone
+   capture takes over below 560px. 560px is where the two curves cross: any lower and
+   the tablet file is being shrunk past 0.5, any higher and the 393px phone file is
+   being stretched past 1.3. */
+picture{display:block}
 
 /* ── Browser mockup ───────────────────────── */
 .browser{background:var(--neutral);border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh-xl)}
@@ -451,8 +461,6 @@ ul{list-style:none}
 
 /* ── PRICING ──────────────────────────────── */
 .pricing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:48px}
-.pricing-toggle-btn{padding:8px 20px;min-height:44px;border-radius:var(--rpill);font-size:var(--fs-16);font-weight:600;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .18s}
-.pricing-toggle-btn.is-on{background:var(--neutral);color:#fff;border-color:var(--neutral)}
 .pricing-save-pill{font-size:var(--fs-16);font-weight:700;background:#dcfce7;color:#166534;border-radius:var(--rpill);padding:3px 10px}
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto}
 .pricing-card{background:var(--bg-white);border:1.5px solid var(--border);border-radius:var(--r16);padding:32px;position:relative;transition:box-shadow .2s}
@@ -743,23 +751,29 @@ ul{list-style:none}
           <!-- Mobile-only inline screenshot -->
           <div class="mobile-screen browser mt-24" style="display:none">
             <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
-            <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="WhatsApp patient list with delivery status for each message">
+            <picture>
+              <source media="(max-width:560px)" srcset="assets/images/inbox-mobile.png" width="393" height="844">
+              <img src="assets/images/inbox-tablet.png" width="820" height="1080" class="app-shot" alt="WhatsApp conversation with a patient after their visit, post-care advice sent from the clinic">
+            </picture>
           </div>
         </div>
 
         <div class="step-item" data-screen="screen-analytics">
           <div class="step-num">03</div>
           <h3 class="h4 mb-12">Analytics to Help Your Revenue Grow</h3>
-          <p class="bm muted" style="max-width:400px">Revenue by treatment type, patient lifetime value, branch-by-branch performance. Know which month made the most money, then do more of that.</p>
+          <p class="bm muted" style="max-width:400px">This month's revenue against last month, average revenue per patient, and how many consultations actually turned into treatment. Know which month made the most money, then do more of that.</p>
           <div class="step-tags">
             <span class="tag tag-blue">Revenue analytics</span>
-            <span class="tag tag-blue">Multi-clinic view</span>
+            <span class="tag tag-blue">Consult-to-treatment rate</span>
             <span class="tag tag-blue">Monthly trends</span>
           </div>
           <!-- Mobile-only inline screenshot -->
           <div class="mobile-screen browser mt-24" style="display:none">
             <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
-            <img src="assets/images/analytics.png" class="app-shot ar-wide" alt="Analytics dashboard with procedure mix, medical-risk and patient demographic charts">
+            <picture>
+              <source media="(max-width:560px)" srcset="assets/images/analytics-mobile.png" width="393" height="844">
+              <img src="assets/images/analytics-tablet.png" width="820" height="1080" class="app-shot" alt="Analytics dashboard: month-to-date revenue, monthly trend and revenue by treatment">
+            </picture>
           </div>
         </div>
 
@@ -824,13 +838,15 @@ ul{list-style:none}
         <div class="scroll-screen" id="screen-rx">
           <div class="browser">
             <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
-            <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="WhatsApp patient list with per-message delivery status">
+            <!-- Desktop-only column: the whole .scrolly-screens block is hidden below
+                 960px, so one desktop capture is all this slot can ever show. -->
+            <img src="assets/images/inbox-tablet.png" width="820" height="1080" class="app-shot" alt="WhatsApp conversation with a patient after their visit, post-care advice sent from the clinic">
           </div>
         </div>
         <div class="scroll-screen" id="screen-analytics">
           <div class="browser">
             <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
-            <img src="assets/images/analytics.png" class="app-shot ar-wide" alt="Analytics dashboard with procedure mix, medical-risk and patient demographic charts">
+            <img src="assets/images/analytics-tablet.png" width="820" height="1080" class="app-shot" alt="Analytics dashboard: month-to-date revenue, monthly trend and revenue by treatment">
           </div>
         </div>
       </div>
@@ -877,7 +893,13 @@ ul{list-style:none}
 
       <div class="dark-card">
         <div class="mb-24" style="border-radius:10px;overflow:hidden">
-          <img src="assets/images/whatsapp.png" class="app-shot ar-card" alt="WhatsApp patient list with per-message delivery status" loading="lazy">
+          <!-- The card slot is only ~321px wide, so a full desktop capture would land
+               at 0.22 scale and read as grey texture. These three are 393x320 crops of
+               the phone captures instead, which renders at roughly 0.8. -->
+          <picture>
+            <source media="(min-width:561px) and (max-width:960px)" srcset="assets/images/card-rx-tablet.png" width="820" height="668">
+            <img src="assets/images/card-rx.png" width="393" height="320" class="app-shot" alt="Prescription section of a patient record listing Amoxicillin, Ibuprofen and a mouthwash with dosage and duration" loading="lazy">
+          </picture>
         </div>
         <div class="dark-card-icon">
           <i data-lucide="file-text"></i>
@@ -888,7 +910,10 @@ ul{list-style:none}
 
       <div class="dark-card">
         <div class="mb-24" style="border-radius:10px;overflow:hidden">
-          <img src="assets/images/analytics.png" class="app-shot ar-card" alt="Analytics dashboard with procedure mix, medical-risk and patient demographic charts" loading="lazy">
+          <picture>
+            <source media="(min-width:561px) and (max-width:960px)" srcset="assets/images/card-analytics-tablet.png" width="820" height="668">
+            <img src="assets/images/card-analytics.png" width="393" height="320" class="app-shot" alt="Month-to-date revenue tile showing growth against the previous month" loading="lazy">
+          </picture>
         </div>
         <div class="dark-card-icon">
           <i data-lucide="bar-chart-3"></i>
@@ -899,7 +924,10 @@ ul{list-style:none}
 
       <div class="dark-card">
         <div class="mb-24" style="border-radius:10px;overflow:hidden">
-          <img src="assets/images/dashboard.png" class="app-shot ar-card" alt="Patient records list, every patient searchable in one place" loading="lazy">
+          <picture>
+            <source media="(min-width:561px) and (max-width:960px)" srcset="assets/images/card-records-tablet.png" width="820" height="668">
+            <img src="assets/images/card-records.png" width="393" height="320" class="app-shot" alt="Patient list entry showing registration number, phone, new-patient badge and last visit date" loading="lazy">
+          </picture>
         </div>
         <div class="dark-card-icon">
           <i data-lucide="clipboard-list"></i>
@@ -942,8 +970,11 @@ ul{list-style:none}
         </ul>
       </div>
       <div class="browser">
-        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
-        <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="WhatsApp patient list with per-message delivery status" loading="lazy">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / patient</div></div>
+        <picture>
+          <source media="(max-width:560px)" srcset="assets/images/record-mobile.png" width="393" height="844">
+          <img src="assets/images/record-tablet.png" width="820" height="1080" class="app-shot" alt="Patient record showing the treatment plan, prescription and charges that go out with the message" loading="lazy">
+        </picture>
       </div>
     </div>
 
@@ -961,7 +992,10 @@ ul{list-style:none}
       </div>
       <div class="browser">
         <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / messages</div></div>
-        <img src="assets/images/whatsapp.png" class="app-shot ar-wide" alt="Patient messaging list showing delivered follow-up messages" loading="lazy">
+        <picture>
+          <source media="(max-width:560px)" srcset="assets/images/whatsapp-mobile.png" width="393" height="844">
+          <img src="assets/images/whatsapp-tablet.png" width="820" height="1080" class="app-shot" alt="Patient list grouped into recall segments, ready to message" loading="lazy">
+        </picture>
       </div>
     </div>
 
@@ -979,25 +1013,31 @@ ul{list-style:none}
       </div>
       <div class="browser">
         <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / patients</div></div>
-        <img src="assets/images/dashboard.png" class="app-shot ar-wide" alt="Patient records list, every patient searchable in one place" loading="lazy">
+        <picture>
+          <source media="(max-width:560px)" srcset="assets/images/dashboard-mobile.png" width="393" height="844">
+          <img src="assets/images/dashboard-tablet.png" width="820" height="1080" class="app-shot" alt="Patient records list, every patient searchable in one place" loading="lazy">
+        </picture>
       </div>
     </div>
 
     <div class="tab-panel" id="tab-multi">
       <div>
         <p class="ey acc mb-12">Multi-Clinic</p>
-        <h3 class="d3 mb-12">Mumbai, Delhi, Bengaluru. One Dashboard.</h3>
-        <p class="bm muted mb-24">Own multiple clinics? One login gives full visibility across all locations: patient flow, staff activity, revenue and communications. Branch managers see only their clinic.</p>
+        <h3 class="d3 mb-12">Up to Three Branches, One Account.</h3>
+        <p class="bm muted mb-24">Opened a second location? Add it to the same account instead of buying software again. You pick the branch you are working in, and every record, prescription and message stays with that branch. Your patient list is the one thing that spans all of them.</p>
         <ul class="feature-list">
-          <li><i data-lucide="circle-check" class="li-ic acc"></i>Unified owner view across all branches</li>
-          <li><i data-lucide="circle-check" class="li-ic acc"></i>Branch-isolated views for managers</li>
-          <li><i data-lucide="circle-check" class="li-ic acc"></i>Consistent branding across all locations</li>
-          <li><i data-lucide="circle-check" class="li-ic acc"></i>Branch-level revenue comparison</li>
+          <li><i data-lucide="circle-check" class="li-ic acc"></i>Up to 3 branches on Pro, no extra licence</li>
+          <li><i data-lucide="circle-check" class="li-ic acc"></i>Switch branch in one click, no second login</li>
+          <li><i data-lucide="circle-check" class="li-ic acc"></i>Decide which branches each staff member can open</li>
+          <li><i data-lucide="circle-check" class="li-ic acc"></i>One patient list across every branch you run</li>
         </ul>
       </div>
       <div class="browser">
-        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / locations</div></div>
-        <img class="w-full" src="assets/images/tab-multi.svg" width="640" height="300" style="display:block" alt="Multi-clinic overview: Mumbai, Delhi, Bengaluru and Pune revenue by location" loading="lazy">
+        <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / select_clinic</div></div>
+        <picture>
+          <source media="(max-width:560px)" srcset="assets/images/clinics-mobile.png" width="393" height="844">
+          <img class="w-full app-shot" src="assets/images/clinics-tablet.png" width="820" height="790" alt="Branch picker showing three Sharma Dental Care locations: SDC, Bandra and Powai" loading="lazy">
+        </picture>
       </div>
     </div>
 
@@ -1015,7 +1055,10 @@ ul{list-style:none}
       </div>
       <div class="browser">
         <div class="browser-bar"><span class="b-dot b-dot-r"></span><span class="b-dot b-dot-y"></span><span class="b-dot b-dot-g"></span><div class="b-url">app.dentomate.in / analytics</div></div>
-        <img src="assets/images/analytics.png" class="app-shot ar-wide" alt="Analytics dashboard with procedure mix, medical-risk and patient demographic charts" loading="lazy">
+        <picture>
+          <source media="(max-width:560px)" srcset="assets/images/analytics-mobile.png" width="393" height="844">
+          <img src="assets/images/analytics-tablet.png" width="820" height="1080" class="app-shot" alt="Analytics dashboard: month-to-date revenue, monthly trend and revenue by treatment" loading="lazy">
+        </picture>
       </div>
     </div>
 
@@ -1038,9 +1081,12 @@ ul{list-style:none}
       <p class="bxs muted" style="margin-top:4px">Most dentists see ROI in the first week.</p>
     </div>
 
+    <!-- Annual only. The monthly half of the old toggle quoted ₹499 and ₹999, which are
+         not prices that exist anywhere in the product; the real monthly rates are ₹399
+         and ₹799 (payments/routes.py PRICING). One cycle, shown correctly, cannot drift. -->
     <div class="pricing-toggle" style="margin-top:40px">
-      <button class="pricing-toggle-btn is-on" id="toggle-annual" onclick="setPricingPeriod('annual')">Annual <span class="pricing-save-pill" style="margin-left:6px">Save 2 months</span></button>
-      <button class="pricing-toggle-btn" id="toggle-monthly" onclick="setPricingPeriod('monthly')">Monthly</button>
+      <p class="bs muted">Billed yearly</p>
+      <span class="pricing-save-pill">Save 2 months</span>
     </div>
 
     <div class="pricing-grid">
@@ -1064,13 +1110,12 @@ ul{list-style:none}
         <button class="pricing-cta-btn disabled" disabled>Current plan</button>
       </div>
 
-      <!-- STARTER (Most Popular) -->
-      <div class="pricing-card featured">
-        <div class="pricing-card-badge">Most Popular</div>
+      <!-- STARTER -->
+      <div class="pricing-card">
         <p class="pricing-tier">Starter</p>
-        <p class="pricing-price" id="starter-price"><sup>₹</sup>399<span>/month</span></p>
-        <p class="pricing-billed" id="starter-billed">₹3,990 billed yearly</p>
-        <p class="pricing-save" id="starter-save">Save ₹798 vs monthly</p>
+        <p class="pricing-price"><sup>₹</sup>333<span>/month</span></p>
+        <p class="pricing-billed">₹3,990 billed yearly</p>
+        <p class="pricing-save">Save ₹798 vs paying monthly</p>
         <hr class="pricing-divider">
         <ul class="pricing-features">
           <li><i data-lucide="circle-check" class="li-ic acc"></i>Everything in Free</li>
@@ -1083,15 +1128,16 @@ ul{list-style:none}
           <li class="no"><i data-lucide="circle-x" class="li-ic li-no"></i>AI medicine suggestions</li>
           <li class="no"><i data-lucide="circle-x" class="li-ic li-no"></i>GST-compliant invoicing</li>
         </ul>
-        <a href="https://app.dentomate.in/signup" class="pricing-cta-btn primary">Upgrade to Starter</a>
+        <a href="https://app.dentomate.in/signup" class="pricing-cta-btn dark">Upgrade to Starter</a>
       </div>
 
-      <!-- PRO -->
-      <div class="pricing-card">
+      <!-- PRO (Most Popular) -->
+      <div class="pricing-card featured">
+        <div class="pricing-card-badge">Most Popular</div>
         <p class="pricing-tier">Pro</p>
-        <p class="pricing-price" id="pro-price"><sup>₹</sup>799<span>/month</span></p>
-        <p class="pricing-billed" id="pro-billed">₹7,990 billed yearly</p>
-        <p class="pricing-save" id="pro-save">Save ₹1,598 vs monthly</p>
+        <p class="pricing-price"><sup>₹</sup>666<span>/month</span></p>
+        <p class="pricing-billed">₹7,990 billed yearly</p>
+        <p class="pricing-save">Save ₹1,598 vs paying monthly</p>
         <hr class="pricing-divider">
         <ul class="pricing-features">
           <li><i data-lucide="circle-check" class="li-ic acc"></i>Everything in Starter</li>
@@ -1102,7 +1148,7 @@ ul{list-style:none}
           <li><i data-lucide="circle-check" class="li-ic acc"></i>Up to 3 clinic branches</li>
           <li><i data-lucide="circle-check" class="li-ic acc"></i>Priority WhatsApp support</li>
         </ul>
-        <a href="https://app.dentomate.in/signup" class="pricing-cta-btn dark">Upgrade to Pro</a>
+        <a href="https://app.dentomate.in/signup" class="pricing-cta-btn primary">Upgrade to Pro</a>
       </div>
 
     </div>
@@ -1122,7 +1168,13 @@ ul{list-style:none}
 
       <div class="usecase-card">
         <div class="usecase-img-ph" style="padding:0;border:none;overflow:hidden">
-          <img src="assets/images/billing.png" class="app-shot ar-pano" alt="Dentomate pricing: Free, Starter and Pro plans" loading="lazy">
+          <!-- A band, not a whole screen: the sibling card's illustration is 580x220,
+               and a full 820x1080 capture would render 740px tall here, more than three
+               times that. This is the plan-price strip cropped out of the tablet capture. -->
+          <picture>
+            <source media="(max-width:560px)" srcset="assets/images/card-billing-mobile.png" width="393" height="149">
+            <img src="assets/images/card-billing.png" width="820" height="310" class="app-shot" alt="Dentomate plans billed yearly: Free at ₹0, Pro at ₹666 a month, Starter at ₹333 a month" loading="lazy">
+          </picture>
         </div>
         <div class="usecase-body">
           <span class="tag tag-blue mb-16" style="display:inline-flex">Solo &amp; Small Clinic</span>
@@ -1138,15 +1190,18 @@ ul{list-style:none}
 
       <div class="usecase-card">
         <div class="usecase-img-ph" style="padding:0;border:none">
-          <img class="w-full" src="assets/images/usecase-multi.svg" width="580" height="220" style="display:block" alt="Multi-clinic owner: 4 locations, one dashboard, 100% brand consistency" loading="lazy">
+          <picture>
+            <source media="(max-width:560px)" srcset="assets/images/card-clinics-mobile.png" width="393" height="149">
+            <img class="w-full app-shot" src="assets/images/card-clinics.png" width="820" height="310" alt="Branch picker asking which practice branch to open, with two Sharma Dental Care locations" loading="lazy">
+          </picture>
         </div>
         <div class="usecase-body">
-          <span class="tag mb-16" style="background:rgba(33,112,217,.07);border-color:rgba(33,112,217,.2);color:var(--blue-dk);display:inline-flex">Multi-Clinic Owner</span>
-          <h3 class="d3 mb-12">Control Every Clinic.<br>From One Screen.</h3>
-          <p class="bm muted">3–15 locations. Staff using personal phones for patient comms, no consistent branding, no central visibility. Dentomate gives every branch the same experience, while giving you the data to grow the whole network.</p>
+          <span class="tag mb-16" style="background:rgba(33,112,217,.07);border-color:rgba(33,112,217,.2);color:var(--blue-dk);display:inline-flex">Second Location</span>
+          <h3 class="d3 mb-12">Opened Another Branch?<br>Don't Buy It Twice.</h3>
+          <p class="bm muted">A second or third location usually means a second subscription, a second set of logins and two sets of records that never meet. On Pro you add the branch to the account you already pay for, choose which staff can open it, and keep one patient list across all of them.</p>
           <div class="usecase-metrics">
-            <div class="metric-item"><span class="metric-num">15+</span><span class="metric-label">clinics managed from one dashboard</span></div>
-            <div class="metric-item"><span class="metric-num">100%</span><span class="metric-label">branding consistency</span></div>
+            <div class="metric-item"><span class="metric-num">3</span><span class="metric-label">branches on one Pro plan</span></div>
+            <div class="metric-item"><span class="metric-num">₹0</span><span class="metric-label">extra per branch or per seat</span></div>
           </div>
           <a href="https://wa.me/919351639077?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20for%20Dentomate." target="_blank" rel="noopener noreferrer" class="btn-secondary mt-24">Book A Demo</a>
         </div>
@@ -1436,26 +1491,6 @@ ul{list-style:none}
     obs.observe(el);
   });
 })();
-</script>
-<script>
-function setPricingPeriod(period){
-  var isAnnual=period==='annual';
-  document.getElementById('toggle-annual').classList.toggle('is-on',isAnnual);
-  document.getElementById('toggle-monthly').classList.toggle('is-on',!isAnnual);
-  var sp=document.getElementById('starter-price');
-  var sb=document.getElementById('starter-billed');
-  var ss=document.getElementById('starter-save');
-  var pp=document.getElementById('pro-price');
-  var pb=document.getElementById('pro-billed');
-  var ps=document.getElementById('pro-save');
-  if(isAnnual){
-    sp.innerHTML='<sup>₹</sup>399<span>/month</span>';sb.textContent='₹3,990 billed yearly';ss.textContent='Save ₹798 vs monthly';
-    pp.innerHTML='<sup>₹</sup>799<span>/month</span>';pb.textContent='₹7,990 billed yearly';ps.textContent='Save ₹1,598 vs monthly';
-  } else {
-    sp.innerHTML='<sup>₹</sup>499<span>/month</span>';sb.textContent='Billed monthly';ss.innerHTML='&nbsp;';
-    pp.innerHTML='<sup>₹</sup>999<span>/month</span>';pb.textContent='Billed monthly';ps.innerHTML='&nbsp;';
-  }
-}
 </script>
 <script type="application/ld+json">
 {
