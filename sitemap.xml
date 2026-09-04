@@ -95,6 +95,38 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- Resources (articles) -->
+    <url>
+        <loc>https://dentomate.in/resources/</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dentomate.in/resources/patient-recall-guide/</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dentomate.in/resources/whatsapp-cost-india/</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dentomate.in/resources/dpdp-checklist-for-dental-clinics/</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dentomate.in/resources/first-recall-campaign/</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <!-- Legal -->
     <url>
         <loc>https://dentomate.in/privacy/</loc>

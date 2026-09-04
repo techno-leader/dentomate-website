@@ -455,7 +455,7 @@ picture{display:block}
 .resources-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .resource-card{background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh-xs);transition:all .2s;display:flex;flex-direction:column}
 .resource-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
-.resource-img-ph{min-height:140px;border-radius:0;border:none;border-bottom:1px solid var(--border)}
+.resource-card img{width:100%;height:auto;display:block;border-bottom:1px solid var(--border)}
 .resource-body{padding:20px;flex:1}
 .resource-tag{font-size:var(--fs-16);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block}
 
@@ -1309,51 +1309,43 @@ picture{display:block}
         <p class="ey mb-12" style="color:var(--text-pale)">Resources</p>
         <h2 class="d2" style="margin:0">Guides for Growing<br>Your Practice.</h2>
       </div>
-      <a href="#" class="btn-outline">View All Resources</a>
+      <a href="/resources/" class="btn-outline">View All Resources</a>
     </div>
     <div class="resources-grid">
 
-      <a href="#" class="resource-card">
-        <div class="resource-img-ph" style="padding:0;border:none">
-          <img class="w-full" src="assets/images/resource-guide.svg" width="360" height="140" style="display:block" alt="Guide: stop losing patients after first visit" loading="lazy">
-        </div>
+      <a href="/resources/patient-recall-guide/" class="resource-card">
+        <img src="assets/images/blog/recall-guide-card.jpg" width="720" height="405" alt="An empty dental operatory with the chair and equipment ready for the next patient" loading="lazy">
         <div class="resource-body">
           <span class="resource-tag">Guide</span>
-          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">How to Stop Losing Patients After Their First Visit</h3>
-          <p class="bs muted">A practical guide to patient recall for Indian dental clinics.</p>
+          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">Patient Recall for Indian Dental Clinics</h3>
+          <p class="bs muted">Which patients to bring back, when to reach out, and how to word the message.</p>
         </div>
       </a>
 
-      <a href="#" class="resource-card">
-        <div class="resource-img-ph" style="padding:0;border:none">
-          <img class="w-full" src="assets/images/resource-report.svg" width="360" height="140" style="display:block" alt="Report: Indian Dental Market Patient Communication Benchmarks 2025" loading="lazy">
-        </div>
+      <a href="/resources/whatsapp-cost-india/" class="resource-card">
+        <img src="assets/images/blog/whatsapp-cost-card.jpg" width="720" height="405" alt="A person reading a message on a phone while sitting at a cafe table" loading="lazy">
         <div class="resource-body">
-          <span class="resource-tag">Report</span>
-          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">Indian Dental Market: Patient Communication Benchmarks 2025</h3>
-          <p class="bs muted">What 200+ clinics told us about WhatsApp costs and retention.</p>
+          <span class="resource-tag">Costs</span>
+          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">What WhatsApp Actually Costs an Indian Dental Clinic</h3>
+          <p class="bs muted">How Meta bills per message, and which messages are genuinely free.</p>
         </div>
       </a>
 
-      <a href="#" class="resource-card">
-        <div class="resource-img-ph" style="padding:0;border:none">
-          <img class="w-full" src="assets/images/resource-webinar.svg" width="360" height="140" style="display:block" alt="Webinar: setting up automated follow-ups in 15 minutes" loading="lazy">
-        </div>
+      <a href="/resources/dpdp-checklist-for-dental-clinics/" class="resource-card">
+        <img src="assets/images/blog/dpdp-consent-card.jpg" width="720" height="405" alt="A pair of hands signing a printed form with a pen" loading="lazy">
         <div class="resource-body">
-          <span class="resource-tag">Webinar</span>
-          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">Setting Up Automated Follow-Ups in 15 Minutes</h3>
-          <p class="bs muted">Live walkthrough from zero to running recall campaigns. No developer needed.</p>
+          <span class="resource-tag">Compliance</span>
+          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">DPDP Rules 2025: A Checklist for Dental Clinics</h3>
+          <p class="bs muted">What the notified Rules ask of a clinic that holds patient data.</p>
         </div>
       </a>
 
-      <a href="#" class="resource-card">
-        <div class="resource-img-ph" style="padding:0;border:none">
-          <img class="w-full" src="assets/images/resource-checklist.svg" width="360" height="140" style="display:block" alt="Case study: SmileCraft 28% more recall appointments in 60 days" loading="lazy">
-        </div>
+      <a href="/resources/first-recall-campaign/" class="resource-card">
+        <img src="assets/images/blog/campaign-setup-card.png" width="720" height="405" alt="The Dentomate WhatsApp hub showing the patient list with segment tags and the New Campaign button" loading="lazy">
         <div class="resource-body">
-          <span class="resource-tag">Case Study</span>
-          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">SmileCraft Dental: 28% More Recall Appointments in 60 Days</h3>
-          <p class="bs muted">How a 3-clinic network in Bengaluru cut their WhatsApp bill and grew loyalty.</p>
+          <span class="resource-tag">Walkthrough</span>
+          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">Set Up Your First Recall Campaign in 15 Minutes</h3>
+          <p class="bs muted">Every step inside Dentomate, with the plan limits spelled out.</p>
         </div>
       </a>
 
@@ -1426,6 +1418,7 @@ picture{display:block}
       </div>
       <div class="footer-col">
         <p class="footer-col-head">Company</p>
+        <a href="/resources/" class="footer-link">Resources</a>
         <a href="/about/" class="footer-link">About</a>
         <a href="/contact/" class="footer-link">Contact</a>
         <a href="/security/" class="footer-link">Security</a>
