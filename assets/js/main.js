@@ -39,6 +39,25 @@
     }
   } catch (e) {}
 
+  // Returning customers: the nav CTA sells a signup to someone who already has an
+  // account, and there is no other way in from this site. dm_seen outlives logout,
+  // so it is the only signal that tells a returning customer from a new visitor.
+  // Guarded on !dm_auth so someone still signed in is not told to sign in again.
+  try {
+    var seen = /(?:^|;\s*)dm_seen=1/.test(document.cookie);
+    var live = /(?:^|;\s*)dm_auth=1/.test(document.cookie);
+    if (seen && !live) {
+      var nav = document.getElementById('site-nav');
+      if (nav) {
+        nav.querySelectorAll('a[href*="/signup"]').forEach(function (el) {
+          // Keep the mobile item's arrow; it is a list row, not a button.
+          el.textContent = el.classList.contains('nav-cta-mobile') ? 'Sign in \u2192' : 'Sign in';
+          el.setAttribute('href', 'https://app.dentomate.in/?signin=1');
+        });
+      }
+    }
+  } catch (e) {}
+
   // Lucide icons: mirrors the app/homepage loader. Guarded so pages that
   // haven't yet added the Lucide <script> (pre-Phase-2) degrade gracefully.
   function renderIcons() { if (window.lucide) window.lucide.createIcons(); }

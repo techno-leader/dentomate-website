@@ -1494,11 +1494,24 @@ function setPricingPeriod(period){
 }
 </script>
 <script>
-// Redirect already-signed-in users to the app
+// Still signed in -> straight through to the app.
+// Signed out but recognised -> the nav CTA becomes a sign-in link, because this
+// site sells a signup to everyone and offers a returning customer no way back in.
+// dm_seen outlives logout; dm_auth does not, which is what separates the two.
 (function(){
-  if(document.cookie.split(';').some(function(c){return c.trim().startsWith('dm_auth=');})){
+  var c=document.cookie;
+  if(/(?:^|;\s*)dm_auth=1/.test(c)){
     window.location.replace('https://app.dentomate.in/select_clinic');
+    return;
   }
+  if(!/(?:^|;\s*)dm_seen=1/.test(c))return;
+  var nav=document.getElementById('site-nav');
+  if(!nav)return;
+  nav.querySelectorAll('a[href*="/signup"]').forEach(function(el){
+    // Keep the mobile item's arrow; it is a list row, not a button.
+    el.textContent=el.classList.contains('nav-cta-mobile')?'Sign in \u2192':'Sign in';
+    el.setAttribute('href','https://app.dentomate.in/?signin=1');
+  });
 })();
 
 // CTA email form: redirect to app with email pre-filled
