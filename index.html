@@ -1514,7 +1514,37 @@ picture{display:block}
   ],
   "url": "https://dentomate.in",
   "applicationSubCategory": "Dental Practice Management",
-  "inLanguage": ["en-IN", "hi"]
+  "inLanguage": ["en-IN", "hi"],
+  "publisher": { "@id": "https://dentomate.in/#organization" }
+}
+</script>
+<!-- "Dentomate" collides with dentomate.com, a Play Store app and an unrelated X account, so the
+     brand needs an entity of its own rather than leaving a search engine to guess which Dentomate
+     this is. Only claims we can actually stand behind belong in here: no address, no founding date,
+     no employee count, and no sameAs until real social profiles exist. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://dentomate.in/#organization",
+  "name": "Dentomate",
+  "url": "https://dentomate.in",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://dentomate.in/assets/images/logo.png"
+  },
+  "description": "Dentomate builds dental clinic management software for independent dental practices in India, covering patient records, WhatsApp prescriptions and recalls, billing and lab tracking.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "telephone": "+91-93516-39077",
+    "availableLanguage": ["en", "hi"],
+    "areaServed": "IN"
+  }
 }
 </script>
 <script>

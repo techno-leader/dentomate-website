@@ -1,4 +1,4 @@
-# DentoMate Website - robots.txt
+# Dentomate Website - robots.txt
 User-agent: *
 Allow: /
 
