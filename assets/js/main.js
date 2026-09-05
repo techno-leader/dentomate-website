@@ -58,6 +58,49 @@
     }
   } catch (e) {}
 
+  // Inline glossary: click a dotted term to open its definition, click away or
+  // press Escape to close. Click rather than hover so it works on touch too.
+  (function () {
+    function close(t) {
+      t.setAttribute('aria-expanded', 'false');
+      document.getElementById(t.getAttribute('aria-controls')).hidden = true;
+    }
+    function openOnes() {
+      return document.querySelectorAll('.define-t[aria-expanded="true"]');
+    }
+    // The term can sit anywhere in a line, so nudge the box back inside the
+    // text column once it is measurable rather than guessing an anchor side.
+    // Clamped to .prose, since that is where the article text lives.
+    function fit(box) {
+      box.style.left = '0px';
+      var col = box.closest('.prose');
+      if (!col) return;
+      var c = col.getBoundingClientRect(), r = box.getBoundingClientRect(), dx = 0;
+      if (r.right > c.right) dx = c.right - r.right;
+      if (r.left + dx < c.left) dx = c.left - r.left;
+      box.style.left = dx + 'px';
+    }
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest ? e.target.closest('.define-t') : null;
+      Array.prototype.forEach.call(openOnes(), function (o) { if (o !== t) close(o); });
+      if (!t) return;
+      var box = document.getElementById(t.getAttribute('aria-controls'));
+      var isOpen = t.getAttribute('aria-expanded') === 'true';
+      t.setAttribute('aria-expanded', String(!isOpen));
+      box.hidden = isOpen;
+      if (!isOpen) fit(box);
+    });
+    addEventListener('resize', function () {
+      Array.prototype.forEach.call(openOnes(), function (t) {
+        fit(document.getElementById(t.getAttribute('aria-controls')));
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      Array.prototype.forEach.call(openOnes(), function (t) { close(t); t.focus(); });
+    });
+  })();
+
   // Lucide icons: mirrors the app/homepage loader. Guarded so pages that
   // haven't yet added the Lucide <script> (pre-Phase-2) degrade gracefully.
   function renderIcons() { if (window.lucide) window.lucide.createIcons(); }

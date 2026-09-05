@@ -399,10 +399,7 @@ picture{display:block}
 /* ── DARK PANEL ───────────────────────────── */
 .dark-panel{background:linear-gradient(180deg,var(--neutral) 0%,#0f0f0f 100%);padding:var(--sy) 0}
 .dark-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.dark-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r16);padding:28px 24px;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
-.dark-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .3s}
-.dark-card:hover{border-color:rgba(33,112,217,.3);transform:translateY(-4px)}
-.dark-card:hover::before{opacity:1}
+.dark-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r16);padding:28px 24px;position:relative;overflow:hidden}
 .dark-card-icon{width:44px;height:44px;background:rgba(33,112,217,.15);border:1px solid rgba(33,112,217,.2);border-radius:var(--r12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--blue-lt)}
 .dark-card-icon [data-lucide]{width:22px;height:22px}
 
@@ -445,8 +442,7 @@ picture{display:block}
 
 /* ── INTEGRATIONS ─────────────────────────── */
 .integrations-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.integration-logo{display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--bg-light);border:1px solid var(--border);border-radius:var(--r12);padding:18px 12px;transition:all .2s}
-.integration-logo:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--blue-xl)}
+.integration-logo{display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--bg-light);border:1px solid var(--border);border-radius:var(--r12);padding:18px 12px}
 
 /* ── SECTION HEADER ───────────────────────── */
 .section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
