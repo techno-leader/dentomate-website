@@ -210,6 +210,13 @@ confirmed before it is written, not after.
    onboarding flow, business verification, and what a display-name rejection means.
 5. **Dental clinic pricing in India: how to present a treatment plan patients accept.**
    Consent, itemisation, and staged treatment.
+6. **WhatsApp patient replies will cost money from October 2026: what Indian clinics need
+   to do now.** From 1 October 2026, Meta ends free service conversations and free
+   utility templates inside the 24-hour customer service window -- the two free-tier
+   rules the cost article is built around. Clinic owners on the API asking "will I be
+   charged for replying to patients?" Source: Meta WhatsApp Business Platform pricing
+   documentation, October 2026 change. Urgent: invalidates resources/whatsapp-cost-india/
+   lines 119-120 and the def-csw tooltip before those lines go false on 1 October.
 
 **Needs a source before it can be written**
 
