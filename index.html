@@ -448,12 +448,43 @@ picture{display:block}
 .section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
 
 /* ── RESOURCES ────────────────────────────── */
-.resources-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.resources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* Four cards are authored. Wide desktop shows three across; the fourth would open a
+   near-empty second row, so it is held back until the grid is two wide and it can
+   complete a 2x2. It stays in the markup rather than being removed, so the tablet
+   and phone layouts are full and the link is still crawled (Google renders at
+   phone width, where the card is visible). */
+.resources-grid > :nth-child(4){display:none}
+/* 1100px, not the shared 960px breakpoint, because the constraint here is the title
+   and not the viewport. The longest current headline needs 276px to fit the two lines
+   the card clamps to, so a card must be at least 316px. Below that the third column
+   truncates: at 961px the cards land at 286px and two of the three clip. 1100 rather
+   than the exact 1036 that implies, so a longer future headline has room to breathe
+   instead of silently losing its tail. */
+@media(max-width:1100px){
+  .resources-grid{grid-template-columns:repeat(2,1fr)}
+  .resources-grid > :nth-child(4){display:flex}
+}
 .resource-card{background:var(--bg-white);border:1px solid var(--border);border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh-xs);transition:all .2s;display:flex;flex-direction:column}
 .resource-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
 .resource-card img{width:100%;height:auto;display:block;border-bottom:1px solid var(--border)}
-.resource-body{padding:20px;flex:1}
+.resource-body{padding:20px;flex:1;display:flex;flex-direction:column}
 .resource-tag{font-size:var(--fs-16);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block}
+/* Three across, so each card is far narrower than a full column. .h4 therefore takes
+   its own mobile step here (--fs-20) instead of the 32px desktop step, matching the
+   same element on /resources/. The title reserves exactly the two lines it clamps to,
+   so every description in a row starts on the same line and no card carries a blank
+   line under a short headline. Homepage card headlines are written to fit those two
+   lines (see CONTENT_PIPELINE.md). Single-column drops the reservation below. */
+.resource-card h3{font-size:var(--fs-20);line-height:1.4;min-height:2.8em;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+/* Same 316px floor as the column rules above, applied to the two-across layout:
+   below 760px a half-width card is too narrow for a two-line headline, so the grid
+   goes single-column. One card per row has nothing to line up against, so the
+   reservation and the clamp both come off and no headline can ever be truncated. */
+@media(max-width:760px){
+  .resources-grid{grid-template-columns:1fr}
+  .resource-card h3{min-height:0;display:block;overflow:visible}
+}
 
 /* ── PRICING ──────────────────────────────── */
 .pricing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:48px}
@@ -545,7 +576,8 @@ picture{display:block}
   .usecase-grid{grid-template-columns:1fr}
   .proof-inner{grid-template-columns:1fr}
   .integrations-grid{grid-template-columns:repeat(3,1fr)}
-  .resources-grid{grid-template-columns:repeat(2,1fr)}
+  /* .resources-grid is not here: it switches to two columns at 1100px, above this
+     breakpoint, because its limit is headline length rather than viewport width. */
   .footer-cta-inner{grid-template-columns:1fr;gap:40px}
   .footer-top{grid-template-columns:1fr 1fr;gap:32px}
   .nav-links{display:none;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:12px 0 16px;box-shadow:0 8px 24px rgba(0,0,0,.1);z-index:999}
@@ -562,7 +594,8 @@ picture{display:block}
 }
 @media(max-width:600px){
   .integrations-grid{grid-template-columns:repeat(2,1fr)}
-  .resources-grid{grid-template-columns:1fr}
+  /* .resources-grid is not here either: it goes single-column at 760px, above this
+     breakpoint, for the same headline-width reason. */
   /* Hero stacks on mobile only: tablet keeps the side-by-side split */
   .hero-inner{grid-template-columns:1fr;gap:8px}
   .hero-actions{flex-direction:column;align-items:flex-start}
@@ -1313,7 +1346,7 @@ picture{display:block}
         <img src="assets/images/blog/recall-guide-card.jpg" width="720" height="405" alt="An empty dental operatory with the chair and equipment ready for the next patient" loading="lazy">
         <div class="resource-body">
           <span class="resource-tag">Guide</span>
-          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">Patient Recall for Indian Dental Clinics</h3>
+          <h3 class="h4 mt-8 mb-8">Patient Recall for Indian Dental Clinics</h3>
           <p class="bs muted">Which patients to bring back, when to reach out, and how to word the message.</p>
         </div>
       </a>
@@ -1322,7 +1355,7 @@ picture{display:block}
         <img src="assets/images/blog/whatsapp-cost-card.jpg" width="720" height="405" alt="A person reading a message on a phone while sitting at a cafe table" loading="lazy">
         <div class="resource-body">
           <span class="resource-tag">Costs</span>
-          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">What WhatsApp Actually Costs an Indian Dental Clinic</h3>
+          <h3 class="h4 mt-8 mb-8">What WhatsApp Actually Costs an Indian Dental Clinic</h3>
           <p class="bs muted">How Meta bills per message, and which messages are genuinely free.</p>
         </div>
       </a>
@@ -1331,16 +1364,18 @@ picture{display:block}
         <img src="assets/images/blog/dpdp-consent-card.jpg" width="720" height="405" alt="A pair of hands signing a printed form with a pen" loading="lazy">
         <div class="resource-body">
           <span class="resource-tag">Compliance</span>
-          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">DPDP Rules 2025: A Checklist for Dental Clinics</h3>
+          <h3 class="h4 mt-8 mb-8">DPDP Rules 2025: A Checklist for Dental Clinics</h3>
           <p class="bs muted">What the notified Rules ask of a clinic that holds patient data.</p>
         </div>
       </a>
 
+      <!-- Fourth card fills the 2x2 tablet grid. Hidden on the three-across desktop
+           row, where it would start a near-empty second row. -->
       <a href="/resources/first-recall-campaign/" class="resource-card">
         <img src="assets/images/blog/campaign-setup-card.png" width="720" height="405" alt="The Dentomate WhatsApp hub showing the patient list with segment tags and the New Campaign button" loading="lazy">
         <div class="resource-body">
           <span class="resource-tag">Walkthrough</span>
-          <h3 class="h4 mt-8 mb-8" style="line-height:1.4">Set Up Your First Recall Campaign in 15 Minutes</h3>
+          <h3 class="h4 mt-8 mb-8">Set Up Your First Recall Campaign in 15 Minutes</h3>
           <p class="bs muted">Every step inside Dentomate, with the plan limits spelled out.</p>
         </div>
       </a>
