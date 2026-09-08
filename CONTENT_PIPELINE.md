@@ -226,8 +226,10 @@ confirmed before it is written, not after.
    is where clinics get it wrong. Sources: Notification 12/2017-Central Tax (Rate),
    SAC 9993. Ties directly to the GST invoicing feature.
 2. **What a dental clinic legally has to keep, and for how long.** Record retention under
-   DCI guidance and the Consumer Protection Act limitation period. Sources: DCI Code of
-   Ethics Regulations, CPA 2019.
+   National Dental Commission (NDC) guidance and the Consumer Protection Act limitation
+   period. Sources: NDC Act 2026 (DCI dissolved 19 March 2026), CPA 2019. NOTE: the
+   original source listed here was "DCI Code of Ethics Regulations" -- DCI is dissolved;
+   reconfirm which NDC body (Ethics and Dental Registration Board) now owns this.
 3. **The real cost of a no-show, and the three messages that reduce it.** We can be
    concrete about timing because the reminder window is in our own code.
 4. **Registering for the WhatsApp Business API in India, step by step.** The Meta
@@ -241,13 +243,31 @@ confirmed before it is written, not after.
    charged for replying to patients?" Source: Meta WhatsApp Business Platform pricing
    documentation, October 2026 change. Urgent: invalidates resources/whatsapp-cost-india/
    lines 119-120 and the def-csw tooltip before those lines go false on 1 October.
+7. **Is NABH accreditation worth it for a small dental clinic?** Clinic owners weighing
+   whether to pursue NABH certification to qualify for CGHS, ECHS, and Ayushman Bharat
+   empanelment -- which now carries a 15% higher CGHS reimbursement tariff for accredited
+   clinics. No competitor has written this for a small-practice audience. Sources: nabh.co
+   dental healthcare accreditation standards, CGHS rate schedule for NABH clinics.
+8. **The Dental Council of India is gone: what the National Dental Commission means for
+   your practice.** DCI dissolved 19 March 2026, replaced by NDC with three new boards
+   (Undergraduate/PG Education, Assessment and Rating, Ethics and Registration). Dentists
+   Act 1948 repealed. High-search, zero competitor coverage for clinical audience. Source:
+   NDC gazette notification March 2026, PMC article PMC13056220, omnicuris.com coverage.
+9. **Is the DPDP Data Protection Board actually running yet, and does it matter for your
+   clinic?** DPB has zero members as of September 2026 (applications invited May 2026,
+   no appointments made). Dentists and clinic managers asking if the delay gives them
+   more time. Answer: no -- May 2027 substantive obligations are not DPB-dependent.
+   Source: judicio.ai enforcement tracker, isecurion.com 2026 compliance updates.
 
 **Needs a source before it can be written**
 
-6. Average patient lifetime value for an Indian dental practice. Only publish if a
-   citable industry figure exists. Do not model one and present it as fact.
-7. Insurance and cashless dental claims in India. Genuinely complex, high search volume,
-   and easy to get wrong.
+10. Average patient lifetime value for an Indian dental practice. Only publish if a
+    citable industry figure exists. Do not model one and present it as fact.
+11. Insurance and cashless dental claims in India. Genuinely complex, high search volume,
+    and easy to get wrong.
+12. UPI verified merchant limit for healthcare clinics (Rs.10 lakh/day). Source needed:
+    primary NPCI circular confirming the MCC classification for dental clinics and the
+    exact verification process. Do not publish until that circular is confirmed.
 
 **Rank-improvement candidates, not new posts**
 
