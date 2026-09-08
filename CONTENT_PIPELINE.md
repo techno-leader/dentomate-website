@@ -28,16 +28,40 @@ second slot with something unsourced.
 
 ### The daily half
 
-Fifteen minutes, output goes into the Topic Queue below:
+A structured research pass across five blocks. Output is a 3-4 page intelligence brief
+plus 2-3 new queue entries. Every finding names its source URL and the specific claim it
+supports or contradicts. Each block takes 5-10 minutes; the full pass is under an hour.
 
-1. Check what changed in the sources that move our topics (list in section 5).
-2. Check Search Console for queries where we already rank 8-30. A page ranking 11th for a
-   real query is worth more than a new page ranking nowhere.
-3. Write one line into the queue: the question, who is asking it, and the source that
-   answers it. If no source answers it, it is not a topic yet.
+**Block A: Regulatory and platform pulse**
+Check each source below for anything that changed since yesterday. For every change,
+state what moved, the date, and whether it invalidates a number or date in a live article.
+Name the file and line for every invalidation -- do not silently fix, surface it.
 
-The queue needs a running buffer of at least four sourced topics. Below that, the daily
-research is not keeping up with the publishing rate and the rate comes down, not the bar.
+**Block B: Industry news**
+Search for dental industry coverage published in the last 7 days across trade press, IDA,
+NABH, and general health media. Flag anything that signals a shift in how Indian dentists
+or patients think about cost, compliance, or technology.
+
+**Block C: Competitor content gaps**
+Check what Clinicea, Practo Manage, Dentulu, Care.clinic, and major international vendors
+(Curve Dental, Dentrix, Carestream) are writing about for Indian practices. A topic they
+cover that we do not is a gap. A topic we both cover is a chance to confirm we are more
+accurate and more India-specific.
+
+**Block D: Practitioner questions**
+Pull 3-5 verbatim questions or thread titles from Reddit (r/DentalStudentsIndia,
+r/india health flair, r/AskIndia), Quora India, IDA Facebook groups, and Practo Q&A.
+A question appearing in multiple places with no good answer is a strong topic candidate.
+
+**Block E: Article accuracy check**
+Cross-check every figure in the four live articles against Block A findings. Verify
+Dentomate plan prices against `blueprints/payments/routes.py` and plan limits against
+`utils/plan_guard.py` in the app repo. Flag mismatches as STALE with file, line, current
+claim, correct value, and source.
+
+After the five blocks, add 2-3 entries to the queue in section 4. The queue needs a
+running buffer of at least four sourced topics. Below that, the publishing rate comes
+down, not the bar.
 
 ### The publishing half
 
@@ -234,15 +258,52 @@ confirmed before it is written, not after.
 
 ## 5. Daily research sources
 
-- **Meta WhatsApp Business pricing** for India conversation and per-message rates. This
-  changes and our cost article goes stale silently when it does.
-- **MeitY / PIB** for DPDP Act rules and enforcement dates.
-- **CBIC** notifications for anything touching GST on healthcare services.
-- **Dental Council of India** circulars for practice and record-keeping obligations.
-- **NPCI** for UPI limits and deep-link behaviour.
-- **Search Console** for queries we already surface on.
-- **Reddit r/india dentists, IDA forums, dental Facebook groups** for the questions
-  practitioners ask each other. This is where topic 5 came from.
+### Regulatory and platform (Block A)
+
+- **Meta WhatsApp Business pricing** -- per-message rates, conversation categories,
+  free-window rules, upcoming announced changes. Primary: Meta developer pricing docs.
+  Secondary: Interakt, WATI, Gupshup, Blueticks, Zoko blogs (they track the official
+  rate card and publish date-stamped changelogs).
+- **MeitY / PIB** -- DPDP Act gazette notifications, enforcement dates, Data Protection
+  Board appointments, consent manager framework. pib.gov.in, meity.gov.in.
+- **CBIC** -- notifications and advance rulings touching SAC 9993 (healthcare services),
+  cosmetic vs clinical exemption boundary, dental implants and prosthetics GST. cbic.gov.in.
+- **Dental Council of India** -- circulars on record-keeping, qualification requirements,
+  tele-dentistry rules, practice standards. dciindia.gov.in.
+- **NPCI / RBI** -- UPI transaction limit changes, merchant category rules, deep-link
+  and collect-request behaviour, interchange updates. npci.org.in, rbi.org.in.
+- **Health Ministry / NHP / Ayushman Bharat** -- PMJAY dental coverage changes, NABH
+  accreditation updates, Clinical Establishments Act notifications. mohfw.gov.in,
+  nhp.gov.in, nabh.co.
+
+### Industry news (Block B)
+
+- **Dental Tribune India** -- dental-tribune.com/india
+- **Dental Asia** -- dentalasia.net
+- **Indian Dental Association** -- ida.org.in and IDA social channels
+- **General health media** -- Times of India Health, Mint, Indian Express on dental
+  costs, dental tourism, oral health policy, health insurance changes
+- **NABH** -- nabh.co for clinic accreditation standards relevant to small practices
+
+### Competitor content (Block C)
+
+- **Clinicea** -- clinicea.com/blog
+- **Practo Manage / Practo health blog** -- practo.com
+- **Dentulu, Care.clinic, Klinik** -- newer entrants in Indian dental software
+- **Curve Dental, Dentrix, Carestream** -- international vendors writing content aimed
+  at Indian practices or practices that match Indian market patterns
+
+### Practitioner questions (Block D)
+
+- **Reddit** -- r/DentalStudentsIndia, r/india (health flair), r/AskIndia
+- **Quora India** -- "dental clinic" OR "dentist India" questions with recent activity
+- **IDA Facebook groups** -- public posts from the last 30 days
+- **Practo Q&A, NirogStreet forums** -- patient and practitioner questions
+
+### Search Console (ongoing)
+
+Queries where we already rank 8-30 are worth more than new pages ranking nowhere. Once
+Search Console is connected, check it daily for those positions.
 
 ---
 
