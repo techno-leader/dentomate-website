@@ -259,15 +259,36 @@ confirmed before it is written, not after.
    more time. Answer: no -- May 2027 substantive obligations are not DPB-dependent.
    Source: judicio.ai enforcement tracker, isecurion.com 2026 compliance updates.
 
+10. **Is my DCI dentist registration still valid after the NDC took over?** Practising
+    dentists who registered under DCI (pre-March 2026) are asking whether their licence
+    continues, what the transition period looks like, and whether they need to re-register
+    with the Ethics and Dental Registration Board. NDC Act 2023 Section 47 contains the
+    transition provision (existing registrations deemed to continue). No competitor has
+    written this for the practising-dentist audience. Sources: NDC Act 2023
+    (indiacode.nic.in/handle/123456789/19795), PIB notification March 2026
+    (pib.gov.in/PressReleasePage.aspx?PRID=2242888), PMC article PMC13056220.
+11. **How to collect WhatsApp patient consent that is DPDP-compliant for recall and
+    marketing.** Dentists setting up WhatsApp-based recall are asking what exactly they
+    need to record before sending the first message. Practical article: what the consent
+    notice must say, how to record it, and what opt-out looks like inside a WhatsApp
+    workflow. Ties the DPDP checklist directly to the recall guide. Sources: DPDP
+    Rules 2025 (pib.gov.in), Meta WhatsApp Business Policy.
+
 **Needs a source before it can be written**
 
-10. Average patient lifetime value for an Indian dental practice. Only publish if a
+12. Average patient lifetime value for an Indian dental practice. Only publish if a
     citable industry figure exists. Do not model one and present it as fact.
-11. Insurance and cashless dental claims in India. Genuinely complex, high search volume,
+13. Insurance and cashless dental claims in India. Genuinely complex, high search volume,
     and easy to get wrong.
-12. UPI verified merchant limit for healthcare clinics (Rs.10 lakh/day). Source needed:
+14. UPI verified merchant limit for healthcare clinics (Rs.10 lakh/day). Source needed:
     primary NPCI circular confirming the MCC classification for dental clinics and the
     exact verification process. Do not publish until that circular is confirmed.
+15. **Does the new UPI Rs.5 lakh per-transaction cap from September 2026 affect dental
+    clinic patient collections?** Healthcare is not listed in the capped categories
+    (insurance, investments, education, travel), but dentists collecting large implant
+    or orthodontics bills via UPI are asking. Answer is likely no, but only a primary
+    NPCI circular confirming the healthcare MCC exclusion makes it publishable. Secondary
+    sources so far: pinelabs.com UPI rules guide, razorpay.com blog (Sept 2026).
 
 **Rank-improvement candidates, not new posts**
 
