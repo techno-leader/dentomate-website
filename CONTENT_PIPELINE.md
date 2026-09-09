@@ -273,22 +273,52 @@ confirmed before it is written, not after.
     notice must say, how to record it, and what opt-out looks like inside a WhatsApp
     workflow. Ties the DPDP checklist directly to the recall guide. Sources: DPDP
     Rules 2025 (pib.gov.in), Meta WhatsApp Business Policy.
+12. **What is ABDM and does my dental clinic need to register with the Health Facility
+    Registry?** Dentists seeking NABH accreditation or government scheme empanelment
+    (Ayushman Bharat, CGHS, ECHS) now effectively must register on the Health Facility
+    Registry (HFR) and Healthcare Professionals Registry (HPR) under the Ayushman
+    Bharat Digital Mission. NABH 5th edition standards require HFR registration as part
+    of accreditation. For a private clinic not seeking empanelment, registration is not
+    legally mandatory today but competitors are writing about it as though it is, which
+    creates confusion. The article should explain the actual obligation, what registration
+    involves, and what the ABHA ID requirement means for patient records. No competitor
+    has a dental-specific, accurately scoped version of this. Sources: abdm.gov.in
+    (Health Facility Registry guide), tatvacare.in/blog ABDM mandates post (Sept 2026),
+    easyclinic.io ABDM compliance guide (2026).
 
 **Needs a source before it can be written**
 
-12. Average patient lifetime value for an Indian dental practice. Only publish if a
+13. Average patient lifetime value for an Indian dental practice. Only publish if a
     citable industry figure exists. Do not model one and present it as fact.
-13. Insurance and cashless dental claims in India. Genuinely complex, high search volume,
+14. Insurance and cashless dental claims in India. Genuinely complex, high search volume,
     and easy to get wrong.
-14. UPI verified merchant limit for healthcare clinics (Rs.10 lakh/day). Source needed:
+15. UPI verified merchant limit for healthcare clinics (Rs.10 lakh/day). Source needed:
     primary NPCI circular confirming the MCC classification for dental clinics and the
     exact verification process. Do not publish until that circular is confirmed.
-15. **Does the new UPI Rs.5 lakh per-transaction cap from September 2026 affect dental
+16. **Does the new UPI Rs.5 lakh per-transaction cap from September 2026 affect dental
     clinic patient collections?** Healthcare is not listed in the capped categories
     (insurance, investments, education, travel), but dentists collecting large implant
     or orthodontics bills via UPI are asking. Answer is likely no, but only a primary
     NPCI circular confirming the healthcare MCC exclusion makes it publishable. Secondary
     sources so far: pinelabs.com UPI rules guide, razorpay.com blog (Sept 2026).
+17. **Do dental implants, lab-made crowns and consumable materials attract GST even
+    when the dental treatment itself is exempt?** The clinical service falls under SAC
+    9993 at 0%, but the implant fixture, prosthetic components, and lab materials may
+    attract 12% or 18% GST when supplied as goods rather than as part of an inseparable
+    clinical service. Multiple software blogs say "implants are not exempt" without
+    citing the specific CBIC advance ruling or notification number that draws the line.
+    Dentists who handle implants at volume are being caught on this in GST audits. Source
+    needed: specific CBIC advance ruling or notification clarifying the treatment of
+    dental implant hardware and lab-fabricated prosthetics as distinct from the clinical
+    SAC 9993 exemption.
+18. **Does a dental clinic in India have to register under the Clinical Establishments
+    (Registration and Regulation) Act, and which states enforce it?** This is a genuine
+    compliance obligation separate from NDC registration, DPDP, and GST. The Act (2010)
+    applies only in states that have adopted it, implementation varies widely, and the
+    answer for a clinic in Maharashtra differs from one in Tamil Nadu. High search volume
+    ("clinical establishment registration dental clinic"), no clean India-wide answer
+    exists anywhere. Source needed: MoHFW state implementation status list and at least
+    two state-specific notification links before this can be written accurately.
 
 **Rank-improvement candidates, not new posts**
 
