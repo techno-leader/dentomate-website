@@ -286,22 +286,24 @@ confirmed before it is written, not after.
     (Health Facility Registry guide), tatvacare.in/blog ABDM mandates post (Sept 2026),
     easyclinic.io ABDM compliance guide (2026).
 
+13. **The 1,000 free WhatsApp replies per month: how many does a dental clinic actually use?** From 1 October 2026, Meta charges ₹0.1150 per service message beyond a free allowance of 1,000 service messages per month per phone number. A small clinic replying to 20-50 patients a day sends 400-1,000 service messages a month and may stay entirely within the free tier. Dentists who read the October 2026 price-change notices are asking "will I be charged for every patient reply?" The article answers that with arithmetic: most clinics will not exceed 1,000, so the practical impact is zero on replies, while recall campaigns (template messages that start a conversation) are unaffected by the free-service-message count. Ties to the whatsapp-cost-india article, which needs its lines 119-120 updated before this article ships. Sources: Meta WhatsApp Business Platform pricing documentation (September 2026 rate card, developers.facebook.com/documentation/business-messaging/whatsapp/pricing), ChatMaxima October 2026 rate guide (chatmaxima.com/blog/whatsapp-service-message-pricing-october-2026/). Note: ship queue item 6 first, or ship both together, since this article references the October change that item 6 explains.
+
 **Needs a source before it can be written**
 
-13. Average patient lifetime value for an Indian dental practice. Only publish if a
+14. Average patient lifetime value for an Indian dental practice. Only publish if a
     citable industry figure exists. Do not model one and present it as fact.
-14. Insurance and cashless dental claims in India. Genuinely complex, high search volume,
+15. Insurance and cashless dental claims in India. Genuinely complex, high search volume,
     and easy to get wrong.
-15. UPI verified merchant limit for healthcare clinics (Rs.10 lakh/day). Source needed:
+16. UPI verified merchant limit for healthcare clinics (Rs.10 lakh/day). Source needed:
     primary NPCI circular confirming the MCC classification for dental clinics and the
     exact verification process. Do not publish until that circular is confirmed.
-16. **Does the new UPI Rs.5 lakh per-transaction cap from September 2026 affect dental
+17. **Does the new UPI Rs.5 lakh per-transaction cap from September 2026 affect dental
     clinic patient collections?** Healthcare is not listed in the capped categories
     (insurance, investments, education, travel), but dentists collecting large implant
     or orthodontics bills via UPI are asking. Answer is likely no, but only a primary
     NPCI circular confirming the healthcare MCC exclusion makes it publishable. Secondary
     sources so far: pinelabs.com UPI rules guide, razorpay.com blog (Sept 2026).
-17. **Do dental implants, lab-made crowns and consumable materials attract GST even
+18. **Do dental implants, lab-made crowns and consumable materials attract GST even
     when the dental treatment itself is exempt?** The clinical service falls under SAC
     9993 at 0%, but the implant fixture, prosthetic components, and lab materials may
     attract 12% or 18% GST when supplied as goods rather than as part of an inseparable
@@ -311,7 +313,7 @@ confirmed before it is written, not after.
     needed: specific CBIC advance ruling or notification clarifying the treatment of
     dental implant hardware and lab-fabricated prosthetics as distinct from the clinical
     SAC 9993 exemption.
-18. **Does a dental clinic in India have to register under the Clinical Establishments
+19. **Does a dental clinic in India have to register under the Clinical Establishments
     (Registration and Regulation) Act, and which states enforce it?** This is a genuine
     compliance obligation separate from NDC registration, DPDP, and GST. The Act (2010)
     applies only in states that have adopted it, implementation varies widely, and the
@@ -319,6 +321,32 @@ confirmed before it is written, not after.
     ("clinical establishment registration dental clinic"), no clean India-wide answer
     exists anywhere. Source needed: MoHFW state implementation status list and at least
     two state-specific notification links before this can be written accurately.
+
+20. **Is tele-dentistry legal in India in 2026, and can I consult patients by video?** The
+    NDC Act 2023 and the NDC's stated mandate reference digital health and tele-dentistry
+    as priorities, and the commission's establishment in March 2026 has raised practitioner
+    interest. No specific tele-dentistry circular has been issued by the NDC or the Ethics
+    and Dental Registration Board as of September 2026. The 2020 Telemedicine Practice
+    Guidelines (MoH) are the current applicable document and were drafted without
+    dental-specific guidance. Dentists asking "can I legally diagnose over video" need
+    the answer framed for their profession. Source needed: specific NDC circular or
+    Ministry of Health tele-dentistry guidance for dentists, or a confirmed legal opinion
+    that the 2020 Guidelines cover dental practice without amendment. Do not publish
+    until that guidance is confirmed; the current answer ("2020 Guidelines apply but are
+    silent on dentistry specifically") is not settled enough to be authoritative.
+
+21. **Patient data breach at a dental clinic: what to do in the first 72 hours under DPDP.**
+    The DPDP Rules 2025 include breach notification obligations: inform the affected
+    patients in plain language and report to the Data Protection Board within a defined
+    window framed around 72 hours. No competitor has published a step-by-step breach
+    response guide for dental clinics. Dentists asking "what happens if my system is
+    hacked under the new law?" have nowhere to go. The article covers: what counts as a
+    reportable breach, what to tell patients, what to report to the DPB and when, and
+    the practical first actions (isolate the system, identify the scope, preserve the
+    audit trail). Source needed: specific breach notification provisions in DPDP Rules
+    2025 (Rule 7 and Schedule I of the Rules as notified November 2025, pib.gov.in)
+    with the exact timeframes and mandatory content confirmed from the gazette text before
+    any figure is published.
 
 **Rank-improvement candidates, not new posts**
 
