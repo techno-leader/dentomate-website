@@ -158,11 +158,45 @@ photography later is worse than no image, and it has already happened twice: the
 and the records post shipped byte-identical blank blue files, one of them credited to
 Unsplash, which was not true. If there is no image, the post is not ready.
 
-**Prefer a diagram over stock photography.** These posts argue with dates and numbers, and
-a generic desk photo carries none of that. The best hero for a post is usually its own
-central comparison drawn to scale. It also needs no attribution and no download.
+**Use an openly licensed photograph, not a generated diagram.** A hero built from the
+article's own comparison ends up answering the question in the card, so a reader scrolling
+the grid has no reason to open the post. A photograph sets the subject without spending the
+argument. Pick something literal to the topic: a panoramic radiograph is itself a clinical
+record, a curing light is itself a dental service.
 
-To build one, use `/home/my-computer/site-tools/blog-image-builder.html`. It is a
+Sourcing, in order:
+
+1. **Wikimedia Commons.** Every file has a named author and a checkable licence tag on its
+   own description page, so the credit can be verified instead of guessed. Search it with
+   `/home/my-computer/site-tools/commons-find.py "query"`.
+2. **Openverse** (`openverse-find.py`) for anything Commons does not cover. Keyless API over
+   Flickr, Wikimedia and others.
+3. Unsplash **cannot be browsed from here.** It sits behind an Anubis proof-of-work bot
+   check that returns a 7.6 KB "Making sure you're not a bot" page to curl and to WebFetch
+   alike, and solving that check is off limits. Do not keep retrying it.
+
+Two licence exclusions, both deliberate:
+
+- **No CC BY-SA.** Cropping a source to 16:9 makes a derivative, and share-alike would then
+  attach to the crop. Accept CC0, public domain, and plain CC BY only.
+- **No `plus.unsplash.com` ids.** Those are Unsplash+, a paid licence, and they appear mixed
+  into ordinary search results.
+
+Crop with `/home/my-computer/site-tools/make-blog-photo.py SOURCE STEM [bias]`, which emits
+both sizes from one 16:9 frame. `bias` shifts the crop window vertically from 0 (keep the
+top) to 1 (keep the bottom); the subject of a photo is almost never at the exact middle.
+Trim any black border off the source first, or the 16:9 window spends its height on it.
+
+**The credit must name the photographer.** `Photo: Unsplash` is not a credit, it is a brand
+mention, and three older posts still carry it. The line is author, licence, source, each
+linked:
+
+```html
+<p class="article-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Dental_Panorama_X-ray.jpg">Farhang Amini</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via Wikimedia Commons.</p>
+```
+
+A diagram is still the right call when the post turns on a shape a photograph cannot carry,
+such as two rates side by side. For that case use `/home/my-computer/site-tools/blog-image-builder.html`. It is a
 1200x675 canvas that loads the site's own stylesheet, so the render uses real Open Runde
 and real tokens rather than approximations. It carries a `?v=card` mode that strips the
 fine detail and enlarges the type, because the grid renders a card at roughly 371px where
