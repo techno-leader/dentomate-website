@@ -1,0 +1,11 @@
+# Image build canvases copied in from site-tools. They must sit in the served root to
+# resolve /assets/css/style.css, so they land here briefly and must never be published.
+_build.html
+_*-build.html
+
+# Agent and editor noise
+.claude/projects/
+.claude/worktrees/
+.auto-memory/
+.DS_Store
+*.backup.*

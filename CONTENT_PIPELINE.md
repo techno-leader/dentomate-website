@@ -153,6 +153,42 @@ Both need honest, descriptive `alt` text. Product screenshots must show real UI,
 patient data in them must be demo data. Card images carry `width="720" height="405"` and
 `loading="lazy"` so the grid reserves its box and does not shift.
 
+**Never ship a placeholder.** A flat coloured rectangle with a credit line promising real
+photography later is worse than no image, and it has already happened twice: the GST post
+and the records post shipped byte-identical blank blue files, one of them credited to
+Unsplash, which was not true. If there is no image, the post is not ready.
+
+**Prefer a diagram over stock photography.** These posts argue with dates and numbers, and
+a generic desk photo carries none of that. The best hero for a post is usually its own
+central comparison drawn to scale. It also needs no attribution and no download.
+
+To build one, use `/home/my-computer/site-tools/blog-image-builder.html`. It is a
+1200x675 canvas that loads the site's own stylesheet, so the render uses real Open Runde
+and real tokens rather than approximations. It carries a `?v=card` mode that strips the
+fine detail and enlarges the type, because the grid renders a card at roughly 371px where
+16px label text lands at about 5px and reads as grey noise.
+
+```bash
+cp /home/my-computer/site-tools/blog-image-builder.html ./_build.html   # must be served
+google-chrome --headless --disable-gpu --no-sandbox --hide-scrollbars \
+  --force-device-scale-factor=2 --window-size=1200,900 --virtual-time-budget=8000 \
+  --screenshot=/home/my-computer/site-tools/hero-raw.png \
+  http://localhost:8099/_build.html
+```
+
+Render at `--window-size=1200,900` and crop to `(0,0,2400,1350)` rather than sizing the
+window to 1200x675. The headless viewport comes back about 97px shorter than the window,
+which silently cut the footer off the first render. Downscale the 2x capture to 1200x675
+with LANCZOS and save at JPEG quality 88. Delete `_build.html` when done; it is gitignored
+so it cannot be published by accident.
+
+Do not try to capture these with `preview_screenshot`. It caps at about 800px wide and
+hangs on this canvas even after a server restart. Headless Chrome is the reliable path.
+
+Check the result at the size it will actually be seen, not at full size. Anything below
+about 0.5 render scale is unreadable. The hero lands at 0.63 in the article column and the
+card at 0.78 in the grid.
+
 ### 3.4 Register it in four places
 
 | # | File | What to add |
