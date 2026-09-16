@@ -593,6 +593,46 @@ confirmed before it is written, not after.
     the specific form number and online application portal are confirmed from aerb.gov.in
     directly.
 
+34. **Do I still need a provisional registration certificate before a BDS intern starts
+    at my clinic?** Clinic owners hiring fresh BDS graduates to work during their
+    Compulsory Rotatory Internship faced a procedural bottleneck: State Dental Councils
+    previously required a provisional registration certificate before internship began,
+    and that certificate was a precondition for permanent registration after graduation.
+    The National Dental Commission removed this requirement entirely in its meeting of
+    9 July 2026. State Dental Councils now grant permanent registration directly on
+    completion of the BDS course and internship, without insisting on a provisional
+    certificate. Clinic owners hiring interns are still asking whether they need to check
+    for this document at the start of an internship. The answer changed this July, and
+    no dental practice management site has written an India-specific explainer aimed at
+    the clinic owner rather than the student. Sources: NDC meeting resolution dated 9 July
+    2026 (medicaldialogues.in coverage confirmed; NDC press release on dciindia.gov.in).
+    Companion to queue item 8 (DCI to NDC transition article).
+
+35. **Has the DPDP compliance deadline been moved from May 2027 to November 2026?**
+    In a January 2026 MeitY stakeholder consultation, industry groups were told the
+    ministry is considering cutting the 18-month transition to 12 months, which would
+    bring full obligations to November 2026. If enacted, the May 2027 dates in the live
+    dpdp-checklist article (line 103) would become wrong 15 months early, and the
+    queue item 25 consent notice article would become urgent. Multiple compliance
+    advisory blogs are treating the shortened deadline as probable rather than confirmed.
+    No gazette notification has been found in searches as of 16 September 2026. Source
+    needed: MeitY gazette notification or official press release confirming the final
+    compliance deadline before this can be reported as settled. If the shortened deadline
+    is enacted, update dpdp-checklist line 103 the same day.
+
+36. **Does a dental clinic qualify as a verified healthcare merchant under NPCI's UPI
+    Rs.10 lakh daily limit?** NPCI raised the verified merchant payment limit to Rs.10
+    lakh per day for healthcare and other eligible sectors. Dentists collecting large
+    treatment bills (implants, orthodontics, full-mouth rehabilitation) via UPI are asking
+    whether their clinic qualifies for this limit and how to get verified. Secondary
+    sources (Pine Labs, Razorpay) confirm healthcare is an eligible sector but do not name
+    the Merchant Category Code that covers dental clinics or the verification application
+    process. Source needed: primary NPCI merchant category circular that specifies the
+    MCC for dental clinics under the healthcare category and the step-by-step verification
+    process for UPI verified merchant status. Do not publish until the specific MCC and
+    application pathway are confirmed from npci.org.in directly. Companion to queue
+    item 16.
+
 **Rank-improvement candidates, not new posts**
 
 8. Whatever Search Console shows at positions 8-30 once it is connected. Improving an
