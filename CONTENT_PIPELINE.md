@@ -324,10 +324,15 @@ confirmed before it is written, not after.
    Act 1948 repealed. High-search, zero competitor coverage for clinical audience. Source:
    NDC gazette notification March 2026, PMC article PMC13056220, omnicuris.com coverage.
 9. **Is the DPDP Data Protection Board actually running yet, and does it matter for your
-   clinic?** DPB has zero members as of September 2026 (applications invited May 2026,
-   no appointments made). Dentists and clinic managers asking if the delay gives them
-   more time. Answer: no -- May 2027 substantive obligations are not DPB-dependent.
-   Source: judicio.ai enforcement tracker, isecurion.com 2026 compliance updates.
+   clinic?** DPB Chairperson and Members were appointed on 6 June 2026 (MeitY
+   notification); the live grievance portal is now open. The earlier framing -- "delay
+   gives clinics more time" -- is no longer valid. The article should answer: yes it is
+   running, here is what it can do (inquire into breaches, issue directions, impose
+   penalties), and the May 2027 obligation deadline is unchanged. NOTE: update the
+   dpdp-checklist article line 101 to reflect that the Board was constituted in November
+   2025 but members were not appointed until June 2026.
+   Sources: MeitY June 2026 notification (meity.gov.in), mickai.co.uk/articles/india-
+   dpdp-first-enforcement-localisation, judicio.ai enforcement tracker.
 
 10. **Is my DCI dentist registration still valid after the NDC took over?** Practising
     dentists who registered under DCI (pre-March 2026) are asking whether their licence
@@ -357,6 +362,37 @@ confirmed before it is written, not after.
     easyclinic.io ABDM compliance guide (2026).
 
 13. **The 1,000 free WhatsApp replies per month: how many does a dental clinic actually use?** From 1 October 2026, Meta charges ₹0.1150 per service message beyond a free allowance of 1,000 service messages per month per phone number. A small clinic replying to 20-50 patients a day sends 400-1,000 service messages a month and may stay entirely within the free tier. Dentists who read the October 2026 price-change notices are asking "will I be charged for every patient reply?" The article answers that with arithmetic: most clinics will not exceed 1,000, so the practical impact is zero on replies, while recall campaigns (template messages that start a conversation) are unaffected by the free-service-message count. Ties to the whatsapp-cost-india article, which needs its lines 119-120 updated before this article ships. Sources: Meta WhatsApp Business Platform pricing documentation (September 2026 rate card, developers.facebook.com/documentation/business-messaging/whatsapp/pricing), ChatMaxima October 2026 rate guide (chatmaxima.com/blog/whatsapp-service-message-pricing-october-2026/). Note: ship queue item 6 first, or ship both together, since this article references the October change that item 6 explains.
+
+25. **What does a dental clinic DPDP consent notice actually have to say?** Dentists
+    preparing a DPDP notice for their reception desk or registration form ahead of the May
+    2027 deadline are asking what exact elements the notice must contain. The DPDP Rules
+    2025 Rule 3 prescribes this: identity and contact details of the data fiduciary, a
+    description of each category of personal data to be collected, the specific purpose of
+    each collection, the rights the patient can exercise, and how to reach the clinic for
+    grievances. No competitor has published a dental-specific notice template that calls
+    out each required element against the Rule text, with examples of what "specific
+    purpose" means for a dental context (appointment scheduling is different from recall
+    messaging). The article should show a before (the typical bundled registration-form
+    line) and an after (a DPDP-compliant notice, element by element). Sources: DPDP
+    Rules 2025 Rule 3 (pib.gov.in notification November 2025). Companion articles: DPDP
+    checklist (links to item 4 on that checklist) and WhatsApp consent article (queue
+    item 11).
+
+31. **What is the NABH Entry Level Certification for a small dental clinic, and is it
+    different from full NABH accreditation?** Clinic owners evaluating NABH ask "where do I
+    start?" rather than "should I bother?" The Entry Level Certification is the specific first
+    rung: designed for clinics with 1 to 8 dental chairs, it satisfies the CGHS and ECHS
+    empanelment requirement and qualifies the clinic for the 15% CGHS tariff uplift. Full
+    NABH accreditation is a second, more demanding stage. No competitor has written a
+    dental-specific article that distinguishes the two tiers, explains what Entry Level
+    actually requires, and shows the tariff difference in rupees on common procedures. The
+    article should answer: what Entry Level covers, the typical document list, the audit
+    timeline, and whether a solo-dentist practice can realistically achieve it without a
+    consultant. Companion to queue item 7 (is NABH worth it?). Sources: nabh.co dental
+    healthcare entry-level accreditation standards,
+    aurasafety.com/blog/how-to-get-nabh-certification-for-your-dental-clinic (confirmed
+    today, September 2026), cghshospitals.com/dental-clinics (34% NABH rate among 414
+    CGHS-empanelled dental clinics, confirmed today).
 
 **Needs a source before it can be written**
 
@@ -417,6 +453,145 @@ confirmed before it is written, not after.
     2025 (Rule 7 and Schedule I of the Rules as notified November 2025, pib.gov.in)
     with the exact timeframes and mandatory content confirmed from the gazette text before
     any figure is published.
+
+22. **How to respond to a patient complaint or negative online review as an Indian dentist
+    without breaking privacy law.** Dentists on Practo, NirogStreet and Google Maps are
+    unsure what they can legally say in a public response to a negative review -- patient
+    name, diagnosis, or treatment details may constitute personal data under DPDP. The
+    article covers: what a grievance officer obligation means for a small clinic, how to
+    respond professionally without disclosing protected data, the Consumer Protection Act
+    2019 complaint process, and what the NDC Ethics and Dental Registration Board might
+    say about public conduct. No competitor has written a compliance-aware guide for
+    this. Source needed: DPDP Rules 2025 Rule 13 (grievance mechanism obligations for
+    small data fiduciaries), Consumer Protection Act 2019 guidance on healthcare
+    providers, and at least one NDC or DCI ethics circular on public communications.
+
+23. **Does my dental clinic software need to be ABDM-compliant, and what does that
+    actually mean in practice?** Queue item 12 covers whether the clinic itself must
+    register on the Health Facility Registry. This article covers the software layer:
+    what "ABDM-compliant software" vendors are actually selling, what the FHIR-based
+    health records API integration requires, whether a private clinic not seeking
+    government empanelment has any obligation to push records to the national registry,
+    and what ABHA ID generation for patients involves. Multiple dental software vendors
+    market ABDM compliance as a premium feature without explaining the actual obligation,
+    which is creating confusion among buyers. Sources: abdm.gov.in Health Facility
+    Registry integration guide, tatvacare.in/blog ABDM mandates post (Sept 2026),
+    easyclinic.io ABDM compliance guide (2026). Confirm HFR mandatory vs. optional
+    status for private dental clinics before writing.
+
+24. **What to do when a patient stops responding mid-treatment plan: the clinical,
+    legal and financial steps for Indian dental clinics.** A common practice management
+    situation with no good published answer for Indian dentists: patient owes money,
+    is mid-treatment, and has stopped replying. The article covers: patient abandonment
+    documentation protocol (clinical record, certified letter), Consumer Protection Act
+    risk of proceeding or refusing to proceed, legitimate debt follow-up under the DPDP
+    framework (marketing consent cannot be used for debt recovery), small claims
+    alternatives, and what to record if the case reaches a consumer forum. No competitor
+    has written this for a dental audience. Source needed: Consumer Protection Act 2019
+    guidance on healthcare providers, a medico-legal reference on patient abandonment
+    documentation standards, and confirmation of whether the DPDP's legitimate-use
+    basis covers debt recovery communications.
+
+26. **How do I contact the National Dental Commission and update my practice registration
+    now that DCI is gone?** Practising dentists who were registered under DCI and need to
+    update their address, clinic details, or handle a licensing query are unsure who to
+    contact under the new structure. NDC was constituted 19 March 2026 and the Ethics and
+    Dental Registration Board (EDRB) now handles registration matters, but no public EDRB
+    contact process or online portal was confirmed in searches as of September 2026. The
+    dciindia.gov.in domain shows NDC branding. No competitor has written a practical
+    "what to do with your DCI registration now" guide for the practising dentist. Source
+    needed: NDC EDRB contact details and registration update procedure from the official
+    NDC portal (dciindia.gov.in or any successor domain), or a PIB notification describing
+    the post-transition registration process. Do not publish until the specific EDRB
+    contact mechanism is confirmed from a primary source.
+
+27. **Do I charge GST on dental treatment for a foreign patient or NRI visiting my clinic?**
+    Dental clinic owners seeing patients from the Middle East, UK, or NRI patients receive
+    the question: does the SAC 9993 GST exemption still apply, or does serving a foreign
+    national change the tax treatment? Under the IGST place-of-supply rules (Section 12
+    IGST Act), healthcare services rendered to a patient physically in India are treated as
+    intra-India supplies, so the SAC 9993 exemption for clinical dental services should
+    apply regardless of the patient's nationality. Cosmetic procedures attract 5% GST for
+    all patients equally. This is not obvious to clinic owners and no competitor has
+    written a dental-specific answer. Source needed: CBIC advance ruling or circular
+    confirming the place-of-supply analysis for healthcare services rendered to foreign
+    nationals physically present in India, with explicit reference to SAC 9993 exemption
+    applicability. Do not publish without a primary CBIC source.
+
+28. **Does my dental clinic need to appoint a Data Protection Officer under the DPDP
+    Rules 2025?** Clinics reading compliance guides are encountering the term "DPO" and
+    asking whether they must designate one. Under the DPDP Act, a Data Protection Officer
+    obligation applies only to entities notified as Significant Data Fiduciaries (SDFs) by
+    the government. As of September 2026, no notification designating dental clinics as
+    SDFs has been confirmed in public sources. The article should answer: what makes an
+    entity an SDF, whether a dental clinic is likely to qualify, and what smaller data
+    fiduciaries must do instead (name a grievance officer, which is a different and
+    lighter obligation). No competitor has written a dental-specific answer that
+    distinguishes the DPO obligation from the grievance-officer obligation. Source needed:
+    DPDP Rules 2025 Rule 10 text (pib.gov.in) confirming that SDF designation requires a
+    government notification and that no such notification covers dental clinics; and DPDP
+    Act Section 14 on grievance officers for non-SDF fiduciaries. Do not publish until
+    the absence of an SDF dental-clinic notification is confirmed from the official gazette.
+
+29. **What does a CGHS dental rate schedule actually pay, and does NABH accreditation
+    increase it?** Dentists evaluating CGHS empanelment want to know whether the
+    government rates cover their costs and whether NABH accreditation produces a
+    meaningful income difference. Secondary sources confirmed today (cghshospitals.com,
+    aurasafety.com, adrine.in) that NABH-accredited dental clinics receive up to 15%
+    higher CGHS and ECHS reimbursement tariffs, and that 34% of the 414 CGHS-empanelled
+    dental clinics in India are NABH-accredited. The article should show the specific
+    tariff rates for common dental procedures under CGHS, the delta for NABH-accredited
+    clinics, and the process for empanelment. Companion to queue item 7 (NABH
+    accreditation article). Source needed: the current CGHS dental procedure rate schedule
+    from cghs.gov.in or the CGHS circular that established the 15% NABH uplift, with a
+    specific notification or circular number. Do not publish until the rate schedule is
+    confirmed from a primary government source, because a misquoted tariff is a legal
+    claim a clinic might act on.
+
+30. **Why do nearly half of Indian dentists still fear switching to electronic records,
+    and are those fears justified?** A 2023 paper in the SRM Journal of Research in
+    Dental Sciences reported that 47.5% of Indian dental practitioners cited data loss
+    as their primary fear about adopting electronic dental records. In 2026 this is a
+    live obstacle -- clinics evaluating software repeatedly mention power cuts, hacking,
+    and migration difficulty. The article should state each fear clearly, then answer it
+    with what current software and data practices actually offer: cloud backup, offline
+    mode, encryption, and what DPDP breach notification obligations would apply to a
+    paper register just as much as to a digital one. No competitor has written a
+    fear-by-fear rebuttal aimed at the undecided Indian dentist. Source needed: confirm
+    the 47.5% figure and its methodology from the primary paper (SRM Journal of Research
+    in Dental Sciences, Jan 2023, doaj.org/article/5d170aab47a040edb02ee0007a9c449f) and
+    verify whether a more recent Indian survey exists with a higher-quality sample before
+    anchoring the article on the 2023 figure.
+
+32. **Does a dental clinic in India need a GST registration even if dental treatment is
+    exempt?** Dentists who know that clinical dental services are exempt under SAC 9993 still
+    ask whether they must register for GST at all, and what invoice format to use for
+    patients (a tax invoice vs a bill of supply, the format an unregistered or exempt
+    supplier must issue). The answer depends on total annual turnover across all income
+    streams and whether the clinic sells any taxable goods (consumables, medicines,
+    whitening kits) separately. Multiple dental software blogs claim "dental is GST-free"
+    without addressing the registration threshold question or the bill-of-supply obligation,
+    which leaves clinic owners uncertain. Source needed: CBIC guidance or FAQ confirming the
+    registration threshold for service providers whose principal supply is exempt, and the
+    bill-of-supply requirement for exempt-service providers under CGST Rules Rule 49. Do not
+    publish until both the threshold rule and the invoice format requirement are confirmed
+    from a primary CBIC or gazette source.
+
+33. **How do I register a dental X-ray machine with AERB before opening my clinic?**
+    Every dental clinic operating an intraoral X-ray unit, OPG machine, or CBCT must
+    register the equipment with the Atomic Energy Regulatory Board before use. This is
+    mandatory under the Atomic Energy (Radiation Protection) Rules 2004 and is distinct
+    from NDC registration, state clinical establishment licensing, and GST compliance.
+    It surprises first-time clinic owners because it requires an application before the
+    equipment is switched on, not after. Multiple Quora answers on opening a dental clinic
+    in India mention "AERB clearance for radiation safety" as a prerequisite without
+    explaining the steps. No competitor has written a dental-specific guide covering the
+    specific form, the radiation safety officer requirement, the inspection process, and
+    the timeline. Source needed: aerb.gov.in registration forms and instructions for dental
+    diagnostic X-ray equipment under Radiation Protection Rules 2004, and any NDC or
+    predecessor DCI circular on radiation safety in dental practice. Do not publish until
+    the specific form number and online application portal are confirmed from aerb.gov.in
+    directly.
 
 **Rank-improvement candidates, not new posts**
 
