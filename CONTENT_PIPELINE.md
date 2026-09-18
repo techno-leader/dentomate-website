@@ -407,6 +407,21 @@ confirmed before it is written, not after.
     Business Platform template quality guidelines (developers.facebook.com), confirmed via
     DentinCloud 2026 guide and Denzif 2026 guide reviewed today.
 
+41. **What is a WhatsApp Business quality rating, and what happens to my dental clinic's recall
+    messages when it drops to Red?** Clinics that send recall campaigns are subject to Meta's
+    per-number quality rating system: Green (good), Yellow (degraded), Red (message sending
+    restricted). A rating falls when patients mark messages as spam or block the number. A Red
+    rating limits the number of new conversations a business can start per day, which directly
+    caps recall throughput. The article covers: what causes a rating drop, how long a
+    restriction lasts, what to do while restricted (respond to inbound conversations, do not
+    send outbound templates), and how to recover (improve template relevance, honour opt-outs,
+    pause sending). Relevant for every clinic that asks "why have my recall messages stopped
+    delivering?" No competitor has published a dental-specific explainer that ties the quality
+    rating mechanics to the actual recall workflow. Companion to queue items 4 and 37. Sources:
+    Meta WhatsApp Business Platform quality rating documentation
+    (developers.facebook.com/docs/whatsapp/overview/messages-and-conversations/), confirmed
+    present in the Meta developer docs as of September 2026.
+
 **Needs a source before it can be written**
 
 14. Average patient lifetime value for an Indian dental practice. Only publish if a
@@ -677,6 +692,36 @@ confirmed before it is written, not after.
     practitioner data sharing for healthcare; and, if Section 7 does not cover referrals
     explicitly, confirmation from a primary legal source that the treatment consent at
     registration is sufficient to cover onward referral sharing.
+
+40. **Does India's April 2026 UPI two-factor authentication requirement change how my dental
+    clinic collects patient payments at the front desk?** From 1 April 2026, all domestic
+    digital payments including UPI must use two authentication factors from different
+    categories (PIN, registered device, or biometric), with at least one dynamic factor per
+    transaction. The practical question for a dental clinic: does this change the patient
+    payment flow at the counter, does it affect UPI collect requests sent to patients, and
+    does the existing app-based UPI already satisfy the requirement without changes? Secondary
+    sources (Pine Labs, OxiGen) confirm the rule but do not describe the dental-clinic
+    workflow impact specifically. Source needed: primary RBI circular or NPCI operational
+    guideline text confirming the two-factor mandate, the effective date, and whether
+    collect-request UPI flows already comply. Do not publish until the specific RBI/NPCI
+    circular number is confirmed from npci.org.in or rbi.org.in. Companion to queue
+    items 16 and 36.
+
+42. **What happens to patient records if I close my dental clinic in India -- what do DPDP
+    and NDC require?** Dentists retiring, relocating, or closing a branch face a records
+    handover question with no published answer for Indian practice: what to do with clinical
+    files, how long to keep them, whether patients must be notified, and whether the data
+    must be erased. DPDP Rules 2025 Rule 8 covers erasure of personal data when the purpose
+    expires, but clinical records have a separate retention obligation (NDC successor to DCI
+    Code of Ethics; Consumer Protection Act 2019 limitation period of three years from cause
+    of action). The article should answer: the minimum retention period for clinical records,
+    what DPDP requires on erasure of marketing data versus clinical data, how to notify
+    patients of a closure, and what to do with paper registers. Distinct from queue item 2
+    (ongoing retention for a running clinic) because closure involves a definite end-date
+    and a transfer-or-destroy decision. No competitor has a dental-specific closure-records
+    guide. Source needed: DPDP Rules 2025 Rule 8 text from the gazette (pib.gov.in) and the
+    NDC or predecessor DCI retention period for clinical dental records confirmed from a
+    primary NDC or MoH document, not from secondary legal summaries.
 
 **Rank-improvement candidates, not new posts**
 
