@@ -394,6 +394,19 @@ confirmed before it is written, not after.
     today, September 2026), cghshospitals.com/dental-clinics (34% NABH rate among 414
     CGHS-empanelled dental clinics, confirmed today).
 
+37. **WhatsApp message template rejected by Meta: what to do if your dental clinic recall
+    template is declined.** Dentists who have completed WABA registration and business
+    verification hit a second wall: Meta rejects templates that read as promotional even
+    when the intent is purely clinical. Common reasons for rejection include phrases that
+    imply urgency ("act now", "limited time"), comparisons to competitors, and vague
+    placeholders that Meta cannot evaluate during review. The article covers: the four
+    rejection categories Meta uses, how to rewrite a recall template that will pass without
+    losing its specificity, what to do when a rejection reason is marked "other", and how
+    long re-review takes (24-48 hours in India as of 2026). Companion to queue item 4
+    (registration guide) and the first-recall-campaign article. Sources: Meta WhatsApp
+    Business Platform template quality guidelines (developers.facebook.com), confirmed via
+    DentinCloud 2026 guide and Denzif 2026 guide reviewed today.
+
 **Needs a source before it can be written**
 
 14. Average patient lifetime value for an Indian dental practice. Only publish if a
@@ -632,6 +645,38 @@ confirmed before it is written, not after.
     process for UPI verified merchant status. Do not publish until the specific MCC and
     application pathway are confirmed from npci.org.in directly. Companion to queue
     item 16.
+
+38. **How do I apply for CGHS empanelment as a dental clinic, and what documents do I need?**
+    Dentists outside CGHS-empanelled networks are asking how to join after the June 2026
+    fresh empanelment round added 140 dental centres in Delhi NCR. The question splits into
+    two: (a) basic empanelment eligibility and application process for any dental clinic,
+    and (b) the additional NABH uplift that raises reimbursement by 15%. The article should
+    answer: what minimum criteria a dental clinic must meet, which CGHS office processes
+    the application, what documents are required, and how the empanelment validity (three
+    years from date of issue, per the June 2026 OM) and renewal work. Companion to queue
+    items 7, 29, and 31. Source needed: official CGHS empanelment application form and
+    eligibility criteria for dental centres from cghs.gov.in or the specific CGHS O.M.
+    (June 2026, Delhi NCR). The staffnews.in June 2026 report confirms the empanelment
+    happened but does not contain the application process. Do not publish without the
+    primary CGHS source confirming eligibility criteria and document list.
+
+39. **Can I share a patient's dental records with a specialist for a referral without
+    getting fresh consent under DPDP?** Indian dentists regularly refer patients to
+    periodontists, oral surgeons, and general physicians and pass clinical records along
+    with the referral. Under DPDP, sharing personal data with a third party requires either
+    consent or a valid legitimate-use ground. Healthcare treatment is often cited as a
+    legitimate-use basis, but the DPDP Act's Section 7 list of legitimate uses does not
+    explicitly name treatment referrals in the same way, and no NDC or MoH guidance has
+    been issued to clarify the position for dental referrals specifically. Clinic owners
+    want a straight answer: do they need a separate consent checkbox for specialist
+    referral data, or is the original treatment consent sufficient? No competitor has
+    published a dental-specific answer that cites the Act text rather than a generic "you
+    need consent" summary. Companion to the dpdp-checklist article (item 2 on separating
+    consent types). Source needed: DPDP Act Section 7 text confirming whether treatment
+    referrals fall within a legitimate-use ground; any MoH or NDC circular on inter-
+    practitioner data sharing for healthcare; and, if Section 7 does not cover referrals
+    explicitly, confirmation from a primary legal source that the treatment consent at
+    registration is sufficient to cover onward referral sharing.
 
 **Rank-improvement candidates, not new posts**
 
