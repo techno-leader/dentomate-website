@@ -723,6 +723,59 @@ confirmed before it is written, not after.
     NDC or predecessor DCI retention period for clinical dental records confirmed from a
     primary NDC or MoH document, not from secondary legal summaries.
 
+43. **Does Ayushman Bharat cover dental treatment at a private clinic, and what does the
+    exclusion list mean for my patients?** Dentists asking whether PMJAY-card patients
+    can receive treatment at their clinic and whether to seek empanelment. PMJAY excludes
+    most routine dental procedures: fillings, root canals, extractions, periodontal
+    treatment, implants, prosthetics, and cosmetic work. Coverage exists only for dental
+    procedures requiring hospitalisation because of trauma or tumour -- a narrow exception
+    that most general practices will never trigger. Multiple community Q&A sites
+    (HexaHealth, Quora) carry this question with wrong or partial answers; no competitor
+    has written a dental-specific explainer aimed at private clinic owners. The article
+    should explain the exclusion clearly, describe the narrow inpatient exception, and
+    compare what CGHS and ECHS (separate government employee schemes) cover compared to
+    PMJAY. Companion to queue items 29 and 38 (CGHS empanelment). Source needed: primary
+    PMJAY Health Benefit Package list from nhpm.gov.in or the scheme's official benefit
+    document, with the specific package codes that cover and those that exclude dental
+    procedures. Do not publish until the specific package code list is confirmed from the
+    PMJAY primary source. Secondary sources (angelone.in exclusion list, hexahealth.com
+    Q&A) confirm the exclusion pattern but do not provide official package code numbers.
+
+44. **What GST rate applies when a dental clinic supplies dental instruments or prosthetics
+    as goods rather than as services?** Dentists who sell whitening kits, mouth guards, or
+    whose labs supply crowns and bridges separately are asking whether these attract GST
+    even when the clinical service is exempt under SAC 9993. The September 2025 GST
+    Council meeting (effective 22 September 2025) reduced dental instruments and equipment
+    under HSN 9018 from 12% to 5% GST. Dental prosthetics, implants and artificial teeth
+    under HSN 9021 continue at 5% when supplied as goods. The clinical service exemption
+    under SAC 9993 does not extend to goods supplied separately. No competitor has written
+    a dental-specific explainer that distinguishes goods supply (HSN rate) from service
+    supply (SAC exemption) after the September 2025 rate change. Companion to queue items
+    1 and 18 (GST on dental services; implant hardware GST). Source needed: specific CBIC
+    notification number and gazette text for the 22 September 2025 HSN 9018 rate
+    reduction; and confirmation that HSN 9021 remains at 5% and was not changed in the
+    same notification. The newsonair.gov.in report of 9 September 2025 confirms rate cuts
+    effective 22 September 2025 but does not list HSN codes. Do not publish until the
+    CBIC notification number is confirmed from cbic.gov.in.
+
+45. **How do I accept UPI payments from patients at my dental clinic, and what is the
+    difference between a QR code, a payment link, and a collect request?** Dentists
+    moving away from cash receipts ask which UPI mechanism suits a clinic front desk:
+    static QR on the counter, a per-bill payment link sent to the patient's phone, or a
+    UPI collect request pushed from clinic software. The three differ in how the patient
+    pays, how the receipt appears in the bank statement, and whether they work without a
+    payment gateway integration. Pine Labs and Razorpay 2026 guides confirm healthcare
+    merchants can accept up to Rs.5 lakh per transaction and Rs.10 lakh per day, but do
+    not explain the clinic workflow. The article should walk through each method, explain
+    which requires a payment gateway (collect requests), which works with a bank-provided
+    merchant QR alone, and what MDR applies to each. Companion to queue items 16, 36, and
+    40. Source needed: NPCI merchant category code classification confirming dental clinics
+    fall within the healthcare Rs.5 lakh per-transaction category, and the verification
+    process for that limit. Do not publish limit claims until the dental MCC is confirmed
+    from npci.org.in or a primary NPCI circular. Secondary sources (pinelabs.com,
+    razorpay.com blog September 2026) confirm the healthcare category but do not name the
+    MCC for dental clinics specifically.
+
 **Rank-improvement candidates, not new posts**
 
 8. Whatever Search Console shows at positions 8-30 once it is connected. Improving an
