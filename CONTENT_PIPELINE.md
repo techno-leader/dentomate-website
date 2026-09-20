@@ -422,6 +422,26 @@ confirmed before it is written, not after.
     (developers.facebook.com/docs/whatsapp/overview/messages-and-conversations/), confirmed
     present in the Meta developer docs as of September 2026.
 
+46. **Do dental clinics pay the new 0.4 percent UPI MDR from 15 October 2026, or does the
+    small-merchant exemption cover them?** From 15 October 2026, NPCI charges a 0.4% Merchant
+    Discount Rate on person-to-merchant UPI transactions above INR 2,000, capped at INR 300
+    per transaction for amounts at or above INR 75,000. Dentists using static QR codes, UPI
+    payment links, and collect requests are asking whether this cost falls on them. The
+    small-merchant exemption is the decisive fact: any business whose total UPI QR-code receipts
+    are below INR 1 lakh per month pays no MDR at all. Most solo dental clinics are likely under
+    that threshold. For clinics above it, the article should show the practical arithmetic: INR 20
+    on a INR 5,000 filling visit; INR 300 cap on a INR 80,000 full-mouth rehabilitation. Healthcare
+    is not carved out as an exempted sector -- the concessional categories are railways, fuel,
+    agriculture, utilities, telecom, insurance, credit-card dues and tax payments, which each pay
+    a flat INR 5 above the threshold rather than 0.4%. Dental clinics do not qualify for that
+    carveout. The charge falls on the merchant; merchants cannot pass it to patients. Companion to
+    queue items 36, 40, and 45 (which remain blocked on the dental MCC confirmation for the
+    INR 5 lakh per-transaction limit; this article covers the MDR question, which is now
+    answerable). Sources: NPCI MDR FAQ published 16 September 2026
+    (scconline.com/blog/post/2026/09/16/npci-released-upi-mdr-faqs-explained/),
+    vajiramandravi.com/current-affairs/upi-mdr-2026/, indianewsnetwork.com 16 September 2026
+    report confirming effective date and small-merchant bracket.
+
 **Needs a source before it can be written**
 
 14. Average patient lifetime value for an Indian dental practice. Only publish if a
@@ -775,6 +795,25 @@ confirmed before it is written, not after.
     from npci.org.in or a primary NPCI circular. Secondary sources (pinelabs.com,
     razorpay.com blog September 2026) confirm the healthcare category but do not name the
     MCC for dental clinics specifically.
+
+47. **What changes when a solo dental clinic adds a second dentist: NDC registration, DPDP
+    multi-login obligations, and GST entity structure?** India's dental practice landscape is
+    shifting from solo to multi-dentist practices, a trend confirmed in the India Dental Devices
+    Market 2026 report (Mordor Intelligence: USD 318.65M market, 6.64% CAGR, group practice
+    momentum noted in industry coverage September 2026). When a clinic owner adds a second
+    dentist, three compliance questions arise that no competitor has addressed together: (a) does
+    the NDC Ethics and Dental Registration Board require any change to the clinic's registration
+    when a second clinician joins; (b) does DPDP's access-control obligation (individual logins,
+    role-based permissions per DPDP Rules 2025) become more pressing with multiple clinicians
+    sharing patient records; and (c) does adding a partner change the GST entity from sole
+    proprietorship to partnership, requiring a fresh GSTIN application. This is the compliance
+    lifecycle question at the moment a growing clinic looks for new software -- the Dentomate
+    multi-clinic Pro feature is directly relevant. No competitor has published an India-specific
+    guide addressing all three at once. Source needed: NDC Ethics and Dental Registration Board
+    guidance on multi-practitioner clinic registration from dciindia.gov.in or an NDC circular;
+    DPDP Act on access controls for healthcare data fiduciaries with multiple authorised users
+    (Act Section 8 and Rules 2025); and CBIC or MCA guidance on the GST/PAN implications of
+    converting a sole-proprietorship dental clinic to a partnership or LLP.
 
 **Rank-improvement candidates, not new posts**
 
