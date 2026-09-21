@@ -815,6 +815,75 @@ confirmed before it is written, not after.
     (Act Section 8 and Rules 2025); and CBIC or MCA guidance on the GST/PAN implications of
     converting a sole-proprietorship dental clinic to a partnership or LLP.
 
+48. **Why does my WhatsApp appointment confirmation cost 7x less than my recall message,
+    and how do I make sure Meta classifies my templates correctly?** Dentists using the
+    WhatsApp Business Platform are surprised to find that the same billing event --
+    reaching one patient -- costs ₹0.1150 for an appointment confirmation and ₹0.8631
+    for a "we miss you" recall message. The difference is Meta's template category: Utility
+    (transactional messages about an existing interaction) versus Marketing (any message
+    that promotes, reminds, or re-engages without a pending transaction). A recall message
+    to a patient who has not visited in six months is Marketing by definition; an appointment
+    confirmation sent after the patient books is Utility. The category is set at template
+    submission and cannot be changed after approval -- submitting a recall template as
+    Utility will result in rejection, not a discount. The article answers: the three category
+    definitions, which common dental clinic messages map to which category, what language
+    triggers a Marketing classification even in a Utility submission, and what to do when
+    Meta's category decision seems wrong. Companion to queue items 4 (WABA registration),
+    37 (template rejection recovery), and the live whatsapp-cost-india article. Sources:
+    Meta WhatsApp Business Platform template category guidelines
+    (developers.facebook.com/documentation/whatsapp/message-templates/), confirmed current
+    via Blueticks 2026 guide (blueticks.co/blog/whatsapp-business-api-pricing-2026) and
+    Engagelab 2026 guide (engagelab.com/blog/whatsapp-business-api-pricing). SmartDentalDesk
+    published a WhatsApp marketing guide for dental clinics in 2026 that does not explain
+    the category system; this article fills that gap with the cost arithmetic that makes the
+    distinction matter.
+
+49. **Is a dental clinic liable under DPDP if a receptionist shares a patient record on
+    their personal WhatsApp?** The DPDP checklist article (item 3 in the list) names
+    patient conversations on personal phones as one of the three most common compliance
+    failures. Dentists reading it are asking the follow-up: does a staff member's
+    individual act create liability for the clinic, and what safeguards does the clinic
+    need to document so it is not held responsible for an employee going outside their
+    authorised role? DPDP Act Section 8 requires a data fiduciary to implement reasonable
+    security safeguards and to ensure that authorised persons process personal data only
+    on lawful instructions. The article should explain: what Section 8 requires in
+    practical terms for a dental clinic, whether a staff member using a personal phone
+    constitutes an authorised person acting outside lawful instructions, what safeguards
+    (acceptable-use policy, clinic-issued devices, access revocation on departure) reduce
+    the clinic's exposure, and what the Data Protection Board could impose in a worst-case
+    complaint. No competitor has written a dental-specific liability guide for this
+    scenario. Source needed: DPDP Act Section 8 text from the gazette (pib.gov.in) and
+    DPDP Rules 2025 Rule 6 on security safeguards, with the specific obligations confirmed
+    from the primary gazette text rather than a secondary summary; and any MeitY guidance
+    or early DPB direction on what "reasonable security safeguards" means for small data
+    fiduciaries. Do not publish until the Act/Rules language is confirmed from primary
+    sources and a qualified reading of whether personal-phone use by authorised staff
+    triggers clinic liability is sourced from a primary legal reference.
+
+50. **What does AI dental diagnosis software actually do, and does a small Indian clinic
+    need it in 2026?** The IDA Delhi State Conference (September 2026) included AI
+    diagnostics as a featured topic. Indian startup scanO AI is receiving press coverage
+    for contactless AI dental screening. Dental software vendors including Cliniify market
+    "AI Copilot" features. Dentists are asking: what is AI dental diagnosis, how does it
+    differ from the "AI suggestions" built into practice management software, is there
+    clinical evidence that it improves outcomes or reduces missed diagnoses, and what does
+    it actually cost for a solo clinic? The article should explain the two distinct product
+    categories -- AI diagnostic screening tools (hardware and imaging AI, separate from
+    practice software) versus AI-assisted clinical note and treatment suggestion features
+    built into software -- explain the difference between CE-marked/CDSCO-cleared medical
+    devices and unregulated software features, and give dentists a framework for evaluating
+    vendor claims. No competitor has published a clinical-evidence-based explainer for an
+    Indian general dentist audience. Source needed: a peer-reviewed Indian clinical study
+    or validation paper comparing AI dental screening accuracy to a trained radiographer
+    (IDA, JIDA, or indexed Indian dental journal); CDSCO clearance status or CE marking
+    for at least one AI dental diagnostic tool offered in India; and confirmation that no
+    NDC circular on AI diagnostics has been issued as of the publish date. Do not publish
+    until a validated primary clinical source is confirmed -- the claim that AI can support
+    or replace a diagnostic step requires an evidence source, not a vendor data sheet.
+    Companion to queue item 8 (NDC regulatory context) and the digital-records topic (item
+    30). Sources to check: PubMed/PMC for Indian AI dental diagnosis studies, CDSCO.gov.in
+    medical device registration database, NDC gazette notifications.
+
 **Rank-improvement candidates, not new posts**
 
 8. Whatever Search Console shows at positions 8-30 once it is connected. Improving an
