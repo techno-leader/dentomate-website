@@ -442,6 +442,40 @@ confirmed before it is written, not after.
     vajiramandravi.com/current-affairs/upi-mdr-2026/, indianewsnetwork.com 16 September 2026
     report confirming effective date and small-merchant bracket.
 
+51. **Can a dental clinic call patients over WhatsApp using the Business API, and what does
+    it cost?** WhatsApp launched voice calling for Business Platform (API) users and it is
+    now available in India. Dentists who already use WhatsApp for recall messages are asking
+    whether they can replace their standard phone line with WhatsApp calls for appointment
+    confirmations, follow-up consultations, and post-treatment check-ins, and whether the
+    same 24-hour window and per-message billing rules apply to calls. The article should
+    explain: what WhatsApp Business Calling is (voice calls initiated from the API), how it
+    differs from free WhatsApp calls on the personal app, how calls are billed (per-minute
+    vs per-message), whether the same template and opt-in rules apply, and what a small
+    Indian dental clinic actually needs to set it up. No competitor has published a
+    dental-specific explainer. The practitioner question "Can I call my patients on
+    WhatsApp?" appeared in multiple Q&A searches as of September 2026 with no clean answer.
+    Companion to the whatsapp-cost-india article and queue items 4 and 37. Sources: WATI
+    blog post on WhatsApp Business Calling Pricing confirmed September 2026
+    (wati.io/en/blog/whatsapp-business-calling-pricing/); Meta WhatsApp Business Platform
+    calling documentation (developers.facebook.com).
+
+52. **NExT-Dental mandatory exit test: can my dental clinic hire a fresh BDS graduate before
+    they pass the exam?** The National Dental Commission now requires all BDS graduates to
+    pass the National Exit Test for Dental (NExT-Dental) before they may practice
+    independently or enrol in a postgraduate programme. Dental clinic owners planning to
+    hire a fresh graduate or take on an associate are asking: can the new dentist start
+    seeing patients before the exam result, or must they wait? The article should explain
+    the NExT-Dental requirement, the transition provision in the NDC Act that covers
+    graduates who completed their BDS before the exam was in force, what the Ethics and
+    Dental Registration Board now requires for registration, and what a clinic owner should
+    check before a new hire starts. Distinct from queue item 34 (provisional registration
+    certificate removal, which concerns interns) and queue item 10 (existing registrations
+    continuing under the NDC). No competitor has written this for the clinic-owner audience.
+    Sources: Dental Tribune India "Indian dental revamp to bring mandatory graduate test"
+    (dental-tribune.com/news/indian-dental-revamp-to-bring-mandatory-graduate-test/),
+    PIB press release PRID=2242888 (pib.gov.in/PressReleasePage.aspx?PRID=2242888),
+    NDC Act 2023 and NDC gazette notification March 19, 2026.
+
 **Needs a source before it can be written**
 
 14. Average patient lifetime value for an Indian dental practice. Only publish if a
@@ -883,6 +917,31 @@ confirmed before it is written, not after.
     Companion to queue item 8 (NDC regulatory context) and the digital-records topic (item
     30). Sources to check: PubMed/PMC for Indian AI dental diagnosis studies, CDSCO.gov.in
     medical device registration database, NDC gazette notifications.
+
+53. **What licenses, registrations, and permits does a dentist need before opening a new
+    dental clinic in India in 2026?** This is the single most-searched pre-opening question
+    on Quora and NirogStreet ("what are the various permissions needed to open a dental
+    clinic in India"), and every existing answer is either incomplete or pre-NDC. The 2026
+    answer is different from the 2025 answer because the Dental Council of India is
+    dissolved and the National Dental Commission's Ethics and Dental Registration Board now
+    handles practitioner registration. The article should be a structured checklist covering:
+    (1) NDC/EDRB practitioner registration, (2) state Clinical Establishments Act
+    registration (where the state has adopted the CEA 2010), (3) AERB radiation equipment
+    registration before the first X-ray unit is switched on, (4) bio-medical waste
+    management authorisation under BMW Rules 2016, (5) GST registration threshold question
+    (is treatment income exempt enough to stay below threshold), (6) DPDP-ready consent
+    notice and access-log process from day one, and (7) NPCI UPI merchant registration if
+    accepting payments via QR or payment link. Individual items in each category are already
+    in the queue as standalone articles (items 19, 33, 32, 45), but no competitor has
+    published a single-page opening checklist that covers all seven in the context of the
+    2026 regulatory environment. Sources needed: (a) NDC EDRB registration process and
+    portal from dciindia.gov.in or an NDC circular, (b) state-level CEA adoption list from
+    MoHFW for at least the five largest states (confirmed from mohfw.gov.in), (c) AERB
+    dental X-ray registration form and steps from aerb.gov.in, (d) BMW authorisation process
+    from CPCB or state pollution board. Do not publish until (a) and (c) are confirmed from
+    primary government sources; (b) is confirmed for at least Maharashtra, Karnataka, Delhi,
+    Rajasthan, and UP; and the checklist has been reviewed for accuracy by at least one
+    Indian health-law secondary source.
 
 **Rank-improvement candidates, not new posts**
 
