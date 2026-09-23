@@ -943,6 +943,59 @@ confirmed before it is written, not after.
     Rajasthan, and UP; and the checklist has been reviewed for accuracy by at least one
     Indian health-law secondary source.
 
+54. **What bio-medical waste rules apply to a dental clinic in India, and what must I do before
+    opening?** Dental clinics generate clinical waste covered by the Bio-Medical Waste Management
+    Rules 2016 (Ministry of Environment, Forest and Climate Change): used gloves, extracted teeth,
+    sharps (needles, scalpel blades), and soiled dressings each fall into specific colour-coded
+    categories that must be segregated, stored, and handed to an authorised collection agency. An
+    authorisation from the state Pollution Control Board (SPCB or PCCB) is required before a clinic
+    can generate BMW. Dentists opening a new clinic consistently ask this question on Quora and
+    healthcare startup forums alongside the AERB radiation registration question, and no dental-
+    specific explainer covers the specific bag colours, categories, and authorisation steps for a
+    dental clinic. Queue item 53 (opening checklist) lists BMW authorisation as one of seven
+    checklist items but does not explain the mechanics. Source needed: BMW Management Rules 2016
+    Schedule I (category and colour-coding table) from the Ministry of Environment gazette
+    (egazette.gov.in or cpcb.nic.in), the specific SPCB online application process for a small
+    dental clinic, and the penalty provisions for operating without authorisation. Do not publish
+    until the category table and at least one state SPCB application pathway are confirmed from
+    primary sources.
+
+55. **Has NABH changed its dental clinic accreditation requirements in 2026, and does my earlier
+    certification still hold?** Dentists who hold NABH accreditation under a previous edition or
+    who are applying for the first time are asking whether the 5th edition standards introduced new
+    requirements and, if so, whether existing accreditation must be updated. Confirmed today
+    (adrine.in, NABH Accreditation for Dental Clinics India 2026; ichelonconsulting.com, ABDM 2026
+    rollout): NABH's 5th edition standards now require Health Facility Registry (HFR) registration
+    under the Ayushman Bharat Digital Mission as part of the accreditation process. This is a new
+    requirement that was not present in earlier editions. Dentists who are NABH-certified under a
+    prior edition need to know whether this triggers a re-audit or whether it is satisfied at the
+    next renewal cycle. The article should explain: what changed in the 5th edition that is
+    specifically relevant to a dental clinic, what HFR registration involves and how to do it, and
+    whether CGHS and ECHS empanelment still recognises certifications granted under earlier
+    editions while renewal is pending. Companion to queue items 7, 12, and 31. Source needed:
+    primary NABH 5th edition dental healthcare standards document from nabh.co confirming the HFR
+    requirement and the edition transition timeline; and a MoHFW or NABH circular on whether
+    existing certifications under prior editions remain valid during the transition. Do not publish
+    until the primary NABH standards document is confirmed.
+
+56. **How do I move my dental clinic's patient records from paper registers to software without
+    losing data or violating DPDP?** Dentists evaluating practice management software are blocked
+    not by the decision to switch but by the first practical step: how to get years of paper
+    records into the new system. The question splits into two parts that practitioners ask
+    separately but need answered together: (a) what is the safe way to digitise records (scan,
+    manual entry, or both), and (b) does re-entering patient data into a new system require fresh
+    patient consent under DPDP, or is the original treatment consent sufficient? The DPDP data-
+    minimisation obligation (retain only what the purpose requires) also means migration is an
+    opportunity to stop carrying stale data, but only if the clinic knows how to identify and
+    dispose of it correctly. No competitor has published a DPDP-aware data migration guide for
+    dental clinics. Queue item 30 covers why dentists fear switching; this article covers what to
+    do once the decision is made. Source needed: DPDP Act Section 6 on consent for processing
+    already-held data (whether historical records fall under legacy processing or require fresh
+    consent), DPDP Rules 2025 on data minimisation obligations, and practical guidance from any
+    MeitY or industry body on migrating legacy healthcare records under the DPDP framework. Do not
+    publish until the consent-for-historical-data question is confirmed from the Act text or an
+    authoritative legal reading, as the answer changes the migration workflow for every clinic.
+
 **Rank-improvement candidates, not new posts**
 
 8. Whatever Search Console shows at positions 8-30 once it is connected. Improving an
