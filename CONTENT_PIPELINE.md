@@ -476,6 +476,26 @@ confirmed before it is written, not after.
     PIB press release PRID=2242888 (pib.gov.in/PressReleasePage.aspx?PRID=2242888),
     NDC Act 2023 and NDC gazette notification March 19, 2026.
 
+57. **Two billing rule changes hit Indian dental clinics in October 2026: what the WhatsApp
+    and UPI changes actually cost a small practice.** WhatsApp stops giving free service
+    replies on 1 October 2026 (₹0.115/message after 1,000 free per number per month); NPCI
+    starts charging a 0.4% UPI MDR on P2M transactions above ₹2,000 from 15 October 2026
+    (capped at ₹300, small merchants receiving under ₹1 lakh/month via UPI QR are fully
+    exempt). Both changes are generating dentist anxiety from notices they cannot interpret.
+    A 25-patient-per-day general practice sends roughly 500-750 WhatsApp service messages per
+    month -- safely within the 1,000 free tier -- and most chair-side UPI transactions (scaling,
+    fillings, cleanings) are below ₹2,000 per payment. The article does the arithmetic for
+    a typical Indian general practice and answers the question dentists are actually asking:
+    will I owe more money in October? For most solo clinics: no on both. For clinics above
+    the thresholds, the article shows the actual rupee amounts. Ship before 1 October 2026.
+    Companion to the live whatsapp-october-2026 article and queue item 46. Sources: Meta
+    WhatsApp Business Platform pricing documentation (developers.facebook.com, October 2026
+    rate card, service message ₹0.115 after 1,000 free -- confirmed today via WATI, SendPulse,
+    and Mark360 September 2026 guides); NPCI MDR FAQ published 16 September 2026
+    (scconline.com/blog/post/2026/09/16/npci-released-upi-mdr-faqs-explained/, small merchant
+    exemption under ₹1 lakh/month confirmed; drishtiias.com coverage of same FAQ). Both sources
+    confirmed primary or credible secondary today, 24 September 2026.
+
 **Needs a source before it can be written**
 
 14. Average patient lifetime value for an Indian dental practice. Only publish if a
@@ -995,6 +1015,52 @@ confirmed before it is written, not after.
     MeitY or industry body on migrating legacy healthcare records under the DPDP framework. Do not
     publish until the consent-for-historical-data question is confirmed from the Act text or an
     authoritative legal reading, as the answer changes the migration workflow for every clinic.
+
+58. **Can my receptionist use the free WhatsApp app to voice-call patients, and does DPDP
+    treat phone calls the same as text messages?** Most Indian dental clinics make free
+    WhatsApp voice calls from a receptionist's personal phone for appointment reminders and
+    follow-ups, treating it as zero-cost and DPDP-separate from the API messaging that the
+    dpdp-checklist article flags. The checklist article (item 3) explicitly names patient
+    conversations on personal phones as a top compliance failure, but focuses on messaging.
+    Voice calls create an audio record in the recipient's call log and involve personal data
+    (the number dialled, the call duration, the verbal content). The question dentists are now
+    asking: does calling a patient on personal WhatsApp create the same DPDP exposure as
+    texting them, and can a verbal agreement during a call count as a valid consent record for
+    a recall campaign? Queue item 51 covers WhatsApp Business Calling via the API (commercial
+    feature); this article covers the free personal-app calling scenario used by the majority
+    of small clinics. No competitor has published a dental-specific answer. Found in multiple
+    practitioner Q&A searches September 2026 with no clean existing answer. Source needed:
+    DPDP Act Section 2 definition of "personal data" as applied to call logs and audio
+    communications; DPDP Rules 2025 Rule 6 on security safeguards confirming whether voice
+    calls via personal messaging apps require the same safeguards as text; any MeitY guidance
+    or Data Protection Board direction distinguishing audio from text for data-fiduciary
+    purposes; and a legal reading confirming whether verbal consent during a call is
+    recordable as consent evidence under the DPDP framework.
+
+59. **What dental insurance plans in India actually cover private clinic visits, and is
+    it worth a solo dentist empanelling with any insurer?** A 2025 Frontiers in Dental
+    Medicine paper on India's oral health outlook reports that fewer than 5% of Indians
+    have any form of dental insurance coverage -- one of the lowest rates among large
+    economies. Dentists are asked daily by patients whether their health insurance covers
+    the treatment, and the correct answer ("almost certainly not, for a private clinic")
+    is rarely documented clearly. Corporate group health policies increasingly include
+    preventive dental riders; Star Health and Care Insurance both offer individual dental
+    plans in India. The article should answer: which specific insurer products cover private
+    dental clinic visits (not just hospital dental departments), what empanelment with those
+    insurers involves for a solo practice, what the reimbursement rates look like for common
+    procedures, and whether the administrative overhead of cashless claims is justified by
+    the patient volumes a typical solo clinic would see. Distinct from queue item 15
+    (insurance and cashless claims generally) because this article focuses specifically on
+    private insurers covering private clinic visits -- the practical question at the reception
+    desk -- rather than the broader regulatory framework. Distinct from queue items 29, 38,
+    and 43 (CGHS/ECHS/PMJAY, all government schemes). Source needed: Star Health dental
+    plan policy document confirming coverage for empanelled private dental clinics; at least
+    one other individual dental plan from an IRDAI-registered insurer; the Frontiers in
+    Dental Medicine 2025 paper confirmed on PubMed (search "India oral health outlook
+    Frontiers") for the <5% penetration figure and its methodology; and IRDAI circular or
+    insurer empanelment guide confirming the application process for private dental clinics.
+    Do not publish until at least two insurer policy documents and the primary epidemiological
+    source are confirmed from primary or peer-reviewed sources.
 
 **Rank-improvement candidates, not new posts**
 
