@@ -289,21 +289,18 @@ Serve the site with the `Dentomate Website (static)` preview config on port 8099
 Ordered by what a clinic owner is most likely to search for. Each needs its sources
 confirmed before it is written, not after.
 
+**Published** (removed from write queue; kept here for reference)
+
+- GST on dental services in India (published 2026-09-08, /resources/gst-on-dental-services-india/)
+- What a dental clinic legally has to keep (published, /resources/dental-records-india/)
+- The real cost of a no-show (published, /resources/no-show-dental-clinic/)
+- Registering for the WhatsApp Business API (published 2026-09-24, /resources/whatsapp-api-registration-india/)
+- WhatsApp patient replies will cost money from October 2026 (published, /resources/whatsapp-october-2026/)
+- Is NABH accreditation worth it (published, /resources/nabh-dental-accreditation-india/)
+- The Dental Council of India is gone (published 2026-09-24, /resources/national-dental-commission-india/)
+
 **Ready to write**
 
-1. **GST on dental services in India: what is exempt and what is not.** Healthcare by a
-   clinical establishment is exempt; cosmetic procedures are not, and the line between them
-   is where clinics get it wrong. Sources: Notification 12/2017-Central Tax (Rate),
-   SAC 9993. Ties directly to the GST invoicing feature.
-2. **What a dental clinic legally has to keep, and for how long.** Record retention under
-   National Dental Commission (NDC) guidance and the Consumer Protection Act limitation
-   period. Sources: NDC Act 2026 (DCI dissolved 19 March 2026), CPA 2019. NOTE: the
-   original source listed here was "DCI Code of Ethics Regulations" -- DCI is dissolved;
-   reconfirm which NDC body (Ethics and Dental Registration Board) now owns this.
-3. **The real cost of a no-show, and the three messages that reduce it.** We can be
-   concrete about timing because the reminder window is in our own code.
-4. **Registering for the WhatsApp Business API in India, step by step.** The Meta
-   onboarding flow, business verification, and what a display-name rejection means.
 5. **Dental clinic pricing in India: how to present a treatment plan patients accept.**
    Consent, itemisation, and staged treatment.
 6. **WhatsApp patient replies will cost money from October 2026: what Indian clinics need
