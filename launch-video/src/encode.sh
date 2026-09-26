@@ -6,7 +6,7 @@ OUT="${1:-$D/out}"
 mkdir -p "$OUT"
 FPS=60
 AUD="$D/soundtrack.wav"
-AF="loudnorm=I=-14:TP=-1.5:LRA=11:measured_I=-12.53:measured_TP=-0.57:measured_LRA=5.10:measured_thresh=-22.87:offset=-1.07:linear=true"
+AF="loudnorm=I=-14:TP=-2.0:LRA=11:measured_I=-13.21:measured_TP=-0.67:measured_LRA=6.80:measured_thresh=-23.59:offset=-0.99:linear=true,alimiter=limit=0.79:attack=5:release=60:level=disabled"
 
 echo "==> 1/3  master 1920x1080"
 ffmpeg -y -hide_banner -loglevel error -stats \
@@ -41,7 +41,7 @@ ffmpeg -y -hide_banner -loglevel error -stats \
   "$OUT/dentomate-launch-vertical.mp4"
 
 echo "==> poster frame"
-ffmpeg -y -hide_banner -loglevel error -i "$D/frames/f_001110.png" \
+ffmpeg -y -hide_banner -loglevel error -i "$D/frames/f_000870.png" \
   -vf scale=1920:1080 -q:v 2 "$OUT/dentomate-launch-poster.jpg"
 
 echo

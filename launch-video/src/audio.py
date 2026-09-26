@@ -4,7 +4,7 @@
 import numpy as np, wave, struct, math
 
 SR   = 48000
-DUR  = 72.8
+DUR  = 61.4
 BPM  = 124.0
 BEAT = 60.0 / BPM
 BAR  = BEAT * 4
@@ -60,18 +60,26 @@ def chord_at(t):
     return CHORDS[int(t / BAR) % 4]
 
 # ---------- arrangement intensity ----------
-# scene cuts drive how full the arrangement is
-CUTS = [4.35, 9.55, 14.95, 22.95, 31.45, 38.55, 46.55, 52.65, 60.15, 66.65]
+# Follows the arrangement table in SOUND-DESIGN.md. Cuts are where the picture
+# changes; the accents land on them, the music arcs across them.
+CUTS      = [5.5, 10.5, 17.5, 24.6, 31.0, 38.0, 43.5, 49.0, 55.1]
+KICK_IN   = 17.5      # the film gains a heartbeat at the second product scene
+KICK_OUT  = 49.0      # pulled out under pricing — the absence is the accent
+KICK_BACK = 55.1      # one bar on the end card
+HAT_IN    = 24.6
+ARP_IN    = 10.5
 def ramp(t, a, b):
     return float(np.clip((t - a) / (b - a), 0, 1))
 def intensity(t):
     """0..1 arrangement fullness"""
-    if t < 9.55:   return 0.22 + 0.10 * ramp(t, 0, 9.55)      # cold open: sparse
-    if t < 14.95:  return 0.48 + 0.20 * ramp(t, 9.55, 12.5)   # logo reveal
-    if t < 46.55:  return 0.78                                # product act
-    if t < 60.15:  return 0.90                                # proof
-    if t < 66.65:  return 1.00                                # pricing peak
-    return 0.72 - 0.42 * ramp(t, 69.5, 72.8)                  # end card, settle
+    if t < 5.5:   return 0.12                                # cold open: near silence
+    if t < 10.5:  return 0.34 + 0.10 * ramp(t, 5.5, 9.0)     # logo: pad only
+    if t < 17.5:  return 0.60                                # pulse in
+    if t < 31.0:  return 0.80                                # kick in
+    if t < 43.5:  return 0.88
+    if t < 49.0:  return 0.95                                # widest
+    if t < 55.1:  return 0.66                                # pricing dip
+    return 0.80 - 0.60 * ramp(t, 59.2, 61.4)                 # end card, decay
 
 INT = np.array([intensity(x) for x in T])
 
@@ -81,12 +89,17 @@ b = 0.0
 while b < DUR:
     bar_i = int(b / BAR)
     beat_in = int(round((b % BAR) / BEAT)) % 4
-    if b >= 14.95 - 0.001:                       # drums enter at the product act
-        if beat_in in (0, 2): kick_times.append(b)
-        elif b >= 22.95: kick_times.append(b) if beat_in == 3 and bar_i % 2 == 1 else None
-    if b >= 22.95: hat_times.append(b + BEAT / 2)
+    playing = (KICK_IN - 1e-3 <= b < KICK_OUT) or (KICK_BACK - 1e-3 <= b < KICK_BACK + 2 * BAR)
+    if playing:
+        if beat_in in (0, 2):
+            kick_times.append(b)
+        elif beat_in == 3 and bar_i % 2 == 1 and b >= KICK_IN + 4 * BAR:
+            kick_times.append(b)
+    if HAT_IN - 1e-3 <= b < KICK_OUT:
+        hat_times.append(b + BEAT / 2)
     b += BEAT
-kick_times = [k for k in kick_times if k is not None and k < DUR - 0.1]
+kick_times = [k for k in kick_times if k < DUR - 0.1]
+hat_times  = [h for h in hat_times  if h < DUR - 0.1]
 
 # ---------- voices ----------
 bass = np.zeros(N); pad = np.zeros(N); arp = np.zeros(N)
@@ -127,7 +140,7 @@ for i in range(nb):
 
 # --- pluck arpeggio: 8ths, enters with the product act ---
 step = BEAT / 2
-t0 = 14.95
+t0 = ARP_IN
 k = 0
 while t0 < DUR - 0.2:
     ch = chord_at(t0 + 0.01)
@@ -159,7 +172,7 @@ for t0 in hat_times:
     place(hat, s, t0, 0.20)
 
 # --- risers + impacts on the act breaks ---
-BIG = [9.55, 14.95, 22.95, 46.55, 60.15, 66.65]
+BIG = [5.5, 17.5, 31.0, 43.5, 55.1]          # riser + impact
 for t0 in BIG:
     # riser
     rl = 1.35; n = int(rl * SR); tt = np.arange(n) / SR
@@ -175,7 +188,7 @@ for t0 in BIG:
     place(fx, soft(boom, 1.5) * 0.95 + crack * 0.30, t0, 1.0)
 
 # --- small ticks on the minor cuts (problem-montage beats) ---
-for t0 in (4.35, 6.05, 7.65, 31.45, 38.55, 52.65):
+for t0 in (10.5, 24.6, 38.0, 49.0):          # lighter accents on the other cuts
     n = int(0.5 * SR); tt = np.arange(n) / SR
     s = np.sin(2*np.pi*np.cumsum(220*np.exp(-tt*20) + 60)/SR) * env_ad(n, 0.001, 0.42, 2.6)
     place(fx, s * 0.42, t0)
@@ -190,7 +203,7 @@ air = airt * (0.030 + 0.030 * INT)
 for i, f in enumerate([880.0, 1318.5, 1760.0]):
     n = int(3.0 * SR); tt = np.arange(n) / SR
     s = np.sin(2*np.pi*f*tt) * env_ad(n, 0.05, 2.9, 2.0) * 0.05
-    place(fx, s, 9.85 + i * 0.09)
+    place(fx, s, 5.85 + i * 0.09)
 
 # ---------- sidechain ----------
 duck = np.ones(N)
@@ -204,9 +217,9 @@ for t0 in kick_times:
 # ---------- mix ----------
 lvl_pad  = 0.30 + 0.24 * INT
 lvl_bass = 0.34 + 0.30 * INT
-lvl_arp  = 0.40 * np.clip((T - 14.95) / 2.0, 0, 1) * (0.55 + 0.45 * INT)
+lvl_arp  = 0.40 * np.clip((T - ARP_IN) / 2.0, 0, 1) * (0.55 + 0.45 * INT)
 lvl_kick = 0.80
-lvl_hat  = 0.75 * np.clip((T - 22.95) / 1.5, 0, 1)
+lvl_hat  = 0.75 * np.clip((T - HAT_IN) / 1.5, 0, 1)
 
 mix = (pad * lvl_pad * duck + bass * lvl_bass * duck + arp * lvl_arp * duck
        + kick * lvl_kick + hat * lvl_hat + fx * 0.72 + air)

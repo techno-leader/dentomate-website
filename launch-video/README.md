@@ -6,13 +6,15 @@ counter animations and a synced soundtrack.
 
 | | |
 |---|---|
-| Runtime | 72.8 s |
+| Runtime | 61.4 s |
 | Master | 1920×1080, 60 fps, H.264 (`out/dentomate-launch-1080p.mp4`) |
 | Social | 1080×1080 square and 1080×1920 vertical, blur-filled |
 | Poster | `out/dentomate-launch-poster.jpg` |
-| Audio | Procedurally synthesised, 124 BPM, A minor, normalised to −14 LUFS |
+| Audio | **Placeholder.** See `SOUND-DESIGN.md` for the brief, VO script and cue sheet |
 
 `SCRIPT.md` holds the scene-by-scene shot list and the source for every claim.
+`SOUND-DESIGN.md` is the brief for the audio pass — music, sound design and
+voiceover — including a full cue sheet and a timecoded VO script.
 
 The 16:9 master is the primary cut. The square one works well in feed. The
 vertical one is a letterboxed convenience cut — the type was laid out for 16:9,
@@ -27,6 +29,9 @@ are the brand's own Open Runde and Geist Mono, and the mark is the shipped
 `logo.png` / `logo-dark.png` itself — solid on light backgrounds and outlined on
 dark, the same pairing the site uses in its header and footer. Nothing is stock,
 nothing is redrawn and nothing is invented.
+
+The "200+ clinics" figure and the customer testimonial are deliberately left out
+of this cut and are expected in a later version.
 
 ## How it's built
 

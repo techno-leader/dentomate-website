@@ -14,14 +14,14 @@ mkdir -p img && cp ../../assets/images/*.png ../../assets/images/*.jpg img/ 2>/d
 
 if [ "${1:-}" = "preview" ]; then
   mkdir -p preview
-  ONLY=2.6,7,12,18.5,27,35,43,50,57,63.5,69.5 OUT="$D/preview" node render.js
+  ONLY=1.4,3.0,8.0,14,21,28,34.5,41,46,52,58.5 OUT="$D/preview" node render.js
   exit 0
 fi
 
 # 3. frames — split across 4 browsers, ~17 min on 4 cores
 rm -rf frames && mkdir -p frames
 for i in 0 1 2 3; do
-  FROM=$(python3 -c "print(72.8*$i/4)") TO=$(python3 -c "print(72.8*($i+1)/4)") \
+  FROM=$(python3 -c "print(61.4*$i/4)") TO=$(python3 -c "print(61.4*($i+1)/4)") \
     OUT="$D/frames" node render.js > "w$i.log" 2>&1 &
 done
 wait
