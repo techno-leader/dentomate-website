@@ -28,7 +28,7 @@ and the copy on the marketing site. No stock photography, no invented metrics.
 |---|---|---|---|
 | 0 | 0.0–4.4 | **Cold open.** Dark. "₹12,000 a month for WhatsApp API." / "And you're still doing follow-ups by hand." | Per-word mask-up reveal, mono numerals count in, vignette breathes |
 | 1 | 4.4–9.6 | **Problem.** "Paper files." "Manual follow-ups." "Patients who never come back." | Hard cuts on the beat, strike-through wipes, camera micro-shake |
-| 2 | 9.6–15.0 | **Logo reveal.** Dark→light flip. Dentomate mark + wordmark, "Dental software built for Indian practice." | Mask flip, mark scales with spring, letter-spacing settles |
+| 2 | 9.6–15.0 | **Logo reveal.** Dark→light flip. The shipped Dentomate mark + wordmark, "Dental clinic software, built for Indian practice." | Mask flip; the outlined logo arrives, then the solid one wipes up through it; letter-spacing settles |
 | 3 | 15.0–23.0 | **Hero product.** Browser frame, real Dashboard. | Push-in from 1.18×, parallax chips fly in, URL types out |
 | 4 | 23.0–31.5 | **WhatsApp auto-send.** Inbox UI + phone. "The moment a patient leaves your chair." | Bubble drops in with spring, ticks flip blue, phone parallax |
 | 5 | 31.5–38.5 | **Patient records.** Patient Details screen. "Every record in one place." | Section highlight sweep, scroll-through, callout pills |
@@ -36,7 +36,7 @@ and the copy on the marketing site. No stock photography, no invented metrics.
 | 7 | 46.6–52.7 | **Multi-clinic.** "Up to three branches. One account." | Three cards fan out and settle, ₹0 extra per branch |
 | 8 | 52.7–60.2 | **Proof.** 30% · 200+ · ₹8k · 5 min + Dr. Vikram Singh quote | Counters stagger, quote fades up |
 | 9 | 60.2–66.7 | **Pricing.** Free / Starter ₹333 / Pro ₹666 | Cards rise staggered, Pro lifts and glows |
-| 10 | 66.6–72.8 | **End card.** Logo, "Start free. No card required.", app.dentomate.in | Mark settles, CTA pulses, URL underline wipes |
+| 10 | 66.6–72.8 | **End card.** Outlined mark (the dark-background lockup), "Start free. No card required.", app.dentomate.in | Mark springs in, CTA ring pulses |
 
 ## Soundtrack
 

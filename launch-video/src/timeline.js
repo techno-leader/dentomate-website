@@ -125,14 +125,23 @@ function phone(parent, o){
   return ph;
 }
 
-/* ---------------- brand mark (real Dentomate glyph, drawn) ---------------- */
-function markSVG(size, color, sw){
-  const c = color || '#2170D9', s = sw == null ? 7 : sw;
-  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none">
-    <rect x="17" y="17" width="66" height="34" rx="17" stroke="${c}" stroke-width="${s}" class="mk1"/>
-    <circle cx="34" cy="72" r="17" stroke="${c}" stroke-width="${s}" class="mk2"/>
-    <circle cx="72" cy="72" r="7"  stroke="${c}" stroke-width="${s}" class="mk3"/>
-  </svg>`;
+/* ---------------- brand mark ----------------
+   The shipped logo files, not a redraw. Both are 512x512 RGBA with the mark
+   itself occupying 330x399 in the middle, so elements are sized from the
+   mark's visual height and the transparent padding is subtracted from the
+   gap below it. logo.png is the solid mark the site uses on light
+   backgrounds; logo-dark.png is the outlined one it uses on dark.        */
+const MARK_BOX = 399 / 512;            /* mark height ÷ canvas height */
+const MARK_PAD = (512 - 454) / 512;    /* transparent padding below the mark */
+function markImg(parent, visualH, variant, style){
+  const px = visualH / MARK_BOX;
+  const d = add(parent, 'div', null, Object.assign({ position:'relative',
+    width:px+'px', height:px+'px' }, style || {}));
+  const im = add(d, 'img', null, { position:'absolute', left:'0', top:'0',
+    width:px+'px', height:px+'px', display:'block' });
+  im.src = IMG + (variant === 'outline' ? 'logo-dark.png' : 'logo.png');
+  d._img = im; d._px = px;
+  return d;
 }
 
 /* ---------------- scene registry ---------------- */
@@ -290,12 +299,15 @@ scene('logo', 9.55, 5.45, function(r){
   const wrap = add(r, 'div', 'lyr', {left:'0px', top:'0px', width:W+'px', height:H+'px',
     display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'});
 
-  const mk = add(wrap, 'div', null, {marginBottom:'46px'}, markSVG(132, '#2170D9', 7));
-  const paths = mk.querySelectorAll('rect, circle');
-  paths.forEach(pn => {
-    const L = pn.getTotalLength ? 0 : 0;
-    pn.style.strokeDasharray = '400'; pn.style.strokeDashoffset = '400';
-  });
+  const MK = 150, MKPX = MK / MARK_BOX;
+  const mk = add(wrap, 'div', null, { position:'relative', width:MKPX+'px',
+    height:MKPX+'px', marginBottom:(46 - MKPX*MARK_PAD).toFixed(1)+'px' });
+  const mkOut = add(mk, 'img', null, { position:'absolute', left:'0', top:'0',
+    width:MKPX+'px', height:MKPX+'px', display:'block' });
+  mkOut.src = IMG + 'logo-dark.png';
+  const mkFill = add(mk, 'img', null, { position:'absolute', left:'0', top:'0',
+    width:MKPX+'px', height:MKPX+'px', display:'block' });
+  mkFill.src = IMG + 'logo.png';
   const name = add(wrap, 'div', null, {font:'700 116px/1 var(--font)', color:'#14171C',
     letterSpacing:'-.045em'}, chars('Dentomate'));
   const tag  = add(wrap, 'div', 'body', {color:'#6B7280', marginTop:'30px', fontSize:'34px'},
@@ -311,11 +323,10 @@ scene('logo', 9.55, 5.45, function(r){
     /* white flash on the dark→light flip */
     flash.style.opacity = String(1 - p(t, 0.02, 0.40, E.out4));
 
-    /* mark strokes draw on, then the whole lockup settles */
-    paths.forEach((pn, i) => {
-      const q = p(t, 0.30 + i*0.11, 0.85, E.out5);
-      pn.style.strokeDashoffset = String(400 - 400*q);
-    });
+    /* the outline arrives first, then the solid mark fills up through it */
+    mkOut.style.opacity = p(t, 0.30, 0.70, E.out5).toFixed(4);
+    const fillq = p(t, 0.74, 0.95, E.inOutQ);
+    mkFill.style.clipPath = `inset(${((1 - fillq) * 100).toFixed(2)}% 0% 0% 0%)`;
     const pop = p(t, 0.34, 1.25, E.spring);
     tf(mk, { s: 0.68 + 0.32*pop, y: 24 - 24*pop });
 
@@ -906,7 +917,9 @@ scene('end', 66.65, 6.15, function(r){
   const wrap = add(r, 'div', 'lyr', {left:'0px', top:'0px', width:W+'px', height:H+'px',
     display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'});
 
-  const mk = add(wrap, 'div', null, {marginBottom:'40px'}, markSVG(112, '#fff', 7));
+  const MK2 = 128, MK2PX = MK2 / MARK_BOX;
+  const mk = markImg(wrap, MK2, 'outline',
+    { marginBottom: (40 - MK2PX * MARK_PAD).toFixed(1) + 'px' });
   const name = add(wrap, 'div', null, {font:'700 96px/1 var(--font)', color:'#fff',
     letterSpacing:'-.045em'}, chars('Dentomate'));
   const line = add(wrap, 'div', 'body', {color:'rgba(255,255,255,.62)', marginTop:'30px',

@@ -23,8 +23,10 @@ so a true 9:16 edit would want the scenes re-composed rather than padded.
 The product shots are Dentomate's own `app.dentomate.in` captures that already
 ship in `assets/images/` — Dashboard, WhatsApp Inbox, Patient Details, Analytics.
 The copy, pricing and pilot numbers come from the marketing site. The typefaces
-are the brand's own Open Runde and Geist Mono. Nothing is stock and nothing is
-invented.
+are the brand's own Open Runde and Geist Mono, and the mark is the shipped
+`logo.png` / `logo-dark.png` itself — solid on light backgrounds and outlined on
+dark, the same pairing the site uses in its header and footer. Nothing is stock,
+nothing is redrawn and nothing is invented.
 
 ## How it's built
 
