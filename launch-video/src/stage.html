@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dentomate Launch</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;
+  -webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;
+  animation:none!important;transition:none!important}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#000}
+:root{
+  --blue:#2170D9; --blue-dk:#1A4D9E; --blue-lt:#5B9BE8; --blue-xl:#C7DDF7;
+  --success:#00C853;
+  --ink:#0E1014; --ink2:#15181E; --ink3:#1F242C;
+  --paper:#FAFBFC; --white:#fff;
+  --line:#E6E8EC;
+  --tx:#14171C; --tx-mut:#6B7280; --tx-pale:#9AA3AF;
+  --font:'Open Runde',-apple-system,'Segoe UI',sans-serif;
+  --mono:'Geist Mono',ui-monospace,Menlo,monospace;
+}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;
+  font-family:var(--font);background:var(--ink);will-change:transform}
+.scene{position:absolute;inset:0;overflow:hidden;opacity:0;will-change:opacity,transform}
+.lyr{position:absolute;will-change:transform,opacity}
+
+/* ---------- reusable atoms ---------- */
+.mask{overflow:hidden;display:block}
+.mask > span{display:block;will-change:transform}
+.word{display:inline-block;overflow:hidden;vertical-align:bottom}
+.word > i{display:inline-block;font-style:normal;will-change:transform,opacity}
+
+.kicker{font:600 20px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase}
+.h1{font:700 118px/0.98 var(--font);letter-spacing:-.035em}
+.h2{font:700 86px/1.02 var(--font);letter-spacing:-.03em}
+.h3{font:700 62px/1.06 var(--font);letter-spacing:-.025em}
+.body{font:400 30px/1.45 var(--font);letter-spacing:-.01em}
+.num{font:700 1em/1 var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.sp{display:inline-block;margin:0 -.16em}
+.unit{font-family:var(--font);font-weight:600;letter-spacing:-.01em}
+
+.grain{position:absolute;inset:-50%;opacity:.05;pointer-events:none;mix-blend-mode:overlay}
+.vig{position:absolute;inset:0;pointer-events:none}
+.grid-bg{position:absolute;inset:-20%;
+  background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:72px 72px}
+.grid-bg.lt{background-image:linear-gradient(rgba(20,23,28,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(20,23,28,.055) 1px,transparent 1px)}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+
+/* ---------- device frames ---------- */
+.browser{position:absolute;border-radius:16px;background:#fff;overflow:hidden;
+  box-shadow:0 2px 6px rgba(14,16,20,.06),0 28px 70px -12px rgba(14,16,20,.28),
+             0 60px 140px -40px rgba(33,112,217,.24);will-change:transform,opacity}
+.browser .chrome{height:46px;background:#F4F5F7;border-bottom:1px solid #E8EAEE;
+  display:flex;align-items:center;gap:9px;padding:0 16px}
+.browser .dot{width:11px;height:11px;border-radius:50%}
+.browser .url{flex:1;height:26px;margin-left:10px;background:#fff;border:1px solid #E4E7EB;
+  border-radius:13px;display:flex;align-items:center;padding:0 12px;gap:7px;
+  font:500 13px/1 var(--mono);color:#7A828C;letter-spacing:.01em;overflow:hidden;white-space:nowrap}
+.browser .vp{position:relative;overflow:hidden;background:#fff}
+.browser .vp img{position:absolute;left:0;top:0;display:block;will-change:transform}
+
+.phone{position:absolute;border-radius:44px;background:#0E1014;padding:11px;
+  box-shadow:0 30px 70px -14px rgba(14,16,20,.45),0 0 0 1px rgba(255,255,255,.07) inset;
+  will-change:transform,opacity}
+.phone .scr{position:relative;border-radius:34px;overflow:hidden;background:#fff}
+.phone .scr img{position:absolute;left:0;top:0;display:block}
+.phone .notch{position:absolute;left:50%;top:11px;transform:translateX(-50%);
+  width:104px;height:26px;background:#0E1014;border-radius:0 0 16px 16px;z-index:5}
+
+/* ---------- chips / pills ---------- */
+.chip{position:absolute;display:inline-flex;align-items:center;gap:10px;
+  padding:13px 22px;border-radius:999px;background:rgba(255,255,255,.96);
+  border:1px solid rgba(20,23,28,.07);
+  box-shadow:0 10px 30px -8px rgba(14,16,20,.22);
+  font:600 21px/1 var(--font);color:var(--tx);letter-spacing:-.01em;white-space:nowrap;
+  backdrop-filter:blur(8px);will-change:transform,opacity}
+.chip .d{width:9px;height:9px;border-radius:50%;background:var(--success);flex:none}
+.chip.dk{background:rgba(24,28,34,.92);border-color:rgba(255,255,255,.1);color:#fff}
+
+.tag{display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border-radius:999px;
+  background:rgba(33,112,217,.1);color:var(--blue);
+  font:600 19px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.tag.dk{background:rgba(255,255,255,.08);color:#9FC4F2}
+
+/* ---------- cards ---------- */
+.card{position:absolute;border-radius:22px;background:#fff;border:1px solid var(--line);
+  box-shadow:0 1px 2px rgba(14,16,20,.04),0 18px 44px -14px rgba(14,16,20,.16);
+  will-change:transform,opacity}
+.card.dk{background:#16191F;border-color:rgba(255,255,255,.08);
+  box-shadow:0 18px 44px -14px rgba(0,0,0,.6)}
+
+/* ---------- misc ---------- */
+.rule{position:absolute;height:2px;background:var(--blue);transform-origin:left center}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:26px 46px;border-radius:999px;
+  background:var(--blue);color:#fff;font:600 30px/1 var(--font);letter-spacing:-.01em;
+  box-shadow:0 16px 40px -10px rgba(33,112,217,.6)}
+.strike{position:absolute;height:6px;background:#E5484D;border-radius:3px;transform-origin:left center}
+svg{display:block;overflow:visible}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="timeline.js"></script>
+</body>
+</html>

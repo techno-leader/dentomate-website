@@ -9,3 +9,11 @@ _*-build.html
 .auto-memory/
 .DS_Store
 *.backup.*
+
+# Launch-video build artefacts (regenerate with launch-video/src/build.sh)
+launch-video/src/frames/
+launch-video/src/preview/
+launch-video/src/fonts/
+launch-video/src/img/
+launch-video/src/*.log
+launch-video/src/soundtrack.wav
