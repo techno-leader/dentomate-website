@@ -26,6 +26,14 @@ for i in 0 1 2 3; do
 done
 wait
 
-# 4. soundtrack + encode
-python3 audio.py
+# 4. audio: conform the supplied track, build the SFX layer, mix
+mkdir -p music
+[ -f music/source.wav ] || ffmpeg -y -loglevel error -i ../audio/Calculated_Rise.mp3 \
+  -ar 48000 -ac 2 -c:a pcm_s24le music/source.wav
+python3 music_edit.py
+python3 sfx.py
+python3 mix.py
+cp music/soundtrack.wav soundtrack.wav
+
+# 5. encode
 ./encode.sh "$D/../out"

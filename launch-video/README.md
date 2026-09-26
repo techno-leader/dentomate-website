@@ -10,11 +10,12 @@ counter animations and a synced soundtrack.
 | Master | 1920×1080, 60 fps, H.264 (`out/dentomate-launch-1080p.mp4`) |
 | Social | 1080×1080 square and 1080×1920 vertical, blur-filled |
 | Poster | `out/dentomate-launch-poster.jpg` |
-| Audio | **Placeholder.** See `SOUND-DESIGN.md` for the brief, VO script and cue sheet |
+| Audio | Supplied track conformed to picture + ~180 synthesised sound-design cues, −14.1 LUFS |
 
 `SCRIPT.md` holds the scene-by-scene shot list and the source for every claim.
-`SOUND-DESIGN.md` is the brief for the audio pass — music, sound design and
-voiceover — including a full cue sheet and a timecoded VO script.
+`SOUND-DESIGN.md` covers the audio: how the supplied track was conformed to
+picture, the full sound-design cue sheet, and the voiceover brief and script
+(the VO itself is not recorded yet — the current mix is the no-VO cut).
 
 The 16:9 master is the primary cut. The square one works well in feed. The
 vertical one is a letterboxed convenience cut — the type was laid out for 16:9,
@@ -40,7 +41,9 @@ There is no video editor in the pipeline. `stage.html` is a 1920×1080 stage and
 every transform and opacity from the timestamp alone — no CSS animation, so a
 frame is reproducible. `render.js` drives Playwright over the timeline and writes
 one PNG per frame; `audio.py` synthesises the score from oscillators and noise;
-`encode.sh` muxes them into the delivery masters.
+`music_edit.py` conforms the supplied track to the picture, `sfx.py`
+synthesises the sound-design layer, `mix.py` combines them, and `encode.sh`
+muxes the result into the delivery masters.
 
 ## Rebuilding
 
@@ -50,7 +53,8 @@ cd src
 ./build.sh             # full render (~17 min on 4 cores) then encode into out/
 ```
 
-Needs node with `playwright`, `python3` with `numpy`, and `ffmpeg` with libx264.
+Needs node with `playwright`, `python3` with `numpy`, `scipy`, `soundfile` and
+`librosa`, and `ffmpeg` with libx264.
 `build.sh` fetches the fonts and copies the product stills on first run.
 
 To change a scene, edit its block in `timeline.js` — each one is a `scene(name,

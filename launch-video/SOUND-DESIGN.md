@@ -3,9 +3,17 @@
 Spec for the audio pass on the 61.4s launch film. The picture is locked; this
 document is what a composer, sound designer or VO artist needs to work to it.
 
-The score currently in the repo is a **placeholder** synthesised by
-`src/audio.py`. It holds sync and proves the arrangement shape, but it is not
-the finished track — see *What's wrong with the placeholder* below.
+## Status
+
+**Music: supplied and conformed.** The track (`Calculated Rise`, 66.3s, 122.283
+BPM) was edited to picture — see *Conforming the music* below. It is not a
+placeholder.
+
+**Sound design: built.** Every cue in the sheet below is synthesised by
+`src/sfx.py` and mixed by `src/mix.py`. Roughly 180 individual events.
+
+**Voiceover: not recorded.** Section 3 is the brief for it. The current mix is
+the no-VO cut; the ducking automation in `mix.py` has the headroom reserved.
 
 ---
 
@@ -58,6 +66,44 @@ Hand back the stems. The next version of this film will recut the picture, and
 a flattened mix cannot follow it.
 
 ---
+
+## 2b. Conforming the music
+
+The supplied track did not line up with the picture, so it was edited to it
+rather than the other way round. `src/music_edit.py` does this and is
+reproducible.
+
+**Measured:** 122.283 BPM (bar = 1.96267s), drop at **11.408s**, last audible
+sample at 63.467s.
+
+**The edit, in three moves:**
+
+1. **Start 5.908s in.** The film's biggest moment is the logo reveal at 5.50s,
+   so the track starts at `drop − 5.50`, putting the drop exactly on the
+   reveal. Verified at 5.504s — four milliseconds out. The 5.5s that now open
+   the film are the last and most intense part of the track's build, which is
+   what the kinetic opener wants under it.
+
+2. **Repeat two bars.** Trimming the head left the track 3.9s short of the
+   film. Two bars are repeated at a downbeat inside the steady middle section
+   (music 34.960s, which lands around 29s of picture) with a 30ms equal-power
+   crossfade at the seam. In a section that uniform it is inaudible. Nothing is
+   time-stretched — the tempo is untouched.
+
+3. **Shape the ends.** 0.35s fade in, 1.4s fade out matched to the picture's
+   fade to black.
+
+**What this buys, beyond the drop:**
+
+| Picture | Music lands on |
+|---|---|
+| 5.50 logo reveal | the drop (−29 dB → −16 dB) |
+| 17.50 WhatsApp | full-energy section |
+| 43.50 pilot result | the tail of the track's breakdown — it pulls back right before the claim, then swells through the 30% count-up |
+| 49.00 pricing | the track's loudest passage |
+| 55.10 end card | a dip, then the final swell fills the card |
+| 61.40 out | the track's own ending, to the sample |
+
 
 ## 3. Voiceover
 
@@ -302,30 +348,20 @@ only loses dynamic range on the way.
 
 ---
 
-## 7. What's wrong with the placeholder
+## 7. Notes on the current mix
 
-Specifically, so the replacement addresses the right things:
-
-- **The pad is a static detuned saw stack.** It has one filter sweep per bar and
-  no movement beyond that, so it reads as synthetic wallpaper. It needs slow
-  modulation, real stereo width, and a reason to exist.
-- **The kick is a bare sine pitch-drop with a noise click.** No body, no room,
-  no character. It sounds like a test tone.
-- **Every hat is identical.** Same sample, same level, same filter. Real
-  percussion varies velocity and timbre every hit.
-- **There is no space.** No reverb, no delay, no sense of a room. Everything sits
-  at the same depth, which is why it feels flat.
-- **The arrangement never stops.** It builds and stays built. There is no
-  silence anywhere after 5s, so nothing has contrast to land against.
-- **The transitions are generic.** One riser shape reused at every act break,
-  and no whooshes at the smaller cuts.
-- **There is no UI/foley layer at all** — the single biggest omission. The
-  product scenes are silent apart from the bed, which is exactly backwards for a
-  demo film.
-- **Stereo is a Haas delay trick**, not real width. It will partially collapse
-  to mono on phone speakers, which is where most of the audience is.
-
----
+- **The UI layer is synthesised, not recorded.** It works, but the brief's
+  advice still stands: an hour recording real objects (fingernail on glass, a
+  damped keyboard key, a coin on wood) would beat it. That is the highest-value
+  remaining upgrade.
+- **Reverb is a single synthetic IR** shared by every hit. A real plate or a
+  convolution of an actual room would give the impacts more character.
+- **No VO ducking is active** because there is no VO yet. The automation is in
+  `mix.py` behind the `IMPACTS` list; adding a voice bus means adding a second
+  duck envelope, not restructuring the mix.
+- **Stereo width comes from panning and decorrelated noise**, which is honest
+  but modest. Mid/side widening on the music bus would open it up, at the cost
+  of some mono compatibility — worth testing on a phone speaker first.
 
 ## 8. Sourcing
 
