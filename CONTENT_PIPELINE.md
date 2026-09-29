@@ -298,6 +298,7 @@ confirmed before it is written, not after.
 - WhatsApp patient replies will cost money from October 2026 (published, /resources/whatsapp-october-2026/)
 - Is NABH accreditation worth it (published, /resources/nabh-dental-accreditation-india/)
 - The Dental Council of India is gone (published 2026-09-24, /resources/national-dental-commission-india/)
+- WhatsApp recall consent under DPDP, queue item 11 (published 2026-09-29, /resources/whatsapp-consent-dpdp/)
 
 **Ready to write**
 
@@ -330,6 +331,12 @@ confirmed before it is written, not after.
    2025 but members were not appointed until June 2026.
    Sources: MeitY June 2026 notification (meity.gov.in), mickai.co.uk/articles/india-
    dpdp-first-enforcement-localisation, judicio.ai enforcement tracker.
+   **BLOCKED 2026-09-29: premise contradicted.** LiveLaw, 1 August 2026
+   (livelaw.in/articles/india-data-protection-board-established-law-543751) reports the Board
+   has "no appointed Chairperson and no appointed Members"; MeitY only invited applications on
+   6 May 2026 (meity.gov.in/static/uploads/2026/05/cd481c027470b420b4cb85fb40a91c53.pdf). No
+   primary source for a 6 June 2026 appointment was found. Do not write until a MeitY
+   appointment notification is read directly.
 
 10. **Is my DCI dentist registration still valid after the NDC took over?** Practising
     dentists who registered under DCI (pre-March 2026) are asking whether their licence
@@ -339,12 +346,8 @@ confirmed before it is written, not after.
     written this for the practising-dentist audience. Sources: NDC Act 2023
     (indiacode.nic.in/handle/123456789/19795), PIB notification March 2026
     (pib.gov.in/PressReleasePage.aspx?PRID=2242888), PMC article PMC13056220.
-11. **How to collect WhatsApp patient consent that is DPDP-compliant for recall and
-    marketing.** Dentists setting up WhatsApp-based recall are asking what exactly they
-    need to record before sending the first message. Practical article: what the consent
-    notice must say, how to record it, and what opt-out looks like inside a WhatsApp
-    workflow. Ties the DPDP checklist directly to the recall guide. Sources: DPDP
-    Rules 2025 (pib.gov.in), Meta WhatsApp Business Policy.
+    **SKIPPED 2026-09-29: already answered** by the live NDC article, which has a section and
+    an FAQ entry with this exact question. Treat as a rank-improvement target, not a new post.
 12. **What is ABDM and does my dental clinic need to register with the Health Facility
     Registry?** Dentists seeking NABH accreditation or government scheme empanelment
     (Ayushman Bharat, CGHS, ECHS) now effectively must register on the Health Facility
@@ -359,6 +362,8 @@ confirmed before it is written, not after.
     easyclinic.io ABDM compliance guide (2026).
 
 13. **The 1,000 free WhatsApp replies per month: how many does a dental clinic actually use?** From 1 October 2026, Meta charges ₹0.1150 per service message beyond a free allowance of 1,000 service messages per month per phone number. A small clinic replying to 20-50 patients a day sends 400-1,000 service messages a month and may stay entirely within the free tier. Dentists who read the October 2026 price-change notices are asking "will I be charged for every patient reply?" The article answers that with arithmetic: most clinics will not exceed 1,000, so the practical impact is zero on replies, while recall campaigns (template messages that start a conversation) are unaffected by the free-service-message count. Ties to the whatsapp-cost-india article, which needs its lines 119-120 updated before this article ships. Sources: Meta WhatsApp Business Platform pricing documentation (September 2026 rate card, developers.facebook.com/documentation/business-messaging/whatsapp/pricing), ChatMaxima October 2026 rate guide (chatmaxima.com/blog/whatsapp-service-message-pricing-october-2026/). Note: ship queue item 6 first, or ship both together, since this article references the October change that item 6 explains.
+    **SKIPPED 2026-09-29: already answered** by /resources/whatsapp-october-2026/ ("1,000
+    Messages a Month" section with clinic arithmetic). Do not publish a second page on it.
 
 25. **What does a dental clinic DPDP consent notice actually have to say?** Dentists
     preparing a DPDP notice for their reception desk or registration form ahead of the May
@@ -374,6 +379,9 @@ confirmed before it is written, not after.
     Rules 2025 Rule 3 (pib.gov.in notification November 2025). Companion articles: DPDP
     checklist (links to item 4 on that checklist) and WhatsApp consent article (queue
     item 11).
+    **Scope note 2026-09-29:** /resources/whatsapp-consent-dpdp/ already walks through Rule 3
+    element by element for WhatsApp recall. Scope this one to the full registration-desk notice
+    (treatment, billing, records) and link to that article rather than repeating the table.
 
 31. **What is the NABH Entry Level Certification for a small dental clinic, and is it
     different from full NABH accreditation?** Clinic owners evaluating NABH ask "where do I
