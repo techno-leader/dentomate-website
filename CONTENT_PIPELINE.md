@@ -299,6 +299,7 @@ confirmed before it is written, not after.
 - Is NABH accreditation worth it (published, /resources/nabh-dental-accreditation-india/)
 - The Dental Council of India is gone (published 2026-09-24, /resources/national-dental-commission-india/)
 - WhatsApp recall consent under DPDP, queue item 11 (published 2026-09-29, /resources/whatsapp-consent-dpdp/)
+- DPDP patient notice for the registration desk, queue item 25 (published 2026-10-02, /resources/dpdp-patient-notice-dental-clinic/)
 
 **Ready to write**
 
@@ -360,6 +361,15 @@ confirmed before it is written, not after.
     has a dental-specific, accurately scoped version of this. Sources: abdm.gov.in
     (Health Facility Registry guide), tatvacare.in/blog ABDM mandates post (Sept 2026),
     easyclinic.io ABDM compliance guide (2026).
+    **NOT READY 2026-10-02: core claim has no primary source yet.** Confirmed primary: ABDM
+    Health Data Management Policy cl. 23.1 "A health facility may register" (voluntary;
+    abdm.gov.in/strapicms/uploads/health_management_policy_bac9429a79.pdf); CGHS OM
+    F.No.5-34/CGHS/HEC(HQ)/2025 dated 22.12.2025 (applications via hem.nha.gov.in; non-NABH
+    rates 15% lower); NABH notification NABH/CGHS/2026/00271, 12 Jan 2026, Annexure-1 (dental
+    centres: 4 chairs Tier I, 2 chairs Tier II/III; non-NABH need Entry-Level Dental
+    Certification or QCI recommendation). NOT confirmed: "HFR ID is a prerequisite for the HEM
+    portal" (only dentalpark.in and blogs; it sits in OM Annexure C, which was not found) and
+    "NABH 5th edition requires HFR". Find Annexure C or the HEM 2.0 manual before writing.
 
 13. **The 1,000 free WhatsApp replies per month: how many does a dental clinic actually use?** From 1 October 2026, Meta charges ₹0.1150 per service message beyond a free allowance of 1,000 service messages per month per phone number. A small clinic replying to 20-50 patients a day sends 400-1,000 service messages a month and may stay entirely within the free tier. Dentists who read the October 2026 price-change notices are asking "will I be charged for every patient reply?" The article answers that with arithmetic: most clinics will not exceed 1,000, so the practical impact is zero on replies, while recall campaigns (template messages that start a conversation) are unaffected by the free-service-message count. Ties to the whatsapp-cost-india article, which needs its lines 119-120 updated before this article ships. Sources: Meta WhatsApp Business Platform pricing documentation (September 2026 rate card, developers.facebook.com/documentation/business-messaging/whatsapp/pricing), ChatMaxima October 2026 rate guide (chatmaxima.com/blog/whatsapp-service-message-pricing-october-2026/). Note: ship queue item 6 first, or ship both together, since this article references the October change that item 6 explains.
     **SKIPPED 2026-09-29: already answered** by /resources/whatsapp-october-2026/ ("1,000
@@ -379,6 +389,7 @@ confirmed before it is written, not after.
     Rules 2025 Rule 3 (pib.gov.in notification November 2025). Companion articles: DPDP
     checklist (links to item 4 on that checklist) and WhatsApp consent article (queue
     item 11).
+    **PUBLISHED 2026-10-02** as /resources/dpdp-patient-notice-dental-clinic/.
     **Scope note 2026-09-29:** /resources/whatsapp-consent-dpdp/ already walks through Rule 3
     element by element for WhatsApp recall. Scope this one to the full registration-desk notice
     (treatment, billing, records) and link to that article rather than repeating the table.
