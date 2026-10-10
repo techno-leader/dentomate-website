@@ -7,7 +7,7 @@ amount of thinking, and so nothing ships that we cannot stand behind.
 
 ---
 
-## 1. Two posts a week, research daily
+## 1. One post a week, research daily
 
 Daily publishing is the wrong target and it will cost us traffic rather than earn it.
 
@@ -18,13 +18,17 @@ Daily publishing is the wrong target and it will cost us traffic rather than ear
 - We have a real advantage the competition cannot copy: we can quote what the product
   actually does, at file-and-line accuracy. Spending that advantage on filler wastes it.
 
-**The cadence:** research runs daily and feeds a queue. Publishing runs twice a week and
-draws from that queue. Two genuinely useful 1,200-word articles a week is 104 indexable
-pages a year, every one of them defensible.
+**The cadence:** research runs daily and feeds a queue. Publishing runs **once a week**
+(Tuesday) and draws from that queue.
 
-Pick two days and hold them, so the crawl rhythm is predictable. If the queue only has one
-item with confirmed sources when a publish day comes round, **ship one.** Never fill the
-second slot with something unsourced.
+Why one, not two (changed 2026-10-10): after 12 posts in five weeks, Search Console showed
+**zero** impressions on any of them and 22 of 33 URLs stuck in "Discovered, currently not
+indexed". That status means Google has not spent crawl on the URL, which on a young domain
+with two backlinks is an authority problem, not a content-volume one. More unindexed pages
+do not help. The second weekly slot now goes to getting existing pages indexed and linked
+(Search Console URL Inspection requests, directory listings, outside links), not writing.
+
+If no item has confirmed sources when the publish day comes round, ship nothing.
 
 ### The daily half
 
@@ -65,7 +69,7 @@ down, not the bar.
 
 ### The publishing half
 
-Twice a week, take the top item off the queue and ship it end to end using section 3.
+Once a week, take the top item off the queue and ship it end to end using section 3.
 
 ---
 
@@ -235,6 +239,23 @@ card at 0.78 in the grid.
 Item 4 is the one that gets forgotten. Internal links are how a new page gets crawled and
 how authority moves to it. A post with no inbound internal link is invisible.
 
+Two more link rules, both added 2026-10-10:
+
+- **Product pages link to posts.** `/features/whatsapp-recall/`, `/free-dental-software-india/`,
+  `/solo-dentist/` and `/pricing/` each end with a `Keep Reading` list after their FAQ (the
+  same `.related` component). Every page on the site links to these four from the footer, so
+  they carry the most internal authority. If the new post fits one of them, add it there too
+  and keep that list at five lines or fewer (swap the weakest out).
+- **Every post links to at least one product page** in its `Keep Reading` list or body,
+  the one it naturally leads to (recall topics to `/features/whatsapp-recall/`, price and
+  software-choice topics to `/free-dental-software-india/` or `/solo-dentist/`).
+
+**Every sign-up link carries `?src=`.** Write `https://app.dentomate.in/signup?src=blog-<slug>`
+on all three sign-up links in the new post (nav, mobile nav, CTA band), where `<slug>` is
+the post's directory name. The app stores it on the new account and `/admin/growth` shows
+sign-ups per source under "Where sign-ups come from". An untagged link still counts, but
+only as `site`, so the post gets no credit.
+
 **The homepage grid holds exactly four cards, and the fourth is desktop-hidden.** The
 layout is responsive in card count, not just in columns:
 
@@ -281,6 +302,21 @@ Serve the site with the `Dentomate Website (static)` preview config on port 8099
 - The card renders correctly at 1440, 768 and 375.
 - `grep -c '&mdash;\|—'` on the new file returns 0.
 - `grep -c '<loc>' sitemap.xml` went up by exactly one.
+- `grep -c 'app.dentomate.in/signup"' <new file>` returns 0 (every sign-up link is tagged).
+
+### 3.6 Ship it
+
+A committed post is not a published post. In October 2026 two finished posts sat
+unpushed for a week and returned 404 on the live site. So publishing ends with:
+
+1. `git push origin main` (GitHub Pages deploys in about 40 seconds).
+2. Poll the new URL on `https://dentomate.in` until it returns 200.
+3. Submit it to IndexNow (Bing, Yandex; Bing feeds ChatGPT search and Copilot):
+   POST `{"host":"dentomate.in","key":"299ad1db429c81bc4612be12926272a4","keyLocation":"https://dentomate.in/299ad1db429c81bc4612be12926272a4.txt","urlList":[...]}`
+   to `https://api.indexnow.org/IndexNow`, listing the new URL and every page whose
+   `Keep Reading` list changed. 200 or 202 is success.
+4. Put the full new URL in the report, so the owner can paste it into Search Console
+   URL Inspection and click Request Indexing (Google has no API for this).
 
 ---
 

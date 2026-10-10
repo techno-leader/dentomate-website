@@ -7,7 +7,7 @@
 <meta name="description" content="Create your free Dentomate clinic account. No card required.">
 <link rel="canonical" href="https://app.dentomate.in/signup">
 <meta name="robots" content="noindex,follow">
-<meta http-equiv="refresh" content="0; url=https://app.dentomate.in/signup">
+<meta http-equiv="refresh" content="0; url=https://app.dentomate.in/signup?src=signup-page">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -28,9 +28,9 @@
     <img src="/assets/images/logo.png" alt="Dentomate" width="48" height="48" style="margin:0 auto 20px">
     <h1 class="d3">Taking you to sign up&hellip;</h1>
     <p class="bm muted" style="margin:12px auto 24px;max-width:420px">If you're not redirected automatically, use the button below to create your free clinic account.</p>
-    <a href="https://app.dentomate.in/signup" class="btn-primary btn-lg">Continue To Sign Up</a>
+    <a href="https://app.dentomate.in/signup?src=signup-page" class="btn-primary btn-lg">Continue To Sign Up</a>
   </div>
 </main>
-<script>window.location.replace('https://app.dentomate.in/signup');</script>
+<script>window.location.replace('https://app.dentomate.in/signup' + (location.search.indexOf('src=') > -1 ? location.search : '?src=signup-page'));</script>
 </body>
 </html>
